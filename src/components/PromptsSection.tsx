@@ -26,8 +26,9 @@ const PromptsSection = () => {
     <section id="ai-prompts" className="py-24 px-6">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// AI Prompt System</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// AI Prompt System</p>
+          <p className="text-sm text-muted-foreground mb-6">These are the exact prompts we use for our clients every week.</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
             The Content<br />
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Machine</span>
           </h2>
@@ -43,13 +44,13 @@ const PromptsSection = () => {
               onClick={() => copyPrompt(i)}
               className="bg-background p-7 cursor-pointer relative overflow-hidden group hover:bg-card transition-colors"
             >
-              <span className="absolute top-3.5 right-3.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="absolute top-3.5 right-3.5 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-primary opacity-0 group-hover:opacity-100 transition-opacity">
                 {copied === i ? "COPIED ✓" : "COPY PROMPT"}
               </span>
-              <p className="text-[10px] font-semibold tracking-[0.06em] text-primary mb-2.5">{p.id}</p>
-              <h3 className="text-xl font-extrabold uppercase tracking-tight mb-3">{p.title}</h3>
+              <p className="font-mono text-[10px] font-semibold tracking-[0.06em] text-primary mb-2.5">{p.id}</p>
+              <h3 className="font-display text-xl font-extrabold uppercase tracking-tight mb-3">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed italic">{p.text}</p>
-              <span className="inline-block mt-4 text-[9px] font-semibold uppercase tracking-[0.1em] bg-destructive text-destructive-foreground px-2.5 py-1">{p.tag}</span>
+              <span className="inline-block mt-4 font-mono text-[9px] font-semibold uppercase tracking-[0.1em] bg-destructive text-destructive-foreground px-2.5 py-1">{p.tag}</span>
             </motion.div>
           ))}
         </div>

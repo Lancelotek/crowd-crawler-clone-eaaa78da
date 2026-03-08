@@ -28,41 +28,49 @@ const HeroSection = () => {
       <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div className="relative z-10">
           <ScrollReveal>
-            <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            <div className="flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
               <span className="w-7 h-px bg-primary" />
               Minimum Viable Audience Framework
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="text-6xl md:text-7xl lg:text-[104px] font-black leading-[0.9] tracking-tight uppercase mb-8">
-              Build
+            <h1 className="font-display text-6xl md:text-7xl lg:text-[104px] font-black leading-[0.9] tracking-tight uppercase mb-6">
+              You're Creating
               <br />
-              <span className="text-primary">Real</span>
+              Content. But
               <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>
-                Audience
-              </span>
-              <span className="animate-pulse">_</span>
+              Nobody's
+              <br />
+              <span className="text-primary">Watching</span>
+              <span className="animate-pulse text-primary">_</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.22}>
-            <p className="text-lg text-muted-foreground max-w-[440px] leading-relaxed mb-10">
-              JAY-23 combines growth hacking, precision ads, and an AI-powered content system to build your first 1,000 true fans — before you scale.
+            <p className="text-lg text-muted-foreground max-w-[480px] leading-relaxed mb-4 font-light">
+              JAY-23 builds your Minimum Viable Audience — your first 1,000 true fans — in 90 days using growth hacking, precision ads, and AI content systems.
             </p>
+          </ScrollReveal>
+          <ScrollReveal delay={0.28}>
+            <div className="flex items-center gap-4 font-mono text-[10px] text-muted-foreground mb-10">
+              <span className="text-primary">★★★★★</span>
+              <span>Trusted by 40+ creators</span>
+              <span className="text-border">|</span>
+              <span>Avg. 847% follower growth</span>
+            </div>
           </ScrollReveal>
           <ScrollReveal delay={0.36}>
             <div className="flex gap-4 flex-wrap">
               <a
-                href="#phases"
-                className="bg-primary text-primary-foreground px-8 py-3.5 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
+                href="#book-call"
+                className="bg-primary text-primary-foreground px-8 py-3.5 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta"
               >
-                See the Framework
+                Get My Free Growth Audit →
               </a>
               <a
-                href="#ai-prompts"
+                href="#phases"
                 className="border border-border px-7 py-3.5 text-xs font-semibold tracking-[0.06em] hover:border-primary hover:text-primary transition-colors"
               >
-                AI Prompts →
+                See How It Works ↓
               </a>
             </div>
           </ScrollReveal>
@@ -79,10 +87,10 @@ const HeroSection = () => {
                 className="bg-card p-8 relative group overflow-hidden hover:bg-secondary transition-colors"
               >
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-400" />
-                <div className="text-5xl font-black text-primary leading-none mb-1.5">
+                <div className="font-display text-5xl font-black text-primary leading-none mb-1.5">
                   {stat.ref ? <span ref={counterRef}>0</span> : stat.value}
                 </div>
-                <div className="text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                   {stat.label}
                 </div>
               </motion.div>

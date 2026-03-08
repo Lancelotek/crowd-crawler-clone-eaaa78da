@@ -19,8 +19,8 @@ const GrowthSection = () => {
     <section id="growth" className="py-24 px-6 bg-card">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Organic Growth Tactics</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Organic Growth Tactics</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
             Growth<br />
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Hacking Stack</span>
           </h2>
@@ -36,7 +36,7 @@ const GrowthSection = () => {
               className="bg-card p-6 hover:bg-secondary transition-colors"
             >
               <t.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
-              <h3 className="text-base font-extrabold uppercase tracking-tight mb-2">{t.title}</h3>
+              <h3 className="font-display text-base font-extrabold uppercase tracking-tight mb-2">{t.title}</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">{t.desc}</p>
             </motion.div>
           ))}

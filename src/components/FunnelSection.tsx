@@ -14,8 +14,8 @@ const FunnelSection = () => {
     <section className="py-24 px-6 bg-card">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Conversion Funnel</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Conversion Funnel</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
             The MVA<br />
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Funnel</span>
           </h2>
@@ -32,12 +32,12 @@ const FunnelSection = () => {
               style={{
                 width: step.width,
                 backgroundColor: `hsl(var(--primary) / ${1 - i * 0.18})`,
-                color: i < 3 ? "hsl(var(--primary-foreground))" : "hsl(var(--foreground))",
+                color: "hsl(var(--primary-foreground))",
                 clipPath: "polygon(0 0, 100% 0, 96.5% 100%, 3.5% 100%)",
               }}
             >
               <span>{step.label}</span>
-              <span className="text-xs opacity-70 font-mono">{step.pct}</span>
+              <span className="font-mono text-xs opacity-70">{step.pct}</span>
             </motion.div>
           ))}
         </div>
