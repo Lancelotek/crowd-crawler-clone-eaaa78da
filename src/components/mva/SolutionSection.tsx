@@ -11,7 +11,7 @@ const steps = [
 
 const SolutionSection = () => {
   return (
-    <section id="solution" className="py-16 px-6">
+    <section id="solution" className="py-20 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <div className="max-w-[600px] mb-10">
           <p className="text-xs font-semibold text-primary mb-2 tracking-wide">The MVA Framework</p>

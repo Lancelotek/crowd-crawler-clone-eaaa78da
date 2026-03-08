@@ -11,7 +11,7 @@ const highlights = [
 
 const FounderSection = () => {
   return (
-    <section className="py-24 px-6">
+    <section className="py-20 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <div className="text-center mb-14">
           <p className="text-xs font-semibold text-primary mb-3 tracking-wide">About The Creator</p>
