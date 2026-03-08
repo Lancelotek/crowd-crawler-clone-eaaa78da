@@ -1,0 +1,177 @@
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowLeft } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import MvaNavbar from "@/components/mva/MvaNavbar";
+import FooterSection from "@/components/mva/FooterSection";
+
+type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  content: string;
+  cover_image: string | null;
+  category: string | null;
+  author: string | null;
+  read_time: string | null;
+  published_at: string;
+};
+
+const BlogPost = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPost = async () => {
+      if (!slug) return;
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("slug", slug)
+        .maybeSingle();
+
+      if (!error && data) setPost(data);
+      setLoading(false);
+    };
+    fetchPost();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <MvaNavbar />
+        <div className="pt-32 pb-16 px-6">
+          <div className="container mx-auto max-w-[800px] animate-pulse space-y-6">
+            <div className="h-8 bg-muted rounded w-1/3" />
+            <div className="h-12 bg-muted rounded w-full" />
+            <div className="aspect-[16/9] bg-muted rounded-card" />
+            <div className="space-y-3">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="h-4 bg-muted rounded" style={{ width: `${70 + Math.random() * 30}%` }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!post) {
+    return (
+      <div className="min-h-screen bg-background">
+        <MvaNavbar />
+        <div className="pt-32 pb-16 px-6 text-center">
+          <h1 className="font-display text-3xl font-bold mb-4">Post not found</h1>
+          <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <MvaNavbar />
+
+      <article className="pt-32 pb-16 px-6">
+        <div className="container mx-auto max-w-[800px]">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+            >
+              <ArrowLeft size={16} />
+              Back to articles
+            </Link>
+
+            <div className="flex items-center gap-3 mb-4">
+              {post.category && (
+                <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  {post.category}
+                </span>
+              )}
+              {post.read_time && (
+                <span className="text-xs text-muted-foreground">{post.read_time}</span>
+              )}
+            </div>
+
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
+              {post.title}
+            </h1>
+
+            <div className="flex items-center gap-3 mb-8">
+              {post.author && (
+                <span className="text-sm font-semibold text-muted-foreground">{post.author}</span>
+              )}
+              <span className="text-sm text-muted-foreground">
+                {new Date(post.published_at).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </span>
+            </div>
+
+            {post.cover_image && (
+              <div className="rounded-card overflow-hidden mb-10">
+                <img
+                  src={post.cover_image}
+                  alt={post.title}
+                  className="w-full h-auto"
+                />
+              </div>
+            )}
+
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none
+                prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                prose-p:text-muted-foreground prose-p:leading-relaxed
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-img:rounded-card prose-img:my-8
+                prose-strong:text-foreground
+                prose-li:text-muted-foreground"
+              dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
+            />
+          </motion.div>
+        </div>
+      </article>
+
+      <FooterSection />
+    </div>
+  );
+};
+
+/** Simple markdown-to-HTML converter */
+function markdownToHtml(md: string): string {
+  let html = md
+    // Images
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" />')
+    // Bold
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    // Italic
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    // H3
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+    // H2
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    // H1
+    .replace(/^# (.+)$/gm, "<h2>$1</h2>")
+    // Unordered lists
+    .replace(/^- (.+)$/gm, "<li>$1</li>")
+    // Paragraphs
+    .replace(/\n\n/g, "</p><p>")
+    // Line breaks
+    .replace(/\n/g, "<br />");
+
+  // Wrap list items
+  html = html.replace(/(<li>.*?<\/li>(\s*<br \/>)?)+/g, (match) => `<ul>${match}</ul>`);
+
+  return `<p>${html}</p>`;
+}
+
+export default BlogPost;
