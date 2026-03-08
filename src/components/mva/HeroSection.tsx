@@ -65,7 +65,7 @@ const NetworkVisual = () => (
     />
     <motion.text
       x="250" y="244" textAnchor="middle" fill="white"
-      fontSize="14" fontWeight="800" fontFamily="Manrope, sans-serif"
+      fontSize="14" fontWeight="700" fontFamily="Rajdhani, sans-serif"
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}
     >
       MVA
