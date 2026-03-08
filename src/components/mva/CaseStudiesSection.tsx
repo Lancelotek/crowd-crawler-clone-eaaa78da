@@ -6,6 +6,7 @@ import caseGamedec from "@/assets/case-gamedec.jpg";
 import caseSherly from "@/assets/case-sherly.jpg";
 import caseCitywood from "@/assets/case-citywood.jpg";
 import casePureshape from "@/assets/case-pureshape.jpg";
+import caseNapospy from "@/assets/case-napospy.jpg";
 
 const cases = [
   {
