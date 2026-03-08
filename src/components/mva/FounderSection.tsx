@@ -39,6 +39,17 @@ const FounderSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="font-display text-xl font-extrabold text-foreground">Marek Ciesla</h3>
+              <a
+                href="https://www.linkedin.com/in/marekciesla/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin size={18} />
+              </a>
+            </div>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Built multiple successful launches and helped founders validate ideas before building products. Focused on audience-first product development and demand validation strategies.
             </p>
