@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Users, DollarSign, Flame, Clock } from "lucide-react";
-import clientLogos from "@/assets/client-logos.png";
 
 const metrics = [
   { icon: Users, value: "10,000+", label: "Waitlist subscribers built" },
@@ -18,7 +17,7 @@ const SocialProofSection = () => {
           Creators Are Launching <span className="text-primary">With Demand</span>
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {metrics.map((m, i) => (
             <motion.div
               key={i}
@@ -33,14 +32,6 @@ const SocialProofSection = () => {
               <div className="text-xs text-muted-foreground font-medium">{m.label}</div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Logo row */}
-        <div className="relative overflow-hidden">
-          <div className="flex animate-[scroll_20s_linear_infinite] w-max">
-            <img src={clientLogos} alt="Client logos" className="h-7 w-auto object-contain opacity-50" />
-            <img src={clientLogos} alt="" className="h-7 w-auto object-contain opacity-50 ml-8" />
-          </div>
         </div>
       </div>
     </section>
