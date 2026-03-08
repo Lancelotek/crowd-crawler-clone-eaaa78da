@@ -58,6 +58,13 @@ const cases = [
     metric: "$27 075",
     metricLabel: "Total Funds Raised",
   },
+  {
+    image: caseNapospy,
+    title: "NapoSpy",
+    desc: "Smart leather gloves with tracking, remote buzzer, and touchscreen functionality.",
+    metric: "$7 248",
+    metricLabel: "Total Funds Raised",
+  },
 ];
 
 const CaseStudiesSection = () => {
