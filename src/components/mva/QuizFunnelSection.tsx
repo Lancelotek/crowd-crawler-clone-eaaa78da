@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
