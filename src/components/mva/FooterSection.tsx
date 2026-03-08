@@ -12,10 +12,10 @@ const FooterSection = () => {
               JAY-23 helps founders build their Minimum Viable Audience using growth hacking, precision ads, and AI content systems.
             </p>
             <div className="text-xs text-muted-foreground space-y-1">
-              <p>JAY-23 Sp. z o.o.</p>
-              <p>NIP: 5252XXX XXX · KRS: 0000XXXXXX</p>
-              <p>ul. Przykładowa 10, 00-001 Warszawa, Polska</p>
-              <p>kontakt@jay-23.com</p>
+              <p>Crowdfunding zone by JAY23 LLC</p>
+              <p>412 N. Main Street, STE 100</p>
+              <p>Buffalo, Wyoming 82834</p>
+              <p>+1 (628) 241-7366</p>
             </div>
           </div>
 
