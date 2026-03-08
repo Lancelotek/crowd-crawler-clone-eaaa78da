@@ -42,6 +42,7 @@ const FooterSection = () => {
                 </a>
               </li>
               <li><a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
               <li><a href="/impressum" className="text-sm text-muted-foreground hover:text-primary transition-colors">Impressum</a></li>
             </ul>
           </div>
