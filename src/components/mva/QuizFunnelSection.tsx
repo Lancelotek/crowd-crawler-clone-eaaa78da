@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
@@ -56,10 +57,30 @@ const QuizFunnelSection = () => {
     }
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && email.trim()) {
+    if (!name.trim() || !email.trim()) return;
+    
+    setSubmitting(true);
+    setSubmitError("");
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('add-subscriber', {
+        body: { name: name.trim(), email: email.trim(), answers },
+      });
+      
+      if (error) throw error;
       setStage("result");
+    } catch (err: any) {
+      console.error('MailerLite error:', err);
+      setSubmitError("Something went wrong. Please try again.");
+      // Still allow proceeding
+      setTimeout(() => setStage("result"), 1500);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -173,10 +194,12 @@ const QuizFunnelSection = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2"
+                  disabled={submitting}
+                  className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60"
                 >
-                  Show My Strategy <ArrowRight size={16} />
+                  {submitting ? <><Loader2 size={16} className="animate-spin" /> Saving...</> : <>Show My Strategy <ArrowRight size={16} /></>}
                 </button>
+                {submitError && <p className="text-destructive text-xs text-center">{submitError}</p>}
               </form>
               <p className="text-xs text-muted-foreground mt-4">🔒 No spam. We respect your privacy.</p>
             </motion.div>
