@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Users, DollarSign, Flame, Clock } from "lucide-react";
-import clientLogos from "@/assets/client-logos.png";
 
 const metrics = [
   { icon: Users, value: "10,000+", label: "Waitlist subscribers built" },
