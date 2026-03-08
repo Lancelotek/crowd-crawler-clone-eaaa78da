@@ -15,27 +15,35 @@ import FounderSection from "@/components/mva/FounderSection";
 import AuthoritySection from "@/components/mva/AuthoritySection";
 import FinalCTASection from "@/components/mva/FinalCTASection";
 import FooterSection from "@/components/mva/FooterSection";
+import StickyCTA from "@/components/mva/StickyCTA";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <MvaNavbar />
-      <HeroSection />
-      <SocialProofSection />
-      <ProblemSection />
-      <SolutionSection />
-      <FlowSection />
-      <SystemSection />
-      <ComparisonSection />
-      <CaseStudiesSection />
-      <EducationSection />
-      <CalculatorSection />
-      <QuizFunnelSection />
-      <ScarcitySection />
-      <FounderSection />
-      <AuthoritySection />
-      <FinalCTASection />
+      <header>
+        <MvaNavbar />
+      </header>
+      <main>
+        <HeroSection />
+        <SocialProofSection />
+        <article>
+          <ProblemSection />
+          <SolutionSection />
+        </article>
+        <FlowSection />
+        <SystemSection />
+        <ComparisonSection />
+        <CaseStudiesSection />
+        <EducationSection />
+        <CalculatorSection />
+        <QuizFunnelSection />
+        <ScarcitySection />
+        <FounderSection />
+        <AuthoritySection />
+        <FinalCTASection />
+      </main>
       <FooterSection />
+      <StickyCTA />
     </div>
   );
 };
