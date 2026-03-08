@@ -1,33 +1,35 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Target, TrendingDown, DollarSign, HelpCircle, Sprout, Clock, Frown, Flame, Gift, Coins, Wallet, Rocket } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import type { LucideIcon } from "lucide-react";
 
-const steps = [
+const steps: { title: string; options: { icon: LucideIcon; text: string }[] }[] = [
   {
     title: "What's your biggest growth challenge right now?",
     options: [
-      { emoji: "🎯", text: "I'm posting but getting no reach" },
-      { emoji: "📉", text: "My follower growth has stalled" },
-      { emoji: "💸", text: "I can't convert followers to clients" },
-      { emoji: "🔇", text: "I don't know what content to create" },
+      { icon: Target, text: "I'm posting but getting no reach" },
+      { icon: TrendingDown, text: "My follower growth has stalled" },
+      { icon: DollarSign, text: "I can't convert followers to clients" },
+      { icon: HelpCircle, text: "I don't know what content to create" },
     ],
   },
   {
     title: "How long have you been struggling with this?",
     options: [
-      { emoji: "🌱", text: "Less than 3 months — just starting out" },
-      { emoji: "⏳", text: "3-12 months — been trying but stuck" },
-      { emoji: "😤", text: "1-2 years — seriously frustrated" },
-      { emoji: "🔥", text: "2+ years — ready for a real system" },
+      { icon: Sprout, text: "Less than 3 months — just starting out" },
+      { icon: Clock, text: "3-12 months — been trying but stuck" },
+      { icon: Frown, text: "1-2 years — seriously frustrated" },
+      { icon: Flame, text: "2+ years — ready for a real system" },
     ],
   },
   {
     title: "What's your current monthly content budget?",
     options: [
-      { emoji: "🆓", text: "$0 — all organic only" },
-      { emoji: "💵", text: "$100-500 — small paid boost" },
-      { emoji: "💰", text: "$500-2000 — ready to invest" },
-      { emoji: "🚀", text: "$2000+ — serious about scaling" },
+      { icon: Gift, text: "$0 — all organic only" },
+      { icon: Coins, text: "$100-500 — small paid boost" },
+      { icon: Wallet, text: "$500-2000 — ready to invest" },
+      { icon: Rocket, text: "$2000+ — serious about scaling" },
     ],
   },
 ];
@@ -93,7 +95,9 @@ const QuizSection = () => {
                     whileHover={{ y: -4 }}
                     className="text-left bg-card border border-border rounded-card p-5 hover:border-primary transition-colors group cursor-pointer"
                   >
-                    <span className="text-xl mb-2 block">{opt.emoji}</span>
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                      <opt.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+                    </div>
                     <span className="text-sm text-foreground group-hover:text-primary transition-colors">{opt.text}</span>
                   </motion.button>
                 ))}
