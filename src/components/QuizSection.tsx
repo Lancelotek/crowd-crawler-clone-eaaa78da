@@ -55,17 +55,17 @@ const QuizSection = () => {
     <section id="quiz" className="py-24 px-6 bg-secondary">
       <div className="container mx-auto max-w-[720px]">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3 text-center">// Free Growth Audit</p>
-          <h2 className="font-display text-4xl md:text-5xl font-black uppercase leading-[0.94] tracking-tight mb-12 text-center">
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide text-center">Free Growth Audit</p>
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-tight tracking-tight mb-12 text-center">
             Diagnose Your<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Growth Gaps</span>
+            <span className="text-primary">Growth Gaps</span>
           </h2>
         </ScrollReveal>
 
         {/* Progress bar */}
-        <div className="w-full h-1 bg-border mb-10 overflow-hidden">
+        <div className="w-full h-1.5 bg-border rounded-full mb-10 overflow-hidden">
           <motion.div
-            className="h-full bg-primary"
+            className="h-full bg-primary rounded-full"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -81,7 +81,7 @@ const QuizSection = () => {
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground mb-3">
+              <p className="text-xs text-muted-foreground mb-3">
                 Step {step + 1} of 3
               </p>
               <h3 className="font-display text-2xl md:text-3xl font-bold mb-8">{steps[step].title}</h3>
@@ -91,7 +91,7 @@ const QuizSection = () => {
                     key={i}
                     onClick={() => selectAnswer(i)}
                     whileHover={{ y: -4 }}
-                    className="text-left bg-card border border-border p-5 hover:border-primary transition-colors group cursor-pointer"
+                    className="text-left bg-card border border-border rounded-card p-5 hover:border-primary transition-colors group cursor-pointer"
                   >
                     <span className="text-xl mb-2 block">{opt.emoji}</span>
                     <span className="text-sm text-foreground group-hover:text-primary transition-colors">{opt.text}</span>
@@ -108,7 +108,7 @@ const QuizSection = () => {
               className="text-center"
             >
               <div className="text-4xl mb-4">✅</div>
-              <h3 className="font-display text-3xl md:text-4xl font-black uppercase mb-4">
+              <h3 className="font-display text-3xl md:text-4xl font-extrabold mb-4">
                 Your JAY-23 Growth<br />Diagnosis is Ready
               </h3>
               <p className="text-muted-foreground max-w-md mx-auto mb-8 leading-relaxed">
@@ -116,17 +116,17 @@ const QuizSection = () => {
               </p>
               <a
                 href="#book-call"
-                className="inline-block bg-primary text-primary-foreground px-10 py-4 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta mb-4"
+                className="inline-block bg-primary text-primary-foreground px-10 py-4 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors animate-pulse-cta mb-4"
               >
                 Book Your Free Strategy Call ↓
               </a>
-              <p className="font-mono text-[10px] text-muted-foreground tracking-wide">
+              <p className="text-xs text-muted-foreground tracking-wide">
                 ⏱ 30 min • 100% free • No pitch, just strategy
               </p>
               <p className="mt-2 text-destructive text-sm font-semibold">
                 <span className="animate-blink inline-block">🔴</span> Only 2 slots remaining this week
               </p>
-              <button onClick={reset} className="mt-6 font-mono text-[10px] text-muted-foreground underline hover:text-primary transition-colors">
+              <button onClick={reset} className="mt-6 text-xs text-muted-foreground underline hover:text-primary transition-colors">
                 Retake quiz
               </button>
             </motion.div>

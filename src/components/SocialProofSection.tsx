@@ -24,13 +24,13 @@ const SocialProofSection = () => {
     <section id="results" className="py-24 px-6">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Client Results</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">Client Results</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             What Happens When<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>You Build MVA</span>
+            <span className="text-primary">You Build MVA</span>
           </h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-5">
           {results.map((r, i) => (
             <motion.div
               key={i}
@@ -38,9 +38,9 @@ const SocialProofSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="bg-card p-8 md:p-10 relative overflow-hidden group hover:bg-secondary transition-colors"
+              className="bg-card rounded-card border border-border p-8 md:p-10 hover:border-primary/30 transition-colors"
             >
-              <div className="font-display text-3xl font-black text-primary leading-tight mb-3">{r.metric}</div>
+              <div className="font-display text-2xl md:text-3xl font-extrabold text-primary leading-tight mb-3">{r.metric}</div>
               <p className="text-sm text-foreground leading-relaxed mb-2">{r.detail}</p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">{r.extra}</p>
               <div className="text-primary text-sm tracking-wider">★★★★★</div>
@@ -48,7 +48,7 @@ const SocialProofSection = () => {
           ))}
         </div>
         <ScrollReveal>
-          <p className="font-mono text-[10px] text-muted-foreground text-center mt-6 tracking-wide uppercase">
+          <p className="text-xs text-muted-foreground text-center mt-6 tracking-wide">
             Results based on aggregated client data
           </p>
         </ScrollReveal>

@@ -25,13 +25,13 @@ const PainSection = () => {
     <section className="py-24 px-6 bg-secondary">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-destructive mb-3">// The Problem</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="text-xs font-semibold text-destructive mb-3 tracking-wide">The Problem</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             Why Most Creators<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Are Stuck</span>
+            <span className="text-primary">Are Stuck</span>
           </h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-5">
           {cards.map((card, i) => (
             <motion.div
               key={i}
@@ -39,10 +39,12 @@ const PainSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="bg-card p-8 md:p-10 relative overflow-hidden group hover:bg-background transition-colors"
+              className="bg-card rounded-card p-8 md:p-10 border border-border hover:border-primary/30 transition-colors"
             >
-              <card.icon className="w-8 h-8 text-destructive mb-5" strokeWidth={1.5} />
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-3">{card.title}</h3>
+              <div className="w-12 h-12 rounded-xl bg-destructive/10 flex items-center justify-center mb-5">
+                <card.icon className="w-6 h-6 text-destructive" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-xl font-bold mb-3">{card.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
             </motion.div>
           ))}

@@ -24,11 +24,11 @@ const FloatingCTA = () => {
           animate={{ y: 0 }}
           exit={{ y: 100 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-primary px-6 py-3 flex items-center justify-center gap-4"
+          className="fixed bottom-4 left-4 right-4 z-50 bg-primary px-6 py-3.5 flex items-center justify-center gap-4 rounded-button shadow-xl shadow-primary/20"
         >
           <a
             href="#book-call"
-            className="text-primary-foreground font-bold text-sm uppercase tracking-wide"
+            className="text-primary-foreground font-semibold text-sm"
           >
             <span className="animate-blink inline-block text-destructive mr-1">🔴</span>
             2 strategy call slots left this month — Book Now →

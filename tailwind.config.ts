@@ -13,9 +13,8 @@ export default {
       },
     },
     fontFamily: {
-      sans: ['Barlow', 'system-ui', 'sans-serif'],
-      display: ['Barlow Condensed', 'Barlow', 'sans-serif'],
-      mono: ['JetBrains Mono', 'monospace'],
+      sans: ['Inter', 'system-ui', 'sans-serif'],
+      display: ['Manrope', 'Inter', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -65,8 +64,10 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+        button: "var(--radius-button)",
+        card: "var(--radius-card)",
       },
       keyframes: {
         "accordion-down": {

@@ -26,14 +26,14 @@ const PromptsSection = () => {
     <section id="ai-prompts" className="py-24 px-6">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// AI Prompt System</p>
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">AI Prompt System</p>
           <p className="text-sm text-muted-foreground mb-6">These are the exact prompts we use for our clients every week.</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             The Content<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Machine</span>
+            <span className="text-primary">Machine</span>
           </h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-2 gap-px bg-border">
+        <div className="grid md:grid-cols-2 gap-5">
           {prompts.map((p, i) => (
             <motion.div
               key={i}
@@ -42,15 +42,15 @@ const PromptsSection = () => {
               viewport={{ once: true, amount: 0.07 }}
               transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
               onClick={() => copyPrompt(i)}
-              className="bg-background p-7 cursor-pointer relative overflow-hidden group hover:bg-card transition-colors"
+              className="bg-card rounded-card border border-border p-7 cursor-pointer relative overflow-hidden group hover:border-primary/30 transition-colors"
             >
-              <span className="absolute top-3.5 right-3.5 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                {copied === i ? "COPIED ✓" : "COPY PROMPT"}
+              <span className="absolute top-4 right-4 text-xs font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                {copied === i ? "Copied ✓" : "Copy prompt"}
               </span>
-              <p className="font-mono text-[10px] font-semibold tracking-[0.06em] text-primary mb-2.5">{p.id}</p>
-              <h3 className="font-display text-xl font-extrabold uppercase tracking-tight mb-3">{p.title}</h3>
+              <p className="text-xs font-medium text-primary mb-2.5">{p.id}</p>
+              <h3 className="font-display text-lg font-bold mb-3">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed italic">{p.text}</p>
-              <span className="inline-block mt-4 font-mono text-[9px] font-semibold uppercase tracking-[0.1em] bg-destructive text-destructive-foreground px-2.5 py-1">{p.tag}</span>
+              <span className="inline-block mt-4 text-xs font-semibold bg-primary/10 text-primary px-3 py-1 rounded-full">{p.tag}</span>
             </motion.div>
           ))}
         </div>

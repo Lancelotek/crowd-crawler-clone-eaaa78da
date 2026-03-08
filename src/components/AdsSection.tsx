@@ -18,36 +18,36 @@ const rules = [
 
 const AdsSection = () => {
   return (
-    <section id="ads" className="py-24 px-6 bg-secondary">
+    <section id="ads" className="py-24 px-6 bg-card">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Paid Growth Stack</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">Paid Growth Stack</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             Ad<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Strategy</span>
+            <span className="text-primary">Strategy</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="overflow-x-auto mb-px">
-            <table className="w-full border-collapse border border-border">
+          <div className="overflow-x-auto mb-6 rounded-card border border-border">
+            <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-primary text-primary-foreground">
                   {["Phase", "Campaign Type", "Budget/day", "Objective", "Audience"].map((h) => (
-                    <th key={h} className="text-left font-mono text-[10px] font-semibold uppercase tracking-[0.12em] px-5 py-3.5">{h}</th>
+                    <th key={h} className="text-left text-xs font-semibold px-5 py-3.5">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {rows.map((r, i) => (
-                  <tr key={i} className="border-b border-border hover:bg-card transition-colors">
+                  <tr key={i} className="border-b border-border hover:bg-secondary/50 transition-colors">
                     <td className="px-5 py-4">
-                      <span className="font-mono text-[9px] font-semibold uppercase tracking-[0.08em] text-primary border border-primary/20 px-2.5 py-1">{r.phase}</span>
+                      <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">{r.phase}</span>
                     </td>
-                    <td className="px-5 py-4 text-sm text-foreground/65">{r.campaign}</td>
-                    <td className="px-5 py-4 text-sm text-foreground/65">{r.budget}</td>
-                    <td className="px-5 py-4 text-sm text-foreground/65">{r.objective}</td>
-                    <td className="px-5 py-4 text-sm text-foreground/65">{r.audience}</td>
+                    <td className="px-5 py-4 text-sm text-muted-foreground">{r.campaign}</td>
+                    <td className="px-5 py-4 text-sm text-muted-foreground">{r.budget}</td>
+                    <td className="px-5 py-4 text-sm text-muted-foreground">{r.objective}</td>
+                    <td className="px-5 py-4 text-sm text-muted-foreground">{r.audience}</td>
                   </tr>
                 ))}
               </tbody>
@@ -55,7 +55,7 @@ const AdsSection = () => {
           </div>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-5">
           {rules.map((rule, i) => (
             <motion.div
               key={rule.id}
@@ -63,10 +63,10 @@ const AdsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-background p-7"
+              className="bg-background rounded-card border border-border p-7"
             >
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary mb-2.5">{rule.id}</p>
-              <h3 className="font-display text-base font-extrabold uppercase tracking-tight mb-2">{rule.title}</h3>
+              <p className="text-xs font-medium text-primary mb-2.5">{rule.id}</p>
+              <h3 className="font-display text-base font-bold mb-2">{rule.title}</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">{rule.desc}</p>
             </motion.div>
           ))}

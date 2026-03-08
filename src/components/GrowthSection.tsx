@@ -16,16 +16,16 @@ const tactics: { icon: LucideIcon; title: string; desc: string }[] = [
 
 const GrowthSection = () => {
   return (
-    <section id="growth" className="py-24 px-6 bg-card">
+    <section id="growth" className="py-24 px-6 bg-secondary">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Organic Growth Tactics</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">Organic Growth Tactics</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             Growth<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Hacking Stack</span>
+            <span className="text-primary">Hacking Stack</span>
           </h2>
         </ScrollReveal>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {tactics.map((t, i) => (
             <motion.div
               key={i}
@@ -33,10 +33,12 @@ const GrowthSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.07 }}
               transition={{ duration: 0.5, delay: (i % 4) * 0.08 }}
-              className="bg-card p-6 hover:bg-secondary transition-colors"
+              className="bg-card rounded-card border border-border p-6 hover:border-primary/30 transition-colors"
             >
-              <t.icon className="w-7 h-7 text-primary mb-4" strokeWidth={1.5} />
-              <h3 className="font-display text-base font-extrabold uppercase tracking-tight mb-2">{t.title}</h3>
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                <t.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-base font-bold mb-2">{t.title}</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">{t.desc}</p>
             </motion.div>
           ))}

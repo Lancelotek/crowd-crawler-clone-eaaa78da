@@ -28,13 +28,13 @@ const HeroSection = () => {
       <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div className="relative z-10">
           <ScrollReveal>
-            <div className="flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            <div className="flex items-center gap-3 text-xs font-medium text-primary mb-6">
               <span className="w-7 h-px bg-primary" />
               Minimum Viable Audience Framework
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="font-display text-6xl md:text-7xl lg:text-[104px] font-black leading-[0.9] tracking-tight uppercase mb-6">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-[88px] font-extrabold leading-[1] tracking-tight mb-6">
               You're Creating
               <br />
               Content. But
@@ -46,15 +46,15 @@ const HeroSection = () => {
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.22}>
-            <p className="text-lg text-muted-foreground max-w-[480px] leading-relaxed mb-4 font-light">
+            <p className="text-lg text-muted-foreground max-w-[480px] leading-relaxed mb-4">
               JAY-23 builds your Minimum Viable Audience — your first 1,000 true fans — in 90 days using growth hacking, precision ads, and AI content systems.
             </p>
           </ScrollReveal>
           <ScrollReveal delay={0.28}>
-            <div className="flex items-center gap-4 font-mono text-[10px] text-muted-foreground mb-10">
+            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-10">
               <span className="text-primary">★★★★★</span>
               <span>Trusted by 40+ creators</span>
-              <span className="text-border">|</span>
+              <span className="opacity-30">|</span>
               <span>Avg. 847% follower growth</span>
             </div>
           </ScrollReveal>
@@ -62,13 +62,13 @@ const HeroSection = () => {
             <div className="flex gap-4 flex-wrap">
               <a
                 href="#book-call"
-                className="bg-primary text-primary-foreground px-8 py-3.5 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta"
+                className="bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors animate-pulse-cta"
               >
                 Get My Free Growth Audit →
               </a>
               <a
                 href="#phases"
-                className="border border-border px-7 py-3.5 text-xs font-semibold tracking-[0.06em] hover:border-primary hover:text-primary transition-colors"
+                className="border border-border px-7 py-3.5 text-sm font-medium rounded-button hover:border-primary hover:text-primary transition-colors"
               >
                 See How It Works ↓
               </a>
@@ -77,20 +77,20 @@ const HeroSection = () => {
         </div>
 
         <ScrollReveal delay={0.5}>
-          <div className="grid grid-cols-2 gap-px bg-border">
+          <div className="grid grid-cols-2 gap-4">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
-                className="bg-card p-8 relative group overflow-hidden hover:bg-secondary transition-colors"
+                className="bg-card rounded-card p-8 relative group overflow-hidden border border-border hover:border-primary/30 transition-colors"
               >
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-400" />
-                <div className="font-display text-5xl font-black text-primary leading-none mb-1.5">
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-400 rounded-full" />
+                <div className="font-display text-5xl font-extrabold text-primary leading-none mb-1.5">
                   {stat.ref ? <span ref={counterRef}>0</span> : stat.value}
                 </div>
-                <div className="font-mono text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                <div className="text-xs font-medium text-muted-foreground mt-2">
                   {stat.label}
                 </div>
               </motion.div>
