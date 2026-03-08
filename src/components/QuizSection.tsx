@@ -118,7 +118,7 @@ const QuizSection = () => {
                 href="#book-call"
                 className="inline-block bg-primary text-primary-foreground px-10 py-4 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta mb-4"
               >
-                Book Your Free Strategy Call →
+                Book Your Free Strategy Call ↓
               </a>
               <p className="font-mono text-[10px] text-muted-foreground tracking-wide">
                 ⏱ 30 min • 100% free • No pitch, just strategy
