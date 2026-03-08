@@ -5,9 +5,8 @@ import ProblemSection from "@/components/mva/ProblemSection";
 import SolutionSection from "@/components/mva/SolutionSection";
 import FlowSection from "@/components/mva/FlowSection";
 import SystemSection from "@/components/mva/SystemSection";
-import UseCasesSection from "@/components/mva/UseCasesSection";
-import AudienceSizeSection from "@/components/mva/AudienceSizeSection";
 import CalculatorSection from "@/components/mva/CalculatorSection";
+import QuizFunnelSection from "@/components/mva/QuizFunnelSection";
 import FinalCTASection from "@/components/mva/FinalCTASection";
 import FooterSection from "@/components/mva/FooterSection";
 
@@ -21,9 +20,8 @@ const Index = () => {
       <SolutionSection />
       <FlowSection />
       <SystemSection />
-      <UseCasesSection />
-      <AudienceSizeSection />
       <CalculatorSection />
+      <QuizFunnelSection />
       <FinalCTASection />
       <FooterSection />
     </div>
