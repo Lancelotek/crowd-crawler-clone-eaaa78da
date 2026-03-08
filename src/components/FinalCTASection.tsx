@@ -53,7 +53,7 @@ const FinalCTASection = () => {
           <div className="bg-background rounded-card p-2">
             <div
               className="calendly-inline-widget"
-              data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=14002B&text_color=F6F6FA&primary_color=6C3BFF`}
+              data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=F6F6FA&text_color=0B0B0F&primary_color=6C3BFF`}
               style={{ minWidth: "320px", height: "700px" }}
             />
           </div>
