@@ -25,6 +25,11 @@ const SectionFallback = () => (
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="MVA Framework — Build Your First 1,000 True Fans Before You Launch"
+        description="The Minimum Viable Audience framework helps founders validate ideas, build demand, and launch with an audience already waiting. Free MVA calculator & strategy quiz."
+        canonical="/"
+      />
       <header>
         <MvaNavbar />
       </header>

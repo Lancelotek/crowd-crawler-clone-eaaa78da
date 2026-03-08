@@ -37,6 +37,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Blog — Audience Building & Launch Strategy Articles"
+        description="Expert articles on audience building, product launches, crowdfunding, and the MVA Framework. Actionable strategies for founders and creators."
+        canonical="/blog"
+      />
       <MvaNavbar />
 
       <section className="pt-32 pb-16 px-6">

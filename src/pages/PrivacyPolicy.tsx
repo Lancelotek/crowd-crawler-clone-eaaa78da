@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const PrivacyPolicy = () => {
   return (
