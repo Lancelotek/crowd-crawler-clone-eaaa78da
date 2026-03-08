@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import HeroSection from "@/components/mva/HeroSection";
 import StickyCTA from "@/components/mva/StickyCTA";
+import SEOHead from "@/components/SEOHead";
 
 // Lazy load below-fold sections
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
