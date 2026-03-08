@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
 
 const prompts = [
   { id: "PROMPT_01", title: "Pattern Break Architect", text: "Act as a senior Instagram growth strategist. Analyse my niche [NICHE] and identify oversaturated content patterns. Create 10 post ideas that break those patterns while working with the algorithm. Each idea must feel unexpected and stop the scroll.", tag: "Discovery" },
@@ -23,20 +25,21 @@ const PromptsSection = () => {
   return (
     <section id="ai-prompts" className="py-24 px-6">
       <div className="container mx-auto">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">
-          // AI Prompt System
-        </p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
-          The Content
-          <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>
-            Machine
-          </span>
-        </h2>
+        <ScrollReveal>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// AI Prompt System</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+            The Content<br />
+            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Machine</span>
+          </h2>
+        </ScrollReveal>
         <div className="grid md:grid-cols-2 gap-px bg-border">
           {prompts.map((p, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.07 }}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.1 }}
               onClick={() => copyPrompt(i)}
               className="bg-background p-7 cursor-pointer relative overflow-hidden group hover:bg-card transition-colors"
             >
@@ -46,10 +49,8 @@ const PromptsSection = () => {
               <p className="text-[10px] font-semibold tracking-[0.06em] text-primary mb-2.5">{p.id}</p>
               <h3 className="text-xl font-extrabold uppercase tracking-tight mb-3">{p.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed italic">{p.text}</p>
-              <span className="inline-block mt-4 text-[9px] font-semibold uppercase tracking-[0.1em] bg-destructive text-destructive-foreground px-2.5 py-1">
-                {p.tag}
-              </span>
-            </div>
+              <span className="inline-block mt-4 text-[9px] font-semibold uppercase tracking-[0.1em] bg-destructive text-destructive-foreground px-2.5 py-1">{p.tag}</span>
+            </motion.div>
           ))}
         </div>
       </div>
