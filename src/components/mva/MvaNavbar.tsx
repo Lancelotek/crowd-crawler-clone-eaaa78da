@@ -8,6 +8,7 @@ const navItems = [
   { label: "Case Studies", href: "#calculator" },
   { label: "Calculator", href: "#calculator" },
   { label: "Quiz", href: "#quiz" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const MvaNavbar = () => {
