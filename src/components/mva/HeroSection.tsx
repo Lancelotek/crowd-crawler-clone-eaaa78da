@@ -136,7 +136,7 @@ const HeroSection = () => {
               className="absolute left-0 top-[55%] bg-card rounded-card border border-border shadow-lg px-4 py-2.5"
             >
               <div className="text-[10px] font-semibold text-muted-foreground tracking-wide mb-0.5">DEMAND SIGNAL</div>
-              <div className="font-display text-lg font-extrabold text-emerald-500 leading-none">↑ 94%</div>
+              <div className="font-display text-lg font-extrabold text-primary leading-none">↑ 94%</div>
             </motion.div>
 
             <motion.div
