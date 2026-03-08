@@ -11,7 +11,7 @@ const metrics = [
 
 const SocialProofSection = () => {
   return (
-    <section className="py-16 px-6 border-t border-border">
+    <section className="py-20 px-6 border-t border-border">
       <div className="container mx-auto max-w-[1200px]">
         <p className="text-xs font-semibold text-primary mb-2 tracking-wide text-center">Social Proof</p>
         <h2 className="font-display text-2xl md:text-3xl font-extrabold leading-tight tracking-tight mb-10 text-center">
@@ -36,7 +36,7 @@ const SocialProofSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <img src={clientLogos} alt="Trusted by leading brands" className="h-5 w-auto object-contain opacity-40" loading="lazy" decoding="async" />
+          <img src={clientLogos} alt="Trusted by leading brands" className="h-7 w-auto object-contain opacity-50" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>

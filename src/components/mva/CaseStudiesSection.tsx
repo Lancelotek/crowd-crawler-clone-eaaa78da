@@ -61,9 +61,9 @@ const cases = [
 
 const CaseStudiesSection = () => {
   return (
-    <section className="py-16 px-6 bg-secondary">
+    <section id="case-studies" className="py-20 px-6 bg-secondary">
       <div className="container mx-auto max-w-[1200px]">
-        <div className="text-center mb-10">
+        <div className="text-center mb-12">
           <p className="text-xs font-semibold text-primary mb-2 tracking-wide">Case Studies</p>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight">
             Successful Launches Using<br />
@@ -71,8 +71,7 @@ const CaseStudiesSection = () => {
           </h2>
         </div>
 
-        {/* Horizontal scroll on all sizes, grid on xl */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide xl:grid xl:grid-cols-7 xl:overflow-visible xl:pb-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {cases.map((c, i) => (
             <motion.div
               key={i}
@@ -80,9 +79,8 @@ const CaseStudiesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.4 }}
-              className="min-w-[220px] xl:min-w-0 snap-start bg-card rounded-card border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all group flex flex-col"
+              className="bg-card rounded-card border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all group flex flex-col"
             >
-              {/* Image */}
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={c.image}
@@ -92,15 +90,13 @@ const CaseStudiesSection = () => {
                 />
               </div>
 
-              {/* Content */}
-              <div className="p-3 flex flex-col flex-1">
-                <h3 className="font-display text-sm font-bold mb-1">{c.title}</h3>
-                <p className="text-[11px] text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-4">{c.desc}</p>
+              <div className="p-4 flex flex-col flex-1">
+                <h3 className="font-display text-base font-bold mb-1">{c.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-3">{c.desc}</p>
 
-                {/* Metric badge */}
                 <div className="bg-primary/10 rounded-lg px-3 py-2.5 text-center">
-                  <div className="font-display text-base font-extrabold text-primary">{c.metric}</div>
-                  <p className="text-[10px] font-semibold text-muted-foreground tracking-wide">{c.metricLabel}</p>
+                  <div className="font-display text-lg font-extrabold text-primary">{c.metric}</div>
+                  <p className="text-[11px] font-semibold text-muted-foreground tracking-wide">{c.metricLabel}</p>
                 </div>
               </div>
             </motion.div>

@@ -9,7 +9,7 @@ const problems = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-16 px-6 bg-card">
+    <section className="py-20 px-6 bg-card">
       <div className="container mx-auto max-w-[1200px]">
         <p className="text-xs font-semibold text-primary mb-2 tracking-wide">The Problem</p>
         <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-10">
