@@ -43,7 +43,7 @@ const FooterSection = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-xs text-muted-foreground">© {new Date().getFullYear()} JAY-23 Sp. z o.o. All rights reserved.</span>
+          <span className="text-xs text-muted-foreground">© {new Date().getFullYear()} Crowdfunding zone by JAY23 LLC. All rights reserved.</span>
           <span className="text-xs text-muted-foreground">MVA Framework — Build demand before you build product.</span>
         </div>
       </div>
