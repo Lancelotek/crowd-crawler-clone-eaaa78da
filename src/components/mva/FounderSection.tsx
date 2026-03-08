@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Rocket, Users, BookOpen } from "lucide-react";
+import { Award, Rocket, Users, BookOpen, Linkedin } from "lucide-react";
 import portrait from "@/assets/founder-portrait.png";
 
 const highlights = [
