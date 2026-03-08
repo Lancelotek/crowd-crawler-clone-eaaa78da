@@ -33,13 +33,13 @@ const PhasesSection = () => {
     <section id="phases" className="py-24 px-6">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// 03 Build Phases</p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">03 Build Phases</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-16">
             From Zero to<br />
-            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>True Fans</span>
+            <span className="text-primary">True Fans</span>
           </h2>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-px bg-border">
+        <div className="grid md:grid-cols-3 gap-5">
           {phases.map((phase, i) => (
             <motion.div
               key={phase.num}
@@ -47,11 +47,11 @@ const PhasesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="bg-card p-8 md:p-10 relative overflow-hidden group hover:bg-secondary transition-colors"
+              className="bg-card rounded-card p-8 md:p-10 relative overflow-hidden border border-border hover:border-primary/30 transition-colors group"
             >
-              <span className="absolute right-3 top-1 font-display text-[96px] font-black leading-none text-primary/5 select-none">{phase.num}</span>
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-destructive mb-3">{phase.week}</p>
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-3">{phase.title}</h3>
+              <span className="absolute right-4 top-2 font-display text-[80px] font-extrabold leading-none text-primary/5 select-none">{phase.num}</span>
+              <span className="inline-block text-xs font-semibold text-destructive bg-destructive/10 px-3 py-1 rounded-full mb-4">{phase.week}</span>
+              <h3 className="font-display text-2xl font-bold mb-3">{phase.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-7">{phase.desc}</p>
               <ul className="flex flex-col gap-2.5 mb-6">
                 {phase.items.map((item, j) => (
@@ -59,7 +59,7 @@ const PhasesSection = () => {
                 ))}
               </ul>
               <div className="border-t border-border pt-4">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-primary">{phase.result}</p>
+                <p className="text-xs font-medium text-primary">{phase.result}</p>
               </div>
             </motion.div>
           ))}

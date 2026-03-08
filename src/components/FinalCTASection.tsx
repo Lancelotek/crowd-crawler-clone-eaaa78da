@@ -25,7 +25,7 @@ const FinalCTASection = () => {
       <div className="container mx-auto max-w-[1000px]">
         <div className="text-center mb-12">
           <ScrollReveal>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight text-primary-foreground mb-6">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-primary-foreground mb-6">
               Ready to Build Your<br />First 1,000 True Fans?
             </h2>
             <p className="text-primary-foreground/80 max-w-lg mx-auto leading-relaxed mb-10">
@@ -43,17 +43,17 @@ const FinalCTASection = () => {
             <p className="text-primary-foreground/60 text-sm font-semibold mb-2">
               <span className="animate-blink inline-block text-destructive">🔴</span> Only 3 spots available this month
             </p>
-            <p className="font-mono text-[10px] text-primary-foreground/50 tracking-wide">
+            <p className="text-xs text-primary-foreground/50 tracking-wide">
               No commitment required. 30 minutes. 100% free.
             </p>
           </ScrollReveal>
         </div>
 
         <ScrollReveal delay={0.3}>
-          <div className="bg-background p-2">
+          <div className="bg-background rounded-card p-2">
             <div
               className="calendly-inline-widget"
-              data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=08080A&text_color=F0EDE8&primary_color=D4F53C`}
+              data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=14002B&text_color=F6F6FA&primary_color=6C3BFF`}
               style={{ minWidth: "320px", height: "700px" }}
             />
           </div>
