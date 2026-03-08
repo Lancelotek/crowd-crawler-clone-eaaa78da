@@ -33,6 +33,9 @@ const Index = () => {
           <SocialProofSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
+          <TweetProofSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
           <ProblemSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
