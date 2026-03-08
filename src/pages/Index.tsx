@@ -5,6 +5,7 @@ import StickyCTA from "@/components/mva/StickyCTA";
 
 // Lazy load below-fold sections
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
+const TweetProofSection = lazy(() => import("@/components/mva/TweetProofSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
 const SolutionSection = lazy(() => import("@/components/mva/SolutionSection"));
 const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
@@ -30,6 +31,9 @@ const Index = () => {
         <HeroSection />
         <Suspense fallback={<SectionFallback />}>
           <SocialProofSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <TweetProofSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <ProblemSection />
