@@ -247,8 +247,8 @@ const QuizFunnelSection = () => {
               <div className="bg-card rounded-card border border-border p-2">
                 <div
                   className="calendly-inline-widget"
-                  data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=F6F6FA&text_color=0B0B0F&primary_color=6C3BFF`}
-                  style={{ minWidth: "320px", height: "650px" }}
+                  data-url={`${CALENDLY_URL}?hide_event_type_details=1&hide_gdpr_banner=1&background_color=F6F6FA&text_color=0B0B0F&primary_color=6C3BFF`}
+                  style={{ minWidth: "320px", height: "700px" }}
                 />
               </div>
 
