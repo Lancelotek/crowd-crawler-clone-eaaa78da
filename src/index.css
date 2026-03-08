@@ -95,6 +95,11 @@
   animation: blink-dot 1.5s ease-in-out infinite;
 }
 
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .dark-section {
   background-color: hsl(265 100% 8%);
   color: hsl(0 0% 95%);

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Rocket, DollarSign, Clock, Zap } from "lucide-react";
+import clientLogos from "@/assets/client-logos.png";
 
 const metrics = [
   { icon: Rocket, value: "49+", label: "Launches supported" },
@@ -8,17 +9,16 @@ const metrics = [
   { icon: Zap, value: "3×", label: "Faster product validation" },
 ];
 
-const logos = ["TechCo", "LaunchPad", "StartupX", "BuildFast", "GrowthLab", "ScaleUp"];
-
 const SocialProofSection = () => {
   return (
     <section className="py-20 px-6 border-t border-border">
       <div className="container mx-auto max-w-[1100px]">
         {/* Logo row */}
-        <div className="flex items-center justify-center gap-10 flex-wrap mb-16 opacity-40">
-          {logos.map((name) => (
-            <span key={name} className="font-display text-lg font-bold tracking-tight">{name}</span>
-          ))}
+        <div className="relative mb-16 overflow-hidden">
+          <div className="flex animate-[scroll_20s_linear_infinite] w-max">
+            <img src={clientLogos} alt="Client logos" className="h-8 w-auto object-contain opacity-60" />
+            <img src={clientLogos} alt="" className="h-8 w-auto object-contain opacity-60 ml-8" />
+          </div>
         </div>
 
         {/* Metrics */}
