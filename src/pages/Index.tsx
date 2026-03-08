@@ -10,6 +10,7 @@ const SolutionSection = lazy(() => import("@/components/mva/SolutionSection"));
 const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
 const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
 const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
+const FounderSection = lazy(() => import("@/components/mva/FounderSection"));
 const FinalCTASection = lazy(() => import("@/components/mva/FinalCTASection"));
 const FooterSection = lazy(() => import("@/components/mva/FooterSection"));
 
