@@ -28,8 +28,8 @@ const FounderSection = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="rounded-card overflow-hidden border border-border bg-secondary aspect-square max-w-[400px] mx-auto">
-              <img src={portrait} alt="Founder" className="w-full h-full object-cover" />
+            <div className="rounded-card overflow-hidden bg-secondary max-w-[400px] mx-auto">
+              <img src={portrait} alt="Founder" className="w-full h-auto object-contain" />
             </div>
           </motion.div>
 
