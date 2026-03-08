@@ -36,7 +36,7 @@ const SocialProofSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <img src={clientLogos} alt="Trusted by leading brands" className="h-5 w-auto object-contain opacity-40" />
+          <img src={clientLogos} alt="Trusted by leading brands" className="h-5 w-auto object-contain opacity-40" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
