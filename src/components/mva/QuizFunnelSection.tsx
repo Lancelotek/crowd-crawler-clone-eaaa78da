@@ -194,10 +194,12 @@ const QuizFunnelSection = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2"
+                  disabled={submitting}
+                  className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60"
                 >
-                  Show My Strategy <ArrowRight size={16} />
+                  {submitting ? <><Loader2 size={16} className="animate-spin" /> Saving...</> : <>Show My Strategy <ArrowRight size={16} /></>}
                 </button>
+                {submitError && <p className="text-destructive text-xs text-center">{submitError}</p>}
               </form>
               <p className="text-xs text-muted-foreground mt-4">🔒 No spam. We respect your privacy.</p>
             </motion.div>
