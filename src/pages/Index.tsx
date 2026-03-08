@@ -1,13 +1,13 @@
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import HeroSection from "@/components/mva/HeroSection";
 import SocialProofSection from "@/components/mva/SocialProofSection";
-import WhoSection from "@/components/mva/WhoSection";
+import ProblemSection from "@/components/mva/ProblemSection";
+import SolutionSection from "@/components/mva/SolutionSection";
+import FlowSection from "@/components/mva/FlowSection";
 import SystemSection from "@/components/mva/SystemSection";
-import FunnelSection from "@/components/mva/FunnelSection";
-import BeforeAfterSection from "@/components/mva/BeforeAfterSection";
-import InfrastructureSection from "@/components/mva/InfrastructureSection";
 import UseCasesSection from "@/components/mva/UseCasesSection";
-import MetricSection from "@/components/mva/MetricSection";
+import AudienceSizeSection from "@/components/mva/AudienceSizeSection";
+import CalculatorSection from "@/components/mva/CalculatorSection";
 import FinalCTASection from "@/components/mva/FinalCTASection";
 import FooterSection from "@/components/mva/FooterSection";
 
@@ -17,13 +17,13 @@ const Index = () => {
       <MvaNavbar />
       <HeroSection />
       <SocialProofSection />
-      <WhoSection />
+      <ProblemSection />
+      <SolutionSection />
+      <FlowSection />
       <SystemSection />
-      <FunnelSection />
-      <BeforeAfterSection />
-      <InfrastructureSection />
       <UseCasesSection />
-      <MetricSection />
+      <AudienceSizeSection />
+      <CalculatorSection />
       <FinalCTASection />
       <FooterSection />
     </div>
