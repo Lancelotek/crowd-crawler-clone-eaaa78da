@@ -1,83 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 230 25% 10%;
+    --background: 240 7% 3%;
+    --foreground: 34 14% 93%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 230 25% 10%;
+    --card: 240 10% 8%;
+    --card-foreground: 34 14% 93%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 10%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 34 14% 93%;
 
-    --primary: 245 85% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 72 89% 59%;
+    --primary-foreground: 240 7% 3%;
 
-    --secondary: 245 30% 96%;
-    --secondary-foreground: 230 25% 10%;
+    --secondary: 240 13% 13%;
+    --secondary-foreground: 34 14% 93%;
 
-    --muted: 240 10% 96%;
-    --muted-foreground: 230 10% 45%;
+    --muted: 240 10% 13%;
+    --muted-foreground: 34 8% 55%;
 
-    --accent: 245 85% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 72 89% 59%;
+    --accent-foreground: 240 7% 3%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 100% 59%;
+    --destructive-foreground: 34 14% 93%;
 
-    --border: 240 10% 90%;
-    --input: 240 10% 90%;
-    --ring: 245 85% 60%;
+    --border: 34 14% 93% / 0.08;
+    --input: 34 14% 93% / 0.08;
+    --ring: 72 89% 59%;
 
-    --radius: 0.5rem;
+    --radius: 0rem;
 
-    --hero-gradient: linear-gradient(135deg, hsl(245 85% 60% / 0.08) 0%, transparent 60%);
-    --section-dark: 245 40% 8%;
-    --section-dark-foreground: 0 0% 95%;
+    --hero-gradient: linear-gradient(135deg, hsl(72 89% 59% / 0.06) 0%, transparent 60%);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 230 25% 5%;
-    --foreground: 0 0% 95%;
-    --card: 230 25% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 230 25% 8%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 245 85% 65%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 230 20% 15%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 230 15% 15%;
-    --muted-foreground: 230 10% 60%;
-    --accent: 245 85% 65%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 230 15% 18%;
-    --input: 230 15% 18%;
-    --ring: 245 85% 65%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 240 10% 8%;
+    --sidebar-foreground: 34 14% 93%;
+    --sidebar-primary: 72 89% 59%;
+    --sidebar-primary-foreground: 240 7% 3%;
+    --sidebar-accent: 240 13% 13%;
+    --sidebar-accent-foreground: 34 14% 93%;
+    --sidebar-border: 34 14% 93% / 0.08;
+    --sidebar-ring: 72 89% 59%;
   }
 }
 
@@ -85,16 +51,23 @@
   * {
     @apply border-border;
   }
+  html {
+    color-scheme: dark;
+    background-color: #08080A;
+  }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Barlow', system-ui, sans-serif;
+    font-weight: 400;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
   }
 }
 
 @layer utilities {
-  .section-dark {
-    background-color: hsl(var(--section-dark));
-    color: hsl(var(--section-dark-foreground));
+  .font-mono-label {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 
@@ -105,4 +78,22 @@
 
 .animate-scroll-logos {
   animation: scroll-logos 20s linear infinite;
+}
+
+@keyframes pulse-cta {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(72 89% 59% / 0.4); }
+  50% { box-shadow: 0 0 0 8px hsl(72 89% 59% / 0); }
+}
+
+.animate-pulse-cta {
+  animation: pulse-cta 3s ease-in-out infinite;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-blink {
+  animation: blink-dot 1.5s ease-in-out infinite;
 }

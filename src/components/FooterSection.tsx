@@ -4,8 +4,12 @@ const FooterSection = () => {
   return (
     <footer className="px-6 py-12 border-t border-border flex flex-wrap items-center justify-between gap-4">
       <img src={logo} alt="JAY-23" className="h-12 w-auto object-contain opacity-50" />
-      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
-        MVA Framework v1.0 — 2025 // Build the Audience First
+      <div className="flex items-center gap-6">
+        <a href="#" className="font-mono text-[10px] uppercase tracking-[0.08em] text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="#" className="font-mono text-[10px] uppercase tracking-[0.08em] text-muted-foreground hover:text-primary transition-colors">Terms</a>
+      </div>
+      <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+        MVA Framework v1.0 — JAY-23 Agency
       </span>
     </footer>
   );

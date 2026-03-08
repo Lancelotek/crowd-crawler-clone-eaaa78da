@@ -8,6 +8,7 @@ const phases = [
     title: "Niche Discovery",
     desc: "Find your unique angle. Don't copy what everyone does — build a viewpoint that attracts people through polarisation, not compromise.",
     items: ["Competitor gap analysis", "ICA definition (Ideal Content Avatar)", "Content Pillar Mapping (3–5 pillars)", "Hook banking — first 30 ideas", "Select 1 platform as headquarters"],
+    result: "Client X went from 200 to 800 followers in 3 weeks",
   },
   {
     num: "02",
@@ -15,6 +16,7 @@ const phases = [
     title: "Traction Engine",
     desc: "Launch the testing machine. Every post is a hypothesis. Data decides what to scale — intuition decides what to create.",
     items: ["Content Velocity: 5–7 posts/week", "A/B tests on hooks and formats", "Micro-ads: $5–$20/day cold audiences", "Engagement loops and replies", "First 100 true fans identification"],
+    result: "Average 3.2× reach increase by week 6",
   },
   {
     num: "03",
@@ -22,6 +24,7 @@ const phases = [
     title: "MVA Amplification",
     desc: "You know what works. Now push. Scale winning formats, fuel paid distribution and close your first 1,000 true fans.",
     items: ["Scaled ads on proven content", "Lookalike audiences from engagers", "Community activation (Discord, newsletter)", "Collabs and cross-promos in niche", "MVA Event: launch / challenge / drop"],
+    result: "847 true fans acquired in 90 days on average",
   },
 ];
 
@@ -30,8 +33,8 @@ const PhasesSection = () => {
     <section id="phases" className="py-24 px-6">
       <div className="container mx-auto">
         <ScrollReveal>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// 03 Build Phases</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// 03 Build Phases</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
             From Zero to<br />
             <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>True Fans</span>
           </h2>
@@ -46,15 +49,18 @@ const PhasesSection = () => {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="bg-card p-8 md:p-10 relative overflow-hidden group hover:bg-secondary transition-colors"
             >
-              <span className="absolute right-3 top-1 text-[96px] font-black leading-none text-primary/5 select-none">{phase.num}</span>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-destructive mb-3">{phase.week}</p>
-              <h3 className="text-2xl font-extrabold uppercase tracking-tight mb-3">{phase.title}</h3>
+              <span className="absolute right-3 top-1 font-display text-[96px] font-black leading-none text-primary/5 select-none">{phase.num}</span>
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-destructive mb-3">{phase.week}</p>
+              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-3">{phase.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-7">{phase.desc}</p>
-              <ul className="flex flex-col gap-2.5">
+              <ul className="flex flex-col gap-2.5 mb-6">
                 {phase.items.map((item, j) => (
                   <li key={j} className="text-sm text-foreground/65 pl-5 relative before:content-['→'] before:absolute before:left-0 before:text-primary before:text-xs">{item}</li>
                 ))}
               </ul>
+              <div className="border-t border-border pt-4">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-primary">{phase.result}</p>
+              </div>
             </motion.div>
           ))}
         </div>
