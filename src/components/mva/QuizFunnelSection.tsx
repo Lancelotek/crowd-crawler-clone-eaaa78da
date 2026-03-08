@@ -57,10 +57,30 @@ const QuizFunnelSection = () => {
     }
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && email.trim()) {
+    if (!name.trim() || !email.trim()) return;
+    
+    setSubmitting(true);
+    setSubmitError("");
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('add-subscriber', {
+        body: { name: name.trim(), email: email.trim(), answers },
+      });
+      
+      if (error) throw error;
       setStage("result");
+    } catch (err: any) {
+      console.error('MailerLite error:', err);
+      setSubmitError("Something went wrong. Please try again.");
+      // Still allow proceeding
+      setTimeout(() => setStage("result"), 1500);
+    } finally {
+      setSubmitting(false);
     }
   };
 
