@@ -1,37 +1,78 @@
-import heroPeople from "@/assets/hero-people.png";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
+  const counterRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    let count = 0;
+    const interval = setInterval(() => {
+      count = Math.min(count + 3, 90);
+      if (counterRef.current) counterRef.current.textContent = String(count);
+      if (count >= 90) clearInterval(interval);
+    }, 25);
+    return () => clearInterval(interval);
+  }, []);
+
+  const stats = [
+    { value: "1K", label: "True Fans Target" },
+    { value: null, label: "Days to MVA", ref: true },
+    { value: "7×", label: "Content Multiplier" },
+    { value: "3%", label: "Min Conversion Rate" },
+  ];
+
   return (
-    <section className="pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
+    <section className="min-h-screen pt-[120px] pb-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-[var(--hero-gradient)] pointer-events-none" />
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
-              Startuj kampanię z popytem i sprzedażą
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Budujemy popyt, listy leadów i sprzedaż pre-launch dla projektów
-              crowdfundingowych – bez zgadywania i bez przepalania budżetu.
-            </p>
+      <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-6">
+            <span className="w-7 h-px bg-primary" />
+            Minimum Viable Audience Framework
+          </div>
+          <h1 className="text-6xl md:text-7xl lg:text-[104px] font-black leading-[0.9] tracking-tight uppercase mb-8">
+            Build
+            <br />
+            <span className="text-primary">Real</span>
+            <br />
+            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>
+              Audience
+            </span>
+            <span className="animate-pulse">_</span>
+          </h1>
+          <p className="text-lg text-muted-foreground max-w-[440px] leading-relaxed mb-10">
+            JAY-23 combines growth hacking, precision ads, and an AI-powered content system to build your first 1,000 true fans — before you scale.
+          </p>
+          <div className="flex gap-4 flex-wrap">
             <a
-              href="#kontakt"
-              className="mt-8 inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity"
+              href="#phases"
+              className="bg-primary text-primary-foreground px-8 py-3.5 font-bold text-sm uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
             >
-              Zobacz jak to działa (60 sek)
+              See the Framework
+            </a>
+            <a
+              href="#ai-prompts"
+              className="border border-border px-7 py-3.5 text-xs font-semibold tracking-[0.06em] hover:border-primary hover:text-primary transition-colors"
+            >
+              AI Prompts →
             </a>
           </div>
-          <div className="relative">
-            {/* decorative circle */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[90%] h-[90%] rounded-full border-2 border-primary/20" />
+        </div>
+
+        <div className="grid grid-cols-2 gap-px bg-border">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className="bg-card p-8 relative group overflow-hidden hover:bg-secondary transition-colors"
+            >
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-400" />
+              <div className="text-5xl font-black text-primary leading-none mb-1.5">
+                {stat.ref ? <span ref={counterRef}>0</span> : stat.value}
+              </div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+                {stat.label}
+              </div>
             </div>
-            <img
-              src={heroPeople}
-              alt="Zespół crowdfundingowy"
-              className="relative z-10 w-full max-w-lg mx-auto"
-            />
-          </div>
+          ))}
         </div>
       </div>
     </section>
