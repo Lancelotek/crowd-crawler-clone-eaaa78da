@@ -5,12 +5,14 @@ import { ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
+import SEOHead from "@/components/SEOHead";
 
 type Post = {
   id: string;
   slug: string;
   title: string;
   content: string;
+  excerpt: string | null;
   cover_image: string | null;
   category: string | null;
   author: string | null;
@@ -72,6 +74,15 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={post.title}
+        description={post.excerpt || `Read "${post.title}" on the MVA Framework blog.`}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.cover_image || undefined}
+        type="article"
+        publishedAt={post.published_at}
+        author={post.author || "JAY-23"}
+      />
       <MvaNavbar />
 
       <article className="pt-32 pb-16 px-6">

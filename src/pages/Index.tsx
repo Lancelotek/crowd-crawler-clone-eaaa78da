@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import HeroSection from "@/components/mva/HeroSection";
 import StickyCTA from "@/components/mva/StickyCTA";
+import SEOHead from "@/components/SEOHead";
 
 // Lazy load below-fold sections
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
@@ -24,6 +25,11 @@ const SectionFallback = () => (
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="MVA Framework — Build Your First 1,000 True Fans Before You Launch"
+        description="The Minimum Viable Audience framework helps founders validate ideas, build demand, and launch with an audience already waiting. Free MVA calculator & strategy quiz."
+        canonical="/"
+      />
       <header>
         <MvaNavbar />
       </header>

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Impressum = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead title="Impressum" description="Legal disclosure (Impressum) for JAY23 LLC, operator of the MVA Framework website." canonical="/impressum" noindex />
       <div className="container mx-auto max-w-[800px] px-6 py-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10">
           <ArrowLeft size={16} /> Back to Home

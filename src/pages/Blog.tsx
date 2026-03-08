@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
+import SEOHead from "@/components/SEOHead";
 
 type BlogPost = {
   id: string;
@@ -36,6 +37,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Blog — Audience Building & Launch Strategy Articles"
+        description="Expert articles on audience building, product launches, crowdfunding, and the MVA Framework. Actionable strategies for founders and creators."
+        canonical="/blog"
+      />
       <MvaNavbar />
 
       <section className="pt-32 pb-16 px-6">
