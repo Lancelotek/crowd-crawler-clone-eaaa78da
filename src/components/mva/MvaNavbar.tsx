@@ -8,7 +8,6 @@ const navItems = [
   { label: "Framework", href: "#solution" },
   { label: "Case Studies", href: "#calculator" },
   { label: "Calculator", href: "#calculator" },
-  { label: "Quiz", href: "#quiz" },
   { label: "Blog", href: "/blog" },
 ];
 
