@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import logo from "@/assets/jay23-logo.png";
+
+const navItems = ["Phases", "AI Prompts", "Growth", "Results", "Ads"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
@@ -10,36 +15,110 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-lg shadow-background/50"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-6 h-[68px] flex items-center justify-between">
-        <img src={logo} alt="JAY-23" className="h-14 w-auto object-contain" />
-        <ul className="hidden md:flex items-center gap-8">
-          {["Phases", "AI Prompts", "Growth", "Results", "Ads"].map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground hover:text-primary transition-colors"
-              >
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a
-          href="#book-call"
-          className="bg-primary text-primary-foreground px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta"
-        >
-          Book Free Call →
-        </a>
-      </div>
-    </nav>
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-lg shadow-background/50"
+            : "bg-transparent border-b border-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-6 h-[68px] flex items-center justify-between">
+          <img src={logo} alt="JAY-23" className="h-14 w-auto object-contain" />
+
+          {/* Desktop nav */}
+          <ul className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
+              <li key={item}>
+                <a
+                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-4">
+            <a
+              href="#book-call"
+              className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2.5 text-xs font-bold uppercase tracking-[0.1em] hover:opacity-90 transition-opacity animate-pulse-cta"
+            >
+              Book Free Call →
+            </a>
+
+            {/* Hamburger */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="md:hidden text-foreground p-1"
+              aria-label="Toggle menu"
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile slide-out panel */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+            />
+            <motion.aside
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-[280px] bg-card border-l border-border flex flex-col"
+            >
+              <div className="h-[68px] flex items-center justify-end px-6">
+                <button onClick={() => setOpen(false)} aria-label="Close menu">
+                  <X size={24} className="text-foreground" />
+                </button>
+              </div>
+
+              <nav className="flex flex-col gap-1 px-6 py-4 flex-1">
+                {navItems.map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase().replace(" ", "-")}`}
+                    onClick={() => setOpen(false)}
+                    className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </nav>
+
+              <div className="p-6">
+                <a
+                  href="#book-call"
+                  onClick={() => setOpen(false)}
+                  className="block text-center bg-primary text-primary-foreground px-5 py-3.5 text-xs font-bold uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
+                >
+                  Book Free Call →
+                </a>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
