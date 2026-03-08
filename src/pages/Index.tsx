@@ -32,9 +32,9 @@ const Index = () => {
         <Suspense fallback={<SectionFallback />}>
           <SocialProofSection />
         </Suspense>
-        <Suspense fallback={<SectionFallback />}>
+        {/* <Suspense fallback={<SectionFallback />}>
           <TweetProofSection />
-        </Suspense>
+        </Suspense> */}
         <Suspense fallback={<SectionFallback />}>
           <ProblemSection />
         </Suspense>
