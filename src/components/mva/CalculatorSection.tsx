@@ -41,11 +41,9 @@ const CalculatorSection = () => {
   const handleSelect = (value: string) => {
     const step = stepOrder[current];
     selections[step].set(value);
-
     if (current < 3) {
       setTimeout(() => setCurrent(current + 1), 300);
     } else {
-      // Calculate
       const rev = revenueValues[revenue] || revenueValues[revenueTargets[0]];
       const avg = priceAvg[price === "" ? pricePoints[0] : price] || priceAvg[pricePoints[0]];
       const nm = nicheMultiplier[value] || 1;
@@ -58,108 +56,67 @@ const CalculatorSection = () => {
   };
 
   const reset = () => {
-    setCurrent(0);
-    setProduct("");
-    setRevenue("");
-    setPrice("");
-    setNiche("");
-    setResult(null);
+    setCurrent(0); setProduct(""); setRevenue(""); setPrice(""); setNiche(""); setResult(null);
   };
 
   const progress = result !== null ? 100 : ((current) / 4) * 100;
   const step = stepOrder[current];
 
   return (
-    <section id="calculator" className="dark-section py-28 px-6 relative overflow-hidden">
+    <section id="calculator" className="dark-section py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
       <div className="container mx-auto max-w-[720px] relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <div className="text-center mb-10">
-            <Calculator className="text-primary mx-auto mb-4" size={32} />
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-3">
+        <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <div className="text-center mb-8">
+            <Calculator className="text-primary mx-auto mb-3" size={28} />
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-2">
               Calculate Your Minimum<br />Viable Audience
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto leading-relaxed text-sm">
-              Answer 4 quick questions to estimate how large your audience needs to be before launching.
+              Estimate how large your audience needs to be before launching your product.
             </p>
           </div>
         </motion.div>
 
-        {/* Progress */}
-        <div className="w-full h-1.5 rounded-full mb-8 overflow-hidden" style={{ backgroundColor: "hsl(265 30% 20%)" }}>
-          <motion.div
-            className="h-full bg-primary rounded-full"
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          />
+        <div className="w-full h-1.5 rounded-full mb-6 overflow-hidden" style={{ backgroundColor: "hsl(265 30% 20%)" }}>
+          <motion.div className="h-full bg-primary rounded-full" animate={{ width: `${progress}%` }} transition={{ duration: 0.4, ease: "easeOut" }} />
         </div>
 
         <AnimatePresence mode="wait">
           {result === null ? (
-            <motion.div
-              key={step}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.3 }}
-            >
+            <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
               <p className="text-xs text-muted-foreground mb-2">Step {current + 1} of 4</p>
-              <h3 className="font-display text-xl md:text-2xl font-bold mb-6">{stepLabels[step]}</h3>
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-5">{stepLabels[step]}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {selections[step].options.map((opt) => (
-                  <motion.button
-                    key={opt}
-                    onClick={() => handleSelect(opt)}
-                    whileHover={{ y: -3 }}
-                    className="text-left rounded-card p-5 transition-colors cursor-pointer border"
-                    style={{
-                      backgroundColor: "hsl(265 60% 12%)",
-                      borderColor: selections[step].value === opt ? "hsl(253 100% 62%)" : "hsl(265 30% 20%)",
-                    }}
-                  >
+                  <motion.button key={opt} onClick={() => handleSelect(opt)} whileHover={{ y: -2 }}
+                    className="text-left rounded-card p-4 transition-colors cursor-pointer border"
+                    style={{ backgroundColor: "hsl(265 60% 12%)", borderColor: selections[step].value === opt ? "hsl(253 100% 62%)" : "hsl(265 30% 20%)" }}>
                     <span className="text-sm font-medium">{opt}</span>
                   </motion.button>
                 ))}
               </div>
             </motion.div>
           ) : (
-            <motion.div
-              key="result"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="text-center"
-            >
-              <div className="rounded-card p-8 border mb-8" style={{ backgroundColor: "hsl(265 60% 12%)", borderColor: "hsl(265 30% 20%)" }}>
-                <Users className="text-primary mx-auto mb-3" size={28} />
+            <motion.div key="result" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="text-center">
+              <div className="rounded-card p-6 border mb-6" style={{ backgroundColor: "hsl(265 60% 12%)", borderColor: "hsl(265 30% 20%)" }}>
+                <Users className="text-primary mx-auto mb-2" size={24} />
                 <p className="text-xs font-semibold text-muted-foreground tracking-wide mb-1">YOUR MINIMUM VIABLE AUDIENCE</p>
-                <motion.p
-                  className="font-display text-5xl md:text-6xl font-extrabold text-primary"
-                  initial={{ scale: 0.5 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.2, type: "spring" }}
-                >
+                <motion.p className="font-display text-5xl md:text-6xl font-extrabold text-primary" initial={{ scale: 0.5 }} animate={{ scale: 1 }} transition={{ delay: 0.2, type: "spring" }}>
                   {result.toLocaleString()}
                 </motion.p>
-                <p className="text-xs text-muted-foreground mt-2">people needed in your audience</p>
-                <div className="flex flex-wrap gap-2 justify-center mt-4 text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground mt-1">people needed in your audience</p>
+                <div className="flex flex-wrap gap-2 justify-center mt-3 text-xs text-muted-foreground">
                   <span className="px-3 py-1 rounded-full border" style={{ borderColor: "hsl(265 30% 20%)" }}>{product}</span>
                   <span className="px-3 py-1 rounded-full border" style={{ borderColor: "hsl(265 30% 20%)" }}>{revenue}/mo</span>
                   <span className="px-3 py-1 rounded-full border" style={{ borderColor: "hsl(265 30% 20%)" }}>{price}</span>
                   <span className="px-3 py-1 rounded-full border" style={{ borderColor: "hsl(265 30% 20%)" }}>{niche}</span>
                 </div>
               </div>
-
-              <a
-                href="#quiz"
-                className="bg-primary text-primary-foreground px-8 py-4 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2 animate-pulse-cta"
-              >
-                Continue to Audience Strategy Quiz <ArrowRight size={16} />
+              <a href="#quiz" className="bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2 animate-pulse-cta">
+                Continue to Strategy Quiz <ArrowRight size={16} />
               </a>
-              <p className="text-xs text-muted-foreground mt-3">Get a personalized growth strategy →</p>
-              <button onClick={reset} className="mt-4 text-xs text-muted-foreground underline hover:text-primary transition-colors">
-                Recalculate
-              </button>
+              <button onClick={reset} className="block mx-auto mt-3 text-xs text-muted-foreground underline hover:text-primary transition-colors">Recalculate</button>
             </motion.div>
           )}
         </AnimatePresence>
