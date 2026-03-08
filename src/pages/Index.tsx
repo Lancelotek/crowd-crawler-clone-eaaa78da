@@ -1,14 +1,23 @@
+import { lazy, Suspense } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import HeroSection from "@/components/mva/HeroSection";
-import SocialProofSection from "@/components/mva/SocialProofSection";
-import ProblemSection from "@/components/mva/ProblemSection";
-import SolutionSection from "@/components/mva/SolutionSection";
-import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
-import CalculatorSection from "@/components/mva/CalculatorSection";
-import QuizFunnelSection from "@/components/mva/QuizFunnelSection";
-import FinalCTASection from "@/components/mva/FinalCTASection";
-import FooterSection from "@/components/mva/FooterSection";
 import StickyCTA from "@/components/mva/StickyCTA";
+
+// Lazy load below-fold sections
+const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
+const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
+const SolutionSection = lazy(() => import("@/components/mva/SolutionSection"));
+const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
+const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
+const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
+const FinalCTASection = lazy(() => import("@/components/mva/FinalCTASection"));
+const FooterSection = lazy(() => import("@/components/mva/FooterSection"));
+
+const SectionFallback = () => (
+  <div className="py-16 flex items-center justify-center">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
   return (
@@ -18,15 +27,31 @@ const Index = () => {
       </header>
       <main>
         <HeroSection />
-        <SocialProofSection />
-        <ProblemSection />
-        <SolutionSection />
-        <CaseStudiesSection />
-        <CalculatorSection />
-        <QuizFunnelSection />
-        <FinalCTASection />
+        <Suspense fallback={<SectionFallback />}>
+          <SocialProofSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <ProblemSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <SolutionSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CaseStudiesSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <CalculatorSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <QuizFunnelSection />
+        </Suspense>
+        <Suspense fallback={<SectionFallback />}>
+          <FinalCTASection />
+        </Suspense>
       </main>
-      <FooterSection />
+      <Suspense fallback={null}>
+        <FooterSection />
+      </Suspense>
       <StickyCTA />
     </div>
   );
