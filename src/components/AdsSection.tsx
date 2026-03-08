@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import ScrollReveal from "./ScrollReveal";
+
 const rows = [
   { phase: "PHASE 1", campaign: "Content Boost — Top Posts", budget: "$5–$10", objective: "Reach + Engagement", audience: "Cold: Interest targeting (niche)" },
   { phase: "PHASE 1", campaign: "Profile Visit Ads", budget: "$5", objective: "Follows", audience: "Cold: Similar interests" },
@@ -17,53 +20,55 @@ const AdsSection = () => {
   return (
     <section id="ads" className="py-24 px-6 bg-secondary">
       <div className="container mx-auto">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">
-          // Paid Growth Stack
-        </p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
-          Ad
-          <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>
-            Strategy
-          </span>
-        </h2>
+        <ScrollReveal>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary mb-3">// Paid Growth Stack</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.94] tracking-tight mb-16">
+            Ad<br />
+            <span className="text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--foreground))" }}>Strategy</span>
+          </h2>
+        </ScrollReveal>
 
-        <div className="overflow-x-auto mb-px">
-          <table className="w-full border-collapse border border-border">
-            <thead>
-              <tr className="bg-primary text-primary-foreground">
-                {["Phase", "Campaign Type", "Budget/day", "Objective", "Audience"].map((h) => (
-                  <th key={h} className="text-left text-[10px] font-semibold uppercase tracking-[0.12em] px-5 py-3.5">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr key={i} className="border-b border-border hover:bg-card transition-colors">
-                  <td className="px-5 py-4">
-                    <span className="text-[9px] font-semibold uppercase tracking-[0.08em] text-primary border border-primary/20 px-2.5 py-1">
-                      {r.phase}
-                    </span>
-                  </td>
-                  <td className="px-5 py-4 text-sm text-foreground/65">{r.campaign}</td>
-                  <td className="px-5 py-4 text-sm text-foreground/65">{r.budget}</td>
-                  <td className="px-5 py-4 text-sm text-foreground/65">{r.objective}</td>
-                  <td className="px-5 py-4 text-sm text-foreground/65">{r.audience}</td>
+        <ScrollReveal>
+          <div className="overflow-x-auto mb-px">
+            <table className="w-full border-collapse border border-border">
+              <thead>
+                <tr className="bg-primary text-primary-foreground">
+                  {["Phase", "Campaign Type", "Budget/day", "Objective", "Audience"].map((h) => (
+                    <th key={h} className="text-left text-[10px] font-semibold uppercase tracking-[0.12em] px-5 py-3.5">{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={i} className="border-b border-border hover:bg-card transition-colors">
+                    <td className="px-5 py-4">
+                      <span className="text-[9px] font-semibold uppercase tracking-[0.08em] text-primary border border-primary/20 px-2.5 py-1">{r.phase}</span>
+                    </td>
+                    <td className="px-5 py-4 text-sm text-foreground/65">{r.campaign}</td>
+                    <td className="px-5 py-4 text-sm text-foreground/65">{r.budget}</td>
+                    <td className="px-5 py-4 text-sm text-foreground/65">{r.objective}</td>
+                    <td className="px-5 py-4 text-sm text-foreground/65">{r.audience}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </ScrollReveal>
 
         <div className="grid md:grid-cols-3 gap-px bg-border">
-          {rules.map((rule) => (
-            <div key={rule.id} className="bg-background p-7">
+          {rules.map((rule, i) => (
+            <motion.div
+              key={rule.id}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-background p-7"
+            >
               <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary mb-2.5">{rule.id}</p>
               <h3 className="text-base font-extrabold uppercase tracking-tight mb-2">{rule.title}</h3>
               <p className="text-[13px] text-muted-foreground leading-relaxed">{rule.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
