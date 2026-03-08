@@ -14,7 +14,7 @@ export default {
     },
     fontFamily: {
       sans: ['Inter', 'system-ui', 'sans-serif'],
-      display: ['Manrope', 'Inter', 'sans-serif'],
+      display: ['Rajdhani', 'Inter', 'sans-serif'],
     },
     extend: {
       colors: {
