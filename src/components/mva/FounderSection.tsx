@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Rocket, Users, BookOpen } from "lucide-react";
-import portrait from "@/assets/expert-portrait.png";
+import portrait from "@/assets/founder-portrait.png";
 
 const highlights = [
   { icon: Rocket, text: "Multiple successful product launches" },
