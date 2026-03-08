@@ -6,6 +6,7 @@ import caseGamedec from "@/assets/case-gamedec.jpg";
 import caseSherly from "@/assets/case-sherly.jpg";
 import caseCitywood from "@/assets/case-citywood.jpg";
 import casePureshape from "@/assets/case-pureshape.jpg";
+import caseNapospy from "@/assets/case-napospy.jpg";
 
 const cases = [
   {
@@ -55,6 +56,13 @@ const cases = [
     title: "PureShape",
     desc: "Mousepad for Apple Magic Mouse — less friction, more precision and freedom.",
     metric: "$27 075",
+    metricLabel: "Total Funds Raised",
+  },
+  {
+    image: caseNapospy,
+    title: "NapoSpy",
+    desc: "Smart leather gloves with tracking, remote buzzer, and touchscreen functionality.",
+    metric: "$7 248",
     metricLabel: "Total Funds Raised",
   },
 ];
