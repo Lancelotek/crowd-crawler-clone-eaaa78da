@@ -51,6 +51,67 @@ const SystemSection = () => {
           The Demand Engine Behind<br /><span className="text-primary">Successful Launches</span>
         </motion.h2>
 
+        {/* Mobile: orbit nodes as interactive list */}
+        <div className="lg:hidden mb-12">
+          <div className="flex flex-col gap-3">
+            {orbitNodes.map((node, i) => (
+              <motion.button
+                key={`mobile-node-${i}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setActiveNode(activeNode === i ? null : i)}
+                className="w-full text-left rounded-xl border p-4 transition-all duration-300"
+                style={{
+                  backgroundColor: activeNode === i ? `hsl(${node.color} / 0.1)` : "hsl(265 60% 12%)",
+                  borderColor: activeNode === i ? `hsl(${node.color} / 0.4)` : "hsl(265 30% 20%)",
+                }}
+              >
+                <div className="flex items-center gap-3">
+                  <motion.div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white flex-shrink-0"
+                    style={{
+                      background: `hsl(${node.color})`,
+                      boxShadow: activeNode === i
+                        ? `0 0 20px hsl(${node.color} / 0.5)`
+                        : `0 0 8px hsl(${node.color} / 0.2)`,
+                    }}
+                    animate={activeNode === i ? { scale: [1, 1.1, 1] } : {}}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                  >
+                    {node.label.slice(0, 2).toUpperCase()}
+                  </motion.div>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-sm font-bold">{node.label}</span>
+                    <AnimatePresence>
+                      {activeNode === i && (
+                        <motion.p
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-xs text-muted-foreground leading-relaxed mt-1 overflow-hidden"
+                        >
+                          {node.detail}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: activeNode === i ? 45 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-muted-foreground flex-shrink-0"
+                  >
+                    <span className="text-lg leading-none">+</span>
+                  </motion.div>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-8 items-center">
           {/* Left cards */}
           <div className="flex flex-col gap-5">
@@ -59,7 +120,7 @@ const SystemSection = () => {
             ))}
           </div>
 
-          {/* Center animated diagram */}
+          {/* Center animated diagram — desktop only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -79,7 +140,6 @@ const SystemSection = () => {
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
               />
-              {/* Connection lines to active node */}
               {orbitNodes.map((node, i) => (
                 <motion.line
                   key={`line-${i}`}
@@ -94,7 +154,6 @@ const SystemSection = () => {
               ))}
             </svg>
 
-            {/* Small ambient dots */}
             {smallDots.map((dot, i) => (
               <motion.div
                 key={`small-${i}`}
@@ -110,7 +169,6 @@ const SystemSection = () => {
               />
             ))}
 
-            {/* Clickable orbit nodes */}
             {orbitNodes.map((node, i) => (
               <motion.button
                 key={`node-${i}`}
@@ -127,7 +185,6 @@ const SystemSection = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveNode(activeNode === i ? null : i)}
               >
-                {/* Pulse ring on active */}
                 {activeNode === i && (
                   <motion.div
                     className="absolute inset-[-8px] rounded-full border-2"
@@ -147,14 +204,12 @@ const SystemSection = () => {
                 >
                   {node.label.slice(0, 2).toUpperCase()}
                 </div>
-                {/* Hover label */}
                 <div className="absolute left-1/2 -translate-x-1/2 -top-7 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-[10px] font-semibold text-primary-foreground bg-primary/90 px-2 py-0.5 rounded-md pointer-events-none">
                   {node.label}
                 </div>
               </motion.button>
             ))}
 
-            {/* Detail popup */}
             <AnimatePresence>
               {activeNode !== null && (
                 <motion.div
@@ -184,7 +239,6 @@ const SystemSection = () => {
               )}
             </AnimatePresence>
 
-            {/* Pulsing rings */}
             <motion.div
               className="absolute w-24 h-24 rounded-full border border-primary/20"
               animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0, 0.3] }}
@@ -196,7 +250,6 @@ const SystemSection = () => {
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
             />
 
-            {/* Central circle */}
             <motion.div
               className="relative z-10 w-16 h-16 rounded-full bg-primary flex flex-col items-center justify-center cursor-pointer"
               animate={{
@@ -214,7 +267,6 @@ const SystemSection = () => {
               <span className="text-[8px] font-semibold text-primary-foreground/70 leading-none mt-0.5">CORE</span>
             </motion.div>
 
-            {/* Floating badges */}
             <motion.div
               className="absolute top-2 right-[-10px] bg-card/90 backdrop-blur-sm rounded-xl px-3 py-2 shadow-lg border border-border/50"
               initial={{ opacity: 0, x: 20 }}
