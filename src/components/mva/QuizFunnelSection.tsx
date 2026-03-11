@@ -94,7 +94,7 @@ const QuizFunnelSection = () => {
         <div className="w-full h-1.5 bg-border rounded-full mb-6 overflow-hidden">
           <motion.div className="h-full bg-primary rounded-full" animate={{ width: `${progress}%` }} transition={{ duration: 0.4, ease: "easeOut" }} />
         </div>
-
+        <div className="min-h-[320px]">
         <AnimatePresence mode="wait">
           {stage === "quiz" && (
             <motion.div key={`quiz-${step}`} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }}>
