@@ -38,8 +38,9 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-3">
-            <a href="#calculator" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
-              Calculate MVA →
+            <a href="#cta" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+              Get Started →
+            </a>
             </a>
             <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1" aria-label="Toggle menu">
               {open ? <X size={22} /> : <Menu size={22} />}
