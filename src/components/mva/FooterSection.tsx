@@ -26,7 +26,7 @@ const FooterSection = () => {
               <li><a href="#system" className="text-sm text-muted-foreground hover:text-primary transition-colors">How It Works</a></li>
               <li><a href="#calculator" className="text-sm text-muted-foreground hover:text-primary transition-colors">MVA Calculator</a></li>
               <li><a href="#quiz" className="text-sm text-muted-foreground hover:text-primary transition-colors">Strategy Quiz</a></li>
-              <li><a href="https://calendly.com/marekciesla/30min" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">Book a Call</a></li>
+              <li><a href="/book" className="text-sm text-muted-foreground hover:text-primary transition-colors">Book a Call</a></li>
             </ul>
           </div>
 
