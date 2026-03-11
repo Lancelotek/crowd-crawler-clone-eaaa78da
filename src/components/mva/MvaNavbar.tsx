@@ -37,7 +37,10 @@ const MvaNavbar = () => {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <a href="https://calendly.com/marekciesla/30min" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-block border border-border px-5 py-2 text-sm font-semibold rounded-button hover:border-primary hover:text-primary transition-colors">
+              Book a Call
+            </a>
             <a href="#cta" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
               Get Started →
             </a>
