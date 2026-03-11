@@ -63,7 +63,7 @@ const CalculatorSection = () => {
   const step = stepOrder[current];
 
   return (
-    <section id="calculator" className="dark-section py-20 px-6 relative overflow-hidden">
+    <section id="calculator" className="dark-section py-12 px-6 relative overflow-hidden rounded-card">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
       <div className="container mx-auto max-w-[720px] relative z-10">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
@@ -113,9 +113,7 @@ const CalculatorSection = () => {
                   <span className="px-3 py-1 rounded-full border" style={{ borderColor: "hsl(265 30% 20%)" }}>{niche}</span>
                 </div>
               </div>
-              <a href="#quiz" className="bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2 animate-pulse-cta">
-                Continue to Strategy Quiz <ArrowRight size={16} />
-              </a>
+              <p className="text-sm text-muted-foreground mt-4">Now you know your target. Close this and take the Strategy Quiz to find how to get there.</p>
               <button onClick={reset} className="block mx-auto mt-3 text-xs text-muted-foreground underline hover:text-primary transition-colors">Recalculate</button>
             </motion.div>
           )}

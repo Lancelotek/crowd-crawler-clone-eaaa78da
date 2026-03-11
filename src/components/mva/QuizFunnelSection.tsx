@@ -79,7 +79,7 @@ const QuizFunnelSection = () => {
   const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); };
 
   return (
-    <section id="quiz" className="py-20 px-6 bg-secondary">
+    <section id="quiz" className="py-12 px-6 bg-secondary rounded-card">
       <div className="container mx-auto max-w-[720px]">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <div className="text-center mb-8">
