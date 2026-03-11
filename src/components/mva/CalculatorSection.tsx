@@ -63,7 +63,7 @@ const CalculatorSection = () => {
   const step = stepOrder[current];
 
   return (
-    <section id="calculator" className="dark-section py-20 px-6 relative overflow-hidden">
+    <section id="calculator" className="dark-section py-12 px-6 relative overflow-hidden rounded-card">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent pointer-events-none" />
       <div className="container mx-auto max-w-[720px] relative z-10">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
