@@ -87,7 +87,7 @@ const FounderSection = () => {
             transition={{ duration: 0.6 }}
             className="relative md:order-2"
           >
-            <div className="rounded-card overflow-hidden max-w-[400px] mx-auto">
+            <div className="rounded-card overflow-hidden bg-secondary max-w-[400px] mx-auto">
               <img src={maciejPortrait} alt="Maciej Mikołajek — Founder & Engineer" className="w-full h-auto object-contain" style={{ maskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 75%, transparent 100%)' }} />
             </div>
           </motion.div>
