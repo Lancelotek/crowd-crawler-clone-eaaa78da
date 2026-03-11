@@ -28,4 +28,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://crowd-crawler-clone.lovable.app/sitemap.xml
+Sitemap: https://jay23.com/sitemap.xml
