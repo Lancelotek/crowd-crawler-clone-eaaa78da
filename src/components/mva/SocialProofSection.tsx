@@ -36,7 +36,7 @@ const SocialProofSection = () => {
         </div>
 
         <div className="w-full">
-          <img alt="Trusted by leading brands" className="w-full object-contain opacity-50" loading="lazy" decoding="async" src="/lovable-uploads/9e17c3fc-0fe1-43f4-979f-f144aa260b0d.png" style={{ maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 40%, black 60%, transparent 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 40%, black 60%, transparent 70%, transparent 100%)' }} />
+          <img alt="Trusted by leading brands" className="w-full object-contain opacity-50" loading="lazy" decoding="async" src="/lovable-uploads/9e17c3fc-0fe1-43f4-979f-f144aa260b0d.png" />
         </div>
       </div>
     </section>);
