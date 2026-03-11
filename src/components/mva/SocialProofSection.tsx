@@ -36,7 +36,17 @@ const SocialProofSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <img src={clientLogos} alt="Trusted by leading brands" className="w-full max-w-[800px] h-auto object-contain opacity-50" loading="lazy" decoding="async" />
+          <img
+            src={clientLogos}
+            alt="Trusted by leading brands"
+            className="w-full max-w-[800px] h-auto object-contain opacity-50"
+            loading="lazy"
+            decoding="async"
+            style={{
+              maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 40%, black 60%, transparent 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 30%, black 40%, black 60%, transparent 70%, transparent 100%)',
+            }}
+          />
         </div>
       </div>
     </section>
