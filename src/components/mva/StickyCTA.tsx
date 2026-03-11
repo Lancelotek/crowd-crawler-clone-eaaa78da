@@ -22,10 +22,10 @@ const StickyCTA = () => {
           className="fixed bottom-0 left-0 right-0 z-40 sm:hidden p-3 bg-background/95 backdrop-blur-xl border-t border-border"
         >
           <a
-            href="#calculator"
+            href="#cta"
             className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all flex items-center justify-center gap-2 animate-pulse-cta"
           >
-            Calculate Your MVA <ArrowRight size={16} />
+            Get Started <ArrowRight size={16} />
           </a>
         </motion.div>
       )}
