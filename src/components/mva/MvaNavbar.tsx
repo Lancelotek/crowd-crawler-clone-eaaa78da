@@ -7,7 +7,6 @@ import logo from "@/assets/jay23-logo.png";
 const navItems = [
   { label: "Framework", href: "#solution" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "Calculator", href: "#calculator" },
   { label: "Blog", href: "/blog" },
 ];
 
