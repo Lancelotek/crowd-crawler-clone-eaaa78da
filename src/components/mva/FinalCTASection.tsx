@@ -12,7 +12,7 @@ const FinalCTASection = () => {
 
   return (
     <>
-      <section className="py-20 px-6 bg-primary relative overflow-hidden">
+      <section id="cta" className="py-20 px-6 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(253_100%_50%)] pointer-events-none" />
         <div className="container mx-auto max-w-[800px] text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
@@ -34,7 +34,7 @@ const FinalCTASection = () => {
                 <Sparkles size={16} /> Find Your Growth Strategy <ArrowRight size={16} />
               </button>
             </div>
-            <p className="text-xs text-primary-foreground/60">Free • Takes 30 seconds • No signup required</p>
+            
           </motion.div>
         </div>
       </section>

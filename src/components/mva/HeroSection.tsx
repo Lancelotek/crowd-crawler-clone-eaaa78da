@@ -37,12 +37,6 @@ const NetworkVisual = () => (
   </svg>
 );
 
-const trustMetrics = [
-  { value: "3,000+", label: "Founders" },
-  { value: "12,000+", label: "Waitlist subscribers built" },
-  { value: "$500k+", label: "Launches supported" },
-];
-
 const HeroSection = () => {
   return (
     <section className="min-h-[85vh] pt-[100px] pb-16 px-6 relative overflow-hidden">
@@ -53,13 +47,6 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           {/* Left — copy */}
           <div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-5">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-primary/8 px-4 py-1.5 rounded-full border border-primary/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                MVA Framework
-              </span>
-            </motion.div>
-
             <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="font-display text-4xl md:text-5xl lg:text-[56px] font-extrabold leading-[1.1] tracking-tight mb-5">
               Build Your First
               <br />
@@ -72,28 +59,13 @@ const HeroSection = () => {
               The Minimum Viable Audience framework helps founders validate ideas, build demand, and launch with an audience already waiting.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="flex items-center gap-3 flex-wrap mb-3">
-              <a href="#calculator" className="bg-primary text-primary-foreground px-7 py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2 animate-pulse-cta">
-                Calculate Your Minimum Viable Audience <ArrowRight size={16} />
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="flex items-center gap-3 flex-wrap">
+              <a href="#cta" className="bg-primary text-primary-foreground px-7 py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2 animate-pulse-cta">
+                Get Started <ArrowRight size={16} />
               </a>
               <a href="#solution" className="border border-border px-6 py-3.5 text-sm font-medium rounded-button hover:border-primary hover:text-primary transition-colors inline-flex items-center gap-2">
                 See How It Works <ChevronDown size={16} />
               </a>
-            </motion.div>
-
-            {/* Microcopy */}
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.55 }} className="text-xs text-muted-foreground mb-8">
-              Free tool • Takes 30 seconds • No signup required
-            </motion.p>
-
-            {/* Stripe-style trust badges */}
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="flex items-center gap-3 flex-wrap">
-              {trustMetrics.map((m, i) => (
-                <div key={i} className="flex items-center gap-2 bg-card border border-border rounded-full px-4 py-2">
-                  <span className="font-display text-sm font-extrabold text-primary">{m.value}</span>
-                  <span className="text-xs text-muted-foreground">{m.label}</span>
-                </div>
-              ))}
             </motion.div>
           </div>
 
