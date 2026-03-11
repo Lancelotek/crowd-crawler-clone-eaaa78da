@@ -167,6 +167,7 @@ const QuizFunnelSection = () => {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </div>
     </section>
   );
