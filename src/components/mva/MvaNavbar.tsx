@@ -63,8 +63,8 @@ const MvaNavbar = () => {
                 ))}
               </nav>
               <div className="p-6">
-                <a href="#calculator" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
-                  Calculate MVA →
+                <a href="#cta" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+                  Get Started →
                 </a>
               </div>
             </motion.aside>

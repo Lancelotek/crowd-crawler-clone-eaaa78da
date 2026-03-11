@@ -11,7 +11,7 @@ const metrics = [
 
 const SocialProofSection = () => {
   return (
-    <section className="py-20 px-6 border-t border-border">
+    <section className="py-20 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <p className="text-xs font-semibold text-primary mb-2 tracking-wide text-center">Social Proof</p>
         <h2 className="font-display text-2xl md:text-3xl font-extrabold leading-tight tracking-tight mb-10 text-center">
