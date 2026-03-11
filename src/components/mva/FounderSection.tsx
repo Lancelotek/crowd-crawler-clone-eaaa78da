@@ -112,10 +112,10 @@ const FounderSection = () => {
               </a>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Founder & engineer obsessed with clarity and products that don't waste people's time. From visual programming languages at Enso to building AI-first tools — Maciej designs and ships fast, calm products for people drowning in complexity.
+              Maciej is the technical engine behind the MVA Framework. Years of shipping products — from AI tools to mobile apps to data platforms — mean your landing pages, funnels, and automations get built fast and built right.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Currently running SalesPad.ai (concept to real-world pilot in 2 months), previously built Blinkfeed — a privacy-first AI email client. Backed by ReaktorX & Smok VC. Dropped out of a Masters to go all-in on building.
+              While Marek designs the audience strategy, Maciej turns it into reality: high-converting pages, email sequences, AI-powered lead scoring, analytics dashboards — whatever your launch needs to actually work.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {maciejHighlights.map((h, i) => (
