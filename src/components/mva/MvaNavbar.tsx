@@ -7,7 +7,6 @@ import logo from "@/assets/jay23-logo.png";
 const navItems = [
   { label: "Framework", href: "#solution" },
   { label: "Case Studies", href: "#case-studies" },
-  { label: "Calculator", href: "#calculator" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -39,8 +38,8 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-3">
-            <a href="#calculator" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
-              Calculate MVA →
+            <a href="#cta" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+              Get Started →
             </a>
             <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1" aria-label="Toggle menu">
               {open ? <X size={22} /> : <Menu size={22} />}
@@ -63,8 +62,8 @@ const MvaNavbar = () => {
                 ))}
               </nav>
               <div className="p-6">
-                <a href="#calculator" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
-                  Calculate MVA →
+                <a href="#cta" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+                  Get Started →
                 </a>
               </div>
             </motion.aside>

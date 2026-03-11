@@ -39,7 +39,7 @@ const NetworkVisual = () => (
 
 const HeroSection = () => {
   return (
-    <section className="min-h-[85vh] pt-[100px] pb-16 px-6 relative overflow-hidden">
+    <section className="min-h-[70vh] pt-[100px] pb-12 px-6 relative overflow-hidden">
       <div className="absolute inset-0 bg-[var(--hero-gradient)] pointer-events-none" />
       <div className="absolute top-1/3 right-[5%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
