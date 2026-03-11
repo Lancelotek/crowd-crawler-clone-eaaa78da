@@ -11,10 +11,10 @@ const marekHighlights = [
 ];
 
 const maciejHighlights = [
-  { icon: Code, text: "Full-stack founder & engineer" },
-  { icon: Rocket, text: "From zero to pilot in 2 months (ReaktorX)" },
-  { icon: Award, text: "AI-first product builder" },
-  { icon: Globe, text: "Backed by Smok VC & ReaktorX" },
+  { icon: Code, text: "Ships production-ready MVPs in weeks, not months" },
+  { icon: Rocket, text: "Builds landing pages, funnels & automation from scratch" },
+  { icon: Award, text: "AI integrations that save hours of manual work" },
+  { icon: Globe, text: "Full-stack: design, code, infra — one person, zero handoffs" },
 ];
 
 const FounderSection = () => {
