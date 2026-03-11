@@ -28,4 +28,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://jay23.com/sitemap.xml
+Sitemap: https://zquojuopxmvvzadwshjx.supabase.co/functions/v1/sitemap
