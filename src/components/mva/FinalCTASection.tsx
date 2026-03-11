@@ -34,7 +34,7 @@ const FinalCTASection = () => {
                 <Sparkles size={16} /> Find Your Growth Strategy <ArrowRight size={16} />
               </button>
             </div>
-            <p className="text-xs text-primary-foreground/60">Free • Takes 30 seconds • No signup required</p>
+            
           </motion.div>
         </div>
       </section>
