@@ -6,12 +6,9 @@ import SEOHead from "@/components/SEOHead";
 
 // Lazy load below-fold sections
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
-const TweetProofSection = lazy(() => import("@/components/mva/TweetProofSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
 const SolutionSection = lazy(() => import("@/components/mva/SolutionSection"));
 const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
-const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
-const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
 const FounderSection = lazy(() => import("@/components/mva/FounderSection"));
 const FinalCTASection = lazy(() => import("@/components/mva/FinalCTASection"));
 const FooterSection = lazy(() => import("@/components/mva/FooterSection"));
@@ -38,9 +35,6 @@ const Index = () => {
         <Suspense fallback={<SectionFallback />}>
           <SocialProofSection />
         </Suspense>
-        {/* <Suspense fallback={<SectionFallback />}>
-          <TweetProofSection />
-        </Suspense> */}
         <Suspense fallback={<SectionFallback />}>
           <ProblemSection />
         </Suspense>
@@ -52,12 +46,6 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <FounderSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <CalculatorSection />
-        </Suspense>
-        <Suspense fallback={<SectionFallback />}>
-          <QuizFunnelSection />
         </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <FinalCTASection />
