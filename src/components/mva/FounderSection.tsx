@@ -13,8 +13,6 @@ const marekHighlights = [
 const maciejHighlights = [
   { icon: Code, text: "Ships production-ready MVPs in weeks, not months" },
   { icon: Rocket, text: "Builds landing pages, funnels & automation from scratch" },
-  { icon: Award, text: "AI integrations that save hours of manual work" },
-  { icon: Globe, text: "Full-stack: design, code, infra — one person, zero handoffs" },
 ];
 
 const FounderSection = () => {
