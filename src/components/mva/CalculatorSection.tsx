@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
