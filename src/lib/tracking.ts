@@ -52,4 +52,40 @@ export const track = {
 
   quizOpen: () =>
     trackEvent("quiz_open"),
+
+  scrollDepth: (percent: number) =>
+    trackEvent("scroll_depth", { scroll_percent: percent }),
 };
+
+// ── Scroll depth tracker ──────────────────────────────────
+// Fires events at 25%, 50%, 75%, 90% thresholds (once each per page load)
+
+let scrollInitialized = false;
+
+export function initScrollDepthTracking() {
+  if (scrollInitialized || typeof window === "undefined") return;
+  scrollInitialized = true;
+
+  const thresholds = [25, 50, 75, 90];
+  const fired = new Set<number>();
+
+  const onScroll = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    const percent = Math.round((scrollTop / docHeight) * 100);
+
+    for (const t of thresholds) {
+      if (percent >= t && !fired.has(t)) {
+        fired.add(t);
+        track.scrollDepth(t);
+      }
+    }
+
+    if (fired.size === thresholds.length) {
+      window.removeEventListener("scroll", onScroll);
+    }
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
