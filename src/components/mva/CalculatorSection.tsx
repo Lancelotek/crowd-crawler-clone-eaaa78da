@@ -85,6 +85,7 @@ const CalculatorSection = () => {
           answers: [`MVA Calculator: ${product}, ${revenue}/mo, ${price}, ${niche}, Result: ${result?.toLocaleString()}`],
         },
       });
+      track.leadSubmit("calculator");
       setSubmitted(true);
     } catch (err) {
       console.error('Error:', err);

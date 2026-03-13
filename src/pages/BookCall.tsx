@@ -307,7 +307,7 @@ const BookCall = () => {
             className="mb-6"
           >
             <button
-              onClick={() => setCalOpen(true)}
+              onClick={() => { setCalOpen(true); track.bookingClick("book_page"); }}
               className="w-full flex items-center justify-center gap-2.5 bg-primary text-primary-foreground py-4.5 px-8 rounded-[var(--radius-button)] text-base font-bold animate-pulse-cta hover:bg-primary/90 hover:shadow-[0_8px_36px_hsl(var(--primary)/0.45)] hover:translate-y-[-1px] active:scale-[0.98] transition-all"
             >
               <Calendar className="w-5 h-5" />

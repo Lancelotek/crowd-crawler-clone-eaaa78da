@@ -68,7 +68,7 @@ const MvaNavbar = () => {
                 ))}
               </nav>
               <div className="p-6">
-                <a href="#cta" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+                <a href="#cta" onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
                   {t("nav", "getStarted")}
                 </a>
               </div>

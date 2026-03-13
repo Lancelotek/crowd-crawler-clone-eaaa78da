@@ -61,6 +61,7 @@ const QuizFunnelSection = () => {
         body: { name: name.trim(), email: email.trim(), answers },
       });
       if (error) throw error;
+      track.leadSubmit("quiz");
       setStage("result");
     } catch (err: any) {
       console.error('Error:', err);

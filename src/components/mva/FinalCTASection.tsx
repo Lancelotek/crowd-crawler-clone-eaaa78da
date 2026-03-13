@@ -24,10 +24,10 @@ const FinalCTASection = () => {
               <span className="opacity-80">{t("finalCTA", "subtitle")}</span>
             </h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-3">
-              <button onClick={() => setCalcOpen(true)} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
+              <button onClick={() => { setCalcOpen(true); track.calcOpen(); }} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
                 <Calculator size={16} /> {t("finalCTA", "calcBtn")} <ArrowRight size={16} />
               </button>
-              <button onClick={() => setQuizOpen(true)} className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex items-center gap-2">
+              <button onClick={() => { setQuizOpen(true); track.quizOpen(); }} className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex items-center gap-2">
                 <Sparkles size={16} /> {t("finalCTA", "quizBtn")} <ArrowRight size={16} />
               </button>
             </div>
