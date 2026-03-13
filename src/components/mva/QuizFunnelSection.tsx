@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 
 
@@ -37,6 +38,14 @@ const QuizFunnelSection = () => {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const { ready: recaptchaReady, renderRecaptcha, resetRecaptcha } = useRecaptcha();
+
+  useEffect(() => {
+    if (stage === "lead" && recaptchaReady) {
+      setTimeout(() => renderRecaptcha("quiz-recaptcha", setRecaptchaToken), 100);
+    }
+  }, [stage, recaptchaReady, renderRecaptcha]);
 
   const progress = stage === "quiz" ? (answers.length / quizSteps.length) * 100 : 100;
 
@@ -60,7 +69,7 @@ const QuizFunnelSection = () => {
     setSubmitError("");
     try {
       const { error } = await supabase.functions.invoke('add-subscriber', {
-        body: { name: name.trim(), email: email.trim(), answers },
+        body: { name: name.trim(), email: email.trim(), answers, recaptchaToken },
       });
       if (error) throw error;
       track.leadSubmit("quiz");
@@ -130,7 +139,8 @@ const QuizFunnelSection = () => {
                     )}
                   </span>
                 </label>
-                <button type="submit" disabled={submitting || !consent}
+                <div id="quiz-recaptcha" className="flex justify-center" />
+                <button type="submit" disabled={submitting || !consent || !recaptchaToken}
                   className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
                   {submitting ? <><Loader2 size={16} className="animate-spin" /> Saving...</> : <>Show My Strategy <ArrowRight size={16} /></>}
                 </button>

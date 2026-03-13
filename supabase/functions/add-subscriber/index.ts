@@ -16,13 +16,40 @@ serve(async (req) => {
       throw new Error('MAILERLITE_API_KEY is not configured');
     }
 
-    const { name, email, answers } = await req.json();
+    const RECAPTCHA_SECRET_KEY = Deno.env.get('RECAPTCHA_SECRET_KEY');
+
+    const { name, email, answers, recaptchaToken } = await req.json();
 
     if (!email || !name) {
       return new Response(
         JSON.stringify({ error: 'Name and email are required' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Verify reCAPTCHA if secret key is configured
+    if (RECAPTCHA_SECRET_KEY) {
+      if (!recaptchaToken) {
+        return new Response(
+          JSON.stringify({ error: 'reCAPTCHA verification required' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const recaptchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`,
+      });
+      const recaptchaData = await recaptchaRes.json();
+
+      if (!recaptchaData.success) {
+        console.error('reCAPTCHA verification failed:', JSON.stringify(recaptchaData));
+        return new Response(
+          JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
     }
 
     // Add subscriber to MailerLite
@@ -39,7 +66,6 @@ serve(async (req) => {
           name,
           last_name: '',
         },
-        // Store quiz answers as custom fields
         ...(answers && answers.length > 0 && {
           fields: {
             name,
