@@ -64,6 +64,7 @@ const CalculatorSection = () => {
       const customersNeeded = Math.ceil(rev / avg);
       const conversionRate = 0.02;
       const mva = Math.ceil((customersNeeded / conversionRate) * nm * pm);
+      track.calculatorResult(mva, product, revenue);
       setTimeout(() => setResult(mva), 300);
     }
   };
