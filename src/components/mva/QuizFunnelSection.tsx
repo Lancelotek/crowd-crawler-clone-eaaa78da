@@ -37,14 +37,6 @@ const QuizFunnelSection = () => {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState("");
-  const { ready: recaptchaReady, renderRecaptcha, resetRecaptcha } = useRecaptcha();
-
-  useEffect(() => {
-    if (stage === "lead" && recaptchaReady) {
-      setTimeout(() => renderRecaptcha("quiz-recaptcha", setRecaptchaToken), 100);
-    }
-  }, [stage, recaptchaReady, renderRecaptcha]);
 
   const progress = stage === "quiz" ? (answers.length / quizSteps.length) * 100 : 100;
 
