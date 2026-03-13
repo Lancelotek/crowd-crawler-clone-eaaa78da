@@ -295,7 +295,7 @@ const HeroSection = () => {
                   ))}
                 </div>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>
-                  Trusted by 12,000+ founders
+                  Trusted by 98+ founders
                 </span>
               </div>
 
