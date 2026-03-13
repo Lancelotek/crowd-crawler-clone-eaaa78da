@@ -132,7 +132,7 @@ function HeroDashboard({ visible }: { visible: boolean }) {
 
 const HeroSection = () => {
   const [heroRef, heroVisible] = useInView(0.1);
-  const { t } = useLanguage();
+  const { t, langPrefix } = useLanguage();
 
   return (
     <section ref={heroRef} className="relative overflow-hidden" style={{ background: "#0a0a12", padding: "140px 24px 100px", fontFamily: "'Inter', system-ui, sans-serif" }}>
