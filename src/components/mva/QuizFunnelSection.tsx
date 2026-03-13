@@ -79,7 +79,7 @@ const QuizFunnelSection = () => {
     }
   }, [stage]);
 
-  const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); };
+  const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); setConsent(false); };
 
   return (
     <section id="quiz" className="py-12 px-6 bg-secondary rounded-card">
