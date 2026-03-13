@@ -28,6 +28,7 @@ const strategyMap: Record<string, { strategy: string; platforms: string; audienc
 
 const QuizFunnelSection = () => {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
   const [stage, setStage] = useState<FunnelStage>("quiz");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
