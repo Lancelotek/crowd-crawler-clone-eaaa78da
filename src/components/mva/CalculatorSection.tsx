@@ -43,14 +43,6 @@ const CalculatorSection = () => {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState("");
-  const { ready: recaptchaReady, renderRecaptcha } = useRecaptcha();
-
-  useEffect(() => {
-    if (result !== null && !submitted && recaptchaReady) {
-      setTimeout(() => renderRecaptcha("calc-recaptcha", setRecaptchaToken), 100);
-    }
-  }, [result, submitted, recaptchaReady, renderRecaptcha]);
 
   const selections: Record<Step, { options: string[]; value: string; set: (v: string) => void }> = {
     product: { options: productTypes, value: product, set: setProduct },
