@@ -28,6 +28,7 @@ const stepLabels: Record<Step, string> = {
 const CONTENT_HEIGHT = "min-h-[320px]";
 
 const CalculatorSection = () => {
+  const { lang } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [product, setProduct] = useState("");
   const [revenue, setRevenue] = useState("");
@@ -36,6 +37,7 @@ const CalculatorSection = () => {
   const [result, setResult] = useState<number | null>(null);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
