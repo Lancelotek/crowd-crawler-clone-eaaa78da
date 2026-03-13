@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "@/assets/jay23-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const MvaNavbar = () => {
   const { t, langPrefix } = useLanguage();
@@ -40,10 +41,10 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <a href={`${langPrefix}/book`} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
+            <a href={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
               {t("nav", "bookCall")}
             </a>
-            <a href="#cta" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+            <a href="#cta" onClick={() => track.ctaClick("navbar", "calculator")} className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
               {t("nav", "getStarted")}
             </a>
             <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1" aria-label="Toggle menu">
@@ -67,7 +68,7 @@ const MvaNavbar = () => {
                 ))}
               </nav>
               <div className="p-6">
-                <a href="#cta" onClick={() => setOpen(false)} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+                <a href="#cta" onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
                   {t("nav", "getStarted")}
                 </a>
               </div>

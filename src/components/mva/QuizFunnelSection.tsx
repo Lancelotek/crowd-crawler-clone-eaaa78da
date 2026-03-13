@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
@@ -38,11 +39,14 @@ const QuizFunnelSection = () => {
   const progress = stage === "quiz" ? (answers.length / quizSteps.length) * 100 : 100;
 
   const selectAnswer = (option: string) => {
+    if (answers.length === 0) track.quizStart();
+    track.quizStep(step + 1, option);
     const newAnswers = [...answers, option];
     setAnswers(newAnswers);
     if (newAnswers.length < quizSteps.length) {
       setTimeout(() => setStep(step + 1), 300);
     } else {
+      track.quizComplete(newAnswers);
       setTimeout(() => setStage("lead"), 350);
     }
   };
@@ -57,6 +61,7 @@ const QuizFunnelSection = () => {
         body: { name: name.trim(), email: email.trim(), answers },
       });
       if (error) throw error;
+      track.leadSubmit("quiz");
       setStage("result");
     } catch (err: any) {
       console.error('Error:', err);

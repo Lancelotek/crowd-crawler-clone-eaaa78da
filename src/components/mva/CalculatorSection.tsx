@@ -3,6 +3,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { track } from "@/lib/tracking";
 
 const productTypes = ["SaaS / Software", "Course", "Digital Product", "Community", "Service"];
 const revenueTargets = ["$1k", "$5k", "$10k", "$25k", "$50k+"];
@@ -50,6 +51,8 @@ const CalculatorSection = () => {
 
   const handleSelect = (value: string) => {
     const step = stepOrder[current];
+    if (current === 0) track.calculatorStart();
+    track.calculatorStep(step, value);
     selections[step].set(value);
     if (current < 3) {
       setTimeout(() => setCurrent(current + 1), 300);
@@ -61,6 +64,7 @@ const CalculatorSection = () => {
       const customersNeeded = Math.ceil(rev / avg);
       const conversionRate = 0.02;
       const mva = Math.ceil((customersNeeded / conversionRate) * nm * pm);
+      track.calculatorResult(mva, product, revenue);
       setTimeout(() => setResult(mva), 300);
     }
   };
@@ -81,6 +85,7 @@ const CalculatorSection = () => {
           answers: [`MVA Calculator: ${product}, ${revenue}/mo, ${price}, ${niche}, Result: ${result?.toLocaleString()}`],
         },
       });
+      track.leadSubmit("calculator");
       setSubmitted(true);
     } catch (err) {
       console.error('Error:', err);
