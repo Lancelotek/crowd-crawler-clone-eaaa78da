@@ -66,7 +66,7 @@ const CalculatorSection = () => {
   };
 
   const reset = () => {
-    setCurrent(0); setProduct(""); setRevenue(""); setPrice(""); setNiche(""); setResult(null); setSubmitted(false); setEmail(""); setName("");
+    setCurrent(0); setProduct(""); setRevenue(""); setPrice(""); setNiche(""); setResult(null); setSubmitted(false); setEmail(""); setName(""); setConsent(false);
   };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
