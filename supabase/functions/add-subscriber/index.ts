@@ -27,15 +27,8 @@ serve(async (req) => {
       );
     }
 
-    // Verify reCAPTCHA if secret key is configured
-    if (RECAPTCHA_SECRET_KEY) {
-      if (!recaptchaToken) {
-        return new Response(
-          JSON.stringify({ error: 'reCAPTCHA verification required' }),
-          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
+    // Verify reCAPTCHA if token is provided and secret key is configured
+    if (RECAPTCHA_SECRET_KEY && recaptchaToken) {
       const recaptchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
