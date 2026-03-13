@@ -56,7 +56,7 @@ export const translations = {
   problem: {
     eyebrow: { en: "The Problem", pl: "Problem" },
     title: { en: "Most Products Launch", pl: "Większość produktów startuje" },
-    titleAccent: { en: "To Silence", pl: "W ciszę" },
+    titleAccent: { en: "To Silence", pl: "bez zbudowanej społeczności" },
     p1Title: { en: "No Audience", pl: "Brak odbiorców" },
     p1Desc: { en: "You build something great but nobody is waiting to see it.", pl: "Budujesz coś świetnego, ale nikt nie czeka, żeby to zobaczyć." },
     p2Title: { en: "No Validation", pl: "Brak walidacji" },
