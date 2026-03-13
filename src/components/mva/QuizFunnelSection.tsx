@@ -16,7 +16,7 @@ const quizSteps = [
   { question: "How soon do you want to launch?", options: ["1–3 months", "3–6 months", "6–12 months", "Just exploring"] },
 ];
 
-type FunnelStage = "quiz" | "lead" | "result";
+type FunnelStage = "quiz" | "lead";
 
 const strategyMap: Record<string, { strategy: string; platforms: string; audience: string }> = {
   SaaS: { strategy: "Audience-first validation", platforms: "Twitter/X and newsletter", audience: "6,920" },
