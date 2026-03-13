@@ -41,7 +41,7 @@ export const translations = {
   socialProof: {
     eyebrow: { en: "Social Proof", pl: "Dowody społeczne" },
     title: { en: "Creators Are Launching", pl: "Twórcy startują" },
-    titleAccent: { en: "With Demand", pl: "Z popytem" },
+    titleAccent: { en: "With Demand", pl: "Ze zbudowaną społecznością" },
     metric1Value: { en: "12,000+", pl: "12 000+" },
     metric1Label: { en: "Waitlist subscribers built", pl: "Subskrybentów waitlist" },
     metric2Value: { en: "$500K+", pl: "$500K+" },
