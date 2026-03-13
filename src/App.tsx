@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "@/i18n/LanguageContext";
+import { LanguageRedirect } from "@/i18n/LanguageRedirect";
 import Index from "./pages/Index";
 import BookCall from "./pages/BookCall";
 import Blog from "./pages/Blog";
@@ -15,6 +17,23 @@ import Process from "./pages/Process";
 
 const queryClient = new QueryClient();
 
+/** Wraps children with LanguageProvider (reads :lang from URL) */
+const LangRoutes = () => (
+  <LanguageProvider>
+    <Routes>
+      <Route index element={<Index />} />
+      <Route path="book" element={<BookCall />} />
+      <Route path="process" element={<Process />} />
+      <Route path="blog" element={<Blog />} />
+      <Route path="blog/:slug" element={<BlogPost />} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="impressum" element={<Impressum />} />
+      <Route path="terms-of-service" element={<TermsOfService />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </LanguageProvider>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -22,15 +41,17 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/book" element={<BookCall />} />
-          <Route path="/process" element={<Process />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/impressum" element={<Impressum />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Language-prefixed routes */}
+          <Route path="/:lang/*" element={<LangRoutes />} />
+          {/* Bare paths → redirect to detected language */}
+          <Route path="/" element={<LanguageRedirect />} />
+          <Route path="/book" element={<LanguageRedirect />} />
+          <Route path="/process" element={<LanguageRedirect />} />
+          <Route path="/blog" element={<LanguageRedirect />} />
+          <Route path="/blog/:slug" element={<LanguageRedirect />} />
+          <Route path="/privacy-policy" element={<LanguageRedirect />} />
+          <Route path="/impressum" element={<LanguageRedirect />} />
+          <Route path="/terms-of-service" element={<LanguageRedirect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
