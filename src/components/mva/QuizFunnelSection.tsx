@@ -73,17 +73,6 @@ const QuizFunnelSection = () => {
     }
   };
 
-  const strat = strategyMap[answers[0]] || strategyMap["SaaS"];
-
-  useEffect(() => {
-    if (stage === "result") {
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      document.body.appendChild(script);
-      return () => { document.body.removeChild(script); };
-    }
-  }, [stage]);
 
   const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); setConsent(false); };
 
