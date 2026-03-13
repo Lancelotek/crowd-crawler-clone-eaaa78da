@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
@@ -30,6 +31,7 @@ const CONTENT_HEIGHT = "min-h-[320px]";
 
 const CalculatorSection = () => {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [product, setProduct] = useState("");
   const [revenue, setRevenue] = useState("");
@@ -86,10 +88,10 @@ const CalculatorSection = () => {
         },
       });
       track.leadSubmit("calculator");
-      setSubmitted(true);
+      navigate(`/${lang}/thank-you`);
     } catch (err) {
       console.error('Error:', err);
-      setSubmitted(true);
+      navigate(`/${lang}/thank-you`);
     } finally {
       setSubmitting(false);
     }
