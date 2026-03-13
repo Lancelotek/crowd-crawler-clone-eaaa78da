@@ -15,7 +15,7 @@ const SocialProofSection = () => {
   return (
     <section className="py-20 px-6 border-t border-border">
       <div className="container mx-auto max-w-[1200px]">
-        <p className="text-xs font-semibold text-primary mb-2 tracking-wide text-center">{t("socialProof", "eyebrow")}</p>
+        {/* eyebrow hidden */}
         <h2 className="font-display text-2xl md:text-3xl font-extrabold leading-tight tracking-tight mb-10 text-center">
           {t("socialProof", "title")} <span className="text-primary">{t("socialProof", "titleAccent")}</span>
         </h2>
