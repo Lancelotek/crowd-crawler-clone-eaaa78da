@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/tracking";
-import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 const productTypes = ["SaaS / Software", "Course", "Digital Product", "Community", "Service"];
 const revenueTargets = ["$1k", "$5k", "$10k", "$25k", "$50k+"];
@@ -44,14 +43,6 @@ const CalculatorSection = () => {
   const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [recaptchaToken, setRecaptchaToken] = useState("");
-  const { ready: recaptchaReady, renderRecaptcha } = useRecaptcha();
-
-  useEffect(() => {
-    if (result !== null && !submitted && recaptchaReady) {
-      setTimeout(() => renderRecaptcha("calc-recaptcha", setRecaptchaToken), 100);
-    }
-  }, [result, submitted, recaptchaReady, renderRecaptcha]);
 
   const selections: Record<Step, { options: string[]; value: string; set: (v: string) => void }> = {
     product: { options: productTypes, value: product, set: setProduct },
@@ -94,7 +85,6 @@ const CalculatorSection = () => {
           name: name.trim(),
           email: email.trim(),
           answers: [`MVA Calculator: ${product}, ${revenue}/mo, ${price}, ${niche}, Result: ${result?.toLocaleString()}`],
-          recaptchaToken,
         },
       });
       track.leadSubmit("calculator");
@@ -189,8 +179,7 @@ const CalculatorSection = () => {
                           )}
                         </span>
                       </label>
-                      <div id="calc-recaptcha" className="flex justify-center" />
-                      <button type="submit" disabled={submitting || !consent || !recaptchaToken}
+                      <button type="submit" disabled={submitting || !consent}
                         className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
                         {submitting ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <>Get In Touch <ArrowRight size={16} /></>}
                       </button>
