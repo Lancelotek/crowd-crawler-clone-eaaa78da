@@ -39,11 +39,14 @@ const QuizFunnelSection = () => {
   const progress = stage === "quiz" ? (answers.length / quizSteps.length) * 100 : 100;
 
   const selectAnswer = (option: string) => {
+    if (answers.length === 0) track.quizStart();
+    track.quizStep(step + 1, option);
     const newAnswers = [...answers, option];
     setAnswers(newAnswers);
     if (newAnswers.length < quizSteps.length) {
       setTimeout(() => setStep(step + 1), 300);
     } else {
+      track.quizComplete(newAnswers);
       setTimeout(() => setStage("lead"), 350);
     }
   };
