@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import HeroSection from "@/components/mva/HeroSection";
 import StickyCTA from "@/components/mva/StickyCTA";
+import CookieConsent from "@/components/CookieConsent";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
