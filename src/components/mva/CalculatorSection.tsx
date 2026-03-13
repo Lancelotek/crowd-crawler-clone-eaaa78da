@@ -189,7 +189,8 @@ const CalculatorSection = () => {
                           )}
                         </span>
                       </label>
-                      <button type="submit" disabled={submitting || !consent}
+                      <div id="calc-recaptcha" className="flex justify-center" />
+                      <button type="submit" disabled={submitting || !consent || !recaptchaToken}
                         className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
                         {submitting ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <>Get In Touch <ArrowRight size={16} /></>}
                       </button>
