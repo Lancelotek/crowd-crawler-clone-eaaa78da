@@ -38,7 +38,7 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <a href="/book" className="hidden sm:inline-block border border-border px-5 py-2 text-sm font-semibold rounded-button hover:border-primary hover:text-primary transition-colors">
+            <a href="/book" className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
               Book a Call
             </a>
             <a href="#cta" className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
