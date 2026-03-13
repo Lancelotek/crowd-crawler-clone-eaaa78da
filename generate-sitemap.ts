@@ -7,6 +7,8 @@ const BASE_URL = "https://jay23.com";
 
 const staticPages = [
   { loc: "/", changefreq: "weekly", priority: "1.0" },
+  { loc: "/process", changefreq: "monthly", priority: "0.8" },
+  { loc: "/book", changefreq: "monthly", priority: "0.7" },
   { loc: "/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { loc: "/terms-of-service", changefreq: "yearly", priority: "0.3" },

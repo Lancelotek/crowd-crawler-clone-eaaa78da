@@ -1,0 +1,48 @@
+# JAY-23 — MVA Framework
+
+> JAY-23 builds Minimum Viable Audiences for founders. The MVA (Minimum Viable Audience) framework helps you build your first 1,000 true fans in 90 days — before you launch.
+
+## What is MVA?
+
+A Minimum Viable Audience (MVA) is the smallest group of engaged, paying fans you need before launching a product. Instead of building first and hoping people show up, the MVA approach validates demand through quizzes, email funnels, paid ads, and community activation.
+
+## How the 90-Day Program Works
+
+### Phase 1: Build (Weeks 1–4)
+- Persona mapping and quiz strategy
+- Landing page with quiz → email capture → WhatsApp VIP group
+- 7-email MailerLite sequence with $1 Stripe Early Bird flow
+- Full Meta Pixel + GA4 tracking setup
+
+### Phase 2: Drive (Weeks 5–8)
+- Meta + TikTok (or Google) ads using Andromeda framework
+- ManyChat comment-CTA mechanic → quiz funnel
+- Weekly optimization and creative rotation
+- Community activation (3+ posts/week in VIP group)
+
+### Phase 3: Launch (Weeks 9–12)
+- Lookalike campaigns from paying subscriber segment
+- Full launch campaign across all channels
+- Launch email + exclusive offers to paying segment
+- Final MVA report with ROAS, funnel CR, and handover
+
+## Expected Results
+- 300+ qualified leads by end of month 3
+- 30+ paying Early Bird subscribers before launch
+- Max cost per lead: 25 PLN (guaranteed)
+- 3 channels: ads, email automation, WhatsApp community
+
+## Key Concepts
+- **MVA vs MVP**: MVP is the simplest product; MVA is the smallest audience. Build the audience first, then the product.
+- **1,000 True Fans**: Based on Kevin Kelly's theory — you don't need millions of followers, just 1,000 people who truly care.
+- **Demand Validation**: Collect $1 Early Bird payments as proof of real demand before full product development.
+
+## Free Tools
+- **MVA Calculator**: Estimates how many fans you need based on product type, price, and niche.
+- **Strategy Quiz**: Personalized audience building recommendations.
+
+## Contact
+- Website: https://jay23.com
+- Book a Call: https://jay23.com/book
+- 90-Day Process: https://jay23.com/process
+- Blog: https://jay23.com/blog

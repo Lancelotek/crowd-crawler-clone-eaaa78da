@@ -9,6 +9,7 @@ interface SEOHeadProps {
   publishedAt?: string;
   author?: string;
   noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
 }
 
 const BASE_URL = "https://jay23.com";
@@ -43,9 +44,10 @@ const SEOHead = ({
   publishedAt,
   author,
   noindex = false,
+  jsonLd,
 }: SEOHeadProps) => {
   useEffect(() => {
-    const fullTitle = title.includes("MVA") ? title : `${title} | MVA Framework by JAY-23`;
+    const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
     document.title = fullTitle;
 
     // Standard meta
@@ -53,7 +55,7 @@ const SEOHead = ({
     if (noindex) {
       setMeta("name", "robots", "noindex, nofollow");
     } else {
-      setMeta("name", "robots", "index, follow");
+      setMeta("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     }
 
     // Open Graph
@@ -61,8 +63,11 @@ const SEOHead = ({
     setMeta("property", "og:description", description);
     setMeta("property", "og:type", type);
     setMeta("property", "og:image", ogImage);
-    setMeta("property", "og:site_name", "MVA Framework by JAY-23");
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
+    setMeta("property", "og:site_name", "JAY-23 — MVA Framework");
     setMeta("property", "og:locale", "en_US");
+    setMeta("property", "og:url", canonical ? `${BASE_URL}${canonical}` : BASE_URL);
 
     // Twitter
     setMeta("name", "twitter:card", "summary_large_image");
@@ -83,7 +88,19 @@ const SEOHead = ({
     if (canonicalUrl) {
       setLink("canonical", canonicalUrl);
     }
-  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex]);
+
+    // Dynamic JSON-LD
+    if (jsonLd) {
+      const existingScript = document.querySelector('script[data-seo-jsonld]');
+      if (existingScript) existingScript.remove();
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-seo-jsonld", "true");
+      script.textContent = JSON.stringify(jsonLd);
+      document.head.appendChild(script);
+      return () => { script.remove(); };
+    }
+  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, jsonLd]);
 
   return null;
 };
