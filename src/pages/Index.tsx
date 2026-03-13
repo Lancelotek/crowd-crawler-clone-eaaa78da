@@ -57,6 +57,7 @@ const Index = () => {
       </main>
       <Suspense fallback={null}><FooterSection /></Suspense>
       <StickyCTA />
+      <CookieConsent />
     </div>
   );
 };
