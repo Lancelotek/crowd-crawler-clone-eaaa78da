@@ -14,6 +14,7 @@ import Impressum from "./pages/Impressum";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import Process from "./pages/Process";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
