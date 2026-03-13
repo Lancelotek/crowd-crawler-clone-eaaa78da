@@ -46,7 +46,7 @@ function YouTubeEmbed({ videoId }: { videoId: string }) {
 
   return (
     <div
-      onClick={() => setPlaying(true)}
+      onClick={() => { setPlaying(true); track.videoPlay(videoId); }}
       className="relative w-full overflow-hidden rounded-xl cursor-pointer border border-primary/20 bg-foreground/95"
       style={{ paddingBottom: "56.25%" }}
     >
