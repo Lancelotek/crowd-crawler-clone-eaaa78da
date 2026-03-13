@@ -236,7 +236,7 @@ const BookCall = () => {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-10"
           >
-            <YouTubeEmbed videoId={YOUTUBE_VIDEO_ID} />
+            <YouTubeEmbed videoId={lang === "pl" ? YOUTUBE_VIDEO_ID_PL : YOUTUBE_VIDEO_ID_EN} />
           </motion.div>
 
           {/* ── Bullets ── */}
