@@ -31,6 +31,7 @@ const CONTENT_HEIGHT = "min-h-[320px]";
 
 const CalculatorSection = () => {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const [product, setProduct] = useState("");
   const [revenue, setRevenue] = useState("");
