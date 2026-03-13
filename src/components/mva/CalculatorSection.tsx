@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -27,6 +28,7 @@ const stepLabels: Record<Step, string> = {
 const CONTENT_HEIGHT = "min-h-[320px]";
 
 const CalculatorSection = () => {
+  const { lang } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [product, setProduct] = useState("");
   const [revenue, setRevenue] = useState("");
@@ -35,6 +37,7 @@ const CalculatorSection = () => {
   const [result, setResult] = useState<number | null>(null);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -63,7 +66,7 @@ const CalculatorSection = () => {
   };
 
   const reset = () => {
-    setCurrent(0); setProduct(""); setRevenue(""); setPrice(""); setNiche(""); setResult(null); setSubmitted(false); setEmail(""); setName("");
+    setCurrent(0); setProduct(""); setRevenue(""); setPrice(""); setNiche(""); setResult(null); setSubmitted(false); setEmail(""); setName(""); setConsent(false);
   };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
@@ -158,7 +161,18 @@ const CalculatorSection = () => {
                       <input type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255}
                         className="w-full px-4 py-3 rounded-card border text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                         style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)", color: "white" }} />
-                      <button type="submit" disabled={submitting}
+                      <label className="flex items-start gap-2 text-left cursor-pointer">
+                        <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required
+                          className="mt-0.5 accent-primary w-4 h-4 shrink-0" />
+                        <span className="text-[11px] text-muted-foreground leading-tight">
+                          {lang === "pl" ? (
+                            <>Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href={`/${lang}/privacy`} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:brightness-110">Polityką Prywatności</a>.</>
+                          ) : (
+                            <>I agree to the processing of my personal data in accordance with the <a href={`/${lang}/privacy`} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:brightness-110">Privacy Policy</a>.</>
+                          )}
+                        </span>
+                      </label>
+                      <button type="submit" disabled={submitting || !consent}
                         className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
                         {submitting ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <>Get In Touch <ArrowRight size={16} /></>}
                       </button>

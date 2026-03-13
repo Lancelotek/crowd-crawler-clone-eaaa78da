@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
@@ -24,11 +25,13 @@ const strategyMap: Record<string, { strategy: string; platforms: string; audienc
 };
 
 const QuizFunnelSection = () => {
+  const { lang } = useLanguage();
   const [stage, setStage] = useState<FunnelStage>("quiz");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
@@ -76,7 +79,7 @@ const QuizFunnelSection = () => {
     }
   }, [stage]);
 
-  const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); };
+  const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); setConsent(false); };
 
   return (
     <section id="quiz" className="py-12 px-6 bg-secondary rounded-card">
@@ -121,13 +124,24 @@ const QuizFunnelSection = () => {
                   className="w-full px-4 py-3 rounded-card border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 <input type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255}
                   className="w-full px-4 py-3 rounded-card border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-                <button type="submit" disabled={submitting}
+                <label className="flex items-start gap-2 text-left cursor-pointer">
+                  <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required
+                    className="mt-0.5 accent-primary w-4 h-4 shrink-0" />
+                  <span className="text-[11px] text-muted-foreground leading-tight">
+                    {lang === "pl" ? (
+                      <>Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href={`/${lang}/privacy`} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:brightness-110">Polityką Prywatności</a>.</>
+                    ) : (
+                      <>I agree to the processing of my personal data in accordance with the <a href={`/${lang}/privacy`} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:brightness-110">Privacy Policy</a>.</>
+                    )}
+                  </span>
+                </label>
+                <button type="submit" disabled={submitting || !consent}
                   className="w-full bg-primary text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
                   {submitting ? <><Loader2 size={16} className="animate-spin" /> Saving...</> : <>Show My Strategy <ArrowRight size={16} /></>}
                 </button>
                 {submitError && <p className="text-destructive text-xs">{submitError}</p>}
               </form>
-              <p className="text-xs text-muted-foreground mt-3">🔒 No spam. We respect your privacy.</p>
+              <p className="text-xs text-muted-foreground mt-3">🔒 {lang === "pl" ? "Bez spamu. Szanujemy Twoją prywatność." : "No spam. We respect your privacy."}</p>
             </motion.div>
           )}
 
