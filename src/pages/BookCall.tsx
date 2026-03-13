@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const YOUTUBE_VIDEO_ID = "-45huMr_7ls";
+const YOUTUBE_VIDEO_ID_EN = "iwxNWgXotI8";
+const YOUTUBE_VIDEO_ID_PL = "-45huMr_7ls";
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
 const TICKER_ITEMS = [
