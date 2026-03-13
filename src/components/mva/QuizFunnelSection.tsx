@@ -25,11 +25,13 @@ const strategyMap: Record<string, { strategy: string; platforms: string; audienc
 };
 
 const QuizFunnelSection = () => {
+  const { lang } = useLanguage();
   const [stage, setStage] = useState<FunnelStage>("quiz");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
 
