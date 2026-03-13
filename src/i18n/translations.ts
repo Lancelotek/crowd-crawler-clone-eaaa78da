@@ -6,7 +6,7 @@ export const translations = {
     framework: { en: "Framework", pl: "Framework" },
     caseStudies: { en: "Case Studies", pl: "Case Studies" },
     blog: { en: "Blog", pl: "Blog" },
-    bookCall: { en: "Book a Call", pl: "Umów rozmowę" },
+    bookCall: { en: "Get Your Free Strategy Call", pl: "Umów bezpłatną konsultację" },
     getStarted: { en: "Get Started →", pl: "Zacznij →" },
   },
 
