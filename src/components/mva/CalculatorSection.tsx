@@ -88,10 +88,10 @@ const CalculatorSection = () => {
         },
       });
       track.leadSubmit("calculator");
-      setSubmitted(true);
+      navigate(`/${lang}/thank-you`);
     } catch (err) {
       console.error('Error:', err);
-      setSubmitted(true);
+      navigate(`/${lang}/thank-you`);
     } finally {
       setSubmitting(false);
     }
