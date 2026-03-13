@@ -51,6 +51,8 @@ const CalculatorSection = () => {
 
   const handleSelect = (value: string) => {
     const step = stepOrder[current];
+    if (current === 0) track.calculatorStart();
+    track.calculatorStep(step, value);
     selections[step].set(value);
     if (current < 3) {
       setTimeout(() => setCurrent(current + 1), 300);
