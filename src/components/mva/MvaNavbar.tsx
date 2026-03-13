@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "@/assets/jay23-logo.png";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const MvaNavbar = () => {
   const { t, langPrefix } = useLanguage();
