@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/tracking";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 const productTypes = ["SaaS / Software", "Course", "Digital Product", "Community", "Service"];
 const revenueTargets = ["$1k", "$5k", "$10k", "$25k", "$50k+"];
