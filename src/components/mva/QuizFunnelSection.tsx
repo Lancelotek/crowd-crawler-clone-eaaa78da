@@ -64,11 +64,10 @@ const QuizFunnelSection = () => {
       });
       if (error) throw error;
       track.leadSubmit("quiz");
-      setStage("result");
+      navigate(`/${lang}/thank-you`);
     } catch (err: any) {
       console.error('Error:', err);
       setSubmitError("Something went wrong. Please try again.");
-      setTimeout(() => setStage("result"), 1500);
     } finally {
       setSubmitting(false);
     }

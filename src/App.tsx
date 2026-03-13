@@ -49,6 +49,7 @@ const App = () => (
           <Route path="/" element={<LanguageRedirect />} />
           <Route path="/book" element={<LanguageRedirect />} />
           <Route path="/process" element={<LanguageRedirect />} />
+          <Route path="/thank-you" element={<LanguageRedirect />} />
           <Route path="/blog" element={<LanguageRedirect />} />
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
