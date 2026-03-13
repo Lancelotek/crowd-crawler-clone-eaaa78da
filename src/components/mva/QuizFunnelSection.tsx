@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles, Loader2 } from "lucide-react";
+import { ArrowRight, Sparkles, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
-const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
+
 
 const quizSteps = [
   { question: "What are you building?", options: ["SaaS", "Course", "Creator brand", "Digital product", "Community"] },
@@ -15,7 +16,7 @@ const quizSteps = [
   { question: "How soon do you want to launch?", options: ["1–3 months", "3–6 months", "6–12 months", "Just exploring"] },
 ];
 
-type FunnelStage = "quiz" | "lead" | "result";
+type FunnelStage = "quiz" | "lead";
 
 const strategyMap: Record<string, { strategy: string; platforms: string; audience: string }> = {
   SaaS: { strategy: "Audience-first validation", platforms: "Twitter/X and newsletter", audience: "6,920" },
@@ -27,6 +28,7 @@ const strategyMap: Record<string, { strategy: string; platforms: string; audienc
 
 const QuizFunnelSection = () => {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
   const [stage, setStage] = useState<FunnelStage>("quiz");
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
@@ -62,27 +64,15 @@ const QuizFunnelSection = () => {
       });
       if (error) throw error;
       track.leadSubmit("quiz");
-      setStage("result");
+      navigate(`/${lang}/thank-you`);
     } catch (err: any) {
       console.error('Error:', err);
       setSubmitError("Something went wrong. Please try again.");
-      setTimeout(() => setStage("result"), 1500);
     } finally {
       setSubmitting(false);
     }
   };
 
-  const strat = strategyMap[answers[0]] || strategyMap["SaaS"];
-
-  useEffect(() => {
-    if (stage === "result") {
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      document.body.appendChild(script);
-      return () => { document.body.removeChild(script); };
-    }
-  }, [stage]);
 
   const reset = () => { setStage("quiz"); setStep(0); setAnswers([]); setName(""); setEmail(""); setConsent(false); };
 
@@ -147,42 +137,6 @@ const QuizFunnelSection = () => {
                 {submitError && <p className="text-destructive text-xs">{submitError}</p>}
               </form>
               <p className="text-xs text-muted-foreground mt-3">🔒 {lang === "pl" ? "Bez spamu. Szanujemy Twoją prywatność." : "No spam. We respect your privacy."}</p>
-            </motion.div>
-          )}
-
-          {stage === "result" && (
-            <motion.div key="result" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}>
-              <div className="bg-card border border-border rounded-card p-6 mb-6 text-center">
-                <CheckCircle2 className="text-primary mx-auto mb-2" size={28} />
-                <h3 className="font-display text-xl md:text-2xl font-extrabold mb-4">Your Growth Strategy, {name.split(" ")[0]}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                  <div className="rounded-card bg-secondary p-3">
-                    <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mb-0.5">STRATEGY</p>
-                    <p className="text-sm font-bold text-foreground">{strat.strategy}</p>
-                  </div>
-                  <div className="rounded-card bg-secondary p-3">
-                    <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mb-0.5">PLATFORMS</p>
-                    <p className="text-sm font-bold text-foreground">{strat.platforms}</p>
-                  </div>
-                  <div className="rounded-card bg-secondary p-3">
-                    <p className="text-[10px] font-semibold text-muted-foreground tracking-wide mb-0.5">AUDIENCE NEEDED</p>
-                    <p className="text-sm font-bold text-primary">{strat.audience} people</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-center mb-4">
-                <h3 className="font-display text-lg md:text-xl font-extrabold mb-1">Book Your Strategy Call</h3>
-                <p className="text-muted-foreground text-sm max-w-md mx-auto">Free 30-minute call to review your audience strategy.</p>
-              </div>
-              <div className="bg-card rounded-card border border-border p-2">
-                <div className="calendly-inline-widget"
-                  data-url={`${CALENDLY_URL}?hide_event_type_details=1&hide_gdpr_banner=1&background_color=F6F6FA&text_color=0B0B0F&primary_color=6C3BFF`}
-                  style={{ minWidth: "320px", height: "700px" }} />
-              </div>
-              <div className="text-center mt-4">
-                <button onClick={reset} className="text-xs text-muted-foreground underline hover:text-primary transition-colors">Retake quiz</button>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>

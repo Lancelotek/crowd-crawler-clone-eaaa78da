@@ -14,6 +14,7 @@ import Impressum from "./pages/Impressum";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import Process from "./pages/Process";
+import ThankYou from "./pages/ThankYou";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const LangRoutes = () => (
       <Route index element={<Index />} />
       <Route path="book" element={<BookCall />} />
       <Route path="process" element={<Process />} />
+      <Route path="thank-you" element={<ThankYou />} />
       <Route path="blog" element={<Blog />} />
       <Route path="blog/:slug" element={<BlogPost />} />
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -47,6 +49,7 @@ const App = () => (
           <Route path="/" element={<LanguageRedirect />} />
           <Route path="/book" element={<LanguageRedirect />} />
           <Route path="/process" element={<LanguageRedirect />} />
+          <Route path="/thank-you" element={<LanguageRedirect />} />
           <Route path="/blog" element={<LanguageRedirect />} />
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
