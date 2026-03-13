@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
-const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
+
 
 const quizSteps = [
   { question: "What are you building?", options: ["SaaS", "Course", "Creator brand", "Digital product", "Community"] },
