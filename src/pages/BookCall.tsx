@@ -29,6 +29,17 @@ const BookCall = () => {
         </Link>
         <h1 className="font-display text-2xl md:text-3xl font-extrabold mb-2">{t("bookCall", "title")}</h1>
         <p className="text-muted-foreground mb-6">{t("bookCall", "desc")}</p>
+        <div className="bg-card rounded-card border border-border p-2 mb-6">
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+            <iframe
+              className="absolute inset-0 w-full h-full rounded-lg"
+              src="https://www.youtube.com/embed/-45huMr_7ls"
+              title="Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
         <div className="bg-card rounded-card border border-border p-2">
           <div
             className="calendly-inline-widget"
