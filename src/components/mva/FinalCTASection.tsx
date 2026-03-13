@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Sparkles } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
 const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
