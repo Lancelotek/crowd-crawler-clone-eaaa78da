@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const YOUTUBE_VIDEO_ID_EN = "iwxNWgXotI8";
 const YOUTUBE_VIDEO_ID_PL = "-45huMr_7ls";
