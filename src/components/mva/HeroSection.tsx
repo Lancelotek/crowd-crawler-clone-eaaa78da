@@ -165,12 +165,12 @@ const HeroSection = () => {
               {" "}{t("hero", "hookEnd")}
             </p>
             <div className="flex items-center gap-4 flex-wrap" style={{ marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.6s ease 0.4s both" : "none" }}>
-              <Link to={`${langPrefix}/book`} className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-bold text-sm rounded-xl hover:brightness-110 transition-all animate-pulse-cta">
+              <a href="#cta" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-bold text-sm rounded-xl hover:brightness-110 transition-all animate-pulse-cta">
                 {t("hero", "ctaPrimary")}
-              </Link>
-              <a href="#cta" className="inline-flex items-center gap-2 text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.5)" }} onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")} onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}>
-                {t("hero", "ctaSecondary")}
               </a>
+              <Link to={`${langPrefix}/book`} className="inline-flex items-center gap-2 text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.5)" }} onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")} onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}>
+                {t("hero", "ctaSecondary")}
+              </Link>
             </div>
             <div className="flex items-center gap-4 flex-wrap" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.5s both" : "none" }}>
               <div className="flex items-center gap-2">
