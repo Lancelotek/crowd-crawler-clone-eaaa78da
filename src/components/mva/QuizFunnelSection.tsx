@@ -60,7 +60,7 @@ const QuizFunnelSection = () => {
     setSubmitError("");
     try {
       const { error } = await supabase.functions.invoke('add-subscriber', {
-        body: { name: name.trim(), email: email.trim(), answers },
+        body: { name: name.trim(), email: email.trim(), answers, lang },
       });
       if (error) throw error;
       track.leadSubmit("quiz");
