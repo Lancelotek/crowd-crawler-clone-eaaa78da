@@ -18,7 +18,7 @@ serve(async (req) => {
 
     const RECAPTCHA_SECRET_KEY = Deno.env.get('RECAPTCHA_SECRET_KEY');
 
-    const { name, email, answers, recaptchaToken } = await req.json();
+    const { name, email, answers, recaptchaToken, lang } = await req.json();
 
     if (!email || !name) {
       return new Response(
