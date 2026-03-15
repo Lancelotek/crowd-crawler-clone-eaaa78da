@@ -58,17 +58,15 @@ serve(async (req) => {
         fields: {
           name,
           last_name: '',
-        },
-        ...(answers && answers.length > 0 && {
-          fields: {
-            name,
+          ...(answers && answers.length > 0 && {
             quiz_building: answers[0] || '',
             quiz_audience: answers[1] || '',
             quiz_platform: answers[2] || '',
             quiz_challenge: answers[3] || '',
             quiz_timeline: answers[4] || '',
-          },
-        }),
+          }),
+        },
+        ...(lang === 'pl' && { groups: ['95856922778929103'] }),
       }),
     });
 
