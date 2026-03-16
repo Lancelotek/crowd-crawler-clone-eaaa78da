@@ -305,6 +305,7 @@ export default function Leads() {
     if (eligible.length === 0) return;
 
     setGeneratingSeqs(true);
+    setSeqProgress(0);
     setSeqLogs([`Generating sequences for ${eligible.length} leads...`]);
     try {
       const { data, error } = await supabase.functions.invoke("email-sequencer", {
@@ -314,12 +315,65 @@ export default function Leads() {
       if (data.error) throw new Error(data.error);
       setSequences(data.sequences || []);
       setSeqLogs(data.logs || []);
+      setSeqProgress(100);
     } catch (e: any) {
       setSeqLogs((prev) => [...prev, `Error: ${e.message}`]);
     } finally {
       setGeneratingSeqs(false);
     }
   }, [leads, hotOnly, seqConfig]);
+
+  const regenerateOne = useCallback(async (companyName: string) => {
+    const lead = leads.find((l) => l.company_name === companyName);
+    if (!lead) return;
+    setRegeneratingLead(companyName);
+    try {
+      const { data, error } = await supabase.functions.invoke("email-sequencer", {
+        body: { singleLead: lead, config: seqConfig },
+      });
+      if (error) throw error;
+      if (data.error) throw new Error(data.error);
+      setSequences((prev) =>
+        prev.map((s) => s.lead.company_name === companyName ? data.sequence : s)
+      );
+      toast({ title: "Sekwencja odświeżona", description: companyName });
+    } catch (e: any) {
+      toast({ title: "Błąd", description: e.message, variant: "destructive" });
+    } finally {
+      setRegeneratingLead(null);
+    }
+  }, [leads, seqConfig]);
+
+  const copyEmail = useCallback((subject: string, body: string, id: string) => {
+    navigator.clipboard.writeText(`Subject: ${subject}\n\n${body}`);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  }, []);
+
+  const exportSequenceJSON = useCallback(() => {
+    const json = JSON.stringify(sequences.map((s) => ({ lead: s.lead, sequence: s.sequence })), null, 2);
+    downloadCSV(json, "sequences_json");
+  }, [sequences]);
+
+  const exportSequenceTXT = useCallback(() => {
+    const lines = sequences.map((s) => {
+      const divider = "─".repeat(50);
+      const header = `${divider}\n${s.lead.company_name} | ${s.first_name} ${s.last_name} | ${s.email} | ${s.lead.buying_signal}\n${divider}`;
+      const touches = (["touch1", "touch2", "touch3"] as const).map((t, i) => {
+        const touch = s.sequence[t];
+        if (!touch) return "";
+        return `\n[Touch ${i + 1} · Day ${touch.send_day}]\nSubject: ${touch.subject}\n\n${touch.body}`;
+      }).join("");
+      return header + touches + "\n";
+    });
+    const blob = new Blob([lines.join("\n")], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `sequences_${new Date().toISOString().slice(0, 10)}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [sequences]);
 
   const hot = leads.filter((l) => l.buying_signal === "HOT").length;
   const warm = leads.filter((l) => l.buying_signal === "WARM").length;
