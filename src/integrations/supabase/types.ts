@@ -56,6 +56,87 @@ export type Database = {
         }
         Relationships: []
       }
+      saved_leads: {
+        Row: {
+          buying_signal: string
+          company_description: string | null
+          company_linkedin: string | null
+          company_name: string
+          created_at: string
+          data_confidence: number | null
+          domain: string | null
+          email_confidence: string | null
+          email_pattern: string | null
+          employee_count: string | null
+          employees: string | null
+          enriched: boolean | null
+          founder_linkedin: string | null
+          founder_name: string | null
+          founder_title: string | null
+          funding_stage: string | null
+          id: string
+          kickstarter_signal: string | null
+          linkedin_url: string | null
+          notes: string | null
+          product_description: string | null
+          recent_news: string | null
+          signal_reason: string | null
+          source_url: string | null
+        }
+        Insert: {
+          buying_signal?: string
+          company_description?: string | null
+          company_linkedin?: string | null
+          company_name: string
+          created_at?: string
+          data_confidence?: number | null
+          domain?: string | null
+          email_confidence?: string | null
+          email_pattern?: string | null
+          employee_count?: string | null
+          employees?: string | null
+          enriched?: boolean | null
+          founder_linkedin?: string | null
+          founder_name?: string | null
+          founder_title?: string | null
+          funding_stage?: string | null
+          id?: string
+          kickstarter_signal?: string | null
+          linkedin_url?: string | null
+          notes?: string | null
+          product_description?: string | null
+          recent_news?: string | null
+          signal_reason?: string | null
+          source_url?: string | null
+        }
+        Update: {
+          buying_signal?: string
+          company_description?: string | null
+          company_linkedin?: string | null
+          company_name?: string
+          created_at?: string
+          data_confidence?: number | null
+          domain?: string | null
+          email_confidence?: string | null
+          email_pattern?: string | null
+          employee_count?: string | null
+          employees?: string | null
+          enriched?: boolean | null
+          founder_linkedin?: string | null
+          founder_name?: string | null
+          founder_title?: string | null
+          funding_stage?: string | null
+          id?: string
+          kickstarter_signal?: string | null
+          linkedin_url?: string | null
+          notes?: string | null
+          product_description?: string | null
+          recent_news?: string | null
+          signal_reason?: string | null
+          source_url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
