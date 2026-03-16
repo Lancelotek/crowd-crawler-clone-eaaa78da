@@ -215,6 +215,30 @@ export default function Leads() {
     if (pw === PASSWORD) { setAuthed(true); setPwError(false); } else { setPwError(true); }
   };
 
+  // Load saved leads from DB on auth
+  useEffect(() => {
+    if (!authed) return;
+    (async () => {
+      const { data } = await supabase.from("saved_leads").select("*").order("created_at", { ascending: false });
+      if (data && data.length > 0) {
+        setLeads(data.map((r: any) => ({ ...r, enriched: r.enriched ?? false })));
+      }
+    })();
+  }, [authed]);
+
+  // Save leads to DB whenever they change
+  const saveLeadsToDB = useCallback(async (leadsToSave: Lead[]) => {
+    if (leadsToSave.length === 0) return;
+    // Upsert by company_name
+    for (const lead of leadsToSave) {
+      const { company_name, ...rest } = lead;
+      await supabase.from("saved_leads").upsert(
+        { company_name, ...rest },
+        { onConflict: "company_name" }
+      );
+    }
+  }, []);
+
   const runSearch = useCallback(async () => {
     setLoading(true);
     setLogs([]);
