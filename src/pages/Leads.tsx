@@ -249,8 +249,10 @@ export default function Leads() {
       });
       if (error) throw error;
       if (data.error) throw new Error(data.error);
-      setLeads((prev) => [...prev, ...(data.leads || [])]);
+      const newLeads = data.leads || [];
+      setLeads((prev) => [...prev, ...newLeads]);
       setLogs(data.logs || []);
+      await saveLeadsToDB(newLeads);
     } catch (e: any) {
       setLogs((prev) => [...prev, `Error: ${e.message}`]);
     } finally {
