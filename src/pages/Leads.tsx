@@ -77,11 +77,13 @@ interface EmailSequence {
 // ─── CSV exports ─────────────────────────────────────
 const LEAD_CSV_FIELDS: (keyof Lead)[] = [
   "company_name", "domain", "founder_name", "founder_title",
+  "x_handle", "x_url", "x_bio", "x_followers",
   "founder_linkedin", "linkedin_url", "company_linkedin",
-  "email_pattern", "email_confidence",
+  "email_found", "email_pattern", "email_confidence", "email_source",
   "employees", "employee_count", "product_description", "company_description",
   "funding_stage", "kickstarter_signal", "buying_signal", "signal_reason",
-  "recent_news", "data_confidence", "source_url", "notes",
+  "product_stage", "recent_news", "project_mentions", "recent_x_posts",
+  "data_confidence", "source_url", "notes",
 ];
 
 function exportLeadCSV(leads: Lead[]) {
