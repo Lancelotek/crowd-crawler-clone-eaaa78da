@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -215,6 +215,30 @@ export default function Leads() {
     if (pw === PASSWORD) { setAuthed(true); setPwError(false); } else { setPwError(true); }
   };
 
+  // Load saved leads from DB on auth
+  useEffect(() => {
+    if (!authed) return;
+    (async () => {
+      const { data } = await supabase.from("saved_leads").select("*").order("created_at", { ascending: false });
+      if (data && data.length > 0) {
+        setLeads(data.map((r: any) => ({ ...r, enriched: r.enriched ?? false })));
+      }
+    })();
+  }, [authed]);
+
+  // Save leads to DB whenever they change
+  const saveLeadsToDB = useCallback(async (leadsToSave: Lead[]) => {
+    if (leadsToSave.length === 0) return;
+    // Upsert by company_name
+    for (const lead of leadsToSave) {
+      const { company_name, ...rest } = lead;
+      await supabase.from("saved_leads").upsert(
+        { company_name, ...rest },
+        { onConflict: "company_name" }
+      );
+    }
+  }, []);
+
   const runSearch = useCallback(async () => {
     setLoading(true);
     setLogs([]);
@@ -225,8 +249,10 @@ export default function Leads() {
       });
       if (error) throw error;
       if (data.error) throw new Error(data.error);
-      setLeads((prev) => [...prev, ...(data.leads || [])]);
+      const newLeads = data.leads || [];
+      setLeads((prev) => [...prev, ...newLeads]);
       setLogs(data.logs || []);
+      await saveLeadsToDB(newLeads);
     } catch (e: any) {
       setLogs((prev) => [...prev, `Error: ${e.message}`]);
     } finally {
@@ -248,9 +274,11 @@ export default function Leads() {
       const enrichedLeads = (data.leads || []).map((l: any) => ({ ...l, enriched: true }));
       setLeads((prev) => {
         const enrichedNames = new Set(enrichedLeads.map((l: Lead) => l.company_name));
-        return [...prev.filter((l) => !enrichedNames.has(l.company_name)), ...enrichedLeads];
+        const updated = [...prev.filter((l) => !enrichedNames.has(l.company_name)), ...enrichedLeads];
+        return updated;
       });
       setEnrichLogs(data.logs || []);
+      await saveLeadsToDB(enrichedLeads);
     } catch (e: any) {
       setEnrichLogs((prev) => [...prev, `Error: ${e.message}`]);
     } finally {
