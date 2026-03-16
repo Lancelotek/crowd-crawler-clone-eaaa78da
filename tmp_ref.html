@@ -1,0 +1,452 @@
+
+<style>
+*{box-sizing:border-box}
+.panel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1.25rem}
+.label{font-size:11px;color:var(--color-text-secondary);display:block;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em}
+.tab-bar{display:flex;gap:2px;margin-bottom:1rem;border-bottom:0.5px solid var(--color-border-tertiary);padding-bottom:0}
+.tab{font-size:12px;padding:6px 12px;border:none;background:none;color:var(--color-text-secondary);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-0.5px}
+.tab.active{color:var(--color-text-primary);border-bottom-color:var(--color-text-primary);font-weight:500}
+.lead-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);margin-bottom:6px;cursor:pointer;transition:background .15s}
+.lead-row:hover{background:var(--color-background-secondary)}
+.lead-row.selected{border-color:var(--color-border-primary)}
+.email-block{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:10px}
+.email-header{padding:10px 14px;background:var(--color-background-secondary);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.email-body{padding:14px;font-size:13px;line-height:1.75;white-space:pre-wrap;color:var(--color-text-primary);font-family:var(--font-sans)}
+.copy-btn{font-size:11px;padding:3px 10px;background:none;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);cursor:pointer;color:var(--color-text-secondary);white-space:nowrap;flex-shrink:0}
+.copy-btn:hover{background:var(--color-background-secondary)}
+.stat-mini{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.6rem .75rem;text-align:center}
+.progress-bar{height:2px;background:var(--color-border-tertiary);border-radius:1px;overflow:hidden;margin:.5rem 0}
+.progress-fill{height:100%;background:var(--color-text-secondary);border-radius:1px;transition:width .4s}
+.step-log{font-size:11px;color:var(--color-text-tertiary);margin:1px 0;line-height:1.5}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--color-text-tertiary);font-size:13px}
+.touch-label{font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);white-space:nowrap}
+.info-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem;margin-bottom:10px;font-size:12px;line-height:1.6}
+</style>
+
+<div style="padding:1.25rem 0">
+
+<div class="panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.875rem">
+    <div>
+      <p style="font-size:14px;font-weight:500;margin:0 0 2px">JAY-23 Email Sequencer v2</p>
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">Messaging dopasowany do jay23.com · MVA Framework · Early Bird angle</p>
+    </div>
+    <div id="status-dot" style="width:8px;height:8px;border-radius:50%;background:var(--color-border-secondary)"></div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('input')">1. Leady</button>
+    <button class="tab" onclick="switchTab('config')">2. Konfiguracja</button>
+    <button class="tab" onclick="switchTab('templates')">3. Szablony</button>
+    <button class="tab" onclick="switchTab('preview')">4. Sekwencje</button>
+    <button class="tab" onclick="switchTab('export')">5. Eksport</button>
+  </div>
+
+  <!-- TAB 1: LEADS -->
+  <div id="tab-input">
+    <label class="label">Wklej enriched CSV (nagłówek + leady)</label>
+    <textarea id="leads-raw" rows="6" style="width:100%;font-size:12px;font-family:var(--font-mono);resize:vertical" placeholder="company_name,domain,founder_name,email_pattern,product_description,kickstarter_signal,buying_signal,signal_reason,recent_news,employee_count,funding_stage"></textarea>
+    <div style="display:flex;gap:8px;margin-top:.75rem">
+      <button onclick="loadDemo()" style="font-size:12px">Wczytaj demo</button>
+      <button onclick="parseLeads()" style="font-size:12px">Parsuj →</button>
+    </div>
+  </div>
+
+  <!-- TAB 2: CONFIG -->
+  <div id="tab-config" style="display:none">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <div><label class="label">Twoje imię</label><input id="cfg-sender" value="Marek" style="width:100%;font-size:12px"></div>
+      <div><label class="label">Język</label>
+        <select id="cfg-lang" style="font-size:12px;width:100%">
+          <option value="en">English</option>
+          <option value="pl">Polski</option>
+        </select>
+      </div>
+    </div>
+    <div class="info-box">
+      <p style="margin:0 0 4px;font-weight:500;font-size:12px">Messaging JAY-23 załadowany automatycznie:</p>
+      <p style="margin:0;color:var(--color-text-secondary)">• Hero: "Build Your First 1,000 True Fans in 90 Days"<br>• Social proof: 98+ founders, $600K+ raised, avg 3,000+ leads/campaign<br>• MVA Framework: 90-day pre-launch community build<br>• CTA: Free Strategy Call + Early Bird waitlist<br>• Case study: $330K Bluetooth wallet</p>
+    </div>
+    <div><label class="label">Dodatkowy case study (opcjonalnie)</label>
+      <input id="cfg-case2" placeholder="np. Swimmo – 2,400 early birds w 60 dni" style="width:100%;font-size:12px">
+    </div>
+  </div>
+
+  <!-- TAB 3: TEMPLATES -->
+  <div id="tab-templates" style="display:none">
+    <div class="info-box">
+      <p style="font-weight:500;margin:0 0 6px;font-size:12px">Jak działają szablony</p>
+      <p style="margin:0;color:var(--color-text-secondary)">Claude generuje każdy email na żywo, używając tych struktur jako szkieletu. Zmienne <code style="font-size:11px">{{"firma"}}</code>, <code style="font-size:11px">{{"imie"}}</code>, <code style="font-size:11px">{{"produkt"}}</code> są wypełniane danymi z enrichment CSV.</p>
+    </div>
+
+    <div class="email-block">
+      <div class="email-header">
+        <span class="touch-label" style="background:var(--color-background-info);color:var(--color-text-info)">Touch 1 · Dzień 0</span>
+        <span style="font-size:12px;color:var(--color-text-secondary)">Personalizacja + problem framing</span>
+      </div>
+      <div class="email-body" style="color:var(--color-text-secondary)">Subject: {imie}, launching {produkt} to silence?
+
+{personalizowana obserwacja z danych leada — 1 zdanie}
+
+Most hardware founders spend 2 years building, then launch to an empty room.
+
+JAY-23 fixes that. We build your Early Bird waitlist before launch day — so you hit Kickstarter with demand, not hope.
+
+Avg result: 3,000+ subscribers, 90 days.
+
+Worth a 15-min call? → jay23.com/call
+
+Marek</div>
+    </div>
+
+    <div class="email-block">
+      <div class="email-header">
+        <span class="touch-label" style="background:var(--color-background-warning);color:var(--color-text-warning)">Touch 2 · Dzień +4</span>
+        <span style="font-size:12px;color:var(--color-text-secondary)">Case study + konkretny wynik</span>
+      </div>
+      <div class="email-body" style="color:var(--color-text-secondary)">Subject: $330K on Day 1 — here's what they did differently
+
+One of our clients launched a Bluetooth tracking wallet on Kickstarter.
+
+Before launch: 0 audience.
+After 90 days with JAY-23's MVA Framework: $330K raised.
+
+The difference? They had 1,000+ paying Early Birds waiting on Day 1.
+
+{nawiązanie do sytuacji firmy — 1 zdanie}
+
+15 minutes to see if MVA fits {firma}? → jay23.com/call
+
+Marek</div>
+    </div>
+
+    <div class="email-block">
+      <div class="email-header">
+        <span class="touch-label" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">Touch 3 · Dzień +9</span>
+        <span style="font-size:12px;color:var(--color-text-secondary)">Breakup — jedno pytanie</span>
+      </div>
+      <div class="email-body" style="color:var(--color-text-secondary)">Subject: Still planning the {produkt} launch?
+
+{imie} — still on the roadmap for {rok}?
+
+Marek</div>
+    </div>
+  </div>
+
+  <!-- TAB 4: PREVIEW -->
+  <div id="tab-preview" style="display:none">
+    <div id="lead-list"><div class="empty">Wczytaj leady w kroku 1.</div></div>
+  </div>
+
+  <!-- TAB 5: EXPORT -->
+  <div id="tab-export" style="display:none">
+    <div id="export-content"><div class="empty">Wygeneruj sekwencje żeby eksportować.</div></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div id="stats-row" style="display:none;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1.25rem">
+  <div class="stat-mini"><p class="label" style="margin:0 0 3px">Leady</p><p id="s-total" style="font-size:20px;font-weight:500;margin:0">0</p></div>
+  <div class="stat-mini"><p class="label" style="margin:0 0 3px">Wygenerowane</p><p id="s-gen" style="font-size:20px;font-weight:500;margin:0;color:var(--color-text-success)">0</p></div>
+  <div class="stat-mini"><p class="label" style="margin:0 0 3px">HOT</p><p id="s-hot" style="font-size:20px;font-weight:500;margin:0;color:var(--color-text-danger)">0</p></div>
+  <div class="stat-mini"><p class="label" style="margin:0 0 3px">Emaile łącznie</p><p id="s-emails" style="font-size:20px;font-weight:500;margin:0;color:var(--color-text-info)">0</p></div>
+</div>
+
+<!-- PROGRESS -->
+<div id="prog-area" style="display:none" class="panel">
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+  <div id="log-area" style="max-height:72px;overflow:hidden"></div>
+</div>
+
+<!-- SEQUENCES OUTPUT -->
+<div id="sequence-area"></div>
+
+</div>
+
+<script>
+const DEMO = `company_name,domain,founder_name,founder_title,email_pattern,employee_count,product_description,kickstarter_signal,buying_signal,signal_reason,recent_news,funding_stage
+VELIA,velia.com,Assim Ben Nino,Co-Founder,assim@velia.com,15-25,Smart ring for stress and wellness tracking,Previously crowdfunded on Indiegogo – potential repeat launcher,WARM,Past crowdfunding success signals repeat launch intent,Raised seed round Q4 2024 to build next-gen version,Seed
+Axion Technologies,axiontechnologies.io,Sarah Kim,CEO,sarah@axiontechnologies.io,12-20,Solar-powered modular camping lantern with USB charging hub,Publicly announced Kickstarter Q2 2025 on LinkedIn,HOT,Confirmed Kickstarter date + hardware product + right size,Prototype demo video Jan 2025 – 2k+ views on LinkedIn,Seed`;
+
+let parsedLeads = [];
+let sequences = {};
+
+const JAY23_SYSTEM = `You write cold email sequences for JAY-23, a pre-launch agency that builds Early Bird waitlists for hardware founders before their Kickstarter launches.
+
+JAY-23 core messaging (use these exact phrases and numbers):
+- Hero: "Build Your First 1,000 True Fans in 90 Days"
+- Problem: "Most products launch to silence" / "No audience, no validation, no demand"
+- Solution: "MVA Framework — we build your paying Early Bird subscriber list before launch day"
+- Proof: 98+ founders, $600K+ raised by MVA clients, avg 3,000+ leads per campaign, 90-day cycle
+- Key case study: Bluetooth tracking smart wallet — $330K raised on Kickstarter after JAY-23 built their pre-launch community from 0
+- CTA: "Free 15-min Strategy Call" at jay23.com/call
+- Positioning: Done-for-you, not a course or tool. JAY-23 runs the whole pre-launch.
+
+Tone: Direct, founder-to-founder. No buzzwords. Short sentences. Active voice.
+NEVER use: "leverage", "synergy", "circle back", "touch base", "hope this finds you well", "I wanted to reach out".
+
+The 3-touch structure:
+TOUCH 1 (Day 0): 1 specific observation about their situation → 1-sentence what JAY-23 does → proof point → soft CTA. Max 100 words body.
+TOUCH 2 (Day 4): Lead with $330K case study result → connect to their specific product/situation → CTA. Max 90 words body.
+TOUCH 3 (Day 9): One question only. Max 2 sentences. Reference their product or launch year.
+
+Return ONLY valid JSON, no markdown:
+{"touch1":{"subject":"...","body":"...","send_day":0},"touch2":{"subject":"...","body":"...","send_day":4},"touch3":{"subject":"...","body":"...","send_day":9}}`;
+
+function switchTab(t) {
+  ['input','config','templates','preview','export'].forEach((name,i)=>{
+    document.getElementById('tab-'+name).style.display = name===t?'block':'none';
+    document.querySelectorAll('.tab')[i].classList.toggle('active',name===t);
+  });
+  if(t==='preview') renderLeadList();
+  if(t==='export') renderExport();
+}
+
+function loadDemo(){ document.getElementById('leads-raw').value=DEMO; }
+
+function parseCSVLine(line){
+  const r=[];let cur='',inQ=false;
+  for(let i=0;i<line.length;i++){
+    if(line[i]==='"'){inQ=!inQ;}
+    else if(line[i]===','&&!inQ){r.push(cur);cur='';}
+    else{cur+=line[i];}
+  }
+  r.push(cur);
+  return r;
+}
+
+function parseLeads(){
+  const raw=document.getElementById('leads-raw').value.trim();
+  if(!raw){alert('Wklej CSV');return;}
+  const lines=raw.split('\n').filter(l=>l.trim());
+  if(lines.length<2){alert('Potrzebny nagłówek + min 1 lead');return;}
+  const headers=parseCSVLine(lines[0]).map(h=>h.trim().toLowerCase().replace(/\s+/g,'_'));
+  parsedLeads=[];
+  for(let i=1;i<lines.length;i++){
+    const vals=parseCSVLine(lines[i]);
+    const lead={};
+    headers.forEach((h,idx)=>{lead[h]=(vals[idx]||'').trim();});
+    if(lead.company_name) parsedLeads.push(lead);
+  }
+  if(!parsedLeads.length){alert('Nie udało się sparsować');return;}
+  updateStats();
+  document.getElementById('stats-row').style.display='grid';
+  switchTab('config');
+}
+
+function renderLeadList(){
+  if(!parsedLeads.length){document.getElementById('lead-list').innerHTML='<div class="empty">Wczytaj leady w kroku 1.</div>';return;}
+  const genCount=parsedLeads.filter(l=>sequences[l.company_name]).length;
+  document.getElementById('lead-list').innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem">
+      <p style="font-size:12px;color:var(--color-text-secondary);margin:0">${parsedLeads.length} leadów · ${genCount} wygenerowanych</p>
+      <button onclick="generateAll()" id="gen-all-btn" style="font-size:12px">Generuj wszystkie ↗</button>
+    </div>
+    ${parsedLeads.map(lead=>{
+      const sig=lead.buying_signal||'COLD';
+      const bc=sig==='HOT'?'background:var(--color-background-danger);color:var(--color-text-danger)':sig==='WARM'?'background:var(--color-background-warning);color:var(--color-text-warning)':'background:var(--color-background-secondary);color:var(--color-text-secondary)';
+      const done=sequences[lead.company_name];
+      return `<div class="lead-row">
+        <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);${bc}">${sig}</span>
+        <div style="flex:1">
+          <p style="font-size:13px;font-weight:500;margin:0">${esc(lead.company_name)}</p>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0">${esc(lead.founder_name||'?')} · ${esc(lead.email_pattern||'brak emaila')}</p>
+        </div>
+        ${done?'<span style="font-size:11px;color:var(--color-text-success)">✓ gotowe</span>':`<button onclick="generateOne('${esc(lead.company_name)}')" style="font-size:11px">Generuj →</button>`}
+      </div>`;
+    }).join('')}`;
+}
+
+async function generateOne(name){
+  const lead=parsedLeads.find(l=>l.company_name===name);
+  if(!lead)return;
+  document.getElementById('prog-area').style.display='block';
+  await generateSequence(lead);
+  document.getElementById('prog-area').style.display='none';
+  renderLeadList();
+  renderAllSequences();
+  updateStats();
+}
+
+async function generateAll(){
+  document.getElementById('gen-all-btn').disabled=true;
+  document.getElementById('prog-area').style.display='block';
+  document.getElementById('log-area').innerHTML='';
+  for(let i=0;i<parsedLeads.length;i++){
+    if(sequences[parsedLeads[i].company_name])continue;
+    setProgress(Math.round(i/parsedLeads.length*90));
+    await generateSequence(parsedLeads[i]);
+    renderAllSequences();
+    updateStats();
+    if(i<parsedLeads.length-1)await sleep(900);
+  }
+  setProgress(100);
+  log('Wszystkie sekwencje gotowe');
+  document.getElementById('gen-all-btn').disabled=false;
+  setTimeout(()=>{document.getElementById('prog-area').style.display='none';},1500);
+  renderLeadList();
+  renderExport();
+}
+
+async function generateSequence(lead){
+  log(`Generuję: ${lead.company_name} [${lead.buying_signal||'?'}]...`);
+  const sender=document.getElementById('cfg-sender').value||'Marek';
+  const lang=document.getElementById('cfg-lang').value;
+  const case2=document.getElementById('cfg-case2').value;
+  const firstName=(lead.founder_name&&lead.founder_name!=='UNKNOWN')?lead.founder_name.split(' ')[0]:'there';
+
+  const userMsg=`Write a 3-touch cold email sequence for this lead.
+
+Language: ${lang==='pl'?'Polish':'English'}
+Sender name: ${sender}
+${case2?`Additional case study to optionally reference: ${case2}`:''}
+
+LEAD:
+Company: ${lead.company_name}
+Founder first name: ${firstName}
+Product: ${lead.product_description||lead.company_description||'hardware product'}
+Employees: ${lead.employee_count||'unknown'}
+Funding: ${lead.funding_stage||'unknown'}
+Buying signal: ${lead.buying_signal||'COLD'}
+Why they're a fit: ${lead.signal_reason||'unknown'}
+Kickstarter signal: ${lead.kickstarter_signal||'unknown'}
+Recent news: ${lead.recent_news||'unknown'}
+
+Important: Touch 1 must open with ONE specific observation referencing their actual situation (product type, kickstarter signal, or recent news). No generic openers.
+Touch 3 subject must reference their product name or launch year.
+
+Return JSON only.`;
+
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:JAY23_SYSTEM,messages:[{role:'user',content:userMsg}]})
+    });
+    const data=await resp.json();
+    const text=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    const m=text.match(/\{[\s\S]*\}/);
+    if(!m)throw new Error('No JSON');
+    sequences[lead.company_name]=JSON.parse(m[0]);
+    log(`  ✓ ${lead.company_name}`);
+  }catch(e){
+    log(`  ✗ ${lead.company_name}: ${e.message}`);
+  }
+}
+
+function renderAllSequences(){
+  const done=parsedLeads.filter(l=>sequences[l.company_name]);
+  if(!done.length){document.getElementById('sequence-area').innerHTML='';return;}
+  document.getElementById('sequence-area').innerHTML=done.map(lead=>{
+    const seq=sequences[lead.company_name];
+    const sig=lead.buying_signal||'COLD';
+    const bc=sig==='HOT'?'background:var(--color-background-danger);color:var(--color-text-danger)':sig==='WARM'?'background:var(--color-background-warning);color:var(--color-text-warning)':'background:var(--color-background-secondary);color:var(--color-text-secondary)';
+    const touches=[
+      {k:'touch1',l:'Touch 1',d:'Dzień 0',c:'var(--color-text-info)'},
+      {k:'touch2',l:'Touch 2',d:'Dzień +4',c:'var(--color-text-warning)'},
+      {k:'touch3',l:'Touch 3',d:'Dzień +9',c:'var(--color-text-secondary)'},
+    ];
+    return `<div class="panel">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;flex-wrap:wrap">
+        <span style="font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);${bc}">${sig}</span>
+        <div style="flex:1">
+          <p style="font-size:14px;font-weight:500;margin:0">${esc(lead.company_name)}</p>
+          <p style="font-size:11px;color:var(--color-text-secondary);margin:0">To: ${esc(lead.email_pattern||'?')} · ${esc(lead.founder_name||'?')}</p>
+        </div>
+        <button onclick="regenOne('${esc(lead.company_name)}')" style="font-size:11px">Regeneruj</button>
+      </div>
+      ${touches.map(t=>{
+        const touch=seq[t.k];if(!touch)return'';
+        return`<div class="email-block">
+          <div class="email-header">
+            <span class="touch-label" style="background:var(--color-background-secondary);color:${t.c}">${t.l} · ${t.d}</span>
+            <span style="font-size:12px;color:var(--color-text-secondary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">Subject: ${esc(touch.subject)}</span>
+            <button class="copy-btn" onclick="copyAll(this,'${esc2(touch.subject)}','${esc2(touch.body)}')">Kopiuj</button>
+          </div>
+          <div class="email-body">${esc(touch.body)}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('');
+}
+
+async function regenOne(name){
+  delete sequences[name];
+  const lead=parsedLeads.find(l=>l.company_name===name);
+  if(!lead)return;
+  document.getElementById('prog-area').style.display='block';
+  await generateSequence(lead);
+  document.getElementById('prog-area').style.display='none';
+  renderAllSequences();
+  updateStats();
+}
+
+function renderExport(){
+  const done=parsedLeads.filter(l=>sequences[l.company_name]);
+  if(!done.length){document.getElementById('export-content').innerHTML='<div class="empty">Brak wygenerowanych sekwencji.</div>';return;}
+  document.getElementById('export-content').innerHTML=`
+    <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 .75rem">${done.length} firm gotowych</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
+      <button onclick="exportCSV()" style="font-size:12px">CSV — Smartlead / Lemlist ↗</button>
+      <button onclick="exportJSON()" style="font-size:12px">JSON ↗</button>
+      <button onclick="exportTXT()" style="font-size:12px">TXT — wszystkie emaile ↗</button>
+    </div>
+    <div class="info-box">
+      <p style="font-weight:500;margin:0 0 6px;font-size:12px">Import do sekwencera</p>
+      <p style="margin:0;color:var(--color-text-secondary)">1. CSV → Smartlead: kampania → import contacts → mapuj kolumny subject_1/body_1 itd.<br>2. Delay: Touch 2 = Day 4, Touch 3 = Day 9 od wysyłki Touch 1<br>3. HOT leady → wyślij ręcznie Touch 1 zanim trafią do automatyzacji</p>
+    </div>`;
+}
+
+function exportCSV(){
+  const fields=['first_name','last_name','email','company','domain','buying_signal','subject_1','body_1','subject_2','body_2','subject_3','body_3'];
+  const rows=parsedLeads.filter(l=>sequences[l.company_name]).map(lead=>{
+    const seq=sequences[lead.company_name];
+    const parts=(lead.founder_name||'').split(' ');
+    return [parts[0]||'',parts.slice(1).join(' ')||'',lead.email_pattern||'',lead.company_name,lead.domain||'',lead.buying_signal||'',
+      seq.touch1?.subject||'',seq.touch1?.body||'',
+      seq.touch2?.subject||'',seq.touch2?.body||'',
+      seq.touch3?.subject||'',seq.touch3?.body||''
+    ].map(v=>`"${String(v).replace(/"/g,'""').replace(/\n/g,'\\n')}"`).join(',');
+  });
+  dl('jay23_sequences_'+td()+'.csv',[fields.join(','),...rows].join('\n'),'text/csv');
+}
+
+function exportJSON(){
+  dl('jay23_sequences_'+td()+'.json',JSON.stringify(parsedLeads.filter(l=>sequences[l.company_name]).map(l=>({lead:l,sequence:sequences[l.company_name]})),null,2),'application/json');
+}
+
+function exportTXT(){
+  const lines=[];
+  parsedLeads.filter(l=>sequences[l.company_name]).forEach(lead=>{
+    const seq=sequences[lead.company_name];
+    lines.push(`${'─'.repeat(50)}\n${lead.company_name} | ${lead.founder_name||'?'} | ${lead.email_pattern||'?'} | ${lead.buying_signal||'?'}\n${'─'.repeat(50)}`);
+    ['touch1','touch2','touch3'].forEach((t,i)=>{
+      const touch=seq[t];if(!touch)return;
+      lines.push(`\n[Touch ${i+1} · Day ${touch.send_day}]\nSubject: ${touch.subject}\n\n${touch.body}`);
+    });
+    lines.push('\n');
+  });
+  dl('jay23_sequences_'+td()+'.txt',lines.join('\n'),'text/plain');
+}
+
+function copyAll(btn,subj,body){
+  const text=subj.replace(/\\n/g,'\n')+'\n\n'+body.replace(/\\n/g,'\n');
+  navigator.clipboard.writeText(text).then(()=>{btn.textContent='Skopiowano!';setTimeout(()=>btn.textContent='Kopiuj',2000);});
+}
+
+function updateStats(){
+  document.getElementById('s-total').textContent=parsedLeads.length;
+  document.getElementById('s-gen').textContent=parsedLeads.filter(l=>sequences[l.company_name]).length;
+  document.getElementById('s-hot').textContent=parsedLeads.filter(l=>l.buying_signal==='HOT').length;
+  document.getElementById('s-emails').textContent=parsedLeads.filter(l=>sequences[l.company_name]).length*3;
+  document.getElementById('stats-row').style.display='grid';
+}
+
+function log(msg){const el=document.createElement('p');el.className='step-log';el.textContent=msg;const a=document.getElementById('log-area');a.appendChild(el);a.scrollTop=a.scrollHeight;}
+function setProgress(p){document.getElementById('prog-fill').style.width=p+'%';}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+function td(){return new Date().toISOString().slice(0,10);}
+function dl(name,content,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;a.click();}
+function esc(s){return s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'):''}
+function esc2(s){return s?String(s).replace(/\\/g,'\\\\').replace(/`/g,'\\`').replace(/\$/g,'\\$').replace(/'/g,"\\'"):''}
+</script>
