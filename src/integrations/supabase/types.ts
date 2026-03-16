@@ -66,7 +66,9 @@ export type Database = {
           data_confidence: number | null
           domain: string | null
           email_confidence: string | null
+          email_found: string | null
           email_pattern: string | null
+          email_source: string | null
           employee_count: string | null
           employees: string | null
           enriched: boolean | null
@@ -79,9 +81,16 @@ export type Database = {
           linkedin_url: string | null
           notes: string | null
           product_description: string | null
+          product_stage: string | null
+          project_mentions: string | null
           recent_news: string | null
+          recent_x_posts: string | null
           signal_reason: string | null
           source_url: string | null
+          x_bio: string | null
+          x_followers: string | null
+          x_handle: string | null
+          x_url: string | null
         }
         Insert: {
           buying_signal?: string
@@ -92,7 +101,9 @@ export type Database = {
           data_confidence?: number | null
           domain?: string | null
           email_confidence?: string | null
+          email_found?: string | null
           email_pattern?: string | null
+          email_source?: string | null
           employee_count?: string | null
           employees?: string | null
           enriched?: boolean | null
@@ -105,9 +116,16 @@ export type Database = {
           linkedin_url?: string | null
           notes?: string | null
           product_description?: string | null
+          product_stage?: string | null
+          project_mentions?: string | null
           recent_news?: string | null
+          recent_x_posts?: string | null
           signal_reason?: string | null
           source_url?: string | null
+          x_bio?: string | null
+          x_followers?: string | null
+          x_handle?: string | null
+          x_url?: string | null
         }
         Update: {
           buying_signal?: string
@@ -118,7 +136,9 @@ export type Database = {
           data_confidence?: number | null
           domain?: string | null
           email_confidence?: string | null
+          email_found?: string | null
           email_pattern?: string | null
+          email_source?: string | null
           employee_count?: string | null
           employees?: string | null
           enriched?: boolean | null
@@ -131,9 +151,16 @@ export type Database = {
           linkedin_url?: string | null
           notes?: string | null
           product_description?: string | null
+          product_stage?: string | null
+          project_mentions?: string | null
           recent_news?: string | null
+          recent_x_posts?: string | null
           signal_reason?: string | null
           source_url?: string | null
+          x_bio?: string | null
+          x_followers?: string | null
+          x_handle?: string | null
+          x_url?: string | null
         }
         Relationships: []
       }

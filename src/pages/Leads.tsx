@@ -50,6 +50,16 @@ interface Lead {
   recent_news?: string;
   data_confidence?: number;
   enriched?: boolean;
+  // Deep enrichment fields
+  x_handle?: string;
+  x_url?: string;
+  x_bio?: string;
+  x_followers?: string;
+  recent_x_posts?: string;
+  email_found?: string;
+  email_source?: string;
+  project_mentions?: string;
+  product_stage?: string;
 }
 
 interface EmailSequence {
@@ -67,11 +77,13 @@ interface EmailSequence {
 // ─── CSV exports ─────────────────────────────────────
 const LEAD_CSV_FIELDS: (keyof Lead)[] = [
   "company_name", "domain", "founder_name", "founder_title",
+  "x_handle", "x_url", "x_bio", "x_followers",
   "founder_linkedin", "linkedin_url", "company_linkedin",
-  "email_pattern", "email_confidence",
+  "email_found", "email_pattern", "email_confidence", "email_source",
   "employees", "employee_count", "product_description", "company_description",
   "funding_stage", "kickstarter_signal", "buying_signal", "signal_reason",
-  "recent_news", "data_confidence", "source_url", "notes",
+  "product_stage", "recent_news", "project_mentions", "recent_x_posts",
+  "data_confidence", "source_url", "notes",
 ];
 
 function exportLeadCSV(leads: Lead[]) {
@@ -880,8 +892,14 @@ function LeadRow({ lead, index, expanded, onToggle }: { lead: Lead; index: numbe
                 <Linkedin className="w-4 h-4" />
               </a>
             )}
-            {val(lead.email_pattern) && (
-              <a href={`mailto:${lead.email_pattern}`} className="text-emerald-400 hover:text-emerald-300"
+            {val(lead.x_url) && (
+              <a href={lead.x_url} target="_blank" rel="noopener noreferrer"
+                className="text-white/60 hover:text-white" onClick={(e) => e.stopPropagation()} title={lead.x_handle || "X"}>
+                <span className="text-xs font-bold">𝕏</span>
+              </a>
+            )}
+            {(val(lead.email_found) || val(lead.email_pattern)) && (
+              <a href={`mailto:${val(lead.email_found) || lead.email_pattern}`} className="text-emerald-400 hover:text-emerald-300"
                 onClick={(e) => e.stopPropagation()}>
                 <Mail className="w-4 h-4" />
               </a>
@@ -907,9 +925,23 @@ function LeadRow({ lead, index, expanded, onToggle }: { lead: Lead; index: numbe
       </tr>
       {expanded && (
         <tr className="border-b border-[hsl(var(--dark-border))]/50 bg-white/[0.01]">
-          <td colSpan={8} className="px-6 py-4">
+          <td colSpan={8} className="px-6 py-4 space-y-3">
+            {/* X/Twitter */}
+            {val(lead.x_handle) && (
+              <div className="bg-white/[0.02] rounded-lg p-3">
+                <p className="text-xs text-white/40 uppercase tracking-wider mb-1">𝕏 / Twitter</p>
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="text-white font-medium">{lead.x_handle}</span>
+                  {val(lead.x_followers) && <span className="text-white/40 text-xs">{lead.x_followers} followers</span>}
+                </div>
+                {val(lead.x_bio) && <p className="text-white/50 text-xs mt-1">{lead.x_bio}</p>}
+              </div>
+            )}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Detail label="Email" value={val(lead.email_pattern)} confidence={val(lead.email_confidence)} />
+              <Detail label="Email (confirmed)" value={val(lead.email_found)} />
+              <Detail label="Email (pattern)" value={val(lead.email_pattern)} confidence={val(lead.email_confidence)} />
+              <Detail label="Email Source" value={val(lead.email_source)} />
+              <Detail label="Product Stage" value={val(lead.product_stage)} />
               <Detail label="Employees" value={val(lead.employee_count) || val(lead.employees)} />
               <Detail label="Funding" value={val(lead.funding_stage)} />
               <Detail label="Recent News" value={val(lead.recent_news)} />
@@ -918,6 +950,28 @@ function LeadRow({ lead, index, expanded, onToggle }: { lead: Lead; index: numbe
               <Detail label="Notes" value={val(lead.notes)} />
               {lead.enriched && <Detail label="Confidence" value={`${lead.data_confidence ?? 0}%`} />}
             </div>
+            {/* Project mentions */}
+            {val(lead.project_mentions) && (() => {
+              try {
+                const mentions = JSON.parse(lead.project_mentions!);
+                if (Array.isArray(mentions) && mentions.length > 0) {
+                  return (
+                    <div className="bg-white/[0.02] rounded-lg p-3">
+                      <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Wzmianki o projekcie</p>
+                      <div className="space-y-1">
+                        {mentions.map((m: any, idx: number) => (
+                          <div key={idx} className="text-xs">
+                            <a href={m.url} target="_blank" rel="noopener noreferrer" className="text-primary/70 hover:text-primary">{m.title || m.source}</a>
+                            {m.summary && <span className="text-white/40 ml-2">— {m.summary}</span>}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+              } catch { /* ignore */ }
+              return null;
+            })()}
           </td>
         </tr>
       )}
