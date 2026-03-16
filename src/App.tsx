@@ -15,6 +15,7 @@ import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import Process from "./pages/Process";
 import ThankYou from "./pages/ThankYou";
+import Leads from "./pages/Leads";
 
 const queryClient = new QueryClient();
 
