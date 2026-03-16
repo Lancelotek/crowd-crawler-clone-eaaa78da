@@ -376,6 +376,10 @@ export default function Leads() {
                 className="border-[hsl(var(--dark-border))] text-white/80 hover:text-white bg-transparent gap-2">
                 <Download className="w-4 h-4" /> Leads CSV
               </Button>
+              <Button variant="outline" size="sm" onClick={clearAllLeads}
+                className="border-destructive/50 text-destructive hover:text-destructive hover:bg-destructive/10 bg-transparent gap-2">
+                <Trash2 className="w-4 h-4" /> Clear All
+              </Button>
             </>
           )}
         </div>
