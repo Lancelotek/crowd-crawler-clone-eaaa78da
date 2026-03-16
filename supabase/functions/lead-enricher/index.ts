@@ -8,36 +8,46 @@ const corsHeaders = {
 
 const BRAVE_ENDPOINT = "https://api.search.brave.com/res/v1/web/search";
 
-const SYSTEM_PROMPT = `You are a B2B lead enrichment agent for JAY-23, a Kickstarter pre-launch agency.
-Extract founder/CEO data from Brave Search results for a hardware company.
+const SYSTEM_PROMPT = `You extract structured data from Brave Search results about a founder and their hardware company.
 Return ONLY valid JSON, no markdown, no preamble.
 
-Required JSON fields:
 {
   "founder_name": "Full Name or UNKNOWN",
-  "founder_title": "CEO/Founder/Co-Founder or UNKNOWN",
+  "founder_title": "CEO/Founder etc or UNKNOWN",
+  "x_handle": "@handle or UNKNOWN",
+  "x_url": "https://x.com/handle or UNKNOWN",
+  "x_bio": "their X bio text or UNKNOWN",
+  "x_followers": "follower count or UNKNOWN",
+  "recent_x_posts": [{"text":"post content summary","url":"x.com post url","date":"approx date","engagement":"likes/RTs if visible"}],
+  "email_found": "actual confirmed email@domain.com or UNKNOWN",
+  "email_pattern": "guessed pattern firstname@domain.com or UNKNOWN",
+  "email_confidence": "high|medium|low",
+  "email_source": "source URL or UNKNOWN",
+  "founder_linkedin": "https://linkedin.com/in/... or UNKNOWN",
   "linkedin_url": "https://linkedin.com/in/... or UNKNOWN",
   "company_linkedin": "https://linkedin.com/company/... or UNKNOWN",
-  "email_pattern": "firstname@domain.com or UNKNOWN",
-  "email_confidence": "high|medium|low",
   "employee_count": "12-25 or UNKNOWN",
   "company_description": "one sentence hardware product description or UNKNOWN",
+  "project_mentions": [{"source":"site name","title":"title","url":"url","date":"date","summary":"1 sentence"}],
+  "kickstarter_signal": "specific Kickstarter/crowdfunding mention or UNKNOWN",
+  "product_stage": "prototype|pre-launch|launched|unknown",
   "recent_news": "most recent notable event or UNKNOWN",
-  "kickstarter_signal": "any Kickstarter/crowdfunding mention or UNKNOWN",
   "data_confidence": 0
 }
 
 Rules:
 - UNKNOWN if not found in search results — never invent
-- Prefer LinkedIn URLs from search results for founder data
-- data_confidence: 0-100 (how much real data you found)`;
+- x_handle must start with @
+- Max 3 recent_x_posts, max 4 project_mentions
+- data_confidence: 0-100 (how much real data you found)
+- Prefer LinkedIn URLs from search results for founder data`;
 
-async function braveSearch(query: string, apiKey: string, count = 7) {
+async function braveSearch(query: string, apiKey: string, count = 8) {
   const url = new URL(BRAVE_ENDPOINT);
   url.searchParams.set("q", query);
   url.searchParams.set("count", String(count));
   url.searchParams.set("search_lang", "en");
-  url.searchParams.set("freshness", "py1");
+  url.searchParams.set("freshness", "py2");
 
   const resp = await fetch(url.toString(), {
     headers: {
@@ -60,30 +70,65 @@ async function braveSearch(query: string, apiKey: string, count = 7) {
   }));
 }
 
-async function enrichCompany(
+async function deepEnrich(
   lovableKey: string,
   braveKey: string,
   companyName: string,
-  domain: string
+  domain: string,
+  founderName?: string
 ) {
-  const queries = [
-    `"${companyName}" founder CEO site:linkedin.com`,
-    `"${companyName}" "${domain}" founder CEO hardware startup`,
-    `"${companyName}" hardware Kickstarter crowdfunding pre-launch`,
-  ];
+  const fn = founderName && founderName.toLowerCase() !== "unknown" && founderName.trim()
+    ? founderName.trim()
+    : null;
+
+  const queries: string[] = [];
+
+  // X/Twitter queries
+  if (fn) {
+    queries.push(`"${fn}" "${companyName}" site:x.com OR site:twitter.com`);
+    queries.push(`"${fn}" hardware startup crowdfunding site:twitter.com OR site:x.com`);
+  } else {
+    queries.push(`"${companyName}" founder CEO site:x.com OR site:twitter.com`);
+  }
+
+  // Email queries
+  queries.push(`"${domain}" email contact founder`);
+  if (fn) {
+    queries.push(`"${fn}" "${domain}" contact email`);
+  }
+
+  // General + LinkedIn
+  if (fn) {
+    queries.push(`"${fn}" "${companyName}" founder CEO`);
+  }
+  queries.push(`"${companyName}" founder CEO site:linkedin.com`);
+
+  // Kickstarter / crowdfunding mentions
+  queries.push(`"${companyName}" Kickstarter OR crowdfunding OR "pre-launch" 2024 2025 2026`);
+
+  // News / interviews
+  queries.push(`"${companyName}" hardware startup news interview OR launch OR funding`);
 
   const allResults: any[] = [];
   for (const q of queries) {
     try {
-      const results = await braveSearch(q, braveKey, 7);
+      const results = await braveSearch(q, braveKey, 8);
       allResults.push(...results);
     } catch (e: any) {
       // continue with other queries
     }
-    await new Promise((r) => setTimeout(r, 400));
+    await new Promise((r) => setTimeout(r, 350));
   }
 
-  const resultsText = allResults
+  // Deduplicate by URL
+  const seen = new Set<string>();
+  const unique = allResults.filter((r) => {
+    if (seen.has(r.url)) return false;
+    seen.add(r.url);
+    return true;
+  });
+
+  const resultsText = unique
     .map((r, i) => `[${i + 1}] ${r.title}\nURL: ${r.url}\n${r.description}`)
     .join("\n\n");
 
@@ -101,7 +146,7 @@ async function enrichCompany(
           { role: "system", content: SYSTEM_PROMPT },
           {
             role: "user",
-            content: `Company: ${companyName}\nDomain: ${domain}\n\nSearch results:\n${resultsText}\n\nReturn JSON enrichment.`,
+            content: `Company: ${companyName}\nFounder: ${fn || "unknown"}\nDomain: ${domain}\n\nSearch results:\n${resultsText}\n\nReturn JSON.`,
           },
         ],
       }),
@@ -122,21 +167,28 @@ async function enrichCompany(
   try {
     const enriched = JSON.parse(match[0]);
 
-    // Auto email pattern guess
+    // Serialize arrays to JSON strings for DB storage
+    if (Array.isArray(enriched.recent_x_posts)) {
+      enriched.recent_x_posts = JSON.stringify(enriched.recent_x_posts);
+    }
+    if (Array.isArray(enriched.project_mentions)) {
+      enriched.project_mentions = JSON.stringify(enriched.project_mentions);
+    }
+
+    // Auto email pattern fallback
     if (
-      enriched.founder_name &&
-      enriched.founder_name !== "UNKNOWN" &&
+      (!enriched.email_found || enriched.email_found === "UNKNOWN") &&
       (!enriched.email_pattern || enriched.email_pattern === "UNKNOWN") &&
-      domain &&
-      domain !== "UNKNOWN"
+      domain && domain !== "UNKNOWN"
     ) {
-      const parts = enriched.founder_name
-        .toLowerCase()
-        .replace(/[^a-z ]/g, "")
-        .split(/\s+/);
+      const name = enriched.founder_name && enriched.founder_name !== "UNKNOWN"
+        ? enriched.founder_name
+        : fn || "";
+      const parts = name.toLowerCase().replace(/[^a-z ]/g, "").split(/\s+/);
       if (parts.length >= 2) {
         enriched.email_pattern = `${parts[0]}@${domain}`;
         enriched.email_confidence = "medium";
+        enriched.email_source = "auto-pattern";
       }
     }
 
@@ -171,6 +223,7 @@ serve(async (req) => {
       const lead = leads[i];
       const name = lead.company_name || "";
       const domain = lead.domain || "UNKNOWN";
+      const founder = lead.founder_name || "";
 
       if (!name) {
         logs.push(`[${i + 1}] Skipped — no company name`);
@@ -178,18 +231,24 @@ serve(async (req) => {
         continue;
       }
 
-      logs.push(`[${i + 1}/${leads.length}] Enriching: ${name} (${domain})`);
+      logs.push(`[${i + 1}/${leads.length}] Deep enriching: ${name} (${domain})`);
 
       try {
-        const enriched = await enrichCompany(
+        const enriched = await deepEnrich(
           LOVABLE_API_KEY,
           BRAVE_API_KEY,
           name,
-          domain
+          domain,
+          founder
         );
         enrichedLeads.push({ ...lead, ...enriched });
+
+        const xh = enriched.x_handle || "?";
+        const em = enriched.email_found && enriched.email_found !== "UNKNOWN"
+          ? enriched.email_found
+          : enriched.email_pattern || "?";
         logs.push(
-          `  ✓ founder=${enriched.founder_name || "?"} | confidence=${enriched.data_confidence || 0}%`
+          `  ✓ founder=${enriched.founder_name || "?"} | X=${xh} | email=${em} | conf=${enriched.data_confidence || 0}%`
         );
       } catch (e: any) {
         logs.push(`  ✗ Error: ${e.message}`);
@@ -203,27 +262,23 @@ serve(async (req) => {
     }
 
     // Summary
-    const found = enrichedLeads.filter(
-      (l) => l.founder_name && l.founder_name !== "UNKNOWN"
-    ).length;
-    const liFound = enrichedLeads.filter(
-      (l) => l.linkedin_url && l.linkedin_url !== "UNKNOWN"
-    ).length;
-    const emailFound = enrichedLeads.filter(
-      (l) => l.email_pattern && l.email_pattern !== "UNKNOWN"
-    ).length;
-    const avgConf = enrichedLeads.length
-      ? Math.round(
-          enrichedLeads.reduce((s, l) => s + (Number(l.data_confidence) || 0), 0) /
-            enrichedLeads.length
-        )
+    const total = enrichedLeads.length;
+    const foundersFound = enrichedLeads.filter(l => l.founder_name && l.founder_name !== "UNKNOWN").length;
+    const xFound = enrichedLeads.filter(l => l.x_handle && l.x_handle !== "UNKNOWN").length;
+    const liFound = enrichedLeads.filter(l => (l.linkedin_url || l.founder_linkedin) && (l.linkedin_url || l.founder_linkedin) !== "UNKNOWN").length;
+    const emailFound = enrichedLeads.filter(l => l.email_found && l.email_found !== "UNKNOWN").length;
+    const patternFound = enrichedLeads.filter(l => l.email_pattern && l.email_pattern !== "UNKNOWN").length;
+    const avgConf = total
+      ? Math.round(enrichedLeads.reduce((s, l) => s + (Number(l.data_confidence) || 0), 0) / total)
       : 0;
 
-    logs.push(`\n--- Summary ---`);
-    logs.push(`Founders found: ${found}/${enrichedLeads.length}`);
-    logs.push(`LinkedIn URLs:  ${liFound}`);
-    logs.push(`Email patterns: ${emailFound}`);
-    logs.push(`Avg confidence: ${avgConf}%`);
+    logs.push(`\n--- Deep Enrichment Summary ---`);
+    logs.push(`Founders found:   ${foundersFound}/${total}`);
+    logs.push(`X handles:        ${xFound}/${total}`);
+    logs.push(`LinkedIn URLs:    ${liFound}/${total}`);
+    logs.push(`Emails found:     ${emailFound}/${total}`);
+    logs.push(`Email patterns:   ${patternFound}/${total}`);
+    logs.push(`Avg confidence:   ${avgConf}%`);
 
     return new Response(
       JSON.stringify({ leads: enrichedLeads, logs }),
