@@ -423,6 +423,11 @@ export default function Leads() {
         <div className="flex items-center gap-3">
           <img src={jay23Logo} alt="JAY-23" className="h-6 opacity-70" />
           <span className="text-white/60 text-sm font-mono">/ Lead Researcher</span>
+          <a href="https://airtable.com/appOwc6kWVZuq167g/shrMmIpcwU1V3noqK" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline" size="sm" className="bg-transparent border-[hsl(var(--dark-border))] text-white/60 hover:text-white hover:bg-white/5 gap-2">
+              <FileText className="w-4 h-4" /> Airtable
+            </Button>
+          </a>
         </div>
         <div className="flex items-center gap-3">
           {leads.length > 0 && (
