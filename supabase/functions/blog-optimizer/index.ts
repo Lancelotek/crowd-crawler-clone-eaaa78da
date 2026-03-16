@@ -112,9 +112,29 @@ Return a JSON object with these fields:
         body: JSON.stringify({
           model: "google/gemini-2.5-flash",
           messages: [
-            { role: "system", content: "You are an expert SEO content writer. Always respond with valid JSON only, no markdown code blocks." },
+            { role: "system", content: "You are an expert SEO content writer." },
             { role: "user", content: prompt },
           ],
+          tools: [{
+            type: "function",
+            function: {
+              name: "update_blog_post",
+              description: "Update a blog post with optimized content",
+              parameters: {
+                type: "object",
+                properties: {
+                  title: { type: "string", description: "SEO-optimized title under 60 chars" },
+                  slug: { type: "string", description: "URL-friendly slug" },
+                  excerpt: { type: "string", description: "Meta description under 160 chars" },
+                  content: { type: "string", description: "Full article in Markdown, 1500+ words" },
+                  category: { type: "string", description: "Article category in English" },
+                },
+                required: ["title", "slug", "excerpt", "content", "category"],
+                additionalProperties: false,
+              },
+            },
+          }],
+          tool_choice: { type: "function", function: { name: "update_blog_post" } },
           temperature: 0.7,
         }),
       });
@@ -127,16 +147,12 @@ Return a JSON object with these fields:
       }
 
       const aiData = await aiResponse.json();
-      let rawContent = aiData.choices?.[0]?.message?.content || "";
-      
-      // Strip markdown code blocks if present
-      rawContent = rawContent.replace(/^```json\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
-
       let parsed: any;
       try {
-        parsed = JSON.parse(rawContent);
+        const toolCall = aiData.choices?.[0]?.message?.tool_calls?.[0];
+        parsed = JSON.parse(toolCall.function.arguments);
       } catch {
-        console.error(`Failed to parse AI response for ${post.slug}:`, rawContent.substring(0, 200));
+        console.error(`Failed to parse tool call for ${post.slug}`);
         results.push({ id: post.id, slug: post.slug, status: "parse_error" });
         continue;
       }
