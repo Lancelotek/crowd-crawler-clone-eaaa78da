@@ -205,13 +205,17 @@ export default function Leads() {
   const [seqLogs, setSeqLogs] = useState<string[]>([]);
   const [showSeqLogs, setShowSeqLogs] = useState(false);
   const [generatingSeqs, setGeneratingSeqs] = useState(false);
+  const [regeneratingLead, setRegeneratingLead] = useState<string | null>(null);
   const [hotOnly, setHotOnly] = useState(false);
   const [seqConfig, setSeqConfig] = useState({
     senderName: "Marek",
     caseStudy: "Bluetooth tracking smart wallet – $330K raised on Kickstarter after we built their pre-launch community from 0",
+    extraCaseStudy: "",
     language: "English",
   });
   const [expandedSeq, setExpandedSeq] = useState<number | null>(null);
+  const [seqProgress, setSeqProgress] = useState(0);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const handleAuth = () => {
     if (pw === PASSWORD) { setAuthed(true); setPwError(false); } else { setPwError(true); }
