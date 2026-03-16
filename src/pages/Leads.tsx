@@ -451,6 +451,9 @@ export default function Leads() {
             <TabsTrigger value="research" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
               <Search className="w-4 h-4 mr-2" /> Research
             </TabsTrigger>
+            <TabsTrigger value="templates" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
+              <Eye className="w-4 h-4 mr-2" /> Szablony
+            </TabsTrigger>
             <TabsTrigger value="sequences" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
               <Send className="w-4 h-4 mr-2" /> Sequences {sequences.length > 0 && `(${sequences.length})`}
             </TabsTrigger>
