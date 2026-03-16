@@ -953,6 +953,32 @@ Marek`}
   );
 }
 
+// ─── Domain accordion ────────────────────────────────
+function DomainAccordion({ title, items }: { title: string; items: string[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+      <button onClick={() => setOpen(!open)}
+        className="w-full px-5 py-3 flex items-center justify-between text-left hover:bg-white/[0.02] transition-colors">
+        <span className="text-sm font-medium text-white/80">{title}</span>
+        {open ? <ChevronUp className="w-4 h-4 text-white/40" /> : <ChevronDown className="w-4 h-4 text-white/40" />}
+      </button>
+      {open && (
+        <div className="px-5 pb-4 border-t border-[hsl(var(--dark-border))]">
+          <ul className="mt-3 space-y-2">
+            {items.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs text-white/60 leading-relaxed">
+                <span className="text-primary/70 mt-0.5">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Card>
+  );
+}
+
 // ─── Lead table row ─────────────────────────────────
 function LeadRow({ lead, index, expanded, onToggle }: { lead: Lead; index: number; expanded: boolean; onToggle: () => void }) {
   return (
