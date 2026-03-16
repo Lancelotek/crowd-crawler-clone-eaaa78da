@@ -659,6 +659,43 @@ Marek`}
                 </CardContent>
               </Card>
 
+              {/* Instrukcje wysyłki */}
+              <Card className="bg-amber-500/5 border-amber-500/20">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-amber-400 text-sm flex items-center gap-2">⚠️ Strategia wysyłki — ochrona domeny</CardTitle>
+                </CardHeader>
+                <CardContent className="text-xs text-white/60 space-y-3 leading-relaxed">
+                  <div>
+                    <p className="text-white/80 font-medium mb-1">🚫 Nigdy nie wysyłaj cold emaili z głównej domeny</p>
+                    <p>Główna domena (np. jay23.com) = do klientów i transakcji. Kup 2–3 sending domains:</p>
+                    <ul className="list-disc ml-4 mt-1 space-y-0.5 text-white/50">
+                      <li><code className="text-amber-400/80">jay-23.com</code> ← sending #1</li>
+                      <li><code className="text-amber-400/80">jay23.co</code> ← sending #2</li>
+                      <li><code className="text-amber-400/80">getjay23.com</code> ← sending #3 (backup)</li>
+                    </ul>
+                    <p className="mt-1">~$10–15/rok każda. Ustaw MX + SPF + DKIM + DMARC (Smartlead/Instantly robią to auto).</p>
+                  </div>
+                  <div>
+                    <p className="text-white/80 font-medium mb-1">🔥 Warmup — 3–4 tygodnie przed wysyłką</p>
+                    <ul className="list-disc ml-4 space-y-0.5 text-white/50">
+                      <li>Tydzień 1–2: max <span className="text-white/70">20 emaili/dzień</span> per domena</li>
+                      <li>Tydzień 3: max <span className="text-white/70">50/dzień</span></li>
+                      <li>Tydzień 4+: max <span className="text-white/70">80–100/dzień</span> (bezpieczny sufit)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-white/80 font-medium mb-1">📬 Open rate — zasady</p>
+                    <ul className="list-disc ml-4 space-y-0.5 text-white/50">
+                      <li><span className="text-white/70">Marek &lt;marek@jay-23.com&gt;</span> bije "JAY-23 Team" zawsze</li>
+                      <li>Subject max 6 słów, bez ?! w tym samym</li>
+                      <li>Brak słów-triggerów: free, guarantee, limited time, strategy call</li>
+                      <li>Plain text &gt; HTML (mniej filtrów, bardziej ludzki)</li>
+                      <li>Max 1 link w całym emailu</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+
               <div className="space-y-4">
                 <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))]">
                   <CardContent className="pt-6 space-y-4">
