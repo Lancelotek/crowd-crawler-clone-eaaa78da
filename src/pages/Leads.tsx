@@ -50,6 +50,16 @@ interface Lead {
   recent_news?: string;
   data_confidence?: number;
   enriched?: boolean;
+  // Deep enrichment fields
+  x_handle?: string;
+  x_url?: string;
+  x_bio?: string;
+  x_followers?: string;
+  recent_x_posts?: string;
+  email_found?: string;
+  email_source?: string;
+  project_mentions?: string;
+  product_stage?: string;
 }
 
 interface EmailSequence {
