@@ -56,6 +56,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
+          <Route path="/leads" element={<Leads />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
