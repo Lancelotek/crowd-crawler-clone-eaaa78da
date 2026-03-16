@@ -274,9 +274,11 @@ export default function Leads() {
       const enrichedLeads = (data.leads || []).map((l: any) => ({ ...l, enriched: true }));
       setLeads((prev) => {
         const enrichedNames = new Set(enrichedLeads.map((l: Lead) => l.company_name));
-        return [...prev.filter((l) => !enrichedNames.has(l.company_name)), ...enrichedLeads];
+        const updated = [...prev.filter((l) => !enrichedNames.has(l.company_name)), ...enrichedLeads];
+        return updated;
       });
       setEnrichLogs(data.logs || []);
+      await saveLeadsToDB(enrichedLeads);
     } catch (e: any) {
       setEnrichLogs((prev) => [...prev, `Error: ${e.message}`]);
     } finally {
