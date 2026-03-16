@@ -474,6 +474,9 @@ export default function Leads() {
             <TabsTrigger value="sequences" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
               <Send className="w-4 h-4 mr-2" /> Sequences {sequences.length > 0 && `(${sequences.length})`}
             </TabsTrigger>
+            <TabsTrigger value="domains" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
+              <Mail className="w-4 h-4 mr-2" /> Domains
+            </TabsTrigger>
           </TabsList>
 
           {/* ─── RESEARCH TAB ─── */}
