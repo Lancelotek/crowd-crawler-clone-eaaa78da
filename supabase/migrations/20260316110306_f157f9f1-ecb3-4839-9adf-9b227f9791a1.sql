@@ -1,0 +1,1 @@
+ALTER TABLE public.saved_leads ADD CONSTRAINT saved_leads_company_name_key UNIQUE (company_name);
