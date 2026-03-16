@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   Lock, Search, Download, Flame, ThermometerSun, Snowflake,
   Loader2, Terminal, Sparkles, Mail, Linkedin, User,
-  ChevronDown, ChevronUp, Send, Eye, EyeOff
+  ChevronDown, ChevronUp, Send, Eye, EyeOff, Trash2
 } from "lucide-react";
 import jay23Logo from "@/assets/jay23-logo.png";
 
@@ -239,6 +239,13 @@ export default function Leads() {
     }
   }, []);
 
+  const clearAllLeads = useCallback(async () => {
+    if (!confirm("Na pewno usunąć wszystkie leady z bazy?")) return;
+    await supabase.from("saved_leads").delete().neq("id", "00000000-0000-0000-0000-000000000000");
+    setLeads([]);
+    setSequences([]);
+  }, []);
+
   const runSearch = useCallback(async () => {
     setLoading(true);
     setLogs([]);
@@ -368,6 +375,10 @@ export default function Leads() {
               <Button variant="outline" size="sm" onClick={() => exportLeadCSV(leads)}
                 className="border-[hsl(var(--dark-border))] text-white/80 hover:text-white bg-transparent gap-2">
                 <Download className="w-4 h-4" /> Leads CSV
+              </Button>
+              <Button variant="outline" size="sm" onClick={clearAllLeads}
+                className="border-destructive/50 text-destructive hover:text-destructive hover:bg-destructive/10 bg-transparent gap-2">
+                <Trash2 className="w-4 h-4" /> Clear All
               </Button>
             </>
           )}
