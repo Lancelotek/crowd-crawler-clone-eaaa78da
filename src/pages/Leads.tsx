@@ -544,6 +544,76 @@ export default function Leads() {
             )}
           </TabsContent>
 
+          {/* ─── TEMPLATES TAB ─── */}
+          <TabsContent value="templates" className="space-y-6">
+            <div className="bg-white/[0.03] rounded-lg p-4 text-sm text-white/60 leading-relaxed">
+              <p className="text-white/80 font-medium mb-1">Jak działają szablony</p>
+              <p>AI generuje każdy email na żywo, używając tych struktur jako szkieletu. Zmienne <code className="text-primary/70 text-xs bg-white/5 px-1 rounded">{'{firma}'}</code>, <code className="text-primary/70 text-xs bg-white/5 px-1 rounded">{'{imie}'}</code>, <code className="text-primary/70 text-xs bg-white/5 px-1 rounded">{'{produkt}'}</code> są wypełniane danymi z enrichmentu.</p>
+            </div>
+
+            {/* Touch 1 */}
+            <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+              <div className="px-5 py-3 bg-white/[0.02] flex items-center justify-between border-b border-[hsl(var(--dark-border))]">
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-blue-500/15 text-blue-400">Touch 1 · Dzień 0</span>
+                <span className="text-xs text-white/40">Personalizacja + problem framing</span>
+              </div>
+              <div className="px-5 py-4 text-sm text-white/50 whitespace-pre-wrap leading-relaxed font-mono">
+{`Subject: {imie}, launching {produkt} to silence?
+
+{personalizowana obserwacja z danych leada — 1 zdanie}
+
+Most hardware founders spend 2 years building, then launch to an empty room.
+
+JAY-23 fixes that. We build your Early Bird waitlist before launch day — so you hit Kickstarter with demand, not hope.
+
+Avg result: 3,000+ subscribers, 90 days.
+
+Worth a 15-min call? → jay23.com/call
+
+Marek`}
+              </div>
+            </Card>
+
+            {/* Touch 2 */}
+            <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+              <div className="px-5 py-3 bg-white/[0.02] flex items-center justify-between border-b border-[hsl(var(--dark-border))]">
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-amber-500/15 text-amber-400">Touch 2 · Dzień +4</span>
+                <span className="text-xs text-white/40">Case study + konkretny wynik</span>
+              </div>
+              <div className="px-5 py-4 text-sm text-white/50 whitespace-pre-wrap leading-relaxed font-mono">
+{`Subject: $330K on Day 1 — here's what they did differently
+
+One of our clients launched a Bluetooth tracking wallet on Kickstarter.
+
+Before launch: 0 audience.
+After 90 days with JAY-23's MVA Framework: $330K raised.
+
+The difference? They had 1,000+ paying Early Birds waiting on Day 1.
+
+{nawiązanie do sytuacji firmy — 1 zdanie}
+
+15 minutes to see if MVA fits {firma}? → jay23.com/call
+
+Marek`}
+              </div>
+            </Card>
+
+            {/* Touch 3 */}
+            <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+              <div className="px-5 py-3 bg-white/[0.02] flex items-center justify-between border-b border-[hsl(var(--dark-border))]">
+                <span className="text-xs font-medium px-2 py-0.5 rounded bg-white/10 text-white/50">Touch 3 · Dzień +9</span>
+                <span className="text-xs text-white/40">Breakup — jedno pytanie</span>
+              </div>
+              <div className="px-5 py-4 text-sm text-white/50 whitespace-pre-wrap leading-relaxed font-mono">
+{`Subject: Still planning the {produkt} launch?
+
+{imie} — still on the roadmap for {rok}?
+
+Marek`}
+              </div>
+            </Card>
+          </TabsContent>
+
           {/* ─── SEQUENCES TAB ─── */}
           <TabsContent value="sequences" className="space-y-8">
             <div className="grid md:grid-cols-[1fr_300px] gap-6">
