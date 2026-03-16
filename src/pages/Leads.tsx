@@ -474,6 +474,9 @@ export default function Leads() {
             <TabsTrigger value="sequences" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
               <Send className="w-4 h-4 mr-2" /> Sequences {sequences.length > 0 && `(${sequences.length})`}
             </TabsTrigger>
+            <TabsTrigger value="domains" className="data-[state=active]:bg-primary/20 data-[state=active]:text-white text-white/50">
+              <Mail className="w-4 h-4 mr-2" /> Domains
+            </TabsTrigger>
           </TabsList>
 
           {/* ─── RESEARCH TAB ─── */}
@@ -857,9 +860,122 @@ Marek`}
               </div>
             )}
           </TabsContent>
+
+          {/* ─── DOMAINS TAB ─── */}
+          <TabsContent value="domains" className="space-y-6">
+            <div className="bg-white/[0.03] rounded-lg p-4 text-sm text-white/60 leading-relaxed">
+              <p className="text-white/80 font-medium mb-1">📧 Sending Infrastructure — Setup Guide</p>
+              <p>Kliknij każdą sekcję żeby rozwinąć szczegóły. Cały setup zajmuje ~30 minut.</p>
+            </div>
+
+            {/* Cost summary */}
+            <Card className="bg-emerald-500/5 border-emerald-500/20">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-emerald-400 text-sm">💰 Podsumowanie kosztów dla JAY-23</CardTitle>
+              </CardHeader>
+              <CardContent className="text-xs text-white/60 space-y-2 leading-relaxed">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-1">
+                  <span>Cloudflare — 3 domeny × ~$9</span><span className="text-white/80 text-right">$27/rok</span>
+                  <span>Instantly Growth</span><span className="text-white/80 text-right">$37/mies.</span>
+                  <span>Google Workspace — 3 × $6</span><span className="text-white/80 text-right">$18/mies.</span>
+                </div>
+                <div className="border-t border-emerald-500/20 pt-2 mt-2 flex justify-between font-medium text-white/80">
+                  <span>Razem:</span>
+                  <span>~$57/mies. + $27 jednorazowo</span>
+                </div>
+                <p className="text-white/50 mt-2">Przy 3 domenach × 3 skrzynki możesz wysyłać do <span className="text-white/70">270 emaili/dzień</span> bezpiecznie — to wystarczy na <span className="text-white/70">1,000+ kontaktów miesięcznie</span> przy 3-touch sekwencji.</p>
+              </CardContent>
+            </Card>
+
+            {/* Accordion sections */}
+            <DomainAccordion
+              title="1. Kup sending domains na Cloudflare"
+              items={[
+                "Nigdy nie wysyłaj cold emaili z głównej domeny (jay23.com) — to domena do klientów i transakcji.",
+                "Kup 2–3 sending domains podobne do głównej: jay-23.com, jay23.co, getjay23.com",
+                "Koszt: ~$9–12/rok per domena na Cloudflare",
+                "Cloudflare jest najlepszy, bo potem łatwo ustawisz DNS rekordy (SPF, DKIM, DMARC)",
+              ]}
+            />
+            <DomainAccordion
+              title="2. Załóż Google Workspace na każdej domenie"
+              items={[
+                "Google Workspace ($6/mies. per mailbox) — najlepsza deliverability",
+                "Na każdej domenie stwórz 2–3 skrzynki: marek@jay-23.com, m@jay-23.com, hello@jay-23.com",
+                "Ustaw profesjonalny podpis i avatar — to wpływa na open rate",
+                "Nie używaj aliasów — każda skrzynka musi być osobnym kontem",
+              ]}
+            />
+            <DomainAccordion
+              title="3. Ustaw DNS (SPF + DKIM + DMARC)"
+              items={[
+                "SPF — mówi serwerom kto może wysyłać z Twojej domeny",
+                "DKIM — podpis cyfrowy na każdym emailu",
+                "DMARC — polityka co robić z emailami które nie przejdą weryfikacji",
+                "Instantly i Smartlead robią to automatycznie przy onboardingu — podłączasz domenę i klikasz 'Setup DNS'",
+              ]}
+            />
+            <DomainAccordion
+              title="4. Warmup (3–4 tygodnie)"
+              items={[
+                "Tydzień 1–2: max 20 emaili/dzień per domena",
+                "Tydzień 3: max 50/dzień",
+                "Tydzień 4+: max 80–100/dzień (bezpieczny sufit dla cold)",
+                "Instantly ma wbudowany auto-warmup — włącz go od razu po dodaniu kont",
+                "Nie wysyłaj do prawdziwych prospektów dopóki warmup się nie skończy!",
+              ]}
+            />
+            <DomainAccordion
+              title="5. Instantly — setup kampanii"
+              items={[
+                "Instantly Growth plan ($37/mies.) — wystarczy na start",
+                "Import CSV z Email Sequencera — format jest już kompatybilny (first_name, last_name, email, company + zmienne {{subject_1}} itd.)",
+                "Leady z Airtable też można importować bezpośrednio jako CSV",
+                "Ustaw sending limit per konto: 30–50/dzień na początek",
+                "Dodaj 3-touch sekwencję z zakładki Szablony",
+              ]}
+            />
+            <DomainAccordion
+              title="6. Open rate — zasady"
+              items={[
+                "Marek <marek@jay-23.com> bije 'JAY-23 Team <hello@jay23.com>' zawsze — osobiste nadawcy wygrywają",
+                "Subject max 6 słów, bez ?! w tym samym",
+                "Brak słów-triggerów spamu: free, guarantee, limited time, strategy call w subject",
+                "Plain text > HTML (mniej filtrów, bardziej ludzki)",
+                "Max 1 link w całym emailu",
+                "Nie trackuj otwarć na zimnych domenach — tracking pixel = niższy deliverability",
+              ]}
+            />
+          </TabsContent>
         </Tabs>
       </div>
     </div>
+  );
+}
+
+// ─── Domain accordion ────────────────────────────────
+function DomainAccordion({ title, items }: { title: string; items: string[] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+      <button onClick={() => setOpen(!open)}
+        className="w-full px-5 py-3 flex items-center justify-between text-left hover:bg-white/[0.02] transition-colors">
+        <span className="text-sm font-medium text-white/80">{title}</span>
+        {open ? <ChevronUp className="w-4 h-4 text-white/40" /> : <ChevronDown className="w-4 h-4 text-white/40" />}
+      </button>
+      {open && (
+        <div className="px-5 pb-4 border-t border-[hsl(var(--dark-border))]">
+          <ul className="mt-3 space-y-2">
+            {items.map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs text-white/60 leading-relaxed">
+                <span className="text-primary/70 mt-0.5">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Card>
   );
 }
 
