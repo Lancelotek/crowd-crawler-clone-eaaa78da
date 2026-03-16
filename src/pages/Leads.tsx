@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   Lock, Search, Download, Flame, ThermometerSun, Snowflake,
   Loader2, Terminal, Sparkles, Mail, Linkedin, User,
-  ChevronDown, ChevronUp, Send, Eye, EyeOff
+  ChevronDown, ChevronUp, Send, Eye, EyeOff, Trash2
 } from "lucide-react";
 import jay23Logo from "@/assets/jay23-logo.png";
 
