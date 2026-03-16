@@ -892,8 +892,14 @@ function LeadRow({ lead, index, expanded, onToggle }: { lead: Lead; index: numbe
                 <Linkedin className="w-4 h-4" />
               </a>
             )}
-            {val(lead.email_pattern) && (
-              <a href={`mailto:${lead.email_pattern}`} className="text-emerald-400 hover:text-emerald-300"
+            {val(lead.x_url) && (
+              <a href={lead.x_url} target="_blank" rel="noopener noreferrer"
+                className="text-white/60 hover:text-white" onClick={(e) => e.stopPropagation()} title={lead.x_handle || "X"}>
+                <span className="text-xs font-bold">𝕏</span>
+              </a>
+            )}
+            {(val(lead.email_found) || val(lead.email_pattern)) && (
+              <a href={`mailto:${val(lead.email_found) || lead.email_pattern}`} className="text-emerald-400 hover:text-emerald-300"
                 onClick={(e) => e.stopPropagation()}>
                 <Mail className="w-4 h-4" />
               </a>
