@@ -545,27 +545,38 @@ export default function Leads() {
           <TabsContent value="sequences" className="space-y-8">
             <div className="grid md:grid-cols-[1fr_300px] gap-6">
               <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))]">
-                <CardHeader><CardTitle className="text-white text-base">Sequence Config</CardTitle></CardHeader>
+                <CardHeader>
+                  <CardTitle className="text-white text-base">Konfiguracja sekwencji</CardTitle>
+                  <p className="text-white/40 text-xs">Messaging JAY-23 · MVA Framework · Early Bird angle</p>
+                </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Sender name</label>
+                      <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Twoje imię</label>
                       <Input value={seqConfig.senderName} onChange={(e) => setSeqConfig((c) => ({ ...c, senderName: e.target.value }))}
                         className="bg-[hsl(var(--dark-bg))] border-[hsl(var(--dark-border))] text-white" />
                     </div>
                     <div>
-                      <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Language</label>
+                      <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Język</label>
                       <select value={seqConfig.language} onChange={(e) => setSeqConfig((c) => ({ ...c, language: e.target.value }))}
                         className="w-full h-10 px-3 rounded-md bg-[hsl(var(--dark-bg))] border border-[hsl(var(--dark-border))] text-white text-sm">
                         <option value="English">English</option>
-                        <option value="Polish">Polish</option>
+                        <option value="Polish">Polski</option>
                       </select>
                     </div>
                   </div>
+                  <div className="bg-white/[0.03] rounded-lg p-3 text-xs text-white/50 leading-relaxed">
+                    <p className="text-white/70 font-medium mb-1">Messaging załadowany automatycznie:</p>
+                    <p>• Hero: "Build Your First 1,000 True Fans in 90 Days"</p>
+                    <p>• Proof: 98+ founders, $600K+ raised, avg 3,000+ leads/campaign</p>
+                    <p>• Case study: $330K Bluetooth wallet</p>
+                    <p>• CTA: Free Strategy Call · jay23.com/call</p>
+                  </div>
                   <div>
-                    <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Case study (social proof)</label>
-                    <Textarea value={seqConfig.caseStudy} onChange={(e) => setSeqConfig((c) => ({ ...c, caseStudy: e.target.value }))}
-                      rows={2} className="bg-[hsl(var(--dark-bg))] border-[hsl(var(--dark-border))] text-white/90 text-sm" />
+                    <label className="text-white/60 text-xs uppercase tracking-wider mb-1 block">Dodatkowy case study (opcjonalnie)</label>
+                    <Input value={seqConfig.extraCaseStudy} onChange={(e) => setSeqConfig((c) => ({ ...c, extraCaseStudy: e.target.value }))}
+                      placeholder="np. Swimmo – 2,400 early birds w 60 dni"
+                      className="bg-[hsl(var(--dark-bg))] border-[hsl(var(--dark-border))] text-white" />
                   </div>
                 </CardContent>
               </Card>
@@ -576,31 +587,48 @@ export default function Leads() {
                     <label className="flex items-center gap-2 text-sm text-white/70 cursor-pointer">
                       <input type="checkbox" checked={hotOnly} onChange={(e) => setHotOnly(e.target.checked)}
                         className="rounded border-[hsl(var(--dark-border))]" />
-                      HOT leads only
+                      Tylko HOT leady
                     </label>
                     <div className="text-xs text-white/40">
-                      {withEmail} leads with email
+                      {withEmail} leadów z emailem
                       {hotOnly && ` (${leads.filter((l) => l.buying_signal === "HOT" && val(l.email_pattern)).length} HOT)`}
                     </div>
                     <Button onClick={runSequencer} disabled={generatingSeqs || withEmail === 0}
                       className="w-full bg-primary hover:bg-primary/90 gap-2">
-                      {generatingSeqs ? <><Loader2 className="w-4 h-4 animate-spin" /> Generating...</>
-                        : <><Send className="w-4 h-4" /> Generate Sequences</>}
+                      {generatingSeqs ? <><Loader2 className="w-4 h-4 animate-spin" /> Generuję...</>
+                        : <><Send className="w-4 h-4" /> Generuj sekwencje</>}
                     </Button>
+                    {generatingSeqs && (
+                      <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-full bg-primary/60 rounded-full transition-all duration-500" style={{ width: `${seqProgress}%` }} />
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
 
                 {sequences.length > 0 && (
                   <Card className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))]">
                     <CardContent className="pt-6 space-y-3">
-                      <div className="text-center">
-                        <p className="text-2xl font-bold text-white">{sequences.length}</p>
-                        <p className="text-xs text-white/40 uppercase">Sequences ready</p>
+                      <div className="grid grid-cols-2 gap-3 text-center">
+                        <div><p className="text-2xl font-bold text-white">{sequences.length}</p><p className="text-xs text-white/40 uppercase">Sekwencje</p></div>
+                        <div><p className="text-2xl font-bold text-primary">{sequences.length * 3}</p><p className="text-xs text-white/40 uppercase">Emaile</p></div>
                       </div>
-                      <Button variant="outline" size="sm" onClick={() => exportSequenceCSV(sequences)}
-                        className="w-full border-[hsl(var(--dark-border))] text-white/80 hover:text-white bg-transparent gap-2">
-                        <Download className="w-4 h-4" /> Export for Smartlead
-                      </Button>
+                      <div className="space-y-2 pt-2">
+                        <Button variant="outline" size="sm" onClick={() => exportSequenceCSV(sequences)}
+                          className="w-full border-[hsl(var(--dark-border))] text-white/80 hover:text-white bg-transparent gap-2">
+                          <Download className="w-4 h-4" /> CSV — Smartlead / Lemlist
+                        </Button>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Button variant="outline" size="sm" onClick={exportSequenceJSON}
+                            className="border-[hsl(var(--dark-border))] text-white/60 hover:text-white bg-transparent gap-1">
+                            <FileJson className="w-3 h-3" /> JSON
+                          </Button>
+                          <Button variant="outline" size="sm" onClick={exportSequenceTXT}
+                            className="border-[hsl(var(--dark-border))] text-white/60 hover:text-white bg-transparent gap-1">
+                            <FileText className="w-3 h-3" /> TXT
+                          </Button>
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
                 )}
@@ -612,44 +640,71 @@ export default function Leads() {
             {/* Sequence cards */}
             {sequences.length > 0 && (
               <div className="space-y-4">
-                {sequences.map((s, i) => (
-                  <Card key={i} className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
-                    <div className="px-5 py-4 flex items-center justify-between cursor-pointer hover:bg-white/[0.02] transition-colors"
-                      onClick={() => setExpandedSeq(expandedSeq === i ? null : i)}>
-                      <div className="flex items-center gap-3">
-                        <SignalBadge signal={s.lead.buying_signal} />
-                        <div>
-                          <span className="font-medium text-white">{s.lead.company_name}</span>
-                          <span className="text-white/40 ml-2 text-sm">→ {s.email}</span>
+                {sequences.map((s, i) => {
+                  const touchColors = {
+                    touch1: { bg: "bg-blue-500/15", text: "text-blue-400", label: "Touch 1 · Dzień 0" },
+                    touch2: { bg: "bg-amber-500/15", text: "text-amber-400", label: "Touch 2 · Dzień +4" },
+                    touch3: { bg: "bg-white/10", text: "text-white/50", label: "Touch 3 · Dzień +9" },
+                  };
+                  const isRegen = regeneratingLead === s.lead.company_name;
+
+                  return (
+                    <Card key={i} className="bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))] overflow-hidden">
+                      <div className="px-5 py-4 flex items-center justify-between cursor-pointer hover:bg-white/[0.02] transition-colors"
+                        onClick={() => setExpandedSeq(expandedSeq === i ? null : i)}>
+                        <div className="flex items-center gap-3">
+                          <SignalBadge signal={s.lead.buying_signal} />
+                          <div>
+                            <span className="font-medium text-white">{s.lead.company_name}</span>
+                            <span className="text-white/30 ml-2 text-xs">To: {s.email} · {s.first_name} {s.last_name}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <Button variant="ghost" size="sm" disabled={isRegen}
+                            className="text-white/40 hover:text-white h-7 px-2 gap-1"
+                            onClick={(e) => { e.stopPropagation(); regenerateOne(s.lead.company_name); }}>
+                            {isRegen ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
+                            <span className="text-xs">Regeneruj</span>
+                          </Button>
+                          {expandedSeq === i ? <ChevronUp className="w-4 h-4 text-white/40" /> : <ChevronDown className="w-4 h-4 text-white/40" />}
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 text-white/40">
-                        <span className="text-xs">3 touches</span>
-                        {expandedSeq === i ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                      </div>
-                    </div>
-                    {expandedSeq === i && (
-                      <div className="border-t border-[hsl(var(--dark-border))] px-5 py-4 space-y-4">
-                        {(["touch1", "touch2", "touch3"] as const).map((touch, ti) => {
-                          const t = s.sequence[touch];
-                          if (!t) return null;
-                          return (
-                            <div key={touch} className="space-y-1">
-                              <div className="flex items-center gap-2">
-                                <Badge variant="outline" className="text-xs border-[hsl(var(--dark-border))] text-white/50">
-                                  Day {t.send_day}
-                                </Badge>
-                                <span className="text-white/70 text-sm font-medium">Touch {ti + 1}</span>
+                      {expandedSeq === i && (
+                        <div className="border-t border-[hsl(var(--dark-border))]">
+                          {(["touch1", "touch2", "touch3"] as const).map((touch) => {
+                            const t = s.sequence[touch];
+                            if (!t) return null;
+                            const colors = touchColors[touch];
+                            const copyId = `${s.lead.company_name}-${touch}`;
+                            const isCopied = copiedId === copyId;
+                            return (
+                              <div key={touch} className="border-b border-[hsl(var(--dark-border))]/50 last:border-b-0">
+                                <div className="px-5 py-3 bg-white/[0.02] flex items-center justify-between gap-3 flex-wrap">
+                                  <div className="flex items-center gap-3">
+                                    <span className={`text-xs font-medium px-2 py-0.5 rounded ${colors.bg} ${colors.text}`}>
+                                      {colors.label}
+                                    </span>
+                                    <span className="text-white/60 text-sm truncate max-w-md">
+                                      Subject: {t.subject}
+                                    </span>
+                                  </div>
+                                  <Button variant="outline" size="sm"
+                                    className="h-6 px-2 text-xs border-[hsl(var(--dark-border))] text-white/50 hover:text-white bg-transparent gap-1"
+                                    onClick={() => copyEmail(t.subject, t.body, copyId)}>
+                                    {isCopied ? <><Check className="w-3 h-3" /> Skopiowano</> : <><Copy className="w-3 h-3" /> Kopiuj</>}
+                                  </Button>
+                                </div>
+                                <div className="px-5 py-4 text-sm text-white/70 whitespace-pre-wrap leading-relaxed">
+                                  {t.body}
+                                </div>
                               </div>
-                              <p className="text-white font-medium text-sm">Subject: {t.subject}</p>
-                              <p className="text-white/60 text-sm whitespace-pre-wrap leading-relaxed">{t.body}</p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </Card>
-                ))}
+                            );
+                          })}
+                        </div>
+                      )}
+                    </Card>
+                  );
+                })}
               </div>
             )}
 
@@ -658,18 +713,18 @@ export default function Leads() {
                 <Send className="w-12 h-12 mx-auto mb-4 opacity-30" />
                 {leads.length === 0 ? (
                   <>
-                    <p className="text-lg">No leads yet</p>
-                    <p className="text-sm mt-1">Go to Research tab to find leads first</p>
+                    <p className="text-lg">Brak leadów</p>
+                    <p className="text-sm mt-1">Przejdź do zakładki Research żeby znaleźć leady</p>
                   </>
                 ) : withEmail === 0 ? (
                   <>
-                    <p className="text-lg">No leads with email addresses</p>
-                    <p className="text-sm mt-1">Enrich leads first to discover email patterns</p>
+                    <p className="text-lg">Brak leadów z emailem</p>
+                    <p className="text-sm mt-1">Wzbogać leady żeby odkryć wzorce emaili</p>
                   </>
                 ) : (
                   <>
-                    <p className="text-lg">Configure and generate email sequences</p>
-                    <p className="text-sm mt-1">{withEmail} leads with emails ready for sequencing</p>
+                    <p className="text-lg">Skonfiguruj i wygeneruj sekwencje emailowe</p>
+                    <p className="text-sm mt-1">{withEmail} leadów z emailem gotowych do sekwencji</p>
                   </>
                 )}
               </div>
