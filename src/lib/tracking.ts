@@ -1,17 +1,34 @@
 /**
- * GTM / GA4 event tracking utility.
- * Pushes custom events to the dataLayer for Google Tag Manager.
+ * GTM / GA4 / Google Ads event tracking utility.
+ * Pushes custom events to the dataLayer for Google Tag Manager
+ * and fires Google Ads conversions via gtag().
  */
 
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
 export function trackEvent(event: string, params?: Record<string, unknown>) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
+}
+
+// ── Google Ads conversion helper ──────────────────────────
+const AW_ID = "AW-1030433666";
+
+export function trackAdsConversion(
+  conversionLabel: string,
+  params?: { value?: number; currency?: string; transaction_id?: string },
+) {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: `${AW_ID}/${conversionLabel}`,
+      ...params,
+    });
+  }
 }
 
 // ── Predefined conversion events ──────────────────────────
@@ -38,11 +55,15 @@ export const track = {
   quizComplete: (answers: string[]) =>
     trackEvent("quiz_complete", { quiz_answers: answers.join(" | ") }),
 
-  leadSubmit: (source: string) =>
-    trackEvent("lead_submit", { lead_source: source }),
+  leadSubmit: (source: string) => {
+    trackEvent("lead_submit", { lead_source: source });
+    trackAdsConversion("lead_submit");
+  },
 
-  bookingClick: (location: string) =>
-    trackEvent("booking_click", { booking_location: location }),
+  bookingClick: (location: string) => {
+    trackEvent("booking_click", { booking_location: location });
+    trackAdsConversion("booking_click");
+  },
 
   videoPlay: (videoId: string) =>
     trackEvent("video_play", { video_id: videoId }),
