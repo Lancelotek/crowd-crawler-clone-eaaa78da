@@ -55,11 +55,15 @@ export const track = {
   quizComplete: (answers: string[]) =>
     trackEvent("quiz_complete", { quiz_answers: answers.join(" | ") }),
 
-  leadSubmit: (source: string) =>
-    trackEvent("lead_submit", { lead_source: source }),
+  leadSubmit: (source: string) => {
+    trackEvent("lead_submit", { lead_source: source });
+    trackAdsConversion("lead_submit");
+  },
 
-  bookingClick: (location: string) =>
-    trackEvent("booking_click", { booking_location: location }),
+  bookingClick: (location: string) => {
+    trackEvent("booking_click", { booking_location: location });
+    trackAdsConversion("booking_click");
+  },
 
   videoPlay: (videoId: string) =>
     trackEvent("video_play", { video_id: videoId }),
