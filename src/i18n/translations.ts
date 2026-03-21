@@ -186,7 +186,7 @@ export const translations = {
   // ─── Blog ────────────────────────────────────────────────
   blog: {
     title: { en: "Articles by", pl: "Artykuły od" },
-    titleAccent: { en: "CrowdFunding Zone", pl: "CrowdFunding Zone" },
+    titleAccent: { en: "JAY-23", pl: "JAY-23" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
     seoTitle: { en: "Blog — Audience Building & Launch Strategy Articles", pl: "Blog — Artykuły o budowaniu odbiorców i strategiach launchu" },
     seoDesc: { en: "Expert articles on audience building, product launches, crowdfunding, and the MVA Framework.", pl: "Eksperckie artykuły o budowaniu odbiorców, premiery produktów, crowdfunding i MVA Framework." },
