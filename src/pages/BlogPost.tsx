@@ -118,7 +118,7 @@ const BlogPost = () => {
               )}
             </div>
 
-            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-6" style={{ textTransform: 'none' }}>
               {post.title}
             </h1>
 
