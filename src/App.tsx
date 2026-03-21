@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Process from "./pages/Process";
 import ThankYou from "./pages/ThankYou";
 import Leads from "./pages/Leads";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
