@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import Process from "./pages/Process";
 import ThankYou from "./pages/ThankYou";
 import Leads from "./pages/Leads";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const LangRoutes = () => (
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="impressum" element={<Impressum />} />
       <Route path="terms-of-service" element={<TermsOfService />} />
+      <Route path="faq" element={<FAQ />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </LanguageProvider>
@@ -56,6 +58,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
+          <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/leads" element={<Leads />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
