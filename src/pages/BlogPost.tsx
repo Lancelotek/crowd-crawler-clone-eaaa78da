@@ -82,6 +82,17 @@ const BlogPost = () => {
         type="article"
         publishedAt={post.published_at}
         author={post.author || "JAY-23"}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": post.title,
+          "description": post.excerpt || `Read "${post.title}" on the MVA Framework blog.`,
+          "image": post.cover_image || undefined,
+          "datePublished": post.published_at,
+          "author": { "@type": "Person", "name": post.author || "JAY-23" },
+          "publisher": { "@type": "Organization", "name": "JAY-23", "url": "https://jay23.com" },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://jay23.com/blog/${post.slug}` },
+        }}
       />
       <MvaNavbar />
 
