@@ -150,6 +150,26 @@ const BlogPost = () => {
         </div>
       </article>
 
+      {/* Bottom CTA */}
+      <section className="pb-16 px-6">
+        <div className="container mx-auto max-w-[800px]">
+          <div className="rounded-card border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Ready to Launch Your Campaign?</h2>
+            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
+              The MVA Framework by JAY-23 helps hardware startups and crowdfunding creators build audiences, optimize campaigns, and maximize revenue.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/en/book" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 font-semibold hover:bg-primary/90 transition-colors">
+                Book a Free Strategy Call
+              </Link>
+              <Link to="/en/process" className="inline-flex items-center justify-center rounded-md border border-border bg-background px-6 py-3 font-semibold hover:bg-accent transition-colors">
+                See Our Process
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FooterSection />
     </div>
   );
