@@ -112,13 +112,20 @@
 
 /* ── Blog post prose ── */
 .blog-prose {
-  font-size: 1.125rem;
-  line-height: 1.9;
-  color: hsl(var(--muted-foreground));
+  font-size: 1.175rem;
+  line-height: 1.8;
+  color: #1a1a1a;
 }
 
 .blog-prose > p {
-  margin-bottom: 1.6em;
+  margin-bottom: 1.5em;
+}
+
+/* Strong first paragraph */
+.blog-prose > p:first-of-type {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #111;
 }
 
 .blog-prose > p:first-of-type::first-letter {
@@ -129,26 +136,24 @@
   line-height: 0.8;
   margin-right: 0.1em;
   margin-top: 0.05em;
-  color: hsl(var(--foreground));
-  text-transform: uppercase;
+  color: #111;
 }
 
-/* ── Headings: big gaps above, tight below ── */
+/* ── Headings: Title Case, no uppercase ── */
 .blog-prose h2 {
   font-family: 'Rajdhani', 'Inter', sans-serif;
   font-size: 1.75rem;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: hsl(var(--foreground));
-  margin-top: 3.5rem;
-  margin-bottom: 0.75rem;
-  padding-top: 2rem;
+  color: #111;
+  margin-top: 2em;
+  margin-bottom: 0.6rem;
+  padding-top: 1.5rem;
   border-top: 1px solid hsl(var(--border));
-  text-transform: uppercase;
+  text-transform: none;
 }
 
-/* First h2 after cover image or meta — no border */
 .blog-prose > h2:first-child,
 .blog-prose > p:first-of-type + h2 {
   border-top: none;
@@ -160,14 +165,14 @@
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.3;
-  color: hsl(var(--foreground));
-  margin-top: 2.5rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
+  color: #111;
+  margin-top: 2em;
+  margin-bottom: 0.4rem;
+  text-transform: none;
 }
 
 .blog-prose strong {
-  color: hsl(var(--foreground));
+  color: #111;
   font-weight: 600;
 }
 
@@ -183,23 +188,23 @@
   text-decoration-color: hsl(var(--primary));
 }
 
-/* ── Lists: margin-top for breathing room ── */
+/* ── Lists ── */
 .blog-prose ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 1.25rem;
-  margin-bottom: 1.75em;
+  margin-top: 1rem;
+  margin-bottom: 1.5em;
 }
 .blog-prose ul li {
   position: relative;
   padding-left: 1.5em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.75em;
 }
 .blog-prose ul li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.6em;
+  top: 0.55em;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -208,7 +213,7 @@
 
 .blog-prose img {
   border-radius: var(--radius-card);
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   width: 100%;
 }
 
@@ -216,10 +221,10 @@
 .blog-prose .pullquote {
   border-left: 3px solid hsl(var(--primary));
   padding: 1.25rem 1.5rem;
-  margin: 2.5rem 0;
-  font-size: 1.2rem;
+  margin: 2rem 0;
+  font-size: 1.15rem;
   font-style: italic;
-  color: hsl(var(--foreground));
+  color: #333;
   background: hsl(var(--primary) / 0.04);
   border-radius: 0 var(--radius-card) var(--radius-card) 0;
 }
@@ -227,10 +232,9 @@
 .blog-prose hr {
   border: none;
   border-top: 1px solid hsl(var(--border));
-  margin: 3rem 0;
+  margin: 2.5rem 0;
 }
 
-/* ── Line break cleanup: collapse excessive <br> ── */
 .blog-prose br + br {
   display: none;
 }
