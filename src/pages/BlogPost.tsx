@@ -96,20 +96,20 @@ const BlogPost = () => {
       />
       <MvaNavbar />
 
-      <article className="pt-32 pb-16 px-6">
-        <div className="container mx-auto max-w-[800px]">
+      <article className="pt-32 pb-20 px-6">
+        <div className="container mx-auto max-w-[680px]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10"
             >
               <ArrowLeft size={16} />
               Back to articles
             </Link>
 
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-5">
               {post.category && (
-                <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full uppercase tracking-wider">
                   {post.category}
                 </span>
               )}
@@ -118,13 +118,13 @@ const BlogPost = () => {
               )}
             </div>
 
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-6">
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-10 pb-8 border-b border-border">
               {post.author && (
-                <span className="text-sm font-semibold text-muted-foreground">{post.author}</span>
+                <span className="text-sm font-semibold text-foreground">{post.author}</span>
               )}
               <span className="text-sm text-muted-foreground">
                 {new Date(post.published_at).toLocaleDateString("en-US", {
@@ -136,7 +136,7 @@ const BlogPost = () => {
             </div>
 
             {post.cover_image && (
-              <div className="rounded-card overflow-hidden mb-10">
+              <div className="rounded-card overflow-hidden mb-12 -mx-4 md:-mx-10">
                 <img
                   src={post.cover_image}
                   alt={post.title}
@@ -146,15 +146,7 @@ const BlogPost = () => {
             )}
 
             <div
-              className="prose prose-lg dark:prose-invert max-w-none
-                prose-headings:font-display prose-headings:font-bold prose-headings:tracking-tight
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-img:rounded-card prose-img:my-8
-                prose-strong:text-foreground
-                prose-li:text-muted-foreground"
+              className="blog-prose"
               dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
             />
           </motion.div>
