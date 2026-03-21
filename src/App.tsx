@@ -33,6 +33,7 @@ const LangRoutes = () => (
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="impressum" element={<Impressum />} />
       <Route path="terms-of-service" element={<TermsOfService />} />
+      <Route path="faq" element={<FAQ />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </LanguageProvider>
