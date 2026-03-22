@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calculator, ArrowRight, Users, Loader2, Mail } from "lucide-react";
+import { Calculator, ArrowRight, Users, Loader2, Mail, DollarSign, Star, Rocket, Handshake, Target, User, UsersRound, Building2, Landmark, ShoppingCart, Sprout, Leaf, TreePine, Trees, Mountain, Lightbulb, Wrench, Package, TrendingUp } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/tracking";
 
@@ -15,7 +16,7 @@ interface QuizStep {
     en: string[];
     pl: string[];
     keys: string[];
-    emojis?: string[];
+    icons?: LucideIcon[];
   };
 }
 
@@ -68,7 +69,7 @@ const quizSteps: QuizStep[] = [
       en: ["Lowest price", "Premium quality", "Unique technology", "Best customer service", "Niche problem solution"],
       pl: ["Najniższa cena na rynku", "Najwyższa jakość / premium", "Unikalna technologia / innowacja", "Najlepsza obsługa klienta", "Rozwiązanie niszowego problemu"],
       keys: ["lowest_price", "premium_quality", "unique_tech", "best_service", "niche_solution"],
-      emojis: ["💰", "⭐", "🚀", "🤝", "🎯"],
+      icons: [DollarSign, Star, Rocket, Handshake, Target],
     },
   },
   {
@@ -79,7 +80,7 @@ const quizSteps: QuizStep[] = [
       en: ["Solopreneurs / freelancers", "Small businesses (2–10)", "Medium businesses (11–50)", "Large companies (50+)", "Individual consumers (B2C)"],
       pl: ["Solopreneurzy / freelancerzy", "Małe firmy (2–10 osób)", "Średnie firmy (11–50 osób)", "Duże firmy / korporacje (50+)", "Konsumenci indywidualni (B2C)"],
       keys: ["solopreneurs", "small_business", "medium_business", "enterprise", "b2c_consumers"],
-      emojis: ["👤", "👥", "🏢", "🏛️", "🛒"],
+      icons: [User, UsersRound, Building2, Landmark, ShoppingCart],
     },
   },
   {
@@ -90,7 +91,7 @@ const quizSteps: QuizStep[] = [
       en: ["Starting from zero (0–100)", "Early start (100–500)", "Growing base (500–2,000)", "Solid base (2,000–10,000)", "Large audience (10,000+)"],
       pl: ["Zaczynam od zera (0–100)", "Mam początek (100–500)", "Rosnąca baza (500–2 000)", "Solidna baza (2 000–10 000)", "Duża publiczność (10 000+)"],
       keys: ["starting", "early", "growing", "solid", "large"],
-      emojis: ["🌱", "🌿", "🌳", "🌲", "🏔️"],
+      icons: [Sprout, Leaf, TreePine, Trees, Mountain],
     },
   },
   {
@@ -101,7 +102,7 @@ const quizSteps: QuizStep[] = [
       en: ["Idea / validation", "MVP / early prototype", "First product on market", "Product with first customers", "Scaling existing product"],
       pl: ["Pomysł / walidacja", "MVP / wczesny prototyp", "Pierwszy produkt na rynku", "Produkt z pierwszymi klientami", "Skalowanie istniejącego produktu"],
       keys: ["idea", "mvp", "launched", "early_customers", "scaling"],
-      emojis: ["💡", "🔧", "📦", "📈", "🚀"],
+      icons: [Lightbulb, Wrench, Package, TrendingUp, Rocket],
     },
   },
 ];
@@ -296,8 +297,9 @@ const CalculatorSection = () => {
                         borderColor: answers[stepDef.key] === opt ? "hsl(253 100% 62%)" : "hsl(265 30% 20%)",
                       }}
                     >
-                      <span className="text-sm font-medium">
-                        {stepDef.options.emojis ? `${stepDef.options.emojis[i]} ` : ""}{opt}
+                      <span className="text-sm font-medium inline-flex items-center gap-2">
+                        {stepDef.options.icons && (() => { const Icon = stepDef.options.icons[i]; return <Icon size={16} className="text-primary shrink-0" strokeWidth={1.5} />; })()}
+                        {opt}
                       </span>
                     </motion.button>
                   ))}
