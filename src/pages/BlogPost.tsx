@@ -31,17 +31,18 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       if (!slug) return;
+      const table = isPl ? "blog_posts_pl" : "blog_posts";
       const { data, error } = await supabase
-        .from("blog_posts")
+        .from(table)
         .select("*")
         .eq("slug", slug)
         .maybeSingle();
 
-      if (!error && data) setPost(data);
+      if (!error && data) setPost(data as Post);
       setLoading(false);
     };
     fetchPost();
-  }, [slug]);
+  }, [slug, isPl]);
 
   if (loading) {
     return (
