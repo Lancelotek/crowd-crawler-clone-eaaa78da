@@ -9,9 +9,10 @@ const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"
 const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
 
 const FinalCTASection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [calcOpen, setCalcOpen] = useState(false);
   const [quizOpen, setQuizOpen] = useState(false);
+  const isPl = lang === "pl";
 
   return (
     <>
@@ -27,9 +28,11 @@ const FinalCTASection = () => {
               <button onClick={() => { setCalcOpen(true); track.calcOpen(); }} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
                 <Calculator size={16} /> {t("finalCTA", "calcBtn")} <ArrowRight size={16} />
               </button>
-              <button onClick={() => { setQuizOpen(true); track.quizOpen(); }} className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex items-center gap-2">
-                <Sparkles size={16} /> {t("finalCTA", "quizBtn")} <ArrowRight size={16} />
-              </button>
+              {!isPl && (
+                <button onClick={() => { setQuizOpen(true); track.quizOpen(); }} className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex items-center gap-2">
+                  <Sparkles size={16} /> {t("finalCTA", "quizBtn")} <ArrowRight size={16} />
+                </button>
+              )}
             </div>
           </motion.div>
         </div>
@@ -43,13 +46,15 @@ const FinalCTASection = () => {
         </DialogContent>
       </Dialog>
 
-      <Dialog open={quizOpen} onOpenChange={setQuizOpen}>
-        <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-foreground [&>button]:z-50">
-          <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
-            <QuizFunnelSection />
-          </Suspense>
-        </DialogContent>
-      </Dialog>
+      {!isPl && (
+        <Dialog open={quizOpen} onOpenChange={setQuizOpen}>
+          <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-foreground [&>button]:z-50">
+            <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
+              <QuizFunnelSection />
+            </Suspense>
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   );
 };
