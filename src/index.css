@@ -238,3 +238,42 @@
 .blog-prose br + br {
   display: none;
 }
+
+/* ── Tables ── */
+.blog-prose .table-wrapper {
+  overflow-x: auto;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  border: 1px solid hsl(var(--border));
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.blog-prose thead th {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid hsl(var(--border));
+  white-space: nowrap;
+}
+
+.blog-prose tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+
+.blog-prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blog-prose tbody tr:nth-child(even) {
+  background: hsl(var(--muted) / 0.4);
+}
