@@ -297,8 +297,9 @@ const CalculatorSection = () => {
                         borderColor: answers[stepDef.key] === opt ? "hsl(253 100% 62%)" : "hsl(265 30% 20%)",
                       }}
                     >
-                      <span className="text-sm font-medium">
-                        {stepDef.options.emojis ? `${stepDef.options.emojis[i]} ` : ""}{opt}
+                      <span className="text-sm font-medium inline-flex items-center gap-2">
+                        {stepDef.options.icons && (() => { const Icon = stepDef.options.icons[i]; return <Icon size={16} className="text-primary shrink-0" strokeWidth={1.5} />; })()}
+                        {opt}
                       </span>
                     </motion.button>
                   ))}
