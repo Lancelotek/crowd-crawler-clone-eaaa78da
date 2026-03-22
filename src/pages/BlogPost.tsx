@@ -191,32 +191,57 @@ const BlogPost = () => {
 
 /** Simple markdown-to-HTML converter */
 function markdownToHtml(md: string): string {
-  let html = md
-    // Images
+  // Extract and convert tables first (before paragraph processing)
+  const tableRegex = /(?:^|\n)((?:\|[^\n]+\|\n?)+)/g;
+  let processed = md.replace(tableRegex, (match) => {
+    const rows = match.trim().split('\n').filter(r => r.trim());
+    if (rows.length < 2) return match;
+
+    const isSeparator = (row: string) => /^\|[\s\-:|]+\|$/.test(row.trim());
+    const hasSeparator = rows.length >= 2 && isSeparator(rows[1]);
+
+    const parseRow = (row: string) =>
+      row.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+
+    let html = '<div class="table-wrapper"><table>';
+
+    if (hasSeparator) {
+      const headerCells = parseRow(rows[0]);
+      html += '<thead><tr>' + headerCells.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>';
+      for (let i = 2; i < rows.length; i++) {
+        const cells = parseRow(rows[i]);
+        html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+      }
+      html += '</tbody>';
+    } else {
+      html += '<tbody>';
+      for (const row of rows) {
+        const cells = parseRow(row);
+        html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+      }
+      html += '</tbody>';
+    }
+
+    html += '</table></div>';
+    return '\n' + html + '\n';
+  });
+
+  processed = processed
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy" />')
-    // Bold
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    // Italic
     .replace(/\*([^*]+)\*/g, "<em>$1</em>")
-    // Links
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-    // H3
     .replace(/^### (.+)$/gm, "<h3>$1</h3>")
-    // H2
     .replace(/^## (.+)$/gm, "<h2>$1</h2>")
-    // H1
     .replace(/^# (.+)$/gm, "<h2>$1</h2>")
-    // Unordered lists
+    .replace(/^\d+\. (.+)$/gm, "<li>$1</li>")
     .replace(/^- (.+)$/gm, "<li>$1</li>")
-    // Paragraphs
     .replace(/\n\n/g, "</p><p>")
-    // Line breaks
     .replace(/\n/g, "<br />");
 
-  // Wrap list items
-  html = html.replace(/(<li>.*?<\/li>(\s*<br \/>)?)+/g, (match) => `<ul>${match}</ul>`);
+  processed = processed.replace(/(<li>.*?<\/li>(\s*<br \/>)?)+/g, (match) => `<ul>${match}</ul>`);
 
-  return `<p>${html}</p>`;
+  return `<p>${processed}</p>`;
 }
 
 export default BlogPost;
