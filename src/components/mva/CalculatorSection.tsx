@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calculator, ArrowRight, Users, Loader2, Mail } from "lucide-react";
+import { Calculator, ArrowRight, Users, Loader2, Mail, DollarSign, Star, Rocket, Handshake, Target, User, UsersRound, Building2, Landmark, ShoppingCart, Sprout, Leaf, TreePine, Trees, Mountain, Lightbulb, Wrench, Package, TrendingUp } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { track } from "@/lib/tracking";
 
