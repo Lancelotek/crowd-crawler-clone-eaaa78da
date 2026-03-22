@@ -250,8 +250,8 @@ const Report = () => {
           {/* Section 4d: Strategy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}
             className="rounded-card p-6 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Rekomendowana strategia startu</h2>
-            <p className="text-muted-foreground text-sm leading-relaxed">{strategyText}</p>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Rekomendowana strategia startu</h2>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{strategyText}</p>
           </motion.div>
 
           {/* Section 5: Calendly CTA */}
