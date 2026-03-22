@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import SEOHead from "@/components/SEOHead";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 type Post = {
   id: string;
@@ -22,6 +23,8 @@ type Post = {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { lang, langPrefix } = useLanguage();
+  const isPl = lang === "pl";
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -65,8 +68,8 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <MvaNavbar />
         <div className="pt-32 pb-16 px-6 text-center">
-          <h1 className="font-display text-3xl font-bold mb-4">Post not found</h1>
-          <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
+          <h1 className="font-display text-3xl font-bold mb-4">{isPl ? "Nie znaleziono artykułu" : "Post not found"}</h1>
+          <Link to={`${langPrefix}/blog`} className="text-primary hover:underline">{isPl ? "← Wróć do bloga" : "← Back to blog"}</Link>
         </div>
       </div>
     );
@@ -76,8 +79,8 @@ const BlogPost = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title={post.title}
-        description={post.excerpt || `Read "${post.title}" on the MVA Framework blog.`}
-        canonical={`/blog/${post.slug}`}
+        description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
+        canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={post.cover_image || undefined}
         type="article"
         publishedAt={post.published_at}
@@ -86,7 +89,7 @@ const BlogPost = () => {
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": post.title,
-          "description": post.excerpt || `Read "${post.title}" on the MVA Framework blog.`,
+          "description": post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`),
           "image": post.cover_image || undefined,
           "datePublished": post.published_at,
           "author": { "@type": "Person", "name": post.author || "JAY-23" },
@@ -100,11 +103,11 @@ const BlogPost = () => {
         <div className="container mx-auto max-w-[680px]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Link
-              to="/blog"
+              to={`${langPrefix}/blog`}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10"
             >
               <ArrowLeft size={16} />
-              Back to articles
+              {isPl ? "Wróć do artykułów" : "Back to articles"}
             </Link>
 
             <div className="flex items-center gap-3 mb-5">
@@ -127,7 +130,7 @@ const BlogPost = () => {
                 <span className="text-sm font-semibold text-foreground">{post.author}</span>
               )}
               <span className="text-sm text-muted-foreground">
-                {new Date(post.published_at).toLocaleDateString("en-US", {
+                {new Date(post.published_at).toLocaleDateString(isPl ? "pl-PL" : "en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -157,16 +160,20 @@ const BlogPost = () => {
       <section className="pb-16 px-6">
         <div className="container mx-auto max-w-[800px]">
           <div className="rounded-card border border-primary/20 bg-primary/5 p-8 md:p-10 text-center">
-            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">Ready to Launch Your Campaign?</h2>
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-3">
+              {isPl ? "Gotowy, żeby zbudować swoją publiczność?" : "Ready to Launch Your Campaign?"}
+            </h2>
             <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              The MVA Framework by JAY-23 helps hardware startups and crowdfunding creators build audiences, optimize campaigns, and maximize revenue.
+              {isPl
+                ? "MVA Framework od JAY-23 pomaga twórcom i founderom budować publiczność, optymalizować kampanie i maksymalizować przychody."
+                : "The MVA Framework by JAY-23 helps hardware startups and crowdfunding creators build audiences, optimize campaigns, and maximize revenue."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/en/book" className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 font-semibold hover:bg-primary/90 transition-colors">
-                Book a Free Strategy Call
+              <Link to={`${langPrefix}/book`} className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-6 py-3 font-semibold hover:bg-primary/90 transition-colors">
+                {isPl ? "Umów bezpłatną konsultację" : "Book a Free Strategy Call"}
               </Link>
-              <Link to="/en/process" className="inline-flex items-center justify-center rounded-md border border-border bg-background px-6 py-3 font-semibold hover:bg-accent transition-colors">
-                See Our Process
+              <Link to={`${langPrefix}/process`} className="inline-flex items-center justify-center rounded-md border border-border bg-background px-6 py-3 font-semibold hover:bg-accent transition-colors">
+                {isPl ? "Zobacz nasz proces" : "See Our Process"}
               </Link>
             </div>
           </div>
