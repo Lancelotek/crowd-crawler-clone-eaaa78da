@@ -130,11 +130,12 @@ const BlogPost = () => {
                 <span className="text-sm font-semibold text-foreground">{post.author}</span>
               )}
               <span className="text-sm text-muted-foreground">
-                {new Date(post.published_at).toLocaleDateString("en-US", {
+                {new Date(post.published_at).toLocaleDateString(isPl ? "pl-PL" : "en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
                 })}
+              </span>
               </span>
             </div>
 
