@@ -20,21 +20,22 @@ type BlogPost = {
 };
 
 const Blog = () => {
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      const table = lang === "pl" ? "blog_posts_pl" : "blog_posts";
       const { data, error } = await supabase
-        .from("blog_posts")
+        .from(table)
         .select("id, slug, title, excerpt, cover_image, category, author, read_time, published_at")
         .order("published_at", { ascending: false });
-      if (!error && data) setPosts(data);
+      if (!error && data) setPosts(data as BlogPost[]);
       setLoading(false);
     };
     fetchPosts();
-  }, []);
+  }, [lang]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -42,6 +43,7 @@ const Blog = () => {
         title={t("blog", "seoTitle")}
         description={t("blog", "seoDesc")}
         canonical={`${langPrefix}/blog`}
+        lang={lang}
       />
       <MvaNavbar />
       <section className="pt-32 pb-16 px-6">

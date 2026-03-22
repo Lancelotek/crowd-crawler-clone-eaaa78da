@@ -74,6 +74,7 @@ const FAQ = () => {
         description={data.seoDesc}
         canonical={`${langPrefix}/faq`}
         jsonLd={jsonLd}
+        lang={lang}
       />
       <MvaNavbar />
 
