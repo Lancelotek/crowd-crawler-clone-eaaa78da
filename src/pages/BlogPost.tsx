@@ -103,11 +103,11 @@ const BlogPost = () => {
         <div className="container mx-auto max-w-[680px]">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Link
-              to="/blog"
+              to={`${langPrefix}/blog`}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10"
             >
               <ArrowLeft size={16} />
-              Back to articles
+              {isPl ? "Wróć do artykułów" : "Back to articles"}
             </Link>
 
             <div className="flex items-center gap-3 mb-5">
