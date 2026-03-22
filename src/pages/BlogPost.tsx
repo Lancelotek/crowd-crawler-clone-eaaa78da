@@ -88,14 +88,16 @@ const BlogPost = () => {
         author={post.author || "JAY-23"}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Article",
+          "@type": "BlogPosting",
           "headline": post.title,
           "description": post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`),
           "image": post.cover_image || undefined,
           "datePublished": post.published_at,
-          "author": { "@type": "Person", "name": post.author || "JAY-23" },
-          "publisher": { "@type": "Organization", "name": "JAY-23", "url": "https://jay23.com" },
-          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://jay23.com/blog/${post.slug}` },
+          "dateModified": post.published_at,
+          "author": { "@type": "Person", "name": post.author || "Marek Cieśla", "url": "https://jay23.com" },
+          "publisher": { "@type": "Organization", "name": "JAY-23", "logo": { "@type": "ImageObject", "url": "https://jay23.com/logo.png" } },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://jay23.com${langPrefix}/blog/${post.slug}` },
+          "inLanguage": lang,
         }}
       />
       <MvaNavbar />

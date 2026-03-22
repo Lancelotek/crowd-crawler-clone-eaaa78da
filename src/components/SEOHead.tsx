@@ -10,6 +10,7 @@ interface SEOHeadProps {
   author?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>;
+  lang?: string;
 }
 
 const BASE_URL = "https://jay23.com";
@@ -25,14 +26,23 @@ const setMeta = (attr: string, key: string, content: string) => {
   el.setAttribute("content", content);
 };
 
-const setLink = (rel: string, href: string) => {
-  let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
+const setLink = (rel: string, href: string, attrs?: Record<string, string>) => {
+  const selector = attrs
+    ? `link[rel="${rel}"]${Object.entries(attrs).map(([k, v]) => `[${k}="${v}"]`).join("")}`
+    : `link[rel="${rel}"]`;
+  let el = document.querySelector(selector) as HTMLLinkElement | null;
   if (!el) {
     el = document.createElement("link");
     el.setAttribute("rel", rel);
+    if (attrs) Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
     document.head.appendChild(el);
   }
   el.setAttribute("href", href);
+};
+
+/** Remove all existing hreflang links */
+const clearHreflang = () => {
+  document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
 };
 
 const SEOHead = ({
@@ -45,10 +55,16 @@ const SEOHead = ({
   author,
   noindex = false,
   jsonLd,
+  lang,
 }: SEOHeadProps) => {
   useEffect(() => {
     const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
     document.title = fullTitle;
+
+    // Set html lang attribute
+    if (lang) {
+      document.documentElement.lang = lang;
+    }
 
     // Standard meta
     setMeta("name", "description", description);
@@ -66,7 +82,7 @@ const SEOHead = ({
     setMeta("property", "og:image:width", "1200");
     setMeta("property", "og:image:height", "630");
     setMeta("property", "og:site_name", "JAY-23 — MVA Framework");
-    setMeta("property", "og:locale", "en_US");
+    setMeta("property", "og:locale", lang === "pl" ? "pl_PL" : "en_US");
     setMeta("property", "og:url", canonical ? `${BASE_URL}${canonical}` : BASE_URL);
 
     // Twitter
@@ -89,6 +105,20 @@ const SEOHead = ({
       setLink("canonical", canonicalUrl);
     }
 
+    // Hreflang tags
+    clearHreflang();
+    if (canonical) {
+      // Derive the path without lang prefix
+      const pathWithoutLang = canonical.replace(/^\/(en|pl)/, "");
+      const enUrl = `${BASE_URL}/en${pathWithoutLang}`;
+      const plUrl = `${BASE_URL}/pl${pathWithoutLang}`;
+      const defaultUrl = `${BASE_URL}${pathWithoutLang || "/"}`;
+
+      setLink("alternate", enUrl, { hreflang: "en" });
+      setLink("alternate", plUrl, { hreflang: "pl" });
+      setLink("alternate", defaultUrl, { hreflang: "x-default" });
+    }
+
     // Dynamic JSON-LD
     if (jsonLd) {
       const existingScript = document.querySelector('script[data-seo-jsonld]');
@@ -98,9 +128,41 @@ const SEOHead = ({
       script.setAttribute("data-seo-jsonld", "true");
       script.textContent = JSON.stringify(jsonLd);
       document.head.appendChild(script);
-      return () => { script.remove(); };
     }
-  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, jsonLd]);
+
+    // Organization Schema (always present)
+    let orgScript = document.querySelector('script[data-seo-org]') as HTMLScriptElement | null;
+    if (!orgScript) {
+      orgScript = document.createElement("script");
+      orgScript.type = "application/ld+json";
+      orgScript.setAttribute("data-seo-org", "true");
+      orgScript.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JAY-23",
+        "alternateName": "JAY23",
+        "url": "https://jay23.com",
+        "logo": "https://jay23.com/logo.png",
+        "description": "MVA Framework — 90-day program helping founders build 1,000 true fans before product launch.",
+        "sameAs": [
+          "https://www.linkedin.com/company/jay23",
+          "https://twitter.com/jay23com"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://jay23.com/en/book"
+        }
+      });
+      document.head.appendChild(orgScript);
+    }
+
+    return () => {
+      const jsonLdScript = document.querySelector('script[data-seo-jsonld]');
+      if (jsonLdScript) jsonLdScript.remove();
+      clearHreflang();
+    };
+  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, jsonLd, lang]);
 
   return null;
 };

@@ -8,11 +8,22 @@ const corsHeaders = {
 const BASE_URL = "https://jay23.com";
 
 const staticPages = [
-  { loc: "/", changefreq: "weekly", priority: "1.0" },
-  { loc: "/blog", changefreq: "weekly", priority: "0.7" },
-  { loc: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
-  { loc: "/terms-of-service", changefreq: "yearly", priority: "0.3" },
-  { loc: "/impressum", changefreq: "yearly", priority: "0.3" },
+  { loc: "/en", changefreq: "weekly", priority: "1.0" },
+  { loc: "/en/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/en/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/en/process", changefreq: "monthly", priority: "0.8" },
+  { loc: "/en/faq", changefreq: "monthly", priority: "0.6" },
+  { loc: "/en/privacy-policy", changefreq: "yearly", priority: "0.3" },
+  { loc: "/en/terms-of-service", changefreq: "yearly", priority: "0.3" },
+  { loc: "/en/impressum", changefreq: "yearly", priority: "0.3" },
+  { loc: "/pl", changefreq: "weekly", priority: "1.0" },
+  { loc: "/pl/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/pl/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/pl/faq", changefreq: "monthly", priority: "0.6" },
+  { loc: "/pl/report", changefreq: "monthly", priority: "0.5" },
+  { loc: "/pl/privacy-policy", changefreq: "yearly", priority: "0.3" },
+  { loc: "/pl/terms-of-service", changefreq: "yearly", priority: "0.3" },
+  { loc: "/pl/impressum", changefreq: "yearly", priority: "0.3" },
 ];
 
 Deno.serve(async (req) => {
@@ -26,10 +37,10 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_ANON_KEY")!
     );
 
-    const { data: posts } = await supabase
-      .from("blog_posts")
-      .select("slug, published_at")
-      .order("published_at", { ascending: false });
+    const [{ data: enPosts }, { data: plPosts }] = await Promise.all([
+      supabase.from("blog_posts").select("slug, published_at").order("published_at", { ascending: false }),
+      supabase.from("blog_posts_pl").select("slug, published_at").order("published_at", { ascending: false }),
+    ]);
 
     const today = new Date().toISOString().split("T")[0];
 
@@ -46,12 +57,25 @@ Deno.serve(async (req) => {
   </url>`;
     }
 
-    if (posts) {
-      for (const post of posts) {
+    if (enPosts) {
+      for (const post of enPosts) {
         const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
         xml += `
   <url>
-    <loc>${BASE_URL}/blog/${post.slug}</loc>
+    <loc>${BASE_URL}/en/blog/${post.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+      }
+    }
+
+    if (plPosts) {
+      for (const post of plPosts) {
+        const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
+        xml += `
+  <url>
+    <loc>${BASE_URL}/pl/blog/${post.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

@@ -6,27 +6,39 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const BASE_URL = "https://jay23.com";
 
 const staticPages = [
-  { loc: "/", changefreq: "weekly", priority: "1.0" },
-  { loc: "/process", changefreq: "monthly", priority: "0.8" },
-  { loc: "/book", changefreq: "monthly", priority: "0.7" },
-  { loc: "/blog", changefreq: "weekly", priority: "0.7" },
-  { loc: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
-  { loc: "/terms-of-service", changefreq: "yearly", priority: "0.3" },
-  { loc: "/impressum", changefreq: "yearly", priority: "0.3" },
+  // EN pages
+  { loc: "/en", changefreq: "weekly", priority: "1.0" },
+  { loc: "/en/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/en/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/en/process", changefreq: "monthly", priority: "0.8" },
+  { loc: "/en/faq", changefreq: "monthly", priority: "0.6" },
+  { loc: "/en/privacy-policy", changefreq: "yearly", priority: "0.3" },
+  { loc: "/en/terms-of-service", changefreq: "yearly", priority: "0.3" },
+  { loc: "/en/impressum", changefreq: "yearly", priority: "0.3" },
+  // PL pages
+  { loc: "/pl", changefreq: "weekly", priority: "1.0" },
+  { loc: "/pl/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/pl/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/pl/faq", changefreq: "monthly", priority: "0.6" },
+  { loc: "/pl/report", changefreq: "monthly", priority: "0.5" },
+  { loc: "/pl/privacy-policy", changefreq: "yearly", priority: "0.3" },
+  { loc: "/pl/terms-of-service", changefreq: "yearly", priority: "0.3" },
+  { loc: "/pl/impressum", changefreq: "yearly", priority: "0.3" },
 ];
 
 async function generateSitemap() {
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const { data: posts } = await supabase
-    .from("blog_posts")
-    .select("slug, published_at")
-    .order("published_at", { ascending: false });
+  const [{ data: enPosts }, { data: plPosts }] = await Promise.all([
+    supabase.from("blog_posts").select("slug, published_at").order("published_at", { ascending: false }),
+    supabase.from("blog_posts_pl").select("slug, published_at").order("published_at", { ascending: false }),
+  ]);
 
   const today = new Date().toISOString().split("T")[0];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
 
   for (const page of staticPages) {
     xml += `
@@ -38,14 +50,25 @@ async function generateSitemap() {
   </url>`;
   }
 
-  if (posts) {
-    for (const post of posts) {
-      const lastmod = post.published_at
-        ? post.published_at.split("T")[0]
-        : today;
+  if (enPosts) {
+    for (const post of enPosts) {
+      const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
       xml += `
   <url>
-    <loc>${BASE_URL}/blog/${post.slug}</loc>
+    <loc>${BASE_URL}/en/blog/${post.slug}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+    }
+  }
+
+  if (plPosts) {
+    for (const post of plPosts) {
+      const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
+      xml += `
+  <url>
+    <loc>${BASE_URL}/pl/blog/${post.slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -57,7 +80,8 @@ async function generateSitemap() {
 </urlset>`;
 
   writeFileSync("dist/sitemap.xml", xml);
-  console.log(`✅ Sitemap generated with ${staticPages.length + (posts?.length || 0)} URLs`);
+  const totalUrls = staticPages.length + (enPosts?.length || 0) + (plPosts?.length || 0);
+  console.log(`✅ Sitemap generated with ${totalUrls} URLs`);
 }
 
 generateSitemap().catch(console.error);
