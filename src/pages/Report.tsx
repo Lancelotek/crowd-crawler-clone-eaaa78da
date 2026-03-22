@@ -258,8 +258,8 @@ const Report = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.5 }}
             className="rounded-card p-8 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(253 100% 62%)" }}>
             <div className="text-center mb-6">
-              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-2">Chcesz spersonalizowaną strategię budowania Twojego MVA?</h2>
-              <p className="text-muted-foreground text-sm">Umów się na bezpłatną 30-minutową konsultację strategiczną z ekspertem JAY23.</p>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-2" style={{ color: "hsl(0 0% 95%)" }}>Chcesz spersonalizowaną strategię budowania Twojego MVA?</h2>
+              <p className="text-sm" style={{ color: "hsl(265 20% 75%)" }}>Umów się na bezpłatną 30-minutową konsultację strategiczną z ekspertem JAY23.</p>
             </div>
             <div className="bg-background rounded-card p-2">
               <div
