@@ -1,4 +1,5 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Sparkles } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -10,9 +11,19 @@ const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"
 
 const FinalCTASection = () => {
   const { t, lang } = useLanguage();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [calcOpen, setCalcOpen] = useState(false);
   const [quizOpen, setQuizOpen] = useState(false);
   const isPl = lang === "pl";
+
+  // Auto-open calculator when ?quiz=open
+  useEffect(() => {
+    if (searchParams.get("quiz") === "open") {
+      setCalcOpen(true);
+      searchParams.delete("quiz");
+      setSearchParams(searchParams, { replace: true });
+    }
+  }, [searchParams, setSearchParams]);
 
   return (
     <>
