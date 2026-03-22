@@ -8,6 +8,7 @@ export const translations = {
     blog: { en: "Blog", pl: "Blog" },
     bookCall: { en: "Get Your Free Strategy Call", pl: "Umów bezpłatną konsultację" },
     getStarted: { en: "Get Started →", pl: "Zacznij →" },
+    about: { en: "About", pl: "O nas" },
   },
 
   // ─── Hero ────────────────────────────────────────────────

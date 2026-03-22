@@ -33,6 +33,7 @@ const FooterSection = () => {
               <li><a href={`${langPrefix}/process`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "process")}</a></li>
               <li><a href={`${langPrefix}/book`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "bookCall")}</a></li>
               <li><a href={`${langPrefix}/faq`} className="text-sm text-muted-foreground hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href={`${langPrefix}/about`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav", "about")}</a></li>
             </ul>
           </div>
 

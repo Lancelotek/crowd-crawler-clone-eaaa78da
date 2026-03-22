@@ -16,6 +16,7 @@ const MvaNavbar = () => {
     { label: t("nav", "caseStudies"), href: "#case-studies" },
     { label: t("nav", "blog"), href: `${langPrefix}/blog` },
     { label: "FAQ", href: `${langPrefix}/faq` },
+    { label: t("nav", "about"), href: `${langPrefix}/about` },
   ];
 
   useEffect(() => {
