@@ -68,8 +68,8 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <MvaNavbar />
         <div className="pt-32 pb-16 px-6 text-center">
-          <h1 className="font-display text-3xl font-bold mb-4">Post not found</h1>
-          <Link to="/blog" className="text-primary hover:underline">← Back to blog</Link>
+          <h1 className="font-display text-3xl font-bold mb-4">{isPl ? "Nie znaleziono artykułu" : "Post not found"}</h1>
+          <Link to={`${langPrefix}/blog`} className="text-primary hover:underline">{isPl ? "← Wróć do bloga" : "← Back to blog"}</Link>
         </div>
       </div>
     );
