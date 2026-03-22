@@ -85,6 +85,7 @@ const BlogPost = () => {
         ogImage={post.cover_image || undefined}
         type="article"
         publishedAt={post.published_at}
+        lang={lang}
         author={post.author || "JAY-23"}
         jsonLd={{
           "@context": "https://schema.org",

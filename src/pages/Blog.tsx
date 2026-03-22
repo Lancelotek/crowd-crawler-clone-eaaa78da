@@ -43,6 +43,7 @@ const Blog = () => {
         title={t("blog", "seoTitle")}
         description={t("blog", "seoDesc")}
         canonical={`${langPrefix}/blog`}
+        lang={lang}
       />
       <MvaNavbar />
       <section className="pt-32 pb-16 px-6">

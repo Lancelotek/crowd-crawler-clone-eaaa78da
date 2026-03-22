@@ -42,6 +42,14 @@ const Index = () => {
         title={seo[lang].title}
         description={seo[lang].description}
         canonical={`/${lang}`}
+        lang={lang}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "JAY-23 | MVA Framework",
+          "url": "https://jay23.com",
+          "inLanguage": ["pl", "en"],
+        }}
       />
       <header>
         <MvaNavbar />
