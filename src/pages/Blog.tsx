@@ -20,7 +20,7 @@ type BlogPost = {
 };
 
 const Blog = () => {
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
