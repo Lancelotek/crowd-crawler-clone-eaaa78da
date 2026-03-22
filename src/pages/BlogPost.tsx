@@ -89,7 +89,7 @@ const BlogPost = () => {
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": post.title,
-          "description": post.excerpt || `Read "${post.title}" on the MVA Framework blog.`,
+          "description": post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`),
           "image": post.cover_image || undefined,
           "datePublished": post.published_at,
           "author": { "@type": "Person", "name": post.author || "JAY-23" },
