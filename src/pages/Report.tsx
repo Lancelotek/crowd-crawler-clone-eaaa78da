@@ -216,8 +216,8 @@ const Report = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {stepOrder.map((key) => (
                 <div key={key} className="rounded-card p-4 border" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">{stepLabels[key]}</p>
-                  <p className="text-sm font-semibold">{answers[key] || "—"}</p>
+                  <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: "hsl(265 30% 55%)" }}>{stepLabels[key]}</p>
+                  <p className="text-sm font-semibold" style={{ color: "hsl(0 0% 95%)" }}>{answers[key] || "—"}</p>
                 </div>
               ))}
             </div>
