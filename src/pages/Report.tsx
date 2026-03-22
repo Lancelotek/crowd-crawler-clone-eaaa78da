@@ -226,11 +226,11 @@ const Report = () => {
           {/* Section 4a: Assessment */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}
             className="rounded-card p-6 border mb-6" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Ocena Twojego MVA</h2>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Ocena Twojego MVA</h2>
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: assessment.color, color: "#fff" }}>
               {assessment.label}
             </span>
-            <p className="text-muted-foreground text-sm leading-relaxed">{assessment.text}</p>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{assessment.text}</p>
           </motion.div>
 
           {/* Section 4b: TAM */}
