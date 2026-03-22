@@ -37,6 +37,7 @@ const LangRoutes = () => (
       <Route path="impressum" element={<Impressum />} />
       <Route path="terms-of-service" element={<TermsOfService />} />
       <Route path="faq" element={<FAQ />} />
+      <Route path="about" element={<About />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </LanguageProvider>
