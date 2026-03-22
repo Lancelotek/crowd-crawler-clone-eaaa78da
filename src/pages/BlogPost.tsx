@@ -136,7 +136,6 @@ const BlogPost = () => {
                   day: "numeric",
                 })}
               </span>
-              </span>
             </div>
 
             {post.cover_image && (
