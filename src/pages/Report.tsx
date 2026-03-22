@@ -216,8 +216,8 @@ const Report = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {stepOrder.map((key) => (
                 <div key={key} className="rounded-card p-4 border" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">{stepLabels[key]}</p>
-                  <p className="text-sm font-semibold">{answers[key] || "—"}</p>
+                  <p className="text-[10px] uppercase tracking-wider mb-1" style={{ color: "hsl(265 30% 55%)" }}>{stepLabels[key]}</p>
+                  <p className="text-sm font-semibold" style={{ color: "hsl(0 0% 95%)" }}>{answers[key] || "—"}</p>
                 </div>
               ))}
             </div>
@@ -226,40 +226,40 @@ const Report = () => {
           {/* Section 4a: Assessment */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.5 }}
             className="rounded-card p-6 border mb-6" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Ocena Twojego MVA</h2>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Ocena Twojego MVA</h2>
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold mb-3" style={{ backgroundColor: assessment.color, color: "#fff" }}>
               {assessment.label}
             </span>
-            <p className="text-muted-foreground text-sm leading-relaxed">{assessment.text}</p>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{assessment.text}</p>
           </motion.div>
 
           {/* Section 4b: TAM */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }}
             className="rounded-card p-6 border mb-6" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Analiza Twojego rynku (TAM)</h2>
-            <p className="text-muted-foreground text-sm leading-relaxed">{tamText}</p>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Analiza Twojego rynku (TAM)</h2>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{tamText}</p>
           </motion.div>
 
           {/* Section 4c: UVP */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }}
             className="rounded-card p-6 border mb-6" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Twoja przewaga konkurencyjna</h2>
-            <p className="text-muted-foreground text-sm leading-relaxed">{uvpText}</p>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Twoja przewaga konkurencyjna</h2>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{uvpText}</p>
           </motion.div>
 
           {/* Section 4d: Strategy */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}
             className="rounded-card p-6 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
-            <h2 className="font-display text-xl font-bold mb-3">Rekomendowana strategia startu</h2>
-            <p className="text-muted-foreground text-sm leading-relaxed">{strategyText}</p>
+            <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Rekomendowana strategia startu</h2>
+            <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{strategyText}</p>
           </motion.div>
 
           {/* Section 5: Calendly CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.5 }}
             className="rounded-card p-8 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(253 100% 62%)" }}>
             <div className="text-center mb-6">
-              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-2">Chcesz spersonalizowaną strategię budowania Twojego MVA?</h2>
-              <p className="text-muted-foreground text-sm">Umów się na bezpłatną 30-minutową konsultację strategiczną z ekspertem JAY23.</p>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-2" style={{ color: "hsl(0 0% 95%)" }}>Chcesz spersonalizowaną strategię budowania Twojego MVA?</h2>
+              <p className="text-sm" style={{ color: "hsl(265 20% 75%)" }}>Umów się na bezpłatną 30-minutową konsultację strategiczną z ekspertem JAY23.</p>
             </div>
             <div className="bg-background rounded-card p-2">
               <div
