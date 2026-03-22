@@ -17,6 +17,7 @@ import Process from "./pages/Process";
 import ThankYou from "./pages/ThankYou";
 import Leads from "./pages/Leads";
 import FAQ from "./pages/FAQ";
+import Report from "./pages/Report";
 
 const queryClient = new QueryClient();
 
