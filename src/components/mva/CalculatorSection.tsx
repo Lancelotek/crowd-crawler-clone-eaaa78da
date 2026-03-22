@@ -16,7 +16,7 @@ interface QuizStep {
     en: string[];
     pl: string[];
     keys: string[];
-    emojis?: string[];
+    icons?: LucideIcon[];
   };
 }
 
