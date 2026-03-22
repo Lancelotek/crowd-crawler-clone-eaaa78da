@@ -56,6 +56,48 @@ export type Database = {
         }
         Relationships: []
       }
+      blog_posts_pl: {
+        Row: {
+          author: string | null
+          category: string | null
+          content: string
+          cover_image: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          published_at: string
+          read_time: string | null
+          slug: string
+          title: string
+        }
+        Insert: {
+          author?: string | null
+          category?: string | null
+          content: string
+          cover_image?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published_at?: string
+          read_time?: string | null
+          slug: string
+          title: string
+        }
+        Update: {
+          author?: string | null
+          category?: string | null
+          content?: string
+          cover_image?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published_at?: string
+          read_time?: string | null
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
       saved_leads: {
         Row: {
           buying_signal: string
