@@ -9,6 +9,7 @@ interface SEOHeadProps {
   publishedAt?: string;
   author?: string;
   noindex?: boolean;
+  noHreflang?: boolean;
   jsonLd?: Record<string, unknown>;
   lang?: string;
 }
@@ -40,7 +41,6 @@ const setLink = (rel: string, href: string, attrs?: Record<string, string>) => {
   el.setAttribute("href", href);
 };
 
-/** Remove all existing hreflang links */
 const clearHreflang = () => {
   document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
 };
@@ -54,6 +54,7 @@ const SEOHead = ({
   publishedAt,
   author,
   noindex = false,
+  noHreflang = false,
   jsonLd,
   lang,
 }: SEOHeadProps) => {
@@ -61,20 +62,17 @@ const SEOHead = ({
     const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
     document.title = fullTitle;
 
-    // Set html lang attribute
     if (lang) {
       document.documentElement.lang = lang;
     }
 
-    // Standard meta
     setMeta("name", "description", description);
     if (noindex) {
-      setMeta("name", "robots", "noindex, nofollow");
+      setMeta("name", "robots", "noindex, follow");
     } else {
       setMeta("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     }
 
-    // Open Graph
     setMeta("property", "og:title", fullTitle);
     setMeta("property", "og:description", description);
     setMeta("property", "og:type", type);
@@ -85,13 +83,11 @@ const SEOHead = ({
     setMeta("property", "og:locale", lang === "pl" ? "pl_PL" : "en_US");
     setMeta("property", "og:url", canonical ? `${BASE_URL}${canonical}` : BASE_URL);
 
-    // Twitter
     setMeta("name", "twitter:card", "summary_large_image");
     setMeta("name", "twitter:title", fullTitle);
     setMeta("name", "twitter:description", description);
     setMeta("name", "twitter:image", ogImage);
 
-    // Article-specific
     if (type === "article" && publishedAt) {
       setMeta("property", "article:published_time", publishedAt);
     }
@@ -99,16 +95,14 @@ const SEOHead = ({
       setMeta("property", "article:author", author);
     }
 
-    // Canonical
     const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
     if (canonicalUrl) {
       setLink("canonical", canonicalUrl);
     }
 
-    // Hreflang tags
+    // Hreflang
     clearHreflang();
-    if (canonical) {
-      // Derive the path without lang prefix
+    if (canonical && !noHreflang) {
       const pathWithoutLang = canonical.replace(/^\/(en|pl)/, "");
       const enUrl = `${BASE_URL}/en${pathWithoutLang}`;
       const plUrl = `${BASE_URL}/pl${pathWithoutLang}`;
@@ -117,9 +111,15 @@ const SEOHead = ({
       setLink("alternate", enUrl, { hreflang: "en" });
       setLink("alternate", plUrl, { hreflang: "pl" });
       setLink("alternate", defaultUrl, { hreflang: "x-default" });
+    } else if (canonical && noHreflang) {
+      // Self-referencing hreflang only (for pages without counterpart)
+      const selfUrl = `${BASE_URL}${canonical}`;
+      const selfLang = lang || "en";
+      setLink("alternate", selfUrl, { hreflang: selfLang });
+      setLink("alternate", selfUrl, { hreflang: "x-default" });
     }
 
-    // Dynamic JSON-LD
+    // JSON-LD
     if (jsonLd) {
       const existingScript = document.querySelector('script[data-seo-jsonld]');
       if (existingScript) existingScript.remove();
@@ -130,7 +130,7 @@ const SEOHead = ({
       document.head.appendChild(script);
     }
 
-    // Organization Schema (always present)
+    // Organization Schema
     let orgScript = document.querySelector('script[data-seo-org]') as HTMLScriptElement | null;
     if (!orgScript) {
       orgScript = document.createElement("script");
@@ -162,7 +162,7 @@ const SEOHead = ({
       if (jsonLdScript) jsonLdScript.remove();
       clearHreflang();
     };
-  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, jsonLd, lang]);
+  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang]);
 
   return null;
 };

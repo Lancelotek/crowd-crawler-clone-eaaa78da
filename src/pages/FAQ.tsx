@@ -11,7 +11,7 @@ import {
 
 interface FaqItem {
   q: string;
-  a: string;
+  a: string; // supports HTML
 }
 
 const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: string; seoDesc: string; items: FaqItem[] }> = {
@@ -21,16 +21,15 @@ const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: 
     seoTitle: "FAQ — MVA Framework by JAY-23",
     seoDesc: "Answers to the most common questions about the MVA Framework, our 90-day program, pricing, and how we help founders build audiences before launch.",
     items: [
-      { q: "What is the MVA Framework?", a: "The MVA (Minimum Viable Audience) Framework is a 90-day system that helps founders build a paying audience before they launch. Instead of building a product and hoping people show up, we flip the script: audience first, product second." },
-      { q: "Who is this program for?", a: "It's built for founders, creators, and startups planning a product launch, crowdfunding campaign (Kickstarter, Indiegogo), or any business that needs early traction. If you're tired of launching to silence, this is for you." },
-      { q: "How long does the program take?", a: "The core program runs for 90 days, split into three phases: Build (Days 1-30), Drive (Days 31-60), and Launch (Days 61-90). Each phase builds on the last so nothing is wasted." },
-      { q: "Do I need a finished product to start?", a: "No. In fact, it's better if you don't. The MVA Framework helps you validate your idea and build demand before you invest heavily in product development. Your audience tells you what to build." },
-      { q: "What results can I expect?", a: "Our clients typically build a list of 1,000-5,000+ engaged subscribers, achieve 20%+ waitlist-to-customer conversion rates, and raise $50K-$600K+ on launch day. Results vary based on niche and commitment." },
-      { q: "How much does it cost?", a: "We offer different tiers depending on your needs. The best way to find out is to book a free strategy call where we assess your situation and recommend the right plan. There's no obligation." },
-      { q: "What if I already have an audience?", a: "Great — we'll help you activate and monetize them. The framework works whether you're starting from zero or already have followers. We optimize your existing assets and add proven growth systems." },
-      { q: "Do you run my ads for me?", a: "Yes. Our team handles ad strategy, creative, targeting, and optimization across Meta, Google, and other platforms. You focus on your product while we drive qualified leads to your funnel." },
-      { q: "What's included in the free strategy call?", a: "A 30-minute session where we analyze your current situation, identify your ideal audience, estimate your MVA number, and map out a 90-day action plan. You walk away with a clear roadmap whether you work with us or not." },
-      { q: "How is this different from a marketing agency?", a: "Agencies sell you impressions and clicks. We build you an asset — a community of people who trust you and are ready to buy. We focus on long-term audience ownership, not short-term vanity metrics." },
+      { q: "What is a Minimum Viable Audience (MVA)?", a: 'MVA is the smallest group of people you need to build BEFORE launching your product. Instead of building first and hoping people show up, the <a href="/en/blog" class="text-primary hover:underline">MVA Framework</a> flips the script: audience first, product second. Use our free <a href="/en#calculator" class="text-primary hover:underline">MVA Calculator</a> to find your number.' },
+      { q: "How does the MVA 90-day program work?", a: 'The program runs for 90 days in three phases: Build (Days 1-30), Drive (Days 31-60), and Launch (Days 61-90). Each phase builds on the last so nothing is wasted. <a href="/en/process" class="text-primary hover:underline">See our full process</a>.' },
+      { q: "How do I calculate my Minimum Viable Audience?", a: 'Use the formula: MVA = (Target Revenue / Average Price) × Niche Multiplier × Product Multiplier. Or simply use our free <a href="/en#calculator" class="text-primary hover:underline">MVA Calculator</a> to get your number instantly.' },
+      { q: "Why should I build an audience before launching?", a: "Products launched without an audience fail 70% of the time. Building an audience first lets you validate your idea, create demand, and have paying customers ready on launch day. Audience-first campaigns achieve 3-4x higher conversion rates." },
+      { q: "What results can I expect from the MVA program?", a: 'Our clients typically build a list of 1,000-5,000+ engaged subscribers, achieve 20%+ waitlist-to-customer conversion rates, and raise $50K-$600K+ on launch day. Results vary based on niche and commitment. <a href="/en/book" class="text-primary hover:underline">Book a free strategy call</a> to discuss your situation.' },
+      { q: "What is the difference between MVA and MVP?", a: "MVP (Minimum Viable Product) focuses on building the simplest version of your product. MVA (Minimum Viable Audience) focuses on building the smallest group of engaged people who will buy your product. We believe you should build your MVA before your MVP." },
+      { q: "What is a prelaunch strategy?", a: "A prelaunch strategy includes everything you do BEFORE your product launches to build demand and an audience. It covers building a waitlist, content marketing, community building, and collecting social proof." },
+      { q: "How to build a community around your product?", a: "Use the ACP framework: Attract (draw people with value — content, free resources), Connect (bring people together — Discord/Slack group), Participate (engage — regular formats, shared projects). Start with 20-30 people." },
+      { q: "How to build an email list before launch?", a: "Set up a landing page with a lead magnet (free guide, calculator, template), promote through content on LinkedIn/Twitter, collect emails and nurture with email sequences. Tools: MailerLite, ConvertKit." },
     ],
   },
   pl: {
@@ -39,16 +38,15 @@ const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: 
     seoTitle: "FAQ — MVA Framework od JAY-23",
     seoDesc: "Odpowiedzi na najczęstsze pytania o MVA Framework, nasz program 90-dniowy, cennik i jak pomagamy founderom budować społeczność przed premierą.",
     items: [
-      { q: "Czym jest MVA Framework?", a: "MVA (Minimum Viable Audience) Framework to 90-dniowy system, który pomaga founderom zbudować płacącą publiczność przed premierą produktu. Zamiast budować produkt i liczyć na to, że ludzie się pojawią, odwracamy schemat: najpierw publiczność, potem produkt." },
-      { q: "Dla kogo jest ten program?", a: "Dla founderów, twórców i startupów planujących premierę produktu, kampanię crowdfundingową (Kickstarter, Indiegogo) lub dowolny biznes potrzebujący wczesnej trakcji. Jeśli masz dość startowania w ciszę — to jest dla Ciebie." },
-      { q: "Jak długo trwa program?", a: "Główny program trwa 90 dni, podzielonych na trzy fazy: Buduj (Dni 1-30), Napędzaj (Dni 31-60) i Startuj (Dni 61-90). Każda faza buduje na poprzedniej, więc nic nie jest zmarnowane." },
-      { q: "Czy muszę mieć gotowy produkt, żeby zacząć?", a: "Nie. Właściwie lepiej, jeśli go nie masz. MVA Framework pomoże Ci zwalidować pomysł i zbudować popyt, zanim zainwestujesz w rozwój produktu. Twoja publiczność powie Ci, co zbudować." },
-      { q: "Jakich rezultatów mogę się spodziewać?", a: "Nasi klienci zazwyczaj budują listę 1000-5000+ zaangażowanych subskrybentów, osiągają 20%+ konwersję z waitlisty na klientów i zbierają $50K-$600K+ w dniu premiery. Wyniki zależą od niszy i zaangażowania." },
-      { q: "Ile to kosztuje?", a: "Oferujemy różne pakiety w zależności od potrzeb. Najlepiej umówić się na bezpłatną konsultację strategiczną, gdzie ocenimy Twoją sytuację i zaproponujemy odpowiedni plan. Bez zobowiązań." },
-      { q: "Co jeśli już mam publiczność?", a: "Świetnie — pomożemy Ci ją aktywować i zmonetyzować. Framework działa niezależnie od tego, czy zaczynasz od zera, czy masz już obserwujących. Optymalizujemy Twoje istniejące zasoby i dodajemy sprawdzone systemy wzrostu." },
-      { q: "Czy prowadzicie reklamy za mnie?", a: "Tak. Nasz zespół zajmuje się strategią reklamową, kreatywnością, targetowaniem i optymalizacją na Meta, Google i innych platformach. Ty skupiasz się na produkcie, a my kierujemy kwalifikowane leady do Twojego funnela." },
-      { q: "Co obejmuje bezpłatna konsultacja?", a: "30-minutową sesję, podczas której analizujemy Twoją obecną sytuację, identyfikujemy idealną grupę docelową, szacujemy Twoje MVA i tworzymy plan działania na 90 dni. Odchodzisz z jasną mapą drogową — niezależnie od tego, czy zdecydujesz się z nami współpracować." },
-      { q: "Czym to się różni od agencji marketingowej?", a: "Agencje sprzedają Ci wyświetlenia i kliknięcia. My budujemy Ci aktywo — społeczność ludzi, którzy Ci ufają i są gotowi kupić. Skupiamy się na długoterminowym posiadaniu publiczności, a nie krótkoterminowych metrykach próżności." },
+      { q: "Co to jest Minimum Viable Audience (MVA)?", a: 'MVA to najmniejsza grupa osób, którą musisz zbudować ZANIM wystartujesz z produktem. Zamiast budować produkt i liczyć na to, że ludzie się pojawią, <a href="/pl/blog/co-to-jest-minimum-viable-audience-mva-przewodnik" class="text-primary hover:underline">MVA Framework</a> odwraca schemat: najpierw publiczność, potem produkt. Użyj naszego darmowego <a href="/pl#calculator" class="text-primary hover:underline">kalkulatora MVA</a> aby obliczyć swoją liczbę.' },
+      { q: "Jak działa 90-dniowy program MVA?", a: 'Program trwa 90 dni, podzielonych na trzy fazy: Buduj (Dni 1-30), Napędzaj (Dni 31-60) i Startuj (Dni 61-90). Każda faza buduje na poprzedniej, więc nic nie jest zmarnowane. <a href="/pl/process" class="text-primary hover:underline">Zobacz nasz pełny proces</a>.' },
+      { q: "Jak obliczyć swoje Minimum Viable Audience?", a: 'Użyj formuły: MVA = (Docelowy przychód / Średnia cena) × Mnożnik niszy × Mnożnik produktu. Albo po prostu skorzystaj z naszego darmowego <a href="/pl#calculator" class="text-primary hover:underline">kalkulatora MVA</a> aby natychmiast otrzymać wynik.' },
+      { q: "Dlaczego warto zbudować publiczność przed launchem?", a: "70% produktów startujących bez publiczności ponosi porażkę. Budowanie publiczności najpierw pozwala zwalidować pomysł, stworzyć popyt i mieć płacących klientów gotowych w dniu premiery. Kampanie audience-first osiągają 3-4x wyższy wskaźnik konwersji." },
+      { q: "Jakich rezultatów mogę się spodziewać po programie MVA?", a: 'Nasi klienci zazwyczaj budują listę 1000-5000+ zaangażowanych subskrybentów, osiągają 20%+ konwersję z waitlisty na klientów i zbierają $50K-$600K+ w dniu premiery. Wyniki zależą od niszy i zaangażowania. <a href="/pl/book" class="text-primary hover:underline">Umów bezpłatną konsultację</a> aby omówić Twoją sytuację.' },
+      { q: "Czym różni się MVA od MVP?", a: "MVP (Minimum Viable Product) skupia się na zbudowaniu najprostszej wersji produktu. MVA (Minimum Viable Audience) skupia się na zbudowaniu najmniejszej grupy zaangażowanych osób, które kupią Twój produkt. Uważamy, że powinieneś zbudować swoje MVA przed MVP." },
+      { q: "Co to jest strategia prelaunch?", a: 'Strategia prelaunch to wszystkie działania, które podejmujesz PRZED premierą produktu aby zbudować popyt i publiczność. Obejmuje budowanie waitlisty, content marketing, community building i zbieranie social proof. Więcej w naszym przewodniku: <a href="/pl/blog/strategia-prelaunch-kompletny-przewodnik" class="text-primary hover:underline">Strategia prelaunch od A do Z</a>.' },
+      { q: "Jak zbudować społeczność wokół produktu?", a: 'Użyj frameworka ACP: Attract (przyciągnij wartością — content, darmowe zasoby), Connect (połącz ludzi ze sobą — grupa Discord/Slack), Participate (angażuj — regularne formaty, wspólne projekty). Zacznij od 20-30 osób. Więcej: <a href="/pl/blog/budowanie-spolecznosci-wokol-produktu" class="text-primary hover:underline">Framework ACP dla founderów</a>.' },
+      { q: "Jak zbudować listę mailingową przed launchem?", a: 'Postaw landing page z lead magnetem (darmowy przewodnik, kalkulator, szablon), promuj przez content na LinkedIn/Twitter, zbieraj emaile i pielęgnuj relacje sekwencją emaili. Narzędzia: MailerLite, ConvertKit. Szczegóły: <a href="/pl/blog/jak-zbudowac-liste-mailingowa" class="text-primary hover:underline">Jak zbudować listę mailingową od zera</a>.' },
     ],
   },
 };
@@ -63,7 +61,7 @@ const FAQ = () => {
     mainEntity: data.items.map((item) => ({
       "@type": "Question",
       name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
+      acceptedAnswer: { "@type": "Answer", text: item.a.replace(/<[^>]*>/g, '') },
     })),
   };
 
@@ -98,7 +96,7 @@ const FAQ = () => {
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground">
-                  {item.a}
+                  <span dangerouslySetInnerHTML={{ __html: item.a }} />
                 </AccordionContent>
               </AccordionItem>
             ))}
