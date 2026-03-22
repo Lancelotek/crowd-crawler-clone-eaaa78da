@@ -69,7 +69,7 @@ const quizSteps: QuizStep[] = [
       en: ["Lowest price", "Premium quality", "Unique technology", "Best customer service", "Niche problem solution"],
       pl: ["Najniższa cena na rynku", "Najwyższa jakość / premium", "Unikalna technologia / innowacja", "Najlepsza obsługa klienta", "Rozwiązanie niszowego problemu"],
       keys: ["lowest_price", "premium_quality", "unique_tech", "best_service", "niche_solution"],
-      emojis: ["💰", "⭐", "🚀", "🤝", "🎯"],
+      icons: [DollarSign, Star, Rocket, Handshake, Target],
     },
   },
   {
@@ -80,7 +80,7 @@ const quizSteps: QuizStep[] = [
       en: ["Solopreneurs / freelancers", "Small businesses (2–10)", "Medium businesses (11–50)", "Large companies (50+)", "Individual consumers (B2C)"],
       pl: ["Solopreneurzy / freelancerzy", "Małe firmy (2–10 osób)", "Średnie firmy (11–50 osób)", "Duże firmy / korporacje (50+)", "Konsumenci indywidualni (B2C)"],
       keys: ["solopreneurs", "small_business", "medium_business", "enterprise", "b2c_consumers"],
-      emojis: ["👤", "👥", "🏢", "🏛️", "🛒"],
+      icons: [User, UsersRound, Building2, Landmark, ShoppingCart],
     },
   },
   {
@@ -91,7 +91,7 @@ const quizSteps: QuizStep[] = [
       en: ["Starting from zero (0–100)", "Early start (100–500)", "Growing base (500–2,000)", "Solid base (2,000–10,000)", "Large audience (10,000+)"],
       pl: ["Zaczynam od zera (0–100)", "Mam początek (100–500)", "Rosnąca baza (500–2 000)", "Solidna baza (2 000–10 000)", "Duża publiczność (10 000+)"],
       keys: ["starting", "early", "growing", "solid", "large"],
-      emojis: ["🌱", "🌿", "🌳", "🌲", "🏔️"],
+      icons: [Sprout, Leaf, TreePine, Trees, Mountain],
     },
   },
   {
@@ -102,7 +102,7 @@ const quizSteps: QuizStep[] = [
       en: ["Idea / validation", "MVP / early prototype", "First product on market", "Product with first customers", "Scaling existing product"],
       pl: ["Pomysł / walidacja", "MVP / wczesny prototyp", "Pierwszy produkt na rynku", "Produkt z pierwszymi klientami", "Skalowanie istniejącego produktu"],
       keys: ["idea", "mvp", "launched", "early_customers", "scaling"],
-      emojis: ["💡", "🔧", "📦", "📈", "🚀"],
+      icons: [Lightbulb, Wrench, Package, TrendingUp, Rocket],
     },
   },
 ];
