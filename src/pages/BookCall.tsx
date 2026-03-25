@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { track } from "@/lib/tracking";
+import { track, trackAdsConversion } from "@/lib/tracking";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
