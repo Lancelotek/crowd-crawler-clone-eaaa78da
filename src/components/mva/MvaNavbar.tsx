@@ -47,9 +47,6 @@ const MvaNavbar = () => {
             <a href={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
               {t("nav", "bookCall")}
             </a>
-            <a href="#cta" onClick={() => track.ctaClick("navbar", "calculator")} className="hidden sm:inline-block bg-primary text-primary-foreground px-5 py-2 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
-              {t("nav", "getStarted")}
-            </a>
             <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1" aria-label="Toggle menu">
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
