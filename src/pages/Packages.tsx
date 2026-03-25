@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from "react";
+import { Palette } from "lucide-react";
 import socialProofLogos from "@/assets/social-proof-logos.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
