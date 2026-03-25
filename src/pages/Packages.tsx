@@ -286,6 +286,7 @@ const faqs = [
 const Packages = () => {
   const { langPrefix } = useLanguage();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [heroRef, heroVisible] = useInView(0.1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
