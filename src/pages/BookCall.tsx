@@ -215,8 +215,8 @@ const BookCall = () => {
             {" "}{t("bookCall", "subtitleEnd")}
           </motion.p>
 
-          {/* ── Video Placeholder ── */}
-          <motion.div
+          {/* ── Video Placeholder (hidden until video is ready) ── */}
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -224,7 +224,7 @@ const BookCall = () => {
           >
             <VideoPlaceholder />
             <FounderAttribution />
-          </motion.div>
+          </motion.div> */}
 
           {/* ── Bullets ── */}
           <motion.div
