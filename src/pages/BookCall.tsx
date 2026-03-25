@@ -149,6 +149,18 @@ const BookCall = () => {
     return () => clearInterval(timer);
   }, []);
 
+  // Calendly → Google Ads conversion tracking
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== "https://calendly.com") return;
+      if (e.data?.event && e.data.event === "calendly.event_scheduled") {
+        trackAdsConversion("1xSfCInJ56IaEILXrOsD");
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   const bullets = [
     { title: t("bookCall", "bullet1Title"), desc: t("bookCall", "bullet1Desc") },
     { title: t("bookCall", "bullet2Title"), desc: t("bookCall", "bullet2Desc") },
