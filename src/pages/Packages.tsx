@@ -210,8 +210,8 @@ const packages = [
     ],
     price: "0 PLN",
     note: "30 minut · bez zobowiązań",
-    cta: "Zarezerwuj termin →",
-    ctaLink: CALENDLY_URL,
+    cta: "Umów bezpłatną konsultację →",
+    ctaLink: "/pl/book",
     style: "free" as const,
     badge: "KROK PIERWSZY",
   },
@@ -230,8 +230,8 @@ const packages = [
     ],
     priceMonthly: "6 000 PLN",
     priceTotal: "razem 24 000 PLN · 4 miesiące · + VAT",
-    cta: "Zacznij →",
-    ctaLink: CALENDLY_URL,
+    cta: "Umów bezpłatną konsultację →",
+    ctaLink: "/pl/book",
     style: "featured" as const,
     badge: "Najpopularniejszy",
   },
@@ -250,12 +250,11 @@ const packages = [
     ],
     price: "Wycena",
     note: "indywidualna · sprint 45-dniowy · + VAT",
-    cta: "Umów rozmowę",
-    ctaLink: CALENDLY_URL,
+    cta: "Umów bezpłatną konsultację →",
+    ctaLink: "/pl/book",
     style: "standard" as const,
   },
 ];
-
 const faqs = [
   {
     q: "Dlaczego nie zwykła agencja Kickstarterowa?",
@@ -350,14 +349,10 @@ const Packages = () => {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.42, duration: 0.7 }}
-                className="flex items-center gap-4 flex-wrap"
               >
-                <a href="#packages" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-                  Oblicz ilu fanów potrzebujesz ↓
-                </a>
-                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-medium text-[15px] px-7 py-3.5 rounded-full hover:border-white/50 hover:text-white transition-colors">
-                  Umów bezpłatną konsultację
-                </a>
+                <Link to="/pl/book" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
+                  Umów bezpłatną konsultację →
+                </Link>
               </motion.div>
             </div>
 
@@ -630,10 +625,8 @@ const Packages = () => {
                   )}
 
                   {/* CTA */}
-                  <a
-                    href={pkg.ctaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to={pkg.ctaLink}
                     className={`block text-center font-semibold text-sm py-3.5 px-5 rounded-full transition-all ${
                       isFeatured
                         ? "bg-primary text-white hover:brightness-110 hover:-translate-y-0.5"
@@ -643,7 +636,7 @@ const Packages = () => {
                     }`}
                   >
                     {pkg.cta}
-                  </a>
+                  </Link>
                 </motion.div>
               );
             })}
@@ -702,14 +695,12 @@ const Packages = () => {
             PRZESTAŃ STARTOWAĆ W CISZY.<br />
             ZACZNIJ BUDOWAĆ POPYT.
           </h2>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/pl/book"
             className="inline-flex items-center gap-2.5 bg-white text-primary font-semibold text-[15px] px-8 py-4 rounded-full hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,0,0,0.2)] transition-all"
           >
-            Oblicz swoje MVA →
-          </a>
+            Umów bezpłatną konsultację →
+          </Link>
           <p className="text-[13px] text-white/40 mt-4 font-light">
             Rozmowa 30 minut. Wychodzisz z planem — niezależnie czy mnie zatrudnisz.
           </p>
