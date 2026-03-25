@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import founderPhoto from "@/assets/founder-photo.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -204,50 +205,76 @@ const Packages = () => {
         <div className="absolute -bottom-[20%] -left-[10%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.08)_0%,transparent_65%)] pointer-events-none" />
 
         <div className="container mx-auto max-w-[1200px] px-6 pt-28 pb-20 relative z-10">
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-xs font-semibold tracking-[0.12em] uppercase text-primary/80 mb-7 flex items-center gap-2"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            MVA Framework · Program 90 dni
-          </motion.p>
+          <div className="grid lg:grid-cols-[1fr,auto] gap-12 lg:gap-16 items-center">
+            {/* Left: text */}
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="text-xs font-semibold tracking-[0.12em] uppercase text-primary/80 mb-7 flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                MVA Framework · Program 90 dni
+              </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-            className="font-display text-[clamp(48px,7.5vw,96px)] font-black uppercase leading-[0.94] tracking-tight text-white mb-7"
-          >
-            ZBUDUJ<br />
-            SWOICH<br />
-            <span className="text-primary">1 600</span><br />
-            <span className="text-white/25">KUPUJĄCYCH.</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.7 }}
+                className="font-display text-[clamp(48px,6vw,88px)] font-black uppercase leading-[0.94] tracking-tight text-white mb-7"
+              >
+                ZBUDUJ<br />
+                SWOICH<br />
+                <span className="text-primary">1 600</span><br />
+                <span className="text-white/25">KUPUJĄCYCH.</span>
+              </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.7 }}
-            className="text-[clamp(15px,1.5vw,18px)] font-light text-white/50 max-w-[520px] leading-relaxed mb-11"
-          >
-            Przestań startować w ciszy. Zbudujemy Ci listę płatnych subskrybentów Early Bird — zanim ruszy Twój Kickstarter lub prelaunch produktu.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="text-[clamp(15px,1.5vw,18px)] font-light text-white/50 max-w-[520px] leading-relaxed mb-11"
+              >
+                Przestań startować w ciszy. Zbudujemy Ci listę płatnych subskrybentów Early Bird — zanim ruszy Twój Kickstarter lub prelaunch produktu.
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.42, duration: 0.7 }}
-            className="flex items-center gap-4 flex-wrap"
-          >
-            <a href="#packages" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-              Oblicz ilu fanów potrzebujesz ↓
-            </a>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-medium text-[15px] px-7 py-3.5 rounded-full hover:border-white/50 hover:text-white transition-colors">
-              Umów bezpłatną konsultację
-            </a>
-          </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.42, duration: 0.7 }}
+                className="flex items-center gap-4 flex-wrap"
+              >
+                <a href="#packages" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
+                  Oblicz ilu fanów potrzebujesz ↓
+                </a>
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-white/20 text-white/70 font-medium text-[15px] px-7 py-3.5 rounded-full hover:border-white/50 hover:text-white transition-colors">
+                  Umów bezpłatną konsultację
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right: founder photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.35, duration: 0.8 }}
+              className="hidden lg:block relative"
+            >
+              <div className="relative w-[320px] h-[400px]">
+                <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-3xl scale-110" />
+                <img
+                  src={founderPhoto}
+                  alt="Marek Cieśla — Founder JAY-23"
+                  className="relative w-full h-full object-cover object-top rounded-2xl border border-white/10 shadow-2xl"
+                />
+                <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-xl px-4 py-3 border border-white/[0.08]">
+                  <p className="font-display text-sm font-bold text-white">Marek Cieśla</p>
+                  <p className="text-[11px] text-white/50">Founder & CEO, JAY-23</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
           {/* Trust bar */}
           <motion.div
