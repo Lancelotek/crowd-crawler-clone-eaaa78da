@@ -192,7 +192,7 @@ const Packages = () => {
       <SEOHead
         title="MVA Framework — Pakiety | JAY-23"
         description="Zbuduj 1 600 kupujących zanim startujesz. Wybierz pakiet MVA Framework i zacznij budować publiczność przed launchem."
-        path="/pl/packages"
+        canonical="https://jay23.com/pl/packages"
         lang="pl"
       />
       <MvaNavbar />
