@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import socialProofLogos from "@/assets/social-proof-logos.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -389,6 +390,17 @@ const Packages = () => {
               </div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── SOCIAL PROOF MARQUEE ── */}
+      <section className="bg-[hsl(var(--dark-bg))] py-8 overflow-hidden border-t border-white/[0.06]">
+        <style>{`
+          @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        `}</style>
+        <div className="flex" style={{ animation: "marquee 20s linear infinite", width: "max-content" }}>
+          <img src={socialProofLogos} alt="Partnerzy i współpraca" className="h-10 w-auto object-contain opacity-60" />
+          <img src={socialProofLogos} alt="" className="h-10 w-auto object-contain opacity-60" aria-hidden="true" />
         </div>
       </section>
 
