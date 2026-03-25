@@ -681,7 +681,7 @@ const Packages = () => {
 
           {/* Creatives note */}
           <div className="flex items-start gap-4 mt-4 bg-card rounded-card border border-border p-6">
-            <span className="text-2xl">🎨</span>
+            <Palette className="w-5 h-5 text-primary shrink-0 mt-0.5" />
             <div>
               <p className="font-display text-sm font-bold text-foreground mb-1">
                 {isPl ? "Produkcja kreacji reklamowych w cenie" : "Ad creative production included"}
