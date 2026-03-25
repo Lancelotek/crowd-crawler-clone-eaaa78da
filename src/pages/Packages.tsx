@@ -8,6 +8,110 @@ import FooterSection from "@/components/mva/FooterSection";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
+/* ── Dashboard mockup data ── */
+const LEADS_DATA = [
+  { name: "Aleksandra W.", email: "a.wojcik@gmail.com", tag: "Early Bird", paid: true, time: "2 min ago" },
+  { name: "Tomasz K.", email: "tomasz.k@wp.pl", tag: "Early Bird", paid: true, time: "11 min ago" },
+  { name: "Maria L.", email: "m.lewandowska@o2.pl", tag: "Lead", paid: false, time: "18 min ago" },
+  { name: "Piotr B.", email: "piotr.b@gmail.com", tag: "Early Bird", paid: true, time: "34 min ago" },
+];
+
+function useCounter(target: number, duration = 1800, start = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(ease * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, start]);
+  return count;
+}
+
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return [ref, visible] as const;
+}
+
+function HeroDashboard({ visible }: { visible: boolean }) {
+  const [activeTab, setActiveTab] = useState("leads");
+  const leads = useCounter(847, 2000, visible);
+  const paid = useCounter(94, 2200, visible);
+
+  return (
+    <div style={{ background: "#12121a", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden", boxShadow: "0 40px 80px rgba(0,0,0,0.5)", fontFamily: "'Inter', system-ui, sans-serif", animation: visible ? "float 6s ease-in-out infinite" : "none" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ display: "flex", gap: "6px" }}>
+          {["#ff5f57", "#febc2e", "#28c840"].map(c => (
+            <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c, opacity: 0.8 }} />
+          ))}
+        </div>
+        <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)", fontFamily: "monospace" }}>app.mailerlite.com / jay23-campaign</div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "rgba(255,255,255,0.04)" }}>
+        {[
+          { label: "ŁĄCZNIE LEADÓW", value: leads.toLocaleString(), color: "#6C63FF" },
+          { label: "EARLY BIRD ($1)", value: String(paid), color: "#10B981" },
+          { label: "QUIZ CR", value: "38%", color: "#F59E0B" },
+        ].map((s, i) => (
+          <div key={i} style={{ background: "#12121a", padding: "16px", textAlign: "center" }}>
+            <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.35)", marginBottom: "4px", letterSpacing: "0.05em", textTransform: "uppercase" }}>{s.label}</div>
+            <div style={{ fontSize: "24px", fontWeight: 800, color: s.color, letterSpacing: "-0.02em" }}>{s.value}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "0 16px" }}>
+        {([["leads", "Subskrybenci"], ["stripe", "Płatności"]] as const).map(([id, label]) => (
+          <button key={id} onClick={() => setActiveTab(id)} style={{ padding: "9px 16px", fontSize: "11px", fontWeight: 500, background: "transparent", border: "none", borderBottom: activeTab === id ? "2px solid #6C63FF" : "2px solid transparent", color: activeTab === id ? "#fff" : "rgba(255,255,255,0.35)", cursor: "pointer", fontFamily: "inherit" }}>{label}</button>
+        ))}
+      </div>
+      <div style={{ padding: "8px 0", maxHeight: "200px", overflow: "hidden" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <tbody>
+            {LEADS_DATA.map((l, i) => (
+              <tr key={i} style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                <td style={{ padding: "10px 16px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: "rgba(108,99,255,0.15)", color: "#a89cff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", fontWeight: 700 }}>{l.name.split(" ").map(n => n[0]).join("")}</div>
+                    <div>
+                      <div style={{ fontSize: "12px", fontWeight: 600, color: "#fff" }}>{l.name}</div>
+                      <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.3)" }}>{l.email}</div>
+                    </div>
+                  </div>
+                </td>
+                <td style={{ padding: "10px 12px" }}>
+                  <span style={{ fontSize: "10px", fontWeight: 600, padding: "2px 8px", borderRadius: "100px", background: l.paid ? "rgba(16,185,129,0.12)" : "rgba(255,255,255,0.06)", color: l.paid ? "#6ee7b7" : "rgba(255,255,255,0.4)" }}>{l.tag}</span>
+                </td>
+                <td style={{ padding: "10px 16px", fontSize: "10px", color: "rgba(255,255,255,0.25)", textAlign: "right" }}>{l.time}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 16px", borderTop: "1px solid rgba(255,255,255,0.06)", fontSize: "10px", color: "rgba(255,255,255,0.3)" }}>
+        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", animation: "blink 2s ease-in-out infinite" }} />
+        Stripe · Płatności Early Bird · <strong style={{ color: "#fff" }}>94 × $1.00 zebranych</strong> · <span style={{ color: "#10B981", fontWeight: 600 }}>Na żywo</span>
+      </div>
+    </div>
+  );
+}
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
