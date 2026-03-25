@@ -57,7 +57,7 @@ export const track = {
 
   leadSubmit: (source: string) => {
     trackEvent("lead_submit", { lead_source: source });
-    trackAdsConversion("lead_submit");
+    trackAdsConversion("GlAZCO6hwo8cEILXrOsD");
   },
 
   bookingClick: (location: string) => {
