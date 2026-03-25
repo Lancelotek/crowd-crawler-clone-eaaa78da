@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import founderPhoto from "@/assets/founder-photo.png";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
