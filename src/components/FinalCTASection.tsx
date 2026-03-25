@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { trackAdsConversion } from "@/lib/tracking";
 import ScrollReveal from "./ScrollReveal";
 
 const checklist = [
@@ -18,6 +19,18 @@ const FinalCTASection = () => {
     script.async = true;
     document.body.appendChild(script);
     return () => { document.body.removeChild(script); };
+  }, []);
+
+  // Calendly → Google Ads conversion tracking
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== "https://calendly.com") return;
+      if (e.data?.event && e.data.event === "calendly.event_scheduled") {
+        trackAdsConversion("1xSfCInJ56IaEILXrOsD");
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
   }, []);
 
   return (
