@@ -14,6 +14,7 @@ const MvaNavbar = () => {
   const navItems = [
     { label: t("nav", "framework"), href: "#solution" },
     { label: t("nav", "caseStudies"), href: "#case-studies" },
+    { label: "Pakiety", href: `${langPrefix}/packages` },
     { label: t("nav", "blog"), href: `${langPrefix}/blog` },
     { label: "FAQ", href: `${langPrefix}/faq` },
     { label: t("nav", "about"), href: `${langPrefix}/about` },

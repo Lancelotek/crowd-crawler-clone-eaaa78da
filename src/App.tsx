@@ -19,6 +19,7 @@ import Leads from "./pages/Leads";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import Report from "./pages/Report";
+import Packages from "./pages/Packages";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const LangRoutes = () => (
       <Route path="process" element={<Process />} />
       <Route path="thank-you" element={<ThankYou />} />
       <Route path="report" element={<Report />} />
+      <Route path="packages" element={<Packages />} />
       <Route path="blog" element={<Blog />} />
       <Route path="blog/:slug" element={<BlogPost />} />
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -59,6 +61,7 @@ const App = () => (
           <Route path="/thank-you" element={<LanguageRedirect />} />
           <Route path="/blog" element={<LanguageRedirect />} />
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
+          <Route path="/packages" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
