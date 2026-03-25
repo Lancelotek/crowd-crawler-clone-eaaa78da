@@ -215,14 +215,15 @@ const BookCall = () => {
             {" "}{t("bookCall", "subtitleEnd")}
           </motion.p>
 
-          {/* ── Video ── */}
+          {/* ── Video Placeholder ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-10"
           >
-            <YouTubeEmbed videoId={lang === "pl" ? YOUTUBE_VIDEO_ID_PL : YOUTUBE_VIDEO_ID_EN} />
+            <VideoPlaceholder />
+            <FounderAttribution />
           </motion.div>
 
           {/* ── Bullets ── */}
@@ -277,7 +278,14 @@ const BookCall = () => {
           >
             <div className="w-2 h-2 rounded-full bg-destructive animate-blink shrink-0" />
             <div className="text-[13px] text-destructive/80 font-medium">
-              {t("bookCall", "slotsLeft").replace("{slots}", String(slots))}
+              {(() => {
+                if (lang === "pl") {
+                  if (slots === 1) return "Zostało tylko 1 miejsce w tym tygodniu";
+                  if (slots >= 2 && slots <= 4) return `Zostały tylko ${slots} miejsca w tym tygodniu`;
+                  return `Zostało ${slots} wolnych miejsc w tym tygodniu`;
+                }
+                return t("bookCall", "slotsLeft").replace("{slots}", String(slots));
+              })()}
             </div>
             <div className="ml-auto text-xs font-bold text-destructive bg-destructive/15 py-0.5 px-2.5 rounded-full shrink-0">
               {slots} / 10
@@ -305,6 +313,24 @@ const BookCall = () => {
             </p>
           </motion.div>
 
+          {/* ── Guarantee (moved directly below CTA) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.38 }}
+            className="bg-card border border-border rounded-[var(--radius-card)] p-5 flex items-start gap-4 mb-6"
+          >
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+              <Shield className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground mb-1">{t("bookCall", "guarantee")}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {t("bookCall", "guaranteeDesc")}
+              </p>
+            </div>
+          </motion.div>
+
           {/* ── Slots bar ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -325,25 +351,7 @@ const BookCall = () => {
           </motion.div>
 
           {/* ── Ticker ── */}
-          <Ticker lang={lang} bookedLabel={t("bookCall", "bookedCall")} />
-
-          {/* ── Guarantee ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            className="bg-card border border-border rounded-[var(--radius-card)] p-5 flex items-start gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <Shield className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-foreground mb-1">{t("bookCall", "guarantee")}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {t("bookCall", "guaranteeDesc")}
-              </p>
-            </div>
-          </motion.div>
+          <Ticker lang={lang} />
         </div>
       </div>
 
