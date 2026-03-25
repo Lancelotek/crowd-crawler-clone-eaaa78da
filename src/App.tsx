@@ -19,6 +19,7 @@ import Leads from "./pages/Leads";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import Report from "./pages/Report";
+import Packages from "./pages/Packages";
 
 const queryClient = new QueryClient();
 
