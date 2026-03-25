@@ -399,8 +399,8 @@ const Packages = () => {
           @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         `}</style>
         <div className="flex" style={{ animation: "marquee 20s linear infinite", width: "max-content" }}>
-          <img src={socialProofLogos} alt="Partnerzy i współpraca" className="h-10 w-auto object-contain opacity-60" />
-          <img src={socialProofLogos} alt="" className="h-10 w-auto object-contain opacity-60" aria-hidden="true" />
+          <img src={socialProofLogos} alt="Partnerzy i współpraca" className="h-20 w-auto object-contain opacity-70" />
+          <img src={socialProofLogos} alt="" className="h-20 w-auto object-contain opacity-70" aria-hidden="true" />
         </div>
       </section>
 
