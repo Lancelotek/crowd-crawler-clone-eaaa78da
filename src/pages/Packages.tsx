@@ -360,25 +360,18 @@ const Packages = () => {
               </motion.div>
             </div>
 
-            {/* Right: founder photo */}
+            {/* Right: dashboard mockup */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 32 }}
+              animate={heroVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.35, duration: 0.8 }}
               className="hidden lg:block relative"
             >
-              <div className="relative w-[320px] h-[400px]">
-                <div className="absolute inset-0 rounded-2xl bg-primary/20 blur-3xl scale-110" />
-                <img
-                  src={founderPhoto}
-                  alt="Marek Cieśla — Founder JAY-23"
-                  className="relative w-full h-full object-cover object-top rounded-2xl border border-white/10 shadow-2xl"
-                />
-                <div className="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-md rounded-xl px-4 py-3 border border-white/[0.08]">
-                  <p className="font-display text-sm font-bold text-white">Marek Cieśla</p>
-                  <p className="text-[11px] text-white/50">Founder & CEO, JAY-23</p>
-                </div>
+              <div className="flex items-center gap-2 mb-3 ml-4">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary" style={{ animation: "blink 2.5s ease-in-out infinite" }} />
+                <span className="text-[11px] text-white/35">Twoja kampania · Dzień 47 z 90</span>
               </div>
+              <HeroDashboard visible={heroVisible} />
             </motion.div>
           </div>
 
