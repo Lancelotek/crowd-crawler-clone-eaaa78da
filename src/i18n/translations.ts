@@ -159,7 +159,7 @@ export const translations = {
     bullet2Desc: { en: "Concrete numbers, not guesswork. You leave the call with a realistic cost-per-lead figure in hand.", pl: "Konkretne liczby, nie zgadywanie. Wyjdziesz z rozmowy z realistycznym kosztem pozyskania leada." },
     bullet3Title: { en: "Your 90-day action plan", pl: "Twój plan działania na 90 dni" },
     bullet3Desc: { en: "Whether you work with JAY-23 or not — the plan is yours to keep.", pl: "Niezależnie, czy będziesz pracować z JAY-23 — plan zostaje z Tobą." },
-    socialProof: { en: "4 founders had a call with us last week", pl: "4 founderów rozmawiało z nami w zeszłym tygodniu" },
+    socialProof: { en: "46 founders talked to us this year", pl: "46 founderów rozmawiało z nami w tym roku" },
     rating: { en: "Avg. rating: ★ 4.9 / 5", pl: "Śr. ocena: ★ 4,9 / 5" },
     ctaBtn: { en: "Pick your free slot", pl: "Wybierz swój termin" },
     ctaSub: { en: "30 minutes · no commitment · no pitch", pl: "30 minut · bez zobowiązań · bez pitchu" },
