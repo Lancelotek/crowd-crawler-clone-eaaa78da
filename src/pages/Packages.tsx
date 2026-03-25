@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 
-const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
+
 
 /* ── Dashboard mockup data ── */
 const LEADS_DATA = [
