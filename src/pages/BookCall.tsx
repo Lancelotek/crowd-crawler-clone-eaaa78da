@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Calendar, Shield, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,17 +6,15 @@ import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
-const YOUTUBE_VIDEO_ID_EN = "iwxNWgXotI8";
-const YOUTUBE_VIDEO_ID_PL = "-45huMr_7ls";
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
 const TICKER_ITEMS = [
-  { name: "James R.", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Sophie T.", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Daniel M.", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Emma L.", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Ryan C.", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
-  { name: "Olivia B.", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
+  { name: "Piotr K.", gender: "m", time: { en: "last week", pl: "w zeszłym tygodniu" } },
+  { name: "Agnieszka M.", gender: "f", time: { en: "last week", pl: "w zeszłym tygodniu" } },
+  { name: "Krzysztof B.", gender: "m", time: { en: "last week", pl: "w zeszłym tygodniu" } },
+  { name: "Marta W.", gender: "f", time: { en: "last week", pl: "w zeszłym tygodniu" } },
+  { name: "Tomasz J.", gender: "m", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
+  { name: "Karolina R.", gender: "f", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
 ];
 
 const AVATARS = [
@@ -26,64 +24,46 @@ const AVATARS = [
   { initials: "EL", bg: "hsl(var(--destructive))" },
 ];
 
-/* ── YouTube Embed with click-to-play ─────────────────────── */
-function YouTubeEmbed({ videoId }: { videoId: string }) {
-  const [playing, setPlaying] = useState(false);
-
-  if (playing) {
-    return (
-      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-        <iframe
-          className="absolute inset-0 w-full h-full rounded-xl"
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-          title="Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-    );
-  }
-
+/* ── Video Placeholder (Loom/Vimeo-ready) ─────────────────── */
+function VideoPlaceholder() {
   return (
     <div
-      onClick={() => { setPlaying(true); track.videoPlay(videoId); }}
-      className="relative w-full overflow-hidden rounded-xl cursor-pointer border border-primary/20 bg-foreground/95"
-      style={{ paddingBottom: "56.25%" }}
+      data-video-slot="loom"
+      className="relative w-full overflow-hidden rounded-xl border border-border/30"
+      style={{ paddingBottom: "56.25%", maxWidth: 560, background: "#0a0a12" }}
     >
-      <img
-        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-        alt="Video thumbnail"
-        onError={(e) => {
-          e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-        }}
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/50" />
-
-      {/* Play button */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[72px] h-[72px] rounded-full bg-primary/90 flex items-center justify-center shadow-[0_8px_32px_hsl(var(--primary)/0.5)] hover:scale-110 hover:bg-primary transition-all duration-200">
-          <Play className="w-7 h-7 text-primary-foreground fill-primary-foreground ml-1" />
+      {/* Play icon */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+        <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
+          <Play className="w-7 h-7 text-primary fill-primary ml-0.5" />
         </div>
+        <span className="text-[13px] text-muted-foreground/50 font-medium">
+          Wideo pojawi się wkrótce
+        </span>
       </div>
+    </div>
+  );
+}
 
-      {/* Bottom bar */}
-      <div className="absolute bottom-3 left-3.5 flex items-center gap-1.5">
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-          <rect width="20" height="14" rx="3" fill="#FF0000" />
-          <path d="M8 4l5 3-5 3V4z" fill="#fff" />
-        </svg>
-        <span className="text-[11px] text-white/75 font-medium">Watch on YouTube</span>
+/* ── Founder Attribution ──────────────────────────────────── */
+function FounderAttribution() {
+  return (
+    <div className="flex items-center gap-3 mt-4">
+      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-xs font-semibold text-foreground">
+        MC
       </div>
-      <div className="absolute bottom-3 right-3.5 bg-black/70 text-white text-[11px] font-semibold px-2 py-0.5 rounded font-mono">
-        3:47
+      <div className="flex flex-col">
+        <span className="text-sm font-semibold text-foreground leading-tight">Marek Cieśla</span>
+        <span className="text-[13px] text-muted-foreground leading-tight">
+          Founder JAY-23 · 46 kampanii · $1.2M+ zebranych
+        </span>
       </div>
     </div>
   );
 }
 
 /* ── Ticker ─────────────────────────────────────────────── */
-function Ticker({ lang, bookedLabel }: { lang: "en" | "pl"; bookedLabel: string }) {
+function Ticker({ lang }: { lang: "en" | "pl" }) {
   const doubled = [...TICKER_ITEMS, ...TICKER_ITEMS];
   return (
     <div
@@ -94,13 +74,18 @@ function Ticker({ lang, bookedLabel }: { lang: "en" | "pl"; bookedLabel: string 
       }}
     >
       <div className="flex whitespace-nowrap" style={{ animation: "ticker 22s linear infinite" }}>
-        {doubled.map((item, i) => (
-          <div key={i} className="inline-flex items-center gap-1.5 px-5 text-xs text-muted-foreground/50">
-            <div className="w-1 h-1 rounded-full bg-emerald-500 shrink-0" />
-            <span className="text-muted-foreground font-semibold">{item.name}</span>
-            {" "}{bookedLabel} · {item.time[lang]}
-          </div>
-        ))}
+        {doubled.map((item, i) => {
+          const verb = lang === "pl"
+            ? (item.gender === "f" ? "umówiła rozmowę" : "umówił rozmowę")
+            : "booked a call";
+          return (
+            <div key={i} className="inline-flex items-center gap-1.5 px-5 text-xs text-muted-foreground/50">
+              <div className="w-1 h-1 rounded-full bg-emerald-500 shrink-0" />
+              <span className="text-muted-foreground font-semibold">{item.name}</span>
+              {" "}{verb} · {item.time[lang]}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -230,14 +215,15 @@ const BookCall = () => {
             {" "}{t("bookCall", "subtitleEnd")}
           </motion.p>
 
-          {/* ── Video ── */}
+          {/* ── Video Placeholder ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-10"
           >
-            <YouTubeEmbed videoId={lang === "pl" ? YOUTUBE_VIDEO_ID_PL : YOUTUBE_VIDEO_ID_EN} />
+            <VideoPlaceholder />
+            <FounderAttribution />
           </motion.div>
 
           {/* ── Bullets ── */}
@@ -292,7 +278,14 @@ const BookCall = () => {
           >
             <div className="w-2 h-2 rounded-full bg-destructive animate-blink shrink-0" />
             <div className="text-[13px] text-destructive/80 font-medium">
-              {t("bookCall", "slotsLeft").replace("{slots}", String(slots))}
+              {(() => {
+                if (lang === "pl") {
+                  if (slots === 1) return "Zostało tylko 1 miejsce w tym tygodniu";
+                  if (slots >= 2 && slots <= 4) return `Zostały tylko ${slots} miejsca w tym tygodniu`;
+                  return `Zostało ${slots} wolnych miejsc w tym tygodniu`;
+                }
+                return t("bookCall", "slotsLeft").replace("{slots}", String(slots));
+              })()}
             </div>
             <div className="ml-auto text-xs font-bold text-destructive bg-destructive/15 py-0.5 px-2.5 rounded-full shrink-0">
               {slots} / 10
@@ -320,6 +313,24 @@ const BookCall = () => {
             </p>
           </motion.div>
 
+          {/* ── Guarantee (moved directly below CTA) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.38 }}
+            className="bg-card border border-border rounded-[var(--radius-card)] p-5 flex items-start gap-4 mb-6"
+          >
+            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+              <Shield className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground mb-1">{t("bookCall", "guarantee")}</p>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                {t("bookCall", "guaranteeDesc")}
+              </p>
+            </div>
+          </motion.div>
+
           {/* ── Slots bar ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -340,25 +351,7 @@ const BookCall = () => {
           </motion.div>
 
           {/* ── Ticker ── */}
-          <Ticker lang={lang} bookedLabel={t("bookCall", "bookedCall")} />
-
-          {/* ── Guarantee ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-            className="bg-card border border-border rounded-[var(--radius-card)] p-5 flex items-start gap-4"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <Shield className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-foreground mb-1">{t("bookCall", "guarantee")}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {t("bookCall", "guaranteeDesc")}
-              </p>
-            </div>
-          </motion.div>
+          <Ticker lang={lang} />
         </div>
       </div>
 
