@@ -106,7 +106,7 @@ const SEOHead = ({
       const pathWithoutLang = canonical.replace(/^\/(en|pl)/, "");
       const enUrl = `${BASE_URL}/en${pathWithoutLang}`;
       const plUrl = `${BASE_URL}/pl${pathWithoutLang}`;
-      const defaultUrl = `${BASE_URL}${pathWithoutLang || "/"}`;
+      const defaultUrl = `${BASE_URL}/en${pathWithoutLang}`;
 
       setLink("alternate", enUrl, { hreflang: "en" });
       setLink("alternate", plUrl, { hreflang: "pl" });
