@@ -168,7 +168,7 @@ export const translations = {
   finalCTA: {
     title: { en: "Ready to Build Your Audience", pl: "Przestań startować w ciszę." },
     subtitle: { en: "Before Your Product?", pl: "Zacznij budować popyt." },
-    desc: { en: "Take the free MVA quiz to see where you stand — or book a strategy call to get a personalized roadmap.", pl: "" },
+    desc: { en: "Take the free MVA quiz to see where you stand — or book a strategy call to get a personalized roadmap.", pl: "Wypełnij darmowy quiz MVA i sprawdź, gdzie jesteś — lub umów rozmowę strategiczną po spersonalizowaną mapę drogową." },
     calcBtn: { en: "Take the Free MVA Quiz", pl: "Oblicz swoje MVA" },
     quizBtn: { en: "Book a Free Strategy Call", pl: "Znajdź swoją strategię wzrostu" },
     trust: { en: "No credit card required. Free assessment. Results in 2 minutes.", pl: "Bez karty kredytowej. Darmowa ocena. Wyniki w 2 minuty." },
