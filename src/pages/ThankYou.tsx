@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -5,6 +6,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import marekPortrait from "@/assets/marek-portrait.png";
+import { trackPurchaseConversion } from "@/lib/gadsConversions";
 
 const DISCORD_URL = "https://discord.com/invite/FqCY7yQuwV";
 
