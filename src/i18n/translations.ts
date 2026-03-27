@@ -172,6 +172,8 @@ export const translations = {
     calcBtn: { en: "Take the Free MVA Quiz", pl: "Oblicz swoje MVA" },
     quizBtn: { en: "Book a Free Strategy Call", pl: "Znajdź swoją strategię wzrostu" },
     trust: { en: "No credit card required. Free assessment. Results in 2 minutes.", pl: "Bez karty kredytowej. Darmowa ocena. Wyniki w 2 minuty." },
+    urgency: { en: "Limited spots in the next cohort —", pl: "Ograniczona liczba miejsc w kolejnej kohorcie —" },
+    seatsRemaining: { en: "seats remaining", pl: "wolnych miejsc" },
   },
 
   // ─── Sticky CTA ──────────────────────────────────────────
