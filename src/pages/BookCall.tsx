@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track, trackAdsConversion } from "@/lib/tracking";
+import { initCalendlyTracking } from "@/lib/gadsConversions";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
@@ -151,14 +152,7 @@ const BookCall = () => {
 
   // Calendly → Google Ads conversion tracking
   useEffect(() => {
-    const handler = (e: MessageEvent) => {
-      if (e.origin !== "https://calendly.com") return;
-      if (e.data?.event && e.data.event === "calendly.event_scheduled") {
-        trackAdsConversion("1xSfCInJ56IaEILXrOsD");
-      }
-    };
-    window.addEventListener("message", handler);
-    return () => window.removeEventListener("message", handler);
+    initCalendlyTracking();
   }, []);
 
   const bullets = [
