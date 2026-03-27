@@ -47,6 +47,10 @@ const ThankYou = () => {
   const { lang } = useLanguage();
   const c = t[lang];
 
+  useEffect(() => {
+    trackPurchaseConversion();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead title={c.seoTitle} description={c.seoDesc} canonical={`/${lang}/thank-you`} />
