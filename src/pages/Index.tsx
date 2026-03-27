@@ -9,9 +9,11 @@ import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
 
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
-const SolutionSection = lazy(() => import("@/components/mva/SolutionSection"));
+const HowItWorksSection = lazy(() => import("@/components/mva/HowItWorksSection"));
 const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
+const WhatYouGetSection = lazy(() => import("@/components/mva/WhatYouGetSection"));
 const FounderSection = lazy(() => import("@/components/mva/FounderSection"));
+const FAQSection = lazy(() => import("@/components/mva/FAQSection"));
 const FinalCTASection = lazy(() => import("@/components/mva/FinalCTASection"));
 const FooterSection = lazy(() => import("@/components/mva/FooterSection"));
 
@@ -27,8 +29,8 @@ const Index = () => {
 
   const seo = {
     en: {
-      title: "MVA Framework — Build Your First 1,000 True Fans Before You Launch",
-      description: "The Minimum Viable Audience framework helps founders validate ideas, build demand, and launch with an audience already waiting. Free MVA calculator & strategy quiz.",
+      title: "MVA Framework | Build 1,000 True Fans in 90 Days — Jay23",
+      description: "Stop launching to silence. The MVA Framework is a 90-day program helping founders build audiences before products. Free MVA quiz + strategy calls. 98+ founders served.",
     },
     pl: {
       title: "MVA Framework — Zbuduj 1 000 prawdziwych fanów zanim zastartujesz",
@@ -58,9 +60,11 @@ const Index = () => {
         <HeroSection />
         <Suspense fallback={<SectionFallback />}><SocialProofSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><ProblemSection /></Suspense>
-        <Suspense fallback={<SectionFallback />}><SolutionSection /></Suspense>
+        <Suspense fallback={<SectionFallback />}><HowItWorksSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><CaseStudiesSection /></Suspense>
+        <Suspense fallback={<SectionFallback />}><WhatYouGetSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FounderSection /></Suspense>
+        <Suspense fallback={<SectionFallback />}><FAQSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FinalCTASection /></Suspense>
       </main>
       <Suspense fallback={null}><FooterSection /></Suspense>

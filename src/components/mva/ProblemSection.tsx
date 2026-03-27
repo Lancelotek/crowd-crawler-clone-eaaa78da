@@ -29,6 +29,16 @@ const ProblemSection = () => {
             </motion.div>
           ))}
         </div>
+        {/* Transition text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-center mt-10 text-sm font-semibold text-foreground"
+        >
+          {t("problem", "transition")}
+        </motion.p>
       </div>
     </section>
   );
