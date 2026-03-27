@@ -12,12 +12,10 @@ const MvaNavbar = () => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { label: t("nav", "framework"), href: "#solution" },
+    { label: t("nav", "framework"), href: "#how-it-works" },
     { label: t("nav", "caseStudies"), href: "#case-studies" },
-    { label: "Pakiety", href: `${langPrefix}/packages` },
     { label: t("nav", "blog"), href: `${langPrefix}/blog` },
-    { label: "FAQ", href: `${langPrefix}/faq` },
-    { label: t("nav", "about"), href: `${langPrefix}/about` },
+    { label: t("nav", "faq"), href: "#faq" },
   ];
 
   useEffect(() => {
@@ -44,9 +42,9 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <a href={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
+            <Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${scrolled ? "border-border hover:border-primary hover:text-primary" : "border-white/20 text-white/80 hover:border-white hover:text-white"}`}>
               {t("nav", "bookCall")}
-            </a>
+            </Link>
             <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1" aria-label="Toggle menu">
               {open ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -67,8 +65,11 @@ const MvaNavbar = () => {
                   <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
                 ))}
               </nav>
-              <div className="p-6">
-                <a href="#cta" onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+              <div className="p-6 space-y-2">
+                <Link to={`${langPrefix}/book`} onClick={() => { setOpen(false); track.bookingClick("navbar_mobile"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
+                  {t("nav", "bookCall")}
+                </Link>
+                <a href="#cta" onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center border border-border text-foreground px-5 py-3 text-sm font-semibold rounded-button hover:border-primary hover:text-primary transition-colors">
                   {t("nav", "getStarted")}
                 </a>
               </div>
