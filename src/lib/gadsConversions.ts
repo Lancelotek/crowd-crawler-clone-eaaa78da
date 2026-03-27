@@ -1,9 +1,7 @@
 /**
- * Google Ads Conversion Event Snippets
- * Conversion ID: AW-1030433666
- *
- * These fire actual Google Ads conversion events via gtag().
- * The base gtag.js tag is already loaded in index.html.
+ * Google Ads Conversion Event Snippets + GA4 Custom Events
+ * Google Ads Conversion ID: AW-1030433666
+ * GA4 Measurement ID: G-HTY7ZLKH38
  */
 
 declare global {
@@ -13,6 +11,7 @@ declare global {
 }
 
 const AW_ID = "AW-1030433666";
+const GA4_ID = "G-HTY7ZLKH38";
 
 // ── 1. Purchase – EasyCart ────────────────────────────────
 export function trackPurchaseConversion(
@@ -20,8 +19,16 @@ export function trackPurchaseConversion(
   transactionId = "",
 ) {
   if (typeof window.gtag === "function") {
+    // Google Ads conversion
     window.gtag("event", "conversion", {
       send_to: `${AW_ID}/78DpCL2Bkq8aEILXrOsD`,
+      value,
+      currency: "PLN",
+      transaction_id: transactionId,
+    });
+    // GA4 event
+    window.gtag("event", "purchase_easycart", {
+      send_to: GA4_ID,
       value,
       currency: "PLN",
       transaction_id: transactionId,
@@ -32,8 +39,15 @@ export function trackPurchaseConversion(
 // ── 2. Consultation / Booking (Calendly) ──────────────────
 export function trackConsultationConversion() {
   if (typeof window.gtag === "function") {
+    // Google Ads conversion
     window.gtag("event", "conversion", {
       send_to: `${AW_ID}/1xSfCInJ56IaEILXrOsD`,
+      value: 1.0,
+      currency: "PLN",
+    });
+    // GA4 event
+    window.gtag("event", "consultation_booked", {
+      send_to: GA4_ID,
       value: 1.0,
       currency: "PLN",
     });
@@ -54,8 +68,13 @@ export function initEngagementTracking() {
   const fireConversion = () => {
     if (!conversionFired && typeof window.gtag === "function") {
       conversionFired = true;
+      // Google Ads conversion
       window.gtag("event", "conversion", {
         send_to: `${AW_ID}/yAhNCPC-7KIaEILXrOsD`,
+      });
+      // GA4 event
+      window.gtag("event", "engaged_visitor", {
+        send_to: GA4_ID,
       });
     }
   };
