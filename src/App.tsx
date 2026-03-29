@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,42 +7,51 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
 import Index from "./pages/Index";
-import BookCall from "./pages/BookCall";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Impressum from "./pages/Impressum";
-import TermsOfService from "./pages/TermsOfService";
-import NotFound from "./pages/NotFound";
-import Process from "./pages/Process";
-import ThankYou from "./pages/ThankYou";
-import Leads from "./pages/Leads";
-import FAQ from "./pages/FAQ";
-import About from "./pages/About";
-import Report from "./pages/Report";
-import Packages from "./pages/Packages";
+
+const BookCall = lazy(() => import("./pages/BookCall"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const Impressum = lazy(() => import("./pages/Impressum"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Process = lazy(() => import("./pages/Process"));
+const ThankYou = lazy(() => import("./pages/ThankYou"));
+const Leads = lazy(() => import("./pages/Leads"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const About = lazy(() => import("./pages/About"));
+const Report = lazy(() => import("./pages/Report"));
+const Packages = lazy(() => import("./pages/Packages"));
 
 const queryClient = new QueryClient();
+
+const PageFallback = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 /** Wraps children with LanguageProvider (reads :lang from URL) */
 const LangRoutes = () => (
   <LanguageProvider>
-    <Routes>
-      <Route index element={<Index />} />
-      <Route path="book" element={<BookCall />} />
-      <Route path="process" element={<Process />} />
-      <Route path="thank-you" element={<ThankYou />} />
-      <Route path="report" element={<Report />} />
-      <Route path="packages" element={<Packages />} />
-      <Route path="blog" element={<Blog />} />
-      <Route path="blog/:slug" element={<BlogPost />} />
-      <Route path="privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="impressum" element={<Impressum />} />
-      <Route path="terms-of-service" element={<TermsOfService />} />
-      <Route path="faq" element={<FAQ />} />
-      <Route path="about" element={<About />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={<PageFallback />}>
+      <Routes>
+        <Route index element={<Index />} />
+        <Route path="book" element={<BookCall />} />
+        <Route path="process" element={<Process />} />
+        <Route path="thank-you" element={<ThankYou />} />
+        <Route path="report" element={<Report />} />
+        <Route path="packages" element={<Packages />} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="impressum" element={<Impressum />} />
+        <Route path="terms-of-service" element={<TermsOfService />} />
+        <Route path="faq" element={<FAQ />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   </LanguageProvider>
 );
 
@@ -67,8 +77,8 @@ const App = () => (
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
           <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/about" element={<LanguageRedirect />} />
-          <Route path="/leads" element={<Leads />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
+          <Route path="*" element={<Suspense fallback={<PageFallback />}><NotFound /></Suspense>} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
