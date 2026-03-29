@@ -189,6 +189,7 @@ export const translations = {
     mvaCalc: { en: "MVA Calculator", pl: "Kalkulator MVA" },
     strategyQuiz: { en: "Free Strategy Call", pl: "Quiz strategii" },
     process: { en: "90-Day Process", pl: "Proces 90 dni" },
+    packages: { en: "Packages", pl: "Pakiety" },
     bookCall: { en: "Book a Call", pl: "Umów rozmowę" },
     resources: { en: "RESOURCES", pl: "ZASOBY" },
     privacyPolicy: { en: "Privacy Policy", pl: "Polityka prywatności" },
