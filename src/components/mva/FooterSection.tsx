@@ -1,4 +1,4 @@
-import logo from "@/assets/jay23-logo.png";
+import logo from "@/assets/jay23-logo.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Globe } from "lucide-react";
 

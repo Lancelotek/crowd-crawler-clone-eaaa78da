@@ -29,7 +29,7 @@ const SocialProofSection = () => {
           ))}
         </div>
         <div className="w-full">
-          <img alt="Trusted by leading brands" className="w-full object-contain opacity-50" loading="lazy" decoding="async" src="/lovable-uploads/9e17c3fc-0fe1-43f4-979f-f144aa260b0d.png" />
+          <img alt="Trusted by leading brands" width={1200} height={120} className="w-full object-contain opacity-50" loading="lazy" decoding="async" src="/lovable-uploads/9e17c3fc-0fe1-43f4-979f-f144aa260b0d.png" />
         </div>
       </div>
     </section>

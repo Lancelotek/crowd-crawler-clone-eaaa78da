@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import caseWoolet from "@/assets/case-woolet.jpg";
-import caseChernobylite from "@/assets/case-chernobylite.jpg";
-import caseSwimmo from "@/assets/case-swimmo.jpg";
-import caseGamedec from "@/assets/case-gamedec.jpg";
-import caseSherly from "@/assets/case-sherly.jpg";
-import caseCitywood from "@/assets/case-citywood.jpg";
-import casePureshape from "@/assets/case-pureshape.jpg";
-import caseNapospy from "@/assets/case-napospy.jpg";
+import caseWoolet from "@/assets/case-woolet.webp";
+import caseChernobylite from "@/assets/case-chernobylite.webp";
+import caseSwimmo from "@/assets/case-swimmo.webp";
+import caseGamedec from "@/assets/case-gamedec.webp";
+import caseSherly from "@/assets/case-sherly.webp";
+import caseCitywood from "@/assets/case-citywood.webp";
+import casePureshape from "@/assets/case-pureshape.webp";
+import caseNapospy from "@/assets/case-napospy.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const cases = [
@@ -36,7 +36,7 @@ const CaseStudiesSection = () => {
           {cases.map((c, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.4 }} className="bg-card rounded-card border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all group flex flex-col">
               <div className="aspect-[4/3] overflow-hidden">
-                <img src={c.image} alt={c.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <img src={c.image} alt={c.title} width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
               </div>
               <div className="p-4 flex flex-col flex-1">
                 <h3 className="font-display text-base font-bold mb-1">{c.title}</h3>
