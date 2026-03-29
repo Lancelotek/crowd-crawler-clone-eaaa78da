@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Rocket, Users, BookOpen, Linkedin, Code, Globe } from "lucide-react";
-import portrait from "@/assets/founder-portrait.png";
-import maciejPortrait from "@/assets/maciej-portrait.png";
+import portrait from "@/assets/founder-portrait.webp";
+import maciejPortrait from "@/assets/maciej-portrait.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const FounderSection = () => {
@@ -32,7 +32,7 @@ const FounderSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
             <div className="rounded-card overflow-hidden bg-secondary max-w-[400px] mx-auto">
-              <img src={portrait} alt="Marek Ciesla — Launch Strategist" className="w-full h-auto object-contain" />
+              <img src={portrait} alt="Marek Ciesla — Launch Strategist" width={400} height={500} className="w-full h-auto object-contain" loading="lazy" decoding="async" />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
@@ -56,7 +56,7 @@ const FounderSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative md:order-2">
             <div className="rounded-card overflow-hidden bg-secondary max-w-[400px] mx-auto relative" style={{ maxHeight: '480px' }}>
-              <img src={maciejPortrait} alt="Maciej Mikołajek — Founder & Engineer" className="w-full h-auto object-cover scale-110 origin-top" />
+              <img src={maciejPortrait} alt="Maciej Mikołajek — Founder & Engineer" width={400} height={480} className="w-full h-auto object-cover scale-110 origin-top" loading="lazy" decoding="async" />
               <div className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent, hsl(var(--secondary)))' }} />
             </div>
           </motion.div>

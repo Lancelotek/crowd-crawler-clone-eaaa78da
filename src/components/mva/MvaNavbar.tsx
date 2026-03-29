@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo from "@/assets/jay23-logo.png";
+import logo from "@/assets/jay23-logo.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
@@ -33,7 +33,7 @@ const MvaNavbar = () => {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-lg shadow-background/30" : "bg-transparent border-b border-transparent"}`}>
         <div className="container mx-auto max-w-[1200px] px-6 h-[64px] flex items-center justify-between">
-          <Link to={langPrefix}><img src={logo} alt="JAY-23" className={`h-8 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} /></Link>
+          <Link to={langPrefix}><img src={logo} alt="JAY-23" width={120} height={32} className={`h-8 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} /></Link>
           <ul className="hidden md:flex items-center gap-7">
             {navItems.map((item) => (
               <li key={item.label}>
