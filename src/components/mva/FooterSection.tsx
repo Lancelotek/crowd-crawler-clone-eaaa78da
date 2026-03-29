@@ -11,7 +11,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <img src={logo} alt="JAY-23" className="h-8 w-auto object-contain mb-4" />
+            <a href={langPrefix || "/"}><img src={logo} alt="JAY-23" width={120} height={32} className="h-8 w-auto object-contain mb-4" /></a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-4">
               {t("footer", "desc")}
             </p>
