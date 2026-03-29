@@ -33,21 +33,13 @@
     <meta name="twitter:description" content="The Minimum Viable Audience framework helps founders validate ideas, build demand, and launch with a paying audience already waiting." />
     <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c643dc2e-a0ce-4c0b-a6d0-862a393851b2/id-preview-ad86e95c--f7ebc2bd-7b48-4d18-bace-faa12c1a5096.lovable.app-1771157652360.png">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) — single load for GA4 + Google Ads -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTY7ZLKH38"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-HTY7ZLKH38');
-    </script>
-
-    <!-- Google Ads (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1030433666"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
       gtag('config', 'AW-1030433666');
     </script>
 
@@ -255,13 +247,15 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- MailerLite Universal -->
+    <!-- MailerLite Universal — deferred to not block rendering -->
     <script>
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '462864');
+      window.addEventListener('load', function() {
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '462864');
+      });
     </script>
     <!-- End MailerLite Universal -->
   </body>
