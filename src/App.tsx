@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
 import Index from "./pages/Index";
+import MailerLiteLoader from "./components/MailerLiteLoader";
 
 const BookCall = lazy(() => import("./pages/BookCall"));
 const Blog = lazy(() => import("./pages/Blog"));
