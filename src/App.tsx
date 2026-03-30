@@ -62,6 +62,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <MailerLiteLoader />
         <Routes>
           {/* Language-prefixed routes */}
           <Route path="/:lang/*" element={<LangRoutes />} />
