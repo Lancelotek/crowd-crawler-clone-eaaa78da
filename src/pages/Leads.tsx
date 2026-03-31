@@ -227,9 +227,6 @@ export default function Leads() {
   const [seqProgress, setSeqProgress] = useState(0);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const handleAuth = () => {
-    if (pw === PASSWORD) { setAuthed(true); setPwError(false); } else { setPwError(true); }
-  };
 
   // Load saved leads from DB on auth
   useEffect(() => {
