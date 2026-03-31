@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import {
-  Lock, Search, Download, Flame, ThermometerSun, Snowflake,
+  Search, Download, Flame, ThermometerSun, Snowflake,
   Loader2, Terminal, Sparkles, Mail, Linkedin, User,
   ChevronDown, ChevronUp, Send, Eye, EyeOff, Trash2,
   Copy, Check, RefreshCw, FileText, FileJson
