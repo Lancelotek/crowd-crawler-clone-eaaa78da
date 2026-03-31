@@ -15,7 +15,7 @@ import {
 import { toast } from "@/hooks/use-toast";
 import jay23Logo from "@/assets/jay23-logo.png";
 
-const PASSWORD = "woolet";
+
 
 const DEFAULT_QUERIES = [
   'hardware startup "Kickstarter" "pre-launch" 2025 2026 wearables OR gadgets OR EDC site:linkedin.com OR site:kickstarter.com',
