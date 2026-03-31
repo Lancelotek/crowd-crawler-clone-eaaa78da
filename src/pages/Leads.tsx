@@ -394,33 +394,6 @@ export default function Leads() {
     return (order[a.buying_signal] ?? 3) - (order[b.buying_signal] ?? 3);
   });
 
-  // ─── Password Gate ───────────────────────────────────
-  if (!authed) {
-    return (
-      <div className="min-h-screen bg-[hsl(var(--dark-bg))] flex items-center justify-center px-4">
-        <Card className="w-full max-w-sm bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))]">
-          <CardHeader className="text-center space-y-4">
-            <img src={jay23Logo} alt="JAY-23" className="h-8 mx-auto opacity-70" />
-            <CardTitle className="text-white text-lg font-medium flex items-center justify-center gap-2">
-              <Lock className="w-4 h-4" /> Lead Researcher
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input
-              type="password"
-              placeholder="Enter password"
-              value={pw}
-              onChange={(e) => setPw(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleAuth()}
-              className="bg-[hsl(var(--dark-bg))] border-[hsl(var(--dark-border))] text-white"
-            />
-            {pwError && <p className="text-red-400 text-sm text-center">Wrong password</p>}
-            <Button onClick={handleAuth} className="w-full bg-primary hover:bg-primary/90">Access</Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   // ─── Main UI ─────────────────────────────────────────
   return (
