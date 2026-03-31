@@ -196,9 +196,7 @@ function Detail({ label, value, isLink, confidence }: { label: string; value: st
 
 // ─── Main component ─────────────────────────────────
 export default function Leads() {
-  const [authed, setAuthed] = useState(false);
-  const [pw, setPw] = useState("");
-  const [pwError, setPwError] = useState(false);
+  const authed = true;
 
   // Research state
   const [queries, setQueries] = useState(DEFAULT_QUERIES.join("\n"));
