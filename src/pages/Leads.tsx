@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { supabase } from "@/integrations/supabase/client";
 import {
-  Lock, Search, Download, Flame, ThermometerSun, Snowflake,
+  Search, Download, Flame, ThermometerSun, Snowflake,
   Loader2, Terminal, Sparkles, Mail, Linkedin, User,
   ChevronDown, ChevronUp, Send, Eye, EyeOff, Trash2,
   Copy, Check, RefreshCw, FileText, FileJson
@@ -15,7 +15,7 @@ import {
 import { toast } from "@/hooks/use-toast";
 import jay23Logo from "@/assets/jay23-logo.png";
 
-const PASSWORD = "woolet";
+
 
 const DEFAULT_QUERIES = [
   'hardware startup "Kickstarter" "pre-launch" 2025 2026 wearables OR gadgets OR EDC site:linkedin.com OR site:kickstarter.com',
@@ -196,9 +196,7 @@ function Detail({ label, value, isLink, confidence }: { label: string; value: st
 
 // ─── Main component ─────────────────────────────────
 export default function Leads() {
-  const [authed, setAuthed] = useState(false);
-  const [pw, setPw] = useState("");
-  const [pwError, setPwError] = useState(false);
+  const authed = true;
 
   // Research state
   const [queries, setQueries] = useState(DEFAULT_QUERIES.join("\n"));
@@ -229,9 +227,6 @@ export default function Leads() {
   const [seqProgress, setSeqProgress] = useState(0);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const handleAuth = () => {
-    if (pw === PASSWORD) { setAuthed(true); setPwError(false); } else { setPwError(true); }
-  };
 
   // Load saved leads from DB on auth
   useEffect(() => {
@@ -399,33 +394,6 @@ export default function Leads() {
     return (order[a.buying_signal] ?? 3) - (order[b.buying_signal] ?? 3);
   });
 
-  // ─── Password Gate ───────────────────────────────────
-  if (!authed) {
-    return (
-      <div className="min-h-screen bg-[hsl(var(--dark-bg))] flex items-center justify-center px-4">
-        <Card className="w-full max-w-sm bg-[hsl(var(--dark-card))] border-[hsl(var(--dark-border))]">
-          <CardHeader className="text-center space-y-4">
-            <img src={jay23Logo} alt="JAY-23" className="h-8 mx-auto opacity-70" />
-            <CardTitle className="text-white text-lg font-medium flex items-center justify-center gap-2">
-              <Lock className="w-4 h-4" /> Lead Researcher
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Input
-              type="password"
-              placeholder="Enter password"
-              value={pw}
-              onChange={(e) => setPw(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleAuth()}
-              className="bg-[hsl(var(--dark-bg))] border-[hsl(var(--dark-border))] text-white"
-            />
-            {pwError && <p className="text-red-400 text-sm text-center">Wrong password</p>}
-            <Button onClick={handleAuth} className="w-full bg-primary hover:bg-primary/90">Access</Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
 
   // ─── Main UI ─────────────────────────────────────────
   return (
