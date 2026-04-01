@@ -27,9 +27,9 @@ const FinalCTASection = () => {
               </span>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
-              <button onClick={() => { setCalcOpen(true); track.calcOpen(); }} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
+              <Link to={`${langPrefix}/quiz`} onClick={() => track.calcOpen()} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
                 <Calculator size={16} /> {t("finalCTA", "calcBtn")} <ArrowRight size={16} />
-              </button>
+              </Link>
               <Link
                 to={`${langPrefix}/book`}
                 onClick={() => track.bookingClick("final_cta")}
