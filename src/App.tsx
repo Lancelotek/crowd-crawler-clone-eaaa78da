@@ -76,6 +76,7 @@ const App = () => (
           <Route path="/blog" element={<LanguageRedirect />} />
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
           <Route path="/packages" element={<LanguageRedirect />} />
+          <Route path="/quiz" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
           <Route path="/terms-of-service" element={<LanguageRedirect />} />

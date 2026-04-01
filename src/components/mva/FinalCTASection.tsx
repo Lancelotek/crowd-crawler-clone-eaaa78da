@@ -43,21 +43,6 @@ const FinalCTASection = () => {
         </div>
       </section>
 
-      <Dialog open={calcOpen} onOpenChange={setCalcOpen}>
-        <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-white [&>button]:z-50">
-          <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
-            <CalculatorSection />
-          </Suspense>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={quizOpen} onOpenChange={setQuizOpen}>
-        <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-foreground [&>button]:z-50">
-          <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
-            <QuizFunnelSection />
-          </Suspense>
-        </DialogContent>
-      </Dialog>
     </>
   );
 };
