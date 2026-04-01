@@ -1,13 +1,8 @@
-import { useState, useEffect, lazy, Suspense } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Phone } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
-
-const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
-const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
 
 const FinalCTASection = () => {
   const { t, lang, langPrefix } = useLanguage();
