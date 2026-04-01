@@ -165,7 +165,7 @@ const Report = () => {
             <h1 className="font-display text-2xl font-bold mb-4">Nie znaleziono danych quizu</h1>
             <p className="text-muted-foreground mb-6">Wypełnij quiz MVA, aby zobaczyć swój raport.</p>
             <button
-              onClick={() => navigate(`/${lang}?quiz=open`)}
+              onClick={() => navigate(`/${lang}/quiz`)}
               className="bg-primary text-primary-foreground px-8 py-3 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2"
             >
               Przejdź do quizu <ArrowRight size={16} />
