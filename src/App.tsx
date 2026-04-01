@@ -43,6 +43,7 @@ const LangRoutes = () => (
         <Route path="thank-you" element={<ThankYou />} />
         <Route path="report" element={<Report />} />
         <Route path="packages" element={<Packages />} />
+        <Route path="quiz" element={<Quiz />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
