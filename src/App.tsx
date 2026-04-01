@@ -23,6 +23,7 @@ const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About"));
 const Report = lazy(() => import("./pages/Report"));
 const Packages = lazy(() => import("./pages/Packages"));
+const Quiz = lazy(() => import("./pages/Quiz"));
 
 const queryClient = new QueryClient();
 
