@@ -165,7 +165,7 @@ const Report = () => {
             <h1 className="font-display text-2xl font-bold mb-4">Nie znaleziono danych quizu</h1>
             <p className="text-muted-foreground mb-6">Wypełnij quiz MVA, aby zobaczyć swój raport.</p>
             <button
-              onClick={() => navigate(`/${lang}?quiz=open`)}
+              onClick={() => navigate(`/${lang}/quiz`)}
               className="bg-primary text-primary-foreground px-8 py-3 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center gap-2"
             >
               Przejdź do quizu <ArrowRight size={16} />
@@ -275,7 +275,7 @@ const Report = () => {
             <p className="text-xs text-muted-foreground mb-4">Ten raport został wygenerowany przez kalkulator MVA na jay23.com</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <button
-                onClick={() => navigate(`/${lang}?quiz=open`)}
+                onClick={() => navigate(`/${lang}/quiz`)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold text-sm rounded-button hover:brightness-110 transition-all"
               >
                 <RotateCcw size={16} /> Przelicz ponownie

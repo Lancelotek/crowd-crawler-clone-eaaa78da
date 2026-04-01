@@ -1,27 +1,11 @@
-import { useState, useEffect, lazy, Suspense } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Phone } from "lucide-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
-const CalculatorSection = lazy(() => import("@/components/mva/CalculatorSection"));
-const QuizFunnelSection = lazy(() => import("@/components/mva/QuizFunnelSection"));
-
 const FinalCTASection = () => {
   const { t, lang, langPrefix } = useLanguage();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [calcOpen, setCalcOpen] = useState(false);
-  const [quizOpen, setQuizOpen] = useState(false);
-
-  useEffect(() => {
-    if (searchParams.get("quiz") === "open") {
-      setCalcOpen(true);
-      searchParams.delete("quiz");
-      setSearchParams(searchParams, { replace: true });
-    }
-  }, [searchParams, setSearchParams]);
 
   return (
     <>
@@ -43,9 +27,9 @@ const FinalCTASection = () => {
               </span>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
-              <button onClick={() => { setCalcOpen(true); track.calcOpen(); }} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
+              <Link to={`${langPrefix}/quiz`} onClick={() => track.calcOpen()} className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2">
                 <Calculator size={16} /> {t("finalCTA", "calcBtn")} <ArrowRight size={16} />
-              </button>
+              </Link>
               <Link
                 to={`${langPrefix}/book`}
                 onClick={() => track.bookingClick("final_cta")}
@@ -59,21 +43,6 @@ const FinalCTASection = () => {
         </div>
       </section>
 
-      <Dialog open={calcOpen} onOpenChange={setCalcOpen}>
-        <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-white [&>button]:z-50">
-          <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
-            <CalculatorSection />
-          </Suspense>
-        </DialogContent>
-      </Dialog>
-
-      <Dialog open={quizOpen} onOpenChange={setQuizOpen}>
-        <DialogContent className="max-w-[800px] max-h-[90vh] overflow-y-auto p-0 border-none bg-transparent shadow-none [&>button]:text-foreground [&>button]:z-50">
-          <Suspense fallback={<div className="py-16 flex items-center justify-center"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>}>
-            <QuizFunnelSection />
-          </Suspense>
-        </DialogContent>
-      </Dialog>
     </>
   );
 };
