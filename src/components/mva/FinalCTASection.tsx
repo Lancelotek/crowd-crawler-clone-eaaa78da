@@ -6,17 +6,6 @@ import { track } from "@/lib/tracking";
 
 const FinalCTASection = () => {
   const { t, lang, langPrefix } = useLanguage();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [calcOpen, setCalcOpen] = useState(false);
-  const [quizOpen, setQuizOpen] = useState(false);
-
-  useEffect(() => {
-    if (searchParams.get("quiz") === "open") {
-      setCalcOpen(true);
-      searchParams.delete("quiz");
-      setSearchParams(searchParams, { replace: true });
-    }
-  }, [searchParams, setSearchParams]);
 
   return (
     <>
