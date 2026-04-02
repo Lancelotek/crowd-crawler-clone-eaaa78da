@@ -1,12 +1,18 @@
+import { useEffect } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CalculatorSection from "@/components/mva/CalculatorSection";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { track } from "@/lib/tracking";
 
 const Quiz = () => {
   const { lang } = useLanguage();
   const isPolish = lang === "pl";
+
+  useEffect(() => {
+    track.calcOpen();
+  }, []);
 
   return (
     <>
