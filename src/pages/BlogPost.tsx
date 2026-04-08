@@ -47,7 +47,7 @@ const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { lang, langPrefix } = useLanguage();
   const isPl = lang === "pl";
-  const [post, setPost] = useState<Post | null>(null);
+  const [post, setPost] = useState<Post & { counterpart_slug?: string | null }>(null!);
   const [loading, setLoading] = useState(true);
   const [hasCounterpart, setHasCounterpart] = useState(false);
 
