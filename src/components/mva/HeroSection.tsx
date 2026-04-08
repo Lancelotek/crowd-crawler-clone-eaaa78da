@@ -166,9 +166,9 @@ const HeroSection = () => {
               {" "}{t("hero", "hookEnd")}
             </p>
             <div className="flex items-center gap-4 flex-wrap" style={{ marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.6s ease 0.4s both" : "none" }}>
-              <a href="#cta" onClick={() => track.ctaClick("hero", "calculator")} className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-bold text-sm rounded-xl hover:brightness-110 transition-all animate-pulse-cta">
+              <Link to={`${langPrefix}/quiz`} onClick={() => track.ctaClick("hero", "calculator")} className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-bold text-sm rounded-xl hover:brightness-110 transition-all animate-pulse-cta">
                 {t("hero", "ctaPrimary")}
-              </a>
+              </Link>
               <Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("hero")} className="inline-flex items-center gap-2 text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.5)" }} onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")} onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}>
                 {t("hero", "ctaSecondary")}
               </Link>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, Layers, Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
@@ -75,13 +76,13 @@ const HowItWorksSection = () => {
         </div>
 
         <div className="text-center">
-          <a
-            href="#cta"
+          <Link
+            to={`${langPrefix}/quiz`}
             onClick={() => track.ctaClick("how-it-works", "calculator")}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all"
           >
             {t("howItWorks", "cta")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

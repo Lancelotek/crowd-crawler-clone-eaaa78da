@@ -69,9 +69,9 @@ const MvaNavbar = () => {
                 <Link to={`${langPrefix}/book`} onClick={() => { setOpen(false); track.bookingClick("navbar_mobile"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
                   {t("nav", "bookCall")}
                 </Link>
-                <a href="#cta" onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center border border-border text-foreground px-5 py-3 text-sm font-semibold rounded-button hover:border-primary hover:text-primary transition-colors">
+                <Link to={`${langPrefix}/quiz`} onClick={() => { setOpen(false); track.ctaClick("navbar_mobile", "calculator"); }} className="block text-center border border-border text-foreground px-5 py-3 text-sm font-semibold rounded-button hover:border-primary hover:text-primary transition-colors">
                   {t("nav", "getStarted")}
-                </a>
+                </Link>
               </div>
             </motion.aside>
           </>
