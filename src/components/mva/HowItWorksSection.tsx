@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, Layers, Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
