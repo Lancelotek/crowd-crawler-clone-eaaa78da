@@ -63,17 +63,28 @@ const BlogPost = () => {
         .eq("slug", slug)
         .maybeSingle();
 
-      if (!error && data) setPost(data as Post);
+      if (!error && data) setPost(data as any);
 
-      // Check if counterpart exists in the other language table
-      if (!isLegacy) {
+      // Check counterpart: first by counterpart_slug, then by same slug
+      if (!isLegacy && data) {
+        const counterpartSlug = (data as any).counterpart_slug;
         const otherTable = isPl ? "blog_posts" : "blog_posts_pl";
-        const { data: counterpart } = await supabase
-          .from(otherTable)
-          .select("slug")
-          .eq("slug", slug)
-          .maybeSingle();
-        setHasCounterpart(!!counterpart);
+        
+        if (counterpartSlug) {
+          const { data: cp } = await supabase
+            .from(otherTable)
+            .select("slug")
+            .eq("slug", counterpartSlug)
+            .maybeSingle();
+          setHasCounterpart(!!cp);
+        } else {
+          const { data: cp } = await supabase
+            .from(otherTable)
+            .select("slug")
+            .eq("slug", slug)
+            .maybeSingle();
+          setHasCounterpart(!!cp);
+        }
       }
 
       setLoading(false);
