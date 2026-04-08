@@ -28,8 +28,8 @@ const FooterSection = () => {
             <h4 className="font-display text-sm font-bold mb-4 tracking-wide">{t("footer", "framework")}</h4>
             <ul className="space-y-2.5">
               <li><a href={`${langPrefix}#solution`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "howItWorks")}</a></li>
-              <li><a href={`${langPrefix}#calculator`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "mvaCalc")}</a></li>
-              <li><a href={`${langPrefix}#quiz`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "strategyQuiz")}</a></li>
+              <li><a href={`${langPrefix}/quiz`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "mvaCalc")}</a></li>
+              <li><a href={`${langPrefix}/quiz`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "strategyQuiz")}</a></li>
               <li><a href={`${langPrefix}/process`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "process")}</a></li>
               <li><a href={`${langPrefix}/packages`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "packages")}</a></li>
               <li><a href={`${langPrefix}/book`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "bookCall")}</a></li>
