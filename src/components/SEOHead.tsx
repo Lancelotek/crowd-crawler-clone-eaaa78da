@@ -58,7 +58,8 @@ const SEOHead = ({
   noHreflang = false,
   jsonLd,
   lang,
-}: SEOHeadProps & { hreflangOverrides?: { en: string; pl: string } }) => {
+  hreflangOverrides,
+}: SEOHeadProps) => {
   useEffect(() => {
     const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
     document.title = fullTitle;
