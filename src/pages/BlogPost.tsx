@@ -124,6 +124,14 @@ const BlogPost = () => {
     );
   }
 
+  const counterpartSlug = post.counterpart_slug;
+  const hreflangOverrides = counterpartSlug && hasCounterpart
+    ? {
+        en: isPl ? `/en/blog/${counterpartSlug}` : `/en/blog/${post.slug}`,
+        pl: isPl ? `/pl/blog/${post.slug}` : `/pl/blog/${counterpartSlug}`,
+      }
+    : undefined;
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -137,6 +145,7 @@ const BlogPost = () => {
         author={post.author || "JAY-23"}
         noindex={isLegacy}
         noHreflang={isLegacy || !hasCounterpart}
+        hreflangOverrides={hreflangOverrides}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "BlogPosting",
