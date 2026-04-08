@@ -12,6 +12,7 @@ interface SEOHeadProps {
   noHreflang?: boolean;
   jsonLd?: Record<string, unknown>;
   lang?: string;
+  hreflangOverrides?: { en: string; pl: string };
 }
 
 const BASE_URL = "https://jay23.com";
@@ -57,6 +58,7 @@ const SEOHead = ({
   noHreflang = false,
   jsonLd,
   lang,
+  hreflangOverrides,
 }: SEOHeadProps) => {
   useEffect(() => {
     const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
@@ -103,14 +105,21 @@ const SEOHead = ({
     // Hreflang
     clearHreflang();
     if (canonical && !noHreflang) {
-      const pathWithoutLang = canonical.replace(/^\/(en|pl)/, "");
-      const enUrl = `${BASE_URL}/en${pathWithoutLang}`;
-      const plUrl = `${BASE_URL}/pl${pathWithoutLang}`;
-      const defaultUrl = `${BASE_URL}/en${pathWithoutLang}`;
+      let enUrl: string;
+      let plUrl: string;
+
+      if (hreflangOverrides) {
+        enUrl = `${BASE_URL}${hreflangOverrides.en}`;
+        plUrl = `${BASE_URL}${hreflangOverrides.pl}`;
+      } else {
+        const pathWithoutLang = canonical.replace(/^\/(en|pl)/, "");
+        enUrl = `${BASE_URL}/en${pathWithoutLang}`;
+        plUrl = `${BASE_URL}/pl${pathWithoutLang}`;
+      }
 
       setLink("alternate", enUrl, { hreflang: "en" });
       setLink("alternate", plUrl, { hreflang: "pl" });
-      setLink("alternate", defaultUrl, { hreflang: "x-default" });
+      setLink("alternate", enUrl, { hreflang: "x-default" });
     } else if (canonical && noHreflang) {
       // Self-referencing hreflang only (for pages without counterpart)
       const selfUrl = `${BASE_URL}${canonical}`;
@@ -162,7 +171,7 @@ const SEOHead = ({
       if (jsonLdScript) jsonLdScript.remove();
       clearHreflang();
     };
-  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang]);
+  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang, hreflangOverrides]);
 
   return null;
 };
