@@ -171,7 +171,7 @@ const SEOHead = ({
       if (jsonLdScript) jsonLdScript.remove();
       clearHreflang();
     };
-  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang]);
+  }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang, hreflangOverrides]);
 
   return null;
 };
