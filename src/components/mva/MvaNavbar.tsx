@@ -38,7 +38,11 @@ const MvaNavbar = () => {
           <ul className="hidden md:flex items-center gap-7">
             {navItems.map((item) => (
               <li key={item.label}>
-                <a href={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</a>
+                {item.isLink ? (
+                  <Link to={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</Link>
+                ) : (
+                  <a href={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</a>
+                )}
               </li>
             ))}
           </ul>
