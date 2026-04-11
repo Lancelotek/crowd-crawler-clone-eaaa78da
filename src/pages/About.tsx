@@ -66,11 +66,34 @@ const About = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Marek Ciesla",
+    alternateName: "Marek Cieśla",
     jobTitle: "Founder & CEO",
-    worksFor: { "@type": "Organization", name: "JAY-23", url: "https://jay23.com" },
+    image: "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
     url: `https://jay23.com${langPrefix}/about`,
-    description: "Marketing strategist specializing in building Minimum Viable Audiences. Creator of the MVA Framework.",
-    knowsAbout: ["Minimum Viable Audience", "prelaunch strategy", "community building", "crowdfunding", "growth marketing"],
+    worksFor: {
+      "@type": "Organization",
+      name: "JAY-23",
+      url: "https://jay23.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
+      },
+    },
+    sameAs: [
+      "https://www.linkedin.com/in/marekciesla/",
+      "https://twitter.com/jay23com",
+    ],
+    description: lang === "pl"
+      ? "Strateg marketingowy specjalizujący się w budowaniu Minimum Viable Audience. Twórca MVA Framework. Doświadczenie w 50+ współpracach ze startupami i ponad $1M pozyskanych w crowdfundingu."
+      : "Marketing strategist specializing in building Minimum Viable Audiences. Creator of the MVA Framework. Experience with 50+ startup collaborations and over $1M raised in crowdfunding.",
+    knowsAbout: [
+      "Minimum Viable Audience",
+      "prelaunch strategy",
+      "community building",
+      "crowdfunding",
+      "growth marketing",
+      "content marketing",
+    ],
   };
 
   const stats = [c.stat1, c.stat2, c.stat3, c.stat4];
