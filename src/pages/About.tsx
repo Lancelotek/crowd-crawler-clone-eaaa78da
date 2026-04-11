@@ -96,6 +96,26 @@ const About = () => {
     ],
   };
 
+  const aboutPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: lang === "pl" ? "O nas — JAY-23" : "About — JAY-23",
+    url: `https://jay23.com${langPrefix}/about`,
+    description: lang === "pl"
+      ? "Pomagamy founderom budować publiczność przed premierą produktu — MVA Framework 90 dni"
+      : "We help founders build an audience before product launch — MVA Framework 90 days",
+    mainEntity: personJsonLd,
+    publisher: {
+      "@type": "Organization",
+      name: "JAY-23",
+      url: "https://jay23.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
+      },
+    },
+  };
+
   const stats = [c.stat1, c.stat2, c.stat3, c.stat4];
   const cards = [
     { title: c.card1Title, desc: c.card1Desc },
@@ -110,7 +130,7 @@ const About = () => {
         description={c.seoDesc}
         canonical={`${langPrefix}/about`}
         lang={lang}
-        jsonLd={personJsonLd}
+        jsonLd={aboutPageJsonLd}
       />
       <MvaNavbar />
 
