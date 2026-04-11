@@ -154,8 +154,7 @@ const SEOHead = ({
         "logo": "https://jay23.com/logo.png",
         "description": "MVA Framework — 90-day program helping founders build 1,000 true fans before product launch.",
         "sameAs": [
-          "https://www.linkedin.com/company/jay23",
-          "https://twitter.com/jay23com"
+          "https://www.linkedin.com/in/marekciesla/"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
