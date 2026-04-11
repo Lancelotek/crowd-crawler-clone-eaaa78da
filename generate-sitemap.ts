@@ -39,6 +39,7 @@ const staticPages = [
   { loc: "/pl", changefreq: "weekly", priority: "1.0" },
   { loc: "/pl/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/pl/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/pl/process", changefreq: "monthly", priority: "0.8" },
   { loc: "/pl/faq", changefreq: "monthly", priority: "0.6" },
   { loc: "/pl/about", changefreq: "monthly", priority: "0.6" },
   { loc: "/pl/report", changefreq: "monthly", priority: "0.5" },
