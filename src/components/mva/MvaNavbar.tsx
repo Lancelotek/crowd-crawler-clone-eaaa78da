@@ -72,7 +72,7 @@ const MvaNavbar = () => {
                   ) : (
                     <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
                   )
-                ))}
+                )}
               </nav>
               <div className="p-6 space-y-2">
                 <Link to={`${langPrefix}/book`} onClick={() => { setOpen(false); track.bookingClick("navbar_mobile"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">
