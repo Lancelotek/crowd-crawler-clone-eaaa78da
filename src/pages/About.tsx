@@ -130,7 +130,7 @@ const About = () => {
         description={c.seoDesc}
         canonical={`${langPrefix}/about`}
         lang={lang}
-        jsonLd={personJsonLd}
+        jsonLd={aboutPageJsonLd}
       />
       <MvaNavbar />
 
