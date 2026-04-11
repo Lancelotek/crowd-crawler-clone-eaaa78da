@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const PrivacyPolicy = () => {
+  const { lang, langPrefix } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Privacy Policy" description="Privacy Policy for JAY23 LLC and the MVA Framework. Learn how we collect, use, and protect your data." canonical="/privacy-policy" noindex />
+      <SEOHead title="Privacy Policy" description="Privacy Policy for JAY23 LLC and the MVA Framework. Learn how we collect, use, and protect your data." canonical={`${langPrefix}/privacy-policy`} lang={lang} />
       <div className="container mx-auto max-w-[800px] px-6 py-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10">
           <ArrowLeft size={16} /> Back to Home

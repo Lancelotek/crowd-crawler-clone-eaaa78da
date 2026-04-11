@@ -14,7 +14,8 @@ const MvaNavbar = () => {
   const navItems = [
     { label: t("nav", "framework"), href: "#how-it-works" },
     { label: t("nav", "caseStudies"), href: "#case-studies" },
-    { label: t("nav", "blog"), href: `${langPrefix}/blog` },
+    { label: t("nav", "process"), href: `${langPrefix}/process`, isLink: true },
+    { label: t("nav", "blog"), href: `${langPrefix}/blog`, isLink: true },
     { label: t("nav", "faq"), href: "#faq" },
   ];
 
@@ -37,7 +38,11 @@ const MvaNavbar = () => {
           <ul className="hidden md:flex items-center gap-7">
             {navItems.map((item) => (
               <li key={item.label}>
-                <a href={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</a>
+                {item.isLink ? (
+                  <Link to={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</Link>
+                ) : (
+                  <a href={item.href} className={`text-[13px] font-medium transition-colors hover:text-primary ${scrolled ? "text-muted-foreground" : "text-white/70 hover:text-white"}`}>{item.label}</a>
+                )}
               </li>
             ))}
           </ul>
@@ -61,9 +66,13 @@ const MvaNavbar = () => {
                 <button onClick={() => setOpen(false)} aria-label="Close menu"><X size={22} className="text-foreground" /></button>
               </div>
               <nav className="flex flex-col gap-1 px-6 py-4 flex-1">
-                {navItems.map((item) => (
-                  <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
-                ))}
+                {navItems.map((item) =>
+                  item.isLink ? (
+                    <Link key={item.label} to={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</Link>
+                  ) : (
+                    <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
+                  )
+                )}
               </nav>
               <div className="p-6 space-y-2">
                 <Link to={`${langPrefix}/book`} onClick={() => { setOpen(false); track.bookingClick("navbar_mobile"); }} className="block text-center bg-primary text-primary-foreground px-5 py-3 text-sm font-semibold rounded-button hover:brightness-110 transition-all">

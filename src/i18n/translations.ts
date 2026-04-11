@@ -5,6 +5,7 @@ export const translations = {
   nav: {
     framework: { en: "How It Works", pl: "Framework" },
     caseStudies: { en: "Case Studies", pl: "Case Studies" },
+    process: { en: "Process", pl: "Proces" },
     blog: { en: "Blog", pl: "Blog" },
     bookCall: { en: "Free Strategy Call", pl: "Umów bezpłatną konsultację" },
     getStarted: { en: "Get Started →", pl: "Zacznij →" },
