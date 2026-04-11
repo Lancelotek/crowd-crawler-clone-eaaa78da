@@ -159,7 +159,7 @@ const BlogPost = () => {
           "datePublished": post.published_at,
           "dateModified": post.published_at,
           "author": { "@type": "Person", "name": post.author || "Marek Cieśla", "url": "https://jay23.com" },
-          "publisher": { "@type": "Organization", "name": "JAY-23", "logo": { "@type": "ImageObject", "url": "https://jay23.com/logo.png" } },
+          "publisher": { "@type": "Organization", "name": "JAY-23", "logo": { "@type": "ImageObject", "url": "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp" } },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `https://jay23.com${langPrefix}/blog/${post.slug}` },
           "inLanguage": lang,
         }}
