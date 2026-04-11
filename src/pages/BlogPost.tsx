@@ -132,13 +132,17 @@ const BlogPost = () => {
       }
     : undefined;
 
+  const absoluteImage = post.cover_image
+    ? post.cover_image.startsWith("http") ? post.cover_image : `https://jay23.com${post.cover_image.startsWith("/") ? "" : "/"}${post.cover_image}`
+    : undefined;
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
         title={post.title}
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
-        ogImage={post.cover_image || undefined}
+        ogImage={absoluteImage}
         type="article"
         publishedAt={post.published_at}
         lang={lang}
@@ -151,7 +155,7 @@ const BlogPost = () => {
           "@type": "BlogPosting",
           "headline": post.title,
           "description": post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`),
-          "image": post.cover_image || undefined,
+          "image": absoluteImage,
           "datePublished": post.published_at,
           "dateModified": post.published_at,
           "author": { "@type": "Person", "name": post.author || "Marek Cieśla", "url": "https://jay23.com" },
