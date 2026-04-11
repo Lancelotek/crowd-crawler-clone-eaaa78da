@@ -24,6 +24,7 @@ const About = lazy(() => import("./pages/About"));
 const Report = lazy(() => import("./pages/Report"));
 const Packages = lazy(() => import("./pages/Packages"));
 const Quiz = lazy(() => import("./pages/Quiz"));
+const LP = lazy(() => import("./pages/LP"));
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const LangRoutes = () => (
         <Route path="report" element={<Report />} />
         <Route path="packages" element={<Packages />} />
         <Route path="quiz" element={<Quiz />} />
+        <Route path="lp" element={<LP />} />
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
@@ -77,6 +79,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
           <Route path="/packages" element={<LanguageRedirect />} />
           <Route path="/quiz" element={<LanguageRedirect />} />
+          <Route path="/lp" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
