@@ -29,18 +29,25 @@ const LEGACY_SLUGS = new Set([
 ]);
 
 const staticPages = [
+  // EN pages
   { loc: "/en", changefreq: "weekly", priority: "1.0" },
   { loc: "/en/blog", changefreq: "weekly", priority: "0.7" },
-  { loc: "/en/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/en/book", changefreq: "monthly", priority: "0.8" },
   { loc: "/en/process", changefreq: "monthly", priority: "0.8" },
+  { loc: "/en/packages", changefreq: "monthly", priority: "0.7" },
+  { loc: "/en/quiz", changefreq: "monthly", priority: "0.7" },
   { loc: "/en/faq", changefreq: "monthly", priority: "0.6" },
   { loc: "/en/about", changefreq: "monthly", priority: "0.6" },
   { loc: "/en/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { loc: "/en/terms-of-service", changefreq: "yearly", priority: "0.3" },
   { loc: "/en/impressum", changefreq: "yearly", priority: "0.3" },
+  // PL pages
   { loc: "/pl", changefreq: "weekly", priority: "1.0" },
   { loc: "/pl/blog", changefreq: "weekly", priority: "0.7" },
-  { loc: "/pl/book", changefreq: "monthly", priority: "0.7" },
+  { loc: "/pl/book", changefreq: "monthly", priority: "0.8" },
+  { loc: "/pl/process", changefreq: "monthly", priority: "0.8" },
+  { loc: "/pl/packages", changefreq: "monthly", priority: "0.7" },
+  { loc: "/pl/quiz", changefreq: "monthly", priority: "0.7" },
   { loc: "/pl/faq", changefreq: "monthly", priority: "0.6" },
   { loc: "/pl/about", changefreq: "monthly", priority: "0.6" },
   { loc: "/pl/report", changefreq: "monthly", priority: "0.5" },
@@ -68,15 +75,31 @@ Deno.serve(async (req) => {
     const today = new Date().toISOString().split("T")[0];
 
     let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
 
+    // Static pages with hreflang alternates
     for (const page of staticPages) {
+      const pathWithoutLang = page.loc.replace(/^\/(en|pl)/, "");
+      const lang = page.loc.startsWith("/pl") ? "pl" : "en";
+      const otherLang = lang === "en" ? "pl" : "en";
+      const otherLoc = `/${otherLang}${pathWithoutLang}`;
+      // Check if the other language version exists in staticPages
+      const hasAlternate = staticPages.some(p => p.loc === otherLoc);
+
       xml += `
   <url>
     <loc>${BASE_URL}${page.loc}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
+    <priority>${page.priority}</priority>`;
+      if (hasAlternate) {
+        xml += `
+    <xhtml:link rel="alternate" hreflang="${lang}" href="${BASE_URL}${page.loc}" />
+    <xhtml:link rel="alternate" hreflang="${otherLang}" href="${BASE_URL}${otherLoc}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/en${pathWithoutLang}" />`;
+      }
+      xml += `
   </url>`;
     }
 
