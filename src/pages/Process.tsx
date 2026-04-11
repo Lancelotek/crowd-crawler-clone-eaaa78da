@@ -71,7 +71,45 @@ const OwnerBadge = ({ owner }: { owner: OwnerKey }) => {
 };
 
 const Process = () => {
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
+
+  const processJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: lang === "pl"
+      ? "Trzy fazy budowania Minimum Viable Audience: 1000 prawdziwych fanów przed startem produktu"
+      : "Three phases of building a Minimum Viable Audience: 1,000 true fans before product launch",
+    description: lang === "pl"
+      ? "90-dniowy program MVA Framework podzielony na 3 fazy: Build (budowa lejka i automatyzacji), Drive (reklamy i aktywacja społeczności), Launch (kampania launchowa i raport końcowy)."
+      : "90-day MVA Framework program split into 3 phases: Build (funnel & automation setup), Drive (ads & community activation), Launch (launch campaign & final report).",
+    totalTime: "P90D",
+    step: [
+      {
+        "@type": "HowToStep",
+        name: lang === "pl" ? "Build — Miesiąc 1" : "Build — Month 1",
+        text: lang === "pl"
+          ? "Definicja person, budowa landing page z quizem, konfiguracja sekwencji e-mail i Stripe $1 flow."
+          : "Persona mapping, quiz landing page, email sequence setup, and Stripe $1 flow.",
+        position: 1,
+      },
+      {
+        "@type": "HowToStep",
+        name: lang === "pl" ? "Drive — Miesiąc 2" : "Drive — Month 2",
+        text: lang === "pl"
+          ? "Uruchomienie reklam (Meta + TikTok/Google), aktywacja grupy VIP, cotygodniowa optymalizacja i rotacja kreacji."
+          : "Ads launch (Meta + TikTok/Google), VIP community activation, weekly optimization and creative rotation.",
+        position: 2,
+      },
+      {
+        "@type": "HowToStep",
+        name: lang === "pl" ? "Launch — Miesiąc 3" : "Launch — Month 3",
+        text: lang === "pl"
+          ? "Kampanie Lookalike z segmentu płacących, pełna kampania launchowa na wszystkich kanałach, raport końcowy i przekazanie."
+          : "Lookalike campaigns from paying segment, full launch campaign across all channels, final report and handover.",
+        position: 3,
+      },
+    ],
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -79,6 +117,8 @@ const Process = () => {
         title={t("process", "seoTitle")}
         description={t("process", "seoDesc")}
         canonical={`${langPrefix}/process`}
+        lang={lang}
+        jsonLd={processJsonLd}
       />
       <MvaNavbar />
       <main>
