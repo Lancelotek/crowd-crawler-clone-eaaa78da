@@ -267,7 +267,7 @@ export const translations = {
     q2: { en: "Who is this for?", pl: "Dla kogo jest ten program?" },
     a2: { en: "Early-stage founders (25–45) preparing a product launch, building initial audiences from scratch, or seeking a systematic framework to validate ideas through community engagement.", pl: "Founderzy na wczesnym etapie (25–45 lat) przygotowujący launch produktu, budujący odbiorców od zera lub szukający systematycznego frameworka do walidacji pomysłów." },
     q3: { en: "How much does it cost?", pl: "Ile to kosztuje?" },
-    a3: { en: "The MVA Framework is a one-time investment of $6,000 USD + VAT (~24,000 PLN). No monthly fees, no hidden costs. Book a free strategy call to discuss details.", pl: "MVA Framework to jednorazowa inwestycja 24 000 PLN + VAT (~$6 000 USD). Bez miesięcznych opłat, bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły." },
+    a3: { en: "The MVA Framework is a one-time investment of $6,000 USD + VAT (~24,000 PLN). No monthly fees, no hidden costs. Book a free strategy call to discuss details.", pl: "MVA Framework to 6 000 PLN netto miesięcznie (24 000 PLN łącznie za 4 miesiące) + VAT. Bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły." },
     q4: { en: "What if I already have a product?", pl: "Co jeśli mam już produkt?" },
     a4: { en: "The framework works for pre-launch AND post-launch founders who need to build or re-energize their audience.", pl: "Framework działa zarówno dla founderów przed, jak i po launchu, którzy muszą zbudować lub ożywić swoją publiczność." },
     q5: { en: "How is this different from a marketing course?", pl: "Czym to się różni od kursu marketingu?" },
