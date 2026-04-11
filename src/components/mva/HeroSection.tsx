@@ -41,24 +41,42 @@ const HeroSection = () => {
               <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", animation: "pulse 2s ease-in-out infinite" }} />
               <span style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.06em", color: "rgba(255,255,255,0.45)", textTransform: "uppercase" }}>{t("hero", "eyebrow")}</span>
             </div>
-            <h1 className="font-display" style={{ fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.03em", color: "#fff", marginBottom: "20px", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.2s both" : "none" }}>
-              {t("hero", "h1_line1")}<br />
-              <span style={{ color: "#6C63FF" }}>{t("hero", "h1_line2")}</span><br />
-              {t("hero", "h1_line3")}
+            <h1 style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.018em", color: "#fff", marginBottom: "20px", textTransform: "uppercase", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.2s both" : "none" }}>
+              <span dangerouslySetInnerHTML={{ __html: t("hero", "h1_line1").replace(/46|(\$1\.2M\+)/g, '<span style="color:#673DFF">$&</span>') }} />
+              <br />
+              {t("hero", "h1_line2")}
             </h1>
-            <p style={{ fontSize: "17px", lineHeight: 1.65, color: "rgba(255,255,255,0.5)", maxWidth: "460px", marginBottom: "32px", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.3s both" : "none" }}>
+            <p style={{ fontSize: "18px", lineHeight: 1.65, color: "#ededf3", maxWidth: "460px", marginBottom: "32px", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.3s both" : "none" }}>
               {t("hero", "hook")}{" "}
-              <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>{t("hero", "hookBold")}</span>
-              {" "}{t("hero", "hookEnd")}
+              <span style={{ fontWeight: 600 }}>{t("hero", "hookBold")}</span>
+              {t("hero", "hookEnd") ? ` ${t("hero", "hookEnd")}` : ""}
             </p>
-            <div className="flex items-center gap-4 flex-wrap" style={{ marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.6s ease 0.4s both" : "none" }}>
-              <Link to={`${langPrefix}/quiz`} onClick={() => track.ctaClick("hero", "calculator")} className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-bold text-sm rounded-xl hover:brightness-110 transition-all animate-pulse-cta">
+            {/* CTAs */}
+            <div className="flex flex-col gap-3" style={{ marginBottom: "16px", animation: heroVisible ? "fadeSlideUp 0.6s ease 0.4s both" : "none" }}>
+              <Link
+                to={`${langPrefix}/book`}
+                onClick={() => track.bookingClick("hero")}
+                className="inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta"
+                style={{ background: "#10b981", color: "#fff", padding: "16px 32px", width: "fit-content" }}
+              >
                 {t("hero", "ctaPrimary")}
               </Link>
-              <Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("hero")} className="inline-flex items-center gap-2 text-sm font-medium transition-colors" style={{ color: "rgba(255,255,255,0.5)" }} onMouseEnter={e => (e.currentTarget.style.color = "rgba(255,255,255,0.85)")} onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}>
+              <Link
+                to={`${langPrefix}/quiz`}
+                onClick={() => track.ctaClick("hero", "quiz")}
+                className="transition-colors"
+                style={{ fontSize: "14px", color: "#6e6e77", width: "fit-content", textDecoration: "none" }}
+                onMouseEnter={e => { e.currentTarget.style.textDecoration = "underline"; e.currentTarget.style.color = "#ededf3"; }}
+                onMouseLeave={e => { e.currentTarget.style.textDecoration = "none"; e.currentTarget.style.color = "#6e6e77"; }}
+              >
                 {t("hero", "ctaSecondary")}
               </Link>
             </div>
+            {/* Trust bar */}
+            <p style={{ fontSize: "13px", color: "#6e6e77", fontWeight: 300, marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.5s ease 0.45s both" : "none" }}>
+              {t("hero", "trustBar")}
+            </p>
+            {/* Social proof */}
             <div className="flex items-center gap-4 flex-wrap" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.5s both" : "none" }}>
               <div className="flex items-center gap-2">
                 <div className="flex gap-0.5">
