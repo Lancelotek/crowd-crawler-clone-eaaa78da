@@ -66,8 +66,12 @@ const MvaNavbar = () => {
                 <button onClick={() => setOpen(false)} aria-label="Close menu"><X size={22} className="text-foreground" /></button>
               </div>
               <nav className="flex flex-col gap-1 px-6 py-4 flex-1">
-                {navItems.map((item) => (
-                  <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
+                {navItems.map((item) =>
+                  item.isLink ? (
+                    <Link key={item.label} to={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</Link>
+                  ) : (
+                    <a key={item.label} href={item.href} onClick={() => setOpen(false)} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors py-3 border-b border-border">{item.label}</a>
+                  )
                 ))}
               </nav>
               <div className="p-6 space-y-2">
