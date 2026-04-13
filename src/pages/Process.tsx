@@ -86,26 +86,26 @@ const Process = () => {
     step: [
       {
         "@type": "HowToStep",
-        name: lang === "pl" ? "Build — Miesiąc 1" : "Build — Month 1",
+        name: lang === "pl" ? "Discover — Dni 1–30" : "Discover — Days 1–30",
         text: lang === "pl"
-          ? "Definicja person, budowa landing page z quizem, konfiguracja sekwencji e-mail i Stripe $1 flow."
-          : "Persona mapping, quiz landing page, email sequence setup, and Stripe $1 flow.",
+          ? "Zdefiniuj niszę, zidentyfikuj 1000 prawdziwych fanów i stwórz przekaz, który rezonuje. Zawiera szablony badań odbiorców i canvas pozycjonowania."
+          : "Define your niche, identify 1,000 true fans, and craft messaging that resonates. Includes audience research templates and positioning canvas.",
         position: 1,
       },
       {
         "@type": "HowToStep",
-        name: lang === "pl" ? "Drive — Miesiąc 2" : "Drive — Month 2",
+        name: lang === "pl" ? "Build — Dni 31–60" : "Build — Days 31–60",
         text: lang === "pl"
-          ? "Uruchomienie reklam (Meta + TikTok/Google), aktywacja grupy VIP, cotygodniowa optymalizacja i rotacja kreacji."
-          : "Ads launch (Meta + TikTok/Google), VIP community activation, weekly optimization and creative rotation.",
+          ? "Uruchom waitlistę Early Bird, skonfiguruj silnik społeczności i buduj momentum przed startem. Sprawdzone szablony landing page i sekwencje email."
+          : "Launch your Early Bird waitlist, set up a community engine, and build momentum before launch. Proven landing page templates and email sequences.",
         position: 2,
       },
       {
         "@type": "HowToStep",
-        name: lang === "pl" ? "Launch — Miesiąc 3" : "Launch — Month 3",
+        name: lang === "pl" ? "Launch — Dni 61–90" : "Launch — Days 61–90",
         text: lang === "pl"
-          ? "Kampanie Lookalike z segmentu płacących, pełna kampania launchowa na wszystkich kanałach, raport końcowy i przekazanie."
-          : "Lookalike campaigns from paying segment, full launch campaign across all channels, final report and handover.",
+          ? "Aktywuj społeczność, uruchom sprzedaż i zmaksymalizuj konwersje w dniu launchu. Gotowe playbooki kampanii i checklisty startowe."
+          : "Activate your community, launch sales, and maximize conversions on launch day. Ready-made campaign playbooks and launch checklists.",
         position: 3,
       },
     ],
