@@ -7,7 +7,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { track } from "@/lib/tracking";
 
 const MvaNavbar = () => {
-  const { t, langPrefix } = useLanguage();
+  const { t, lang, langPrefix } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
