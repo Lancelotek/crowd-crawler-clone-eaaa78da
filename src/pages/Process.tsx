@@ -104,8 +104,8 @@ const Process = () => {
         "@type": "HowToStep",
         name: lang === "pl" ? "Launch — Dni 61–90" : "Launch — Days 61–90",
         text: lang === "pl"
-          ? "Aktywuj społeczność, uruchom sprzedaż i zmaksymalizuj konwersje w dniu launchu. Gotowe playbooki kampanii i checklisty startowe."
-          : "Activate your community, launch sales, and maximize conversions on launch day. Ready-made campaign playbooks and launch checklists.",
+          ? "Aktywuj społeczność, przeprowadź kampanię pre-launch i zamień fanów w pierwszych klientów. Coaching w czasie rzeczywistym i optymalizacja kampanii."
+          : "Activate your community, run your pre-launch campaign, and turn fans into first customers. Real-time coaching and campaign optimization.",
         position: 3,
       },
     ],
