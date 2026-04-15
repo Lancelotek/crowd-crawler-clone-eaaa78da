@@ -168,8 +168,7 @@ const SEOHead = ({
     }
 
     return () => {
-      const jsonLdScript = document.querySelector('script[data-seo-jsonld]');
-      if (jsonLdScript) jsonLdScript.remove();
+      document.querySelectorAll('script[data-seo-jsonld]').forEach((el) => el.remove());
       clearHreflang();
     };
   }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang, hreflangOverrides]);

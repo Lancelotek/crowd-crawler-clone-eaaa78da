@@ -167,6 +167,7 @@ const BookCall = () => {
         title={t("bookCall", "seoTitle")}
         description={t("bookCall", "seoDesc")}
         canonical={`${langPrefix}/book`}
+        lang={lang}
       />
 
       <style>{`
