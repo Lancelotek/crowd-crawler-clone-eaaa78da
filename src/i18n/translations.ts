@@ -317,8 +317,8 @@ export const translations = {
     title: { en: "Book Your Free Strategy Call", pl: "Umów bezpłatną rozmowę strategiczną" },
     desc: { en: "Pick a time that works for you. 30 minutes, no strings attached.", pl: "Wybierz termin, który Ci odpowiada. 30 minut, bez zobowiązań." },
     back: { en: "Back to homepage", pl: "Wróć na stronę główną" },
-    seoTitle: { en: "Book a Free Strategy Call — JAY-23", pl: "Umów bezpłatną rozmowę — JAY-23" },
-    seoDesc: { en: "Schedule a free 30-minute strategy call to review your audience growth plan and get personalized recommendations.", pl: "Umów bezpłatną 30-minutową rozmowę strategiczną, aby omówić plan wzrostu odbiorców i uzyskać spersonalizowane rekomendacje." },
+    seoTitle: { en: "Book a Free Strategy Call — Prelaunch Marketing | JAY-23", pl: "Umów bezpłatną rozmowę strategiczną — Marketing Prelaunch | JAY-23" },
+    seoDesc: { en: "Book a free discovery call with JAY-23. We'll assess your launch timeline, audience gap, and whether the MVA program is the right fit.", pl: "Umów bezpłatną rozmowę z JAY-23. Ocenimy Twój harmonogram launchu, lukę w publiczności i czy program MVA jest dla Ciebie." },
     eyebrow: { en: "Free strategy call · 30 minutes", pl: "Bezpłatna rozmowa strategiczna · 30 minut" },
     h1_1: { en: "Find out if your product", pl: "Dowiedz się, czy Twój produkt" },
     h1_2: { en: "is ready for MVA.", pl: "jest gotowy na MVA." },
@@ -352,8 +352,8 @@ export const translations = {
     h1_3: { en: "before you launch.", pl: "zanim ruszysz." },
     desc: { en: "Three focused months. Each phase builds on the last — no wasted days, no guessing. Here's exactly what happens, and who does what.", pl: "Trzy skoncentrowane miesiące. Każda faza buduje na poprzedniej — zero zmarnowanych dni. Oto dokładnie co się dzieje i kto co robi." },
     calcMVA: { en: "Calculate your MVA", pl: "Oblicz swoje MVA" },
-    seoTitle: { en: "Our 90-Day Process — JAY-23 MVA Framework", pl: "Nasz proces 90 dni — JAY-23 MVA Framework" },
-    seoDesc: { en: "See exactly how the MVA Framework works over 90 days: Build, Drive, Launch. Three phases to a paying audience before you launch.", pl: "Zobacz dokładnie jak działa MVA Framework przez 90 dni: Buduj, Napędzaj, Startuj. Trzy fazy do płacącej publiczności." },
+    seoTitle: { en: "90-Day MVA Program — How It Works | JAY-23", pl: "Program MVA 90 dni — Jak to działa | JAY-23" },
+    seoDesc: { en: "Three phases to build your Minimum Viable Audience: persona mapping, paid ads with the Andromeda framework, and full launch campaign. See the complete process.", pl: "Trzy fazy budowania Minimum Viable Audience: mapowanie person, płatne reklamy z frameworkiem Andromeda i pełna kampania launchowa. Zobacz cały proces." },
   },
 
   // ─── Blog ────────────────────────────────────────────────
@@ -361,8 +361,8 @@ export const translations = {
     title: { en: "Articles by", pl: "Artykuły od" },
     titleAccent: { en: "JAY-23", pl: "JAY-23" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
-    seoTitle: { en: "Blog — Audience Building & Launch Strategy Articles", pl: "Blog — Artykuły o budowaniu odbiorców i strategiach launchu" },
-    seoDesc: { en: "Expert articles on audience building, product launches, crowdfunding, and the MVA Framework.", pl: "Eksperckie artykuły o budowaniu odbiorców, premiery produktów, crowdfunding i MVA Framework." },
+    seoTitle: { en: "Crowdfunding & Prelaunch Marketing Blog | JAY-23", pl: "Blog o crowdfundingu i marketingu prelaunch | JAY-23" },
+    seoDesc: { en: "Strategies for Kickstarter prelaunch, audience building, and crowdfunding marketing. Real tactics from 46 campaigns and $1.2M+ raised.", pl: "Strategie prelaunch na Kickstarter, budowanie publiczności i marketing crowdfundingowy. Sprawdzone taktyki z 46 kampanii i $1.2M+ zebranych." },
   },
 } as const;
 

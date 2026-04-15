@@ -118,7 +118,17 @@ const Process = () => {
         description={t("process", "seoDesc")}
         canonical={`${langPrefix}/process`}
         lang={lang}
-        jsonLd={processJsonLd}
+        jsonLd={[
+          processJsonLd,
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
+              { "@type": "ListItem", "position": 2, "name": lang === "pl" ? "Proces" : "Process", "item": `https://jay23.com${langPrefix}/process` },
+            ],
+          },
+        ]}
       />
       <MvaNavbar />
       <main>

@@ -10,7 +10,7 @@ interface SEOHeadProps {
   author?: string;
   noindex?: boolean;
   noHreflang?: boolean;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   lang?: string;
   hreflangOverrides?: { en: string; pl: string };
 }
@@ -129,45 +129,22 @@ const SEOHead = ({
     }
 
     // JSON-LD
+    document.querySelectorAll('script[data-seo-jsonld]').forEach((el) => el.remove());
     if (jsonLd) {
-      const existingScript = document.querySelector('script[data-seo-jsonld]');
-      if (existingScript) existingScript.remove();
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo-jsonld", "true");
-      script.textContent = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
+      const items = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+      items.forEach((item, i) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-seo-jsonld", "true");
+        script.textContent = JSON.stringify(item);
+        document.head.appendChild(script);
+      });
     }
 
-    // Organization Schema
-    let orgScript = document.querySelector('script[data-seo-org]') as HTMLScriptElement | null;
-    if (!orgScript) {
-      orgScript = document.createElement("script");
-      orgScript.type = "application/ld+json";
-      orgScript.setAttribute("data-seo-org", "true");
-      orgScript.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "JAY-23",
-        "alternateName": "JAY23",
-        "url": "https://jay23.com",
-        "logo": "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
-        "description": "MVA Framework — 90-day program helping founders build 1,000 true fans before product launch.",
-        "sameAs": [
-          "https://www.linkedin.com/in/marekciesla/"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "url": "https://jay23.com/en/book"
-        }
-      });
-      document.head.appendChild(orgScript);
-    }
+    // Organization Schema is now per-page (homepage only) via jsonLd prop
 
     return () => {
-      const jsonLdScript = document.querySelector('script[data-seo-jsonld]');
-      if (jsonLdScript) jsonLdScript.remove();
+      document.querySelectorAll('script[data-seo-jsonld]').forEach((el) => el.remove());
       clearHreflang();
     };
   }, [title, description, canonical, ogImage, type, publishedAt, author, noindex, noHreflang, jsonLd, lang, hreflangOverrides]);
