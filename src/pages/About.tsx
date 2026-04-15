@@ -130,7 +130,17 @@ const About = () => {
         description={c.seoDesc}
         canonical={`${langPrefix}/about`}
         lang={lang}
-        jsonLd={aboutPageJsonLd}
+        jsonLd={[
+          aboutPageJsonLd,
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
+              { "@type": "ListItem", "position": 2, "name": lang === "pl" ? "O nas" : "About", "item": `https://jay23.com${langPrefix}/about` },
+            ],
+          },
+        ]}
       />
       <MvaNavbar />
 

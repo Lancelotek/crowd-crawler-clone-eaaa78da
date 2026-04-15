@@ -168,6 +168,14 @@ const BookCall = () => {
         description={t("bookCall", "seoDesc")}
         canonical={`${langPrefix}/book`}
         lang={lang}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
+            { "@type": "ListItem", "position": 2, "name": lang === "pl" ? "Umów rozmowę" : "Book a Call", "item": `https://jay23.com${langPrefix}/book` },
+          ],
+        }}
       />
 
       <style>{`

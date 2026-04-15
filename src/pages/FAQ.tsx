@@ -71,7 +71,17 @@ const FAQ = () => {
         title={data.seoTitle}
         description={data.seoDesc}
         canonical={`${langPrefix}/faq`}
-        jsonLd={jsonLd}
+        jsonLd={[
+          jsonLd,
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
+              { "@type": "ListItem", "position": 2, "name": "FAQ", "item": `https://jay23.com${langPrefix}/faq` },
+            ],
+          },
+        ]}
         lang={lang}
       />
       <MvaNavbar />
