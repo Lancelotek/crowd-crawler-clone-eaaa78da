@@ -18,8 +18,8 @@ const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: 
   en: {
     title: "Frequently Asked Questions",
     subtitle: "Everything you need to know about the MVA Framework and working with JAY-23.",
-    seoTitle: "FAQ — MVA Framework by JAY-23",
-    seoDesc: "Answers to the most common questions about the MVA Framework, our 90-day program, pricing, and how we help founders build audiences before launch.",
+    seoTitle: "FAQ — MVA Framework & Prelaunch Marketing | JAY-23",
+    seoDesc: "Common questions about the Minimum Viable Audience framework, the 90-day program, pricing, and how JAY-23 helps founders launch on Kickstarter.",
     items: [
       { q: "What is a Minimum Viable Audience (MVA)?", a: 'MVA is the smallest group of people you need to build BEFORE launching your product. Instead of building first and hoping people show up, the <a href="/en/blog" class="text-primary hover:underline">MVA Framework</a> flips the script: audience first, product second. Use our free <a href="/en#calculator" class="text-primary hover:underline">MVA Calculator</a> to find your number.' },
       { q: "How does the MVA 90-day program work?", a: 'The program runs for 90 days in three phases: Build (Days 1-30), Drive (Days 31-60), and Launch (Days 61-90). Each phase builds on the last so nothing is wasted. <a href="/en/process" class="text-primary hover:underline">See our full process</a>.' },
@@ -35,8 +35,8 @@ const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: 
   pl: {
     title: "Najczęściej Zadawane Pytania",
     subtitle: "Wszystko, co musisz wiedzieć o MVA Framework i współpracy z JAY-23.",
-    seoTitle: "FAQ — MVA Framework od JAY-23",
-    seoDesc: "Odpowiedzi na najczęstsze pytania o MVA Framework, nasz program 90-dniowy, cennik i jak pomagamy founderom budować społeczność przed premierą.",
+    seoTitle: "FAQ — MVA Framework i marketing prelaunch | JAY-23",
+    seoDesc: "Najczęstsze pytania o framework Minimum Viable Audience, program 90-dniowy, ceny i jak JAY-23 pomaga founderom startować na Kickstarter.",
     items: [
       { q: "Co to jest Minimum Viable Audience (MVA)?", a: 'MVA to najmniejsza grupa osób, którą musisz zbudować ZANIM wystartujesz z produktem. Zamiast budować produkt i liczyć na to, że ludzie się pojawią, <a href="/pl/blog/co-to-jest-minimum-viable-audience-mva-przewodnik" class="text-primary hover:underline">MVA Framework</a> odwraca schemat: najpierw publiczność, potem produkt. Użyj naszego darmowego <a href="/pl#calculator" class="text-primary hover:underline">kalkulatora MVA</a> aby obliczyć swoją liczbę.' },
       { q: "Jak działa 90-dniowy program MVA?", a: 'Program trwa 90 dni, podzielonych na trzy fazy: Buduj (Dni 1-30), Napędzaj (Dni 31-60) i Startuj (Dni 61-90). Każda faza buduje na poprzedniej, więc nic nie jest zmarnowane. <a href="/pl/process" class="text-primary hover:underline">Zobacz nasz pełny proces</a>.' },
