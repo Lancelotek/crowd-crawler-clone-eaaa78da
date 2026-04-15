@@ -141,31 +141,7 @@ const SEOHead = ({
       });
     }
 
-    // Organization Schema
-    let orgScript = document.querySelector('script[data-seo-org]') as HTMLScriptElement | null;
-    if (!orgScript) {
-      orgScript = document.createElement("script");
-      orgScript.type = "application/ld+json";
-      orgScript.setAttribute("data-seo-org", "true");
-      orgScript.textContent = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "JAY-23",
-        "alternateName": "JAY23",
-        "url": "https://jay23.com",
-        "logo": "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
-        "description": "MVA Framework — 90-day program helping founders build 1,000 true fans before product launch.",
-        "sameAs": [
-          "https://www.linkedin.com/in/marekciesla/"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "sales",
-          "url": "https://jay23.com/en/book"
-        }
-      });
-      document.head.appendChild(orgScript);
-    }
+    // Organization Schema is now per-page (homepage only) via jsonLd prop
 
     return () => {
       document.querySelectorAll('script[data-seo-jsonld]').forEach((el) => el.remove());
