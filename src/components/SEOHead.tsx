@@ -10,7 +10,7 @@ interface SEOHeadProps {
   author?: string;
   noindex?: boolean;
   noHreflang?: boolean;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   lang?: string;
   hreflangOverrides?: { en: string; pl: string };
 }
@@ -129,14 +129,16 @@ const SEOHead = ({
     }
 
     // JSON-LD
+    document.querySelectorAll('script[data-seo-jsonld]').forEach((el) => el.remove());
     if (jsonLd) {
-      const existingScript = document.querySelector('script[data-seo-jsonld]');
-      if (existingScript) existingScript.remove();
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo-jsonld", "true");
-      script.textContent = JSON.stringify(jsonLd);
-      document.head.appendChild(script);
+      const items = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+      items.forEach((item, i) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-seo-jsonld", "true");
+        script.textContent = JSON.stringify(item);
+        document.head.appendChild(script);
+      });
     }
 
     // Organization Schema
