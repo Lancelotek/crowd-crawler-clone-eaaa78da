@@ -44,6 +44,14 @@ const Blog = () => {
         description={t("blog", "seoDesc")}
         canonical={`${langPrefix}/blog`}
         lang={lang}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `https://jay23.com${langPrefix}/blog` },
+          ],
+        }}
       />
       <MvaNavbar />
       <section className="pt-32 pb-16 px-6">
