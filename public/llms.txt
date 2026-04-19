@@ -1,48 +1,214 @@
-# JAY-23 — MVA Framework
+# JAY-23 - MVA Framework (Full Content)
 
-> JAY-23 builds Minimum Viable Audiences for founders. The MVA (Minimum Viable Audience) framework helps you build your first 1,000 true fans in 90 days — before you launch.
+> Complete knowledge base for JAY-23 prelaunch marketing agency. Updated: 2026-04-19
 
-## What is MVA?
+## Homepage (/en)
 
-A Minimum Viable Audience (MVA) is the smallest group of engaged, paying fans you need before launching a product. Instead of building first and hoping people show up, the MVA approach validates demand through quizzes, email funnels, paid ads, and community activation.
+JAY-23 is a prelaunch marketing agency. MVA Framework · 90-day program. 46 Campaigns. $1.2M+ Raised. Zero Cold Launches. Founders using the MVA Framework launch to a list that's already waiting — not silence.
 
-## How the 90-Day Program Works
+**Key stats:** 98+ founders served · $1.2M+ raised across 46 campaigns · 90 days, three phases, one launch
 
-### Phase 1: Build (Weeks 1–4)
-- Persona mapping and quiz strategy
-- Landing page with quiz → email capture → WhatsApp VIP group
-- 7-email MailerLite sequence with $1 Stripe Early Bird flow
-- Full Meta Pixel + GA4 tracking setup
+### The Cold Launch Trap
 
-### Phase 2: Drive (Weeks 5–8)
-- Meta + TikTok (or Google) ads using Andromeda framework
-- ManyChat comment-CTA mechanic → quiz funnel
-- Weekly optimization and creative rotation
-- Community activation (3+ posts/week in VIP group)
+97% of product launches fail. Not because the product was bad — because Meta had nobody to show it to. The Cold Launch Trap kills 97% of product launches before they start — not on launch day, but on the day the founder decided to build first and find customers later. The algorithm needs signal. Signal comes from an engaged audience. An engaged audience takes 90 days to build.
 
-### Phase 3: Launch (Weeks 9–12)
-- Lookalike campaigns from paying subscriber segment
-- Full launch campaign across all channels
-- Launch email + exclusive offers to paying segment
-- Final MVA report with ROAS, funnel CR, and handover
+### The MVA Framework
 
-## Expected Results
-- 300+ qualified leads by end of month 3
-- 30+ paying Early Bird subscribers before launch
-- Max cost per lead: 25 PLN (guaranteed)
-- 3 channels: ads, email automation, WhatsApp community
+The MVA Framework reverses the order. You build the audience first. Meta gets signal from day one. You launch to people who already paid $1 to be on your list.
 
-## Key Concepts
-- **MVA vs MVP**: MVP is the simplest product; MVA is the smallest audience. Build the audience first, then the product.
-- **1,000 True Fans**: Based on Kevin Kelly's theory — you don't need millions of followers, just 1,000 people who truly care.
-- **Demand Validation**: Collect $1 Early Bird payments as proof of real demand before full product development.
+**Old way:** Build product → Find audience (after launch) → Run ads to cold traffic → High CPC, low CVR → $180 cost per customer
 
-## Free Tools
-- **MVA Calculator**: Estimates how many fans you need based on product type, price, and niche.
-- **Strategy Quiz**: Personalized audience building recommendations.
+**MVA way:** Research demand first → Build $1 Early Bird waitlist → Warm audience before ads → Meta gets signal from engaged subscribers → Run ads to Lookalikes → $12-25 cost per customer
+
+### 90-Day Roadmap
+
+- **Days 1–30 DISCOVER:** Define your niche, identify your 1,000 true fans, craft messaging that resonates. Includes audience research templates and positioning canvas.
+- **Days 31–60 BUILD:** Launch your waitlist, set up your community engine, start building pre-launch momentum. Proven landing page templates and email sequences.
+- **Days 61–90 LAUNCH:** Activate your audience, run your pre-launch campaign, convert fans into early customers. Real-time coaching and optimization.
+
+### What's Included (MVA Framework — 90-Day Program)
+
+Price: $1,500/month ($6,000 total · 4 months · + VAT)
+
+- Audience Research Kit ($500 value) — Persona canvas + demand validation framework
+- Quiz funnel + landing page, built for you ($2,000 value)
+- 5-email Early Bird sequence ($800 value)
+- Meta + TikTok ads management — weeks 5-12 ($6,000 value)
+- Weekly coaching calls — 12 sessions ($3,600 value)
+- Direct access to founder who raised $600K+
+- Lookalike audience from your Early Bird list
+
+**Guarantee:** If by end of month 1 you don't have a working waitlist with at least 50 subscribers and your first Early Bird payments — we extend your program for free until you do.
+
+---
+
+## Process (/en/process)
+
+90 days. A paying audience, before you launch. Three focused months. Each phase builds on the last.
+
+### Phase 01 / Build — Month 1 (Weeks 1–4)
+
+- **Persona mapping + quiz strategy** (Agency): Define 1–3 buyer personas, dedicated quiz path, tailored PDF report as incentive, unique funnel track.
+- **Landing page on prelaunch.live** (Agency): Quiz → email capture → Thank You page with WhatsApp VIP QR. Full Meta Pixel + GA4 setup. Visitor cookied for remarketing.
+- **WhatsApp VIP Group + account access** (Client): Client creates the VIP group, grants access to Meta, TikTok/Google, Stripe, MailerLite.
+- **7-mail sequence + Stripe $1 flow** (Agency): Full MailerLite automation. Mail 1 delivers report + Early Bird reservation link. Webhook moves paying leads into dedicated segment.
+
+### Phase 02 / Drive — Month 2 (Weeks 5–8)
+
+- **Ads live — Andromeda framework** (Agency): Meta + TikTok (Standard) or Google Search + PMax (Starter). Videos use comment-CTA mechanic → ManyChat → quiz. A/B hook testing from day 1.
+- **Community activation** (Agency + Client): Agency manages ads. Client runs VIP group — 3+ posts/week, polls, sneak peeks, Q&A.
+- **Weekly optimization + creative rotation** (Agency): New creatives every 2 weeks. Quiz drop-off analysis. Google Display remarketing. Weekly CPL and Stripe CR reports.
+
+### Phase 03 / Launch — Month 3 (Weeks 9–12)
+
+- **Lookalike campaigns from paying segment** (Agency): Paying $1 subscribers → Meta Custom Audience → 1–3% Lookalike. Google Customer Match.
+- **Full launch campaign — all channels** (Agency): Launch email to full list + exclusive offer to paying segment. Ads target Custom Audiences + Lookalike.
+- **Final report + handover** (Agency + Client): MVA report: leads, paying segment, ROAS, funnel CR per stage. All access and documentation transferred.
+
+**Guaranteed results:** 300+ qualified leads by end of month 3 · 30+ Paying Early Bird subscribers before launch · Max cost per lead: 25 PLN · 3 channels: ads, email, WhatsApp community
+
+---
+
+## Packages (/en/packages)
+
+### Step One — Free Strategy Call ($0)
+
+30-minute strategy call. You walk away with a concrete MVA plan.
+
+- Product & market analysis
+- Prelaunch potential assessment
+- Platform & channel recommendation
+- Estimated 90-day plan
+- Zero sales pressure
+
+### Package 02 — Full MVA (Most Popular)
+
+Complete system built and managed for you over 90 days.
+Price: $1,500/month (total $6,000 · 4 months · + VAT)
+
+- Prelaunch landing page end-to-end
+- Meta + Google campaigns managed weekly
+- MailerLite setup + sequence written
+- Weekly report with CPL tracking
+- Launch day support
+- 15 static ad creatives + 4 video ad creatives
+
+### Package 03 — Launch Sprint
+
+Hard launch date under 45 days — when every week counts.
+Price: Custom (individual · 45-day sprint · + VAT)
+
+- Everything in Full MVA, in 45 days
+- Priority turnaround on deliverables
+- Dedicated Slack channel, daily access
+- Campaign page copy + visual brief
+- Post-launch retargeting setup
+- 15 static + 4 video ad creatives
+
+**Every paid package includes:** 15 static graphics and 4 video creatives ready to run on Meta Ads and Google.
+
+---
+
+## Case Studies
+
+### Woolet — $332,694 raised on Kickstarter
+
+Smart wallet that tracks itself. Had a finished product, zero audience, no conversion data, unvalidated messaging.
+
+- BEFORE: Cold traffic ads, $4.20 CPC, 0.8% CVR, $200+ cost per backer
+- SOLUTION: Built email waitlist through quiz funnel. 2,400 subscribers in 30 days. 340 paid Early Bird deposits at $1.
+- Week 5-8: Ads to Lookalikes of Early Bird payers. CPC dropped from $4.20 to $0.80. CVR jumped to 4.2%.
+- RESULT: 1,847 backers on day one. $332,694 raised. $18 cost per backer. 11x ROAS on total ad spend.
+
+### Swimmo — $184,305 raised
+
+Apple Watch for competitive swimmers. Needed extremely precise audience simultaneously on Facebook, Google, email.
+
+- SOLUTION: Full campaign management on FB Ads and AdWords with parallel email strategy, growth hacking, social media throughout campaign.
+- RESULT: $184,305 raised, campaign exceeded its goal.
+
+### Chernobylite — $206,671 raised
+
+Survival horror game with open-world exploration and non-linear storyline. Funded on Kickstarter.
+
+### Gamedec — $171,163 raised
+
+Cyberpunk RPG set in 22nd century. Funded in just 36 hours on Kickstarter.
+
+### Sher.ly — $154,106 raised
+
+SaaS Security. Full market launch: branding, website, crowdfunding campaign & sales optimization.
+
+### Citywood — $121,279 raised
+
+Minimal laser-cut 3D wooden maps of cities. Design/Decor category.
+
+### PureShape — $27,075 raised
+
+Mousepad for Apple Magic Mouse. Desk accessory category.
+
+### NapoSpy — $7,248 raised
+
+Smart leather gloves with tracking, remote buzzer, touchscreen functionality.
+
+---
+
+## About (/en/about)
+
+JAY-23 is a growth marketing studio specializing in prelaunch strategies and building Minimum Viable Audiences.
+
+**Marek Ciesla — Founder & CEO**
+
+Marketing strategist with 10+ years experience building and launching digital and physical products. Worked with 50+ startups and founders. Creator of the MVA (Minimum Viable Audience) Framework — a 90-day methodology for building 1,000 true fans before the product hits the market. Oxford Brookes MBA. 20+ years experience. $600K+ raised. 98+ founders served. Creator of Product Launch 101 newsletter (2,108 subscribers).
+
+**Maciej Mikołajek — Technical Co-founder**
+
+Technical engine behind the MVA Framework. Ships production-ready MVPs in weeks. Builds landing pages, funnels & automation from scratch. AI tools, mobile apps, data platforms.
+
+**Company stats:** 50+ startup collaborations · 1,000+ founders on list · $1M+ raised in crowdfunding · 90 days to MVA
+
+---
+
+## FAQ (/en/faq)
+
+**What is a Minimum Viable Audience (MVA)?**
+
+MVA is the smallest group of people you need to build BEFORE launching your product. Instead of building first and hoping people show up, the MVA Framework flips the script: audience first, product second.
+
+**How does the MVA 90-day program work?**
+
+Three phases: Month 1 (Build) — persona mapping, landing page, quiz funnel, 7-mail sequence. Month 2 (Drive) — paid ads on Meta/TikTok/Google, community activation, weekly optimization. Month 3 (Launch) — Lookalike campaigns from paying subscribers, full launch campaign, final report + handover.
+
+**Why should I build an audience before launching?**
+
+The first 48 hours decide everything on Kickstarter — the algorithm promotes campaigns with a spike and punishes those that launch in silence. An engaged audience built over 90 days gives Meta the signal it needs to find your buyers at $12-25 instead of $180 per customer.
+
+**What results can I expect?**
+
+300+ qualified leads by end of month 3, 30+ paying Early Bird subscribers ($1 deposits), max 25 PLN cost per lead — guaranteed. If you don't hit 50 subscribers and first Early Bird payments by end of month 1, the program is extended for free.
+
+**How to build an email list before launch?**
+
+Set up a landing page with a lead magnet (free guide, calculator, template), promote through content on LinkedIn/Twitter, collect emails and nurture with email sequences. Tools: MailerLite, ConvertKit.
+
+---
+
+## Pricing
+
+**MVA Framework — Full Package:** $1,500/month ($6,000 total over 4 months + VAT)
+
+**Free Strategy Call:** 30 minutes, no commitment, no pitch
+
+---
 
 ## Contact
+
 - Website: https://jay23.com
 - Book a Call: https://jay23.com/book
 - 90-Day Process: https://jay23.com/process
+- FAQ: https://jay23.com/faq
+- About: https://jay23.com/about
 - Blog: https://jay23.com/blog
+- Company: Crowdfunding zone by JAY23 LLC
+- Address: 412 N. Main Street, STE 100, Buffalo, Wyoming 82834
+- Phone: +1 (628) 241-7366
