@@ -11,8 +11,9 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { mode, postIds } = await req.json();
+    const { mode, postIds, skipIndexNow } = await req.json();
     // mode: "translate" | "expand" | "both"
+    // skipIndexNow: optional boolean — disables IndexNow ping after updates
 
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL")!,
@@ -181,7 +182,44 @@ Return a JSON object with these fields:
       await new Promise(r => setTimeout(r, 2000));
     }
 
-    return new Response(JSON.stringify({ results }), {
+    // Notify IndexNow (Bing/Yandex) about new/updated EN blog URLs.
+    // The blog-optimizer writes to the EN `blog_posts` table, so we ping /en/blog/<slug>.
+    let indexnow: any = { skipped: true };
+    if (!skipIndexNow) {
+      const successUrls = results
+        .filter((r) => r.status === "success" && r.newSlug)
+        .map((r) => `https://jay23.com/en/blog/${r.newSlug}`);
+
+      if (successUrls.length > 0) {
+        try {
+          const pingRes = await fetch(
+            `${Deno.env.get("SUPABASE_URL")}/functions/v1/indexnow-ping`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
+              },
+              body: JSON.stringify({ urls: successUrls }),
+            },
+          );
+          indexnow = {
+            skipped: false,
+            submitted: successUrls.length,
+            status: pingRes.status,
+            body: await pingRes.json().catch(() => null),
+          };
+          console.log(`[blog-optimizer] IndexNow pinged ${successUrls.length} url(s) → ${pingRes.status}`);
+        } catch (pingErr) {
+          console.error("[blog-optimizer] IndexNow ping failed:", pingErr);
+          indexnow = { skipped: false, error: pingErr instanceof Error ? pingErr.message : String(pingErr) };
+        }
+      } else {
+        indexnow = { skipped: true, reason: "no successful updates" };
+      }
+    }
+
+    return new Response(JSON.stringify({ results, indexnow }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
