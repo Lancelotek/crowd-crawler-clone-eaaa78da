@@ -67,7 +67,9 @@ Disallow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://jay23.com/sitemap.xml
+Sitemap: https://jay23.com/sitemap_index.xml
+Sitemap: https://jay23.com/sitemap-en.xml
+Sitemap: https://jay23.com/sitemap-pl.xml
 
 # AI knowledge base
 # https://jay23.com/llms.txt
