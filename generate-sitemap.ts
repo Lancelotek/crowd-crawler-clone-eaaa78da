@@ -26,7 +26,9 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
-const staticPages = [
+type Page = { loc: string; changefreq: string; priority: string };
+
+const enStaticPages: Page[] = [
   { loc: "/en", changefreq: "weekly", priority: "1.0" },
   { loc: "/en/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/en/book", changefreq: "monthly", priority: "0.7" },
@@ -36,6 +38,9 @@ const staticPages = [
   { loc: "/en/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { loc: "/en/terms-of-service", changefreq: "yearly", priority: "0.3" },
   { loc: "/en/impressum", changefreq: "yearly", priority: "0.3" },
+];
+
+const plStaticPages: Page[] = [
   { loc: "/pl", changefreq: "weekly", priority: "1.0" },
   { loc: "/pl/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/pl/book", changefreq: "monthly", priority: "0.7" },
@@ -48,6 +53,23 @@ const staticPages = [
   { loc: "/pl/impressum", changefreq: "yearly", priority: "0.3" },
 ];
 
+function buildUrlset(entries: { loc: string; lastmod: string; changefreq: string; priority: string }[]): string {
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+  for (const e of entries) {
+    xml += `
+  <url>
+    <loc>${BASE_URL}${e.loc}</loc>
+    <lastmod>${e.lastmod}</lastmod>
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
+  </url>`;
+  }
+  xml += `
+</urlset>`;
+  return xml;
+}
+
 async function generateSitemap() {
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -58,54 +80,57 @@ async function generateSitemap() {
 
   const today = new Date().toISOString().split("T")[0];
 
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
+  // EN entries
+  const enEntries = [
+    ...enStaticPages.map((p) => ({ loc: p.loc, lastmod: today, changefreq: p.changefreq, priority: p.priority })),
+    ...((enPosts ?? [])
+      .filter((p) => !LEGACY_SLUGS.has(p.slug))
+      .map((p) => ({
+        loc: `/en/blog/${p.slug}`,
+        lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+        changefreq: "monthly",
+        priority: "0.6",
+      }))),
+  ];
 
-  for (const page of staticPages) {
-    xml += `
-  <url>
-    <loc>${BASE_URL}${page.loc}</loc>
+  // PL entries
+  const plEntries = [
+    ...plStaticPages.map((p) => ({ loc: p.loc, lastmod: today, changefreq: p.changefreq, priority: p.priority })),
+    ...((plPosts ?? []).map((p) => ({
+      loc: `/pl/blog/${p.slug}`,
+      lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+      changefreq: "monthly",
+      priority: "0.6",
+    }))),
+  ];
+
+  const enXml = buildUrlset(enEntries);
+  const plXml = buildUrlset(plEntries);
+
+  // Combined sitemap (kept for backward compatibility)
+  const combinedXml = buildUrlset([...enEntries, ...plEntries]);
+
+  // Sitemap index
+  const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${BASE_URL}/sitemap-en.xml</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>`;
-  }
+  </sitemap>
+  <sitemap>
+    <loc>${BASE_URL}/sitemap-pl.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+</sitemapindex>`;
 
-  if (enPosts) {
-    for (const post of enPosts) {
-      if (LEGACY_SLUGS.has(post.slug)) continue;
-      const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
-      xml += `
-  <url>
-    <loc>${BASE_URL}/en/blog/${post.slug}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>`;
-    }
-  }
+  writeFileSync("dist/sitemap-en.xml", enXml);
+  writeFileSync("dist/sitemap-pl.xml", plXml);
+  writeFileSync("dist/sitemap_index.xml", indexXml);
+  writeFileSync("dist/sitemap.xml", combinedXml);
 
-  if (plPosts) {
-    for (const post of plPosts) {
-      const lastmod = post.published_at ? post.published_at.split("T")[0] : today;
-      xml += `
-  <url>
-    <loc>${BASE_URL}/pl/blog/${post.slug}</loc>
-    <lastmod>${lastmod}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>`;
-    }
-  }
-
-  xml += `
-</urlset>`;
-
-  writeFileSync("dist/sitemap.xml", xml);
-  const filteredEn = enPosts?.filter(p => !LEGACY_SLUGS.has(p.slug)).length || 0;
-  const totalUrls = staticPages.length + filteredEn + (plPosts?.length || 0);
-  console.log(`✅ Sitemap generated with ${totalUrls} URLs (${LEGACY_SLUGS.size} legacy posts excluded)`);
+  console.log(
+    `✅ Sitemaps generated: sitemap_index.xml + sitemap-en.xml (${enEntries.length} URLs) + sitemap-pl.xml (${plEntries.length} URLs). Combined sitemap.xml kept for backward compatibility (${enEntries.length + plEntries.length} URLs).`
+  );
 }
 
 generateSitemap().catch(console.error);
