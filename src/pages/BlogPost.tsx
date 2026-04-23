@@ -50,6 +50,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<(Post & { counterpart_slug?: string | null }) | null>(null);
   const [loading, setLoading] = useState(true);
   const [hasCounterpart, setHasCounterpart] = useState(false);
+  const [related, setRelated] = useState<Pick<Post, "slug" | "title" | "excerpt" | "cover_image" | "category" | "read_time">[]>([]);
 
   const isLegacy = slug ? LEGACY_SLUGS.has(slug) : false;
 
@@ -64,6 +65,34 @@ const BlogPost = () => {
         .maybeSingle();
 
       if (!error && data) setPost(data as any);
+
+      // Fetch related: same category first, then fallback to most recent
+      if (data) {
+        const cat = (data as any).category;
+        let rel: any[] = [];
+        if (cat) {
+          const { data: sameCat } = await supabase
+            .from(table)
+            .select("slug, title, excerpt, cover_image, category, read_time")
+            .eq("category", cat)
+            .neq("slug", slug)
+            .order("published_at", { ascending: false })
+            .limit(3);
+          rel = sameCat || [];
+        }
+        if (rel.length < 3) {
+          const need = 3 - rel.length;
+          const haveSlugs = [slug, ...rel.map((r) => r.slug)];
+          const { data: fillers } = await supabase
+            .from(table)
+            .select("slug, title, excerpt, cover_image, category, read_time")
+            .not("slug", "in", `(${haveSlugs.map((s) => `"${s}"`).join(",")})`)
+            .order("published_at", { ascending: false })
+            .limit(need);
+          rel = [...rel, ...(fillers || [])];
+        }
+        setRelated(rel);
+      }
 
       // Check counterpart: first by counterpart_slug, then by same slug
       if (!isLegacy && data) {
