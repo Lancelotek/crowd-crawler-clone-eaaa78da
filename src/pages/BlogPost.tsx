@@ -252,6 +252,50 @@ const BlogPost = () => {
         </div>
       </article>
 
+      {/* Related Articles */}
+      {related.length > 0 && (
+        <section className="pb-16 px-6 border-t border-border pt-16">
+          <div className="container mx-auto max-w-[1200px]">
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-8">
+              {isPl ? "Powiazane artykuly" : "Related articles"}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  to={`${langPrefix}/blog/${r.slug}`}
+                  className="group block rounded-card border border-border bg-card overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
+                >
+                  {r.cover_image && (
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img
+                        src={r.cover_image}
+                        alt={r.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      {r.category && (
+                        <span className="text-xs font-semibold text-primary">{r.category}</span>
+                      )}
+                      {r.read_time && (
+                        <span className="text-xs text-muted-foreground">{r.read_time}</span>
+                      )}
+                    </div>
+                    <h3 className="font-display text-lg font-bold leading-snug group-hover:text-primary transition-colors">
+                      {r.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Bottom CTA */}
       <section className="pb-16 px-6">
         <div className="container mx-auto max-w-[800px]">
