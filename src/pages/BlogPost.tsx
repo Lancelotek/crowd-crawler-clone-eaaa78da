@@ -50,6 +50,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<(Post & { counterpart_slug?: string | null }) | null>(null);
   const [loading, setLoading] = useState(true);
   const [hasCounterpart, setHasCounterpart] = useState(false);
+  const [related, setRelated] = useState<Pick<Post, "slug" | "title" | "excerpt" | "cover_image" | "category" | "read_time">[]>([]);
 
   const isLegacy = slug ? LEGACY_SLUGS.has(slug) : false;
 
@@ -64,6 +65,34 @@ const BlogPost = () => {
         .maybeSingle();
 
       if (!error && data) setPost(data as any);
+
+      // Fetch related: same category first, then fallback to most recent
+      if (data) {
+        const cat = (data as any).category;
+        let rel: any[] = [];
+        if (cat) {
+          const { data: sameCat } = await supabase
+            .from(table)
+            .select("slug, title, excerpt, cover_image, category, read_time")
+            .eq("category", cat)
+            .neq("slug", slug)
+            .order("published_at", { ascending: false })
+            .limit(3);
+          rel = sameCat || [];
+        }
+        if (rel.length < 3) {
+          const need = 3 - rel.length;
+          const haveSlugs = [slug, ...rel.map((r) => r.slug)];
+          const { data: fillers } = await supabase
+            .from(table)
+            .select("slug, title, excerpt, cover_image, category, read_time")
+            .not("slug", "in", `(${haveSlugs.map((s) => `"${s}"`).join(",")})`)
+            .order("published_at", { ascending: false })
+            .limit(need);
+          rel = [...rel, ...(fillers || [])];
+        }
+        setRelated(rel);
+      }
 
       // Check counterpart: first by counterpart_slug, then by same slug
       if (!isLegacy && data) {
@@ -222,6 +251,50 @@ const BlogPost = () => {
           </motion.div>
         </div>
       </article>
+
+      {/* Related Articles */}
+      {related.length > 0 && (
+        <section className="pb-16 px-6 border-t border-border pt-16">
+          <div className="container mx-auto max-w-[1200px]">
+            <h2 className="font-display text-2xl md:text-3xl font-bold mb-8">
+              {isPl ? "Powiazane artykuly" : "Related articles"}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  to={`${langPrefix}/blog/${r.slug}`}
+                  className="group block rounded-card border border-border bg-card overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all"
+                >
+                  {r.cover_image && (
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img
+                        src={r.cover_image}
+                        alt={r.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      {r.category && (
+                        <span className="text-xs font-semibold text-primary">{r.category}</span>
+                      )}
+                      {r.read_time && (
+                        <span className="text-xs text-muted-foreground">{r.read_time}</span>
+                      )}
+                    </div>
+                    <h3 className="font-display text-lg font-bold leading-snug group-hover:text-primary transition-colors">
+                      {r.title}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Bottom CTA */}
       <section className="pb-16 px-6">
