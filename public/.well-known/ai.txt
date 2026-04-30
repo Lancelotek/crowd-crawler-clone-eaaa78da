@@ -1,0 +1,13 @@
+# JAY-23 AI Crawler Policy
+# Updated: 2026-04-30
+
+User-Agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /leads
+
+Contact: hello@jay23.com
+Policy: https://jay23.com/en/privacy-policy
+Knowledge-Base: https://jay23.com/llms-full.txt
+Sitemap: https://jay23.com/sitemap_index.xml
