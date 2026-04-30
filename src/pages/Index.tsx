@@ -107,6 +107,81 @@ const Index = () => {
             "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", ".speakable"] },
             "url": `https://jay23.com/${lang}`,
           },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "inLanguage": lang,
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": lang === "pl" ? "Czym jest MVA Framework?" : "What is the MVA Framework?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": lang === "pl"
+                    ? "MVA to Minimum Viable Audience — zainspirowane koncepcją 1000 prawdziwych fanów Kevina Kelly'ego. To 90-dniowy program budowania odbiorców przed produktem."
+                    : "MVA stands for Minimum Viable Audience — inspired by Kevin Kelly's 1,000 True Fans concept. It's a 90-day structured program to build your audience before your product.",
+                },
+              },
+              {
+                "@type": "Question",
+                "name": lang === "pl" ? "Dla kogo jest ten program?" : "Who is this for?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": lang === "pl"
+                    ? "Founderzy na wczesnym etapie (25–45 lat) przygotowujący launch produktu, budujący odbiorców od zera lub szukający systematycznego frameworka do walidacji pomysłów."
+                    : "Early-stage founders (25–45) preparing a product launch, building initial audiences from scratch, or seeking a systematic framework to validate ideas through community engagement.",
+                },
+              },
+              {
+                "@type": "Question",
+                "name": lang === "pl" ? "Ile to kosztuje?" : "How much does it cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": lang === "pl"
+                    ? "MVA Framework to 6 000 PLN netto miesięcznie (24 000 PLN łącznie za 4 miesiące) + VAT. Bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły."
+                    : "The MVA Framework is $1,500/month for 4 months ($6,000 total) + VAT. No hidden costs. Book a free strategy call to discuss details.",
+                },
+              },
+              {
+                "@type": "Question",
+                "name": lang === "pl" ? "Co jeśli mam już produkt?" : "What if I already have a product?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": lang === "pl"
+                    ? "Framework działa zarówno dla founderów przed, jak i po launchu, którzy muszą zbudować lub ożywić swoją publiczność."
+                    : "The framework works for pre-launch AND post-launch founders who need to build or re-energize their audience.",
+                },
+              },
+              {
+                "@type": "Question",
+                "name": lang === "pl" ? "Czym to się różni od kursu marketingu?" : "How is this different from a marketing course?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": lang === "pl"
+                    ? "To nie kurs — to 90-dniowy praktyczny program z szablonami, narzędziami, coachingiem i prawdziwym launchem na końcu."
+                    : "It's not a course — it's a 90-day hands-on program with templates, tools, coaching calls, and a real launch at the end.",
+                },
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Offer",
+            "name": lang === "pl" ? "MVA Framework — 90-dniowy program" : "MVA Framework — 90-day program",
+            "url": `https://jay23.com/${lang}/packages`,
+            "price": lang === "pl" ? "6000" : "1500",
+            "priceCurrency": lang === "pl" ? "PLN" : "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": lang === "pl" ? "6000" : "1500",
+              "priceCurrency": lang === "pl" ? "PLN" : "USD",
+              "unitText": "MONTH",
+              "valueAddedTaxIncluded": false,
+            },
+            "eligibleDuration": { "@type": "QuantitativeValue", "value": 4, "unitCode": "MON" },
+            "availability": "https://schema.org/InStock",
+            "category": "Pre-launch marketing service",
+          },
         ]}
       />
       <header>
