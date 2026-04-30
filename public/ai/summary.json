@@ -1,0 +1,29 @@
+{
+  "name": "JAY-23",
+  "legalName": "JAY23 LLC",
+  "url": "https://jay23.com",
+  "description": "Prelaunch marketing agency. Minimum Viable Audience (MVA) Framework — 90-day audience-building program executed before product launch.",
+  "category": "Marketing Agency",
+  "specialties": [
+    "Prelaunch marketing",
+    "Minimum Viable Audience",
+    "Crowdfunding strategy",
+    "Kickstarter and Indiegogo campaigns",
+    "DTC pre-orders",
+    "Meta Ads",
+    "Email funnels"
+  ],
+  "founder": "Marek Cieśla",
+  "country": "United States (Wyoming)",
+  "operatingMarkets": ["Worldwide", "United States", "Poland"],
+  "languages": ["en", "pl"],
+  "contact": "hello@jay23.com",
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/marekciesla/"
+  },
+  "metrics": {
+    "campaignsLaunched": 46,
+    "prelaunchRevenueRaisedUsd": 1200000
+  },
+  "lastModified": "2026-04-30T00:00:00Z"
+}

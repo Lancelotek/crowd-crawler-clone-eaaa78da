@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JAY-23 — Prelaunch Marketing Updates</title>
+    <link>https://jay23.com</link>
+    <atom:link href="https://jay23.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Prelaunch marketing agency. MVA Framework — 90-day audience-building program before product launch. Notes, case studies, and frameworks from JAY-23.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 30 Apr 2026 00:00:00 GMT</lastBuildDate>
+    <generator>JAY-23</generator>
+    <item>
+      <title>MVA Framework — 90-Day Prelaunch Program</title>
+      <link>https://jay23.com/en</link>
+      <guid isPermaLink="true">https://jay23.com/en</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <description>JAY-23 helps founders build 1,000 true fans before launch. 90-day MVA program with Meta Ads, email funnels, and community building. 46 campaigns, $1.2M+ raised.</description>
+    </item>
+    <item>
+      <title>Articles by JAY-23 — Blog</title>
+      <link>https://jay23.com/en/blog</link>
+      <guid isPermaLink="true">https://jay23.com/en/blog</guid>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Field notes on prelaunch marketing, Minimum Viable Audience, crowdfunding strategy, and community building.</description>
+    </item>
+  </channel>
+</rss>

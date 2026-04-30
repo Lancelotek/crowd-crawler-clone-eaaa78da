@@ -1,0 +1,41 @@
+{
+  "service": "MVA Framework — 90-day prelaunch program",
+  "provider": "JAY-23",
+  "url": "https://jay23.com",
+  "duration": "90 days",
+  "phases": ["Discover", "Build", "Launch"],
+  "pricing": [
+    {
+      "market": "English / International",
+      "amount": 1500,
+      "currency": "USD",
+      "billing": "monthly",
+      "vat": "excluded"
+    },
+    {
+      "market": "Poland",
+      "amount": 6000,
+      "currency": "PLN",
+      "billing": "monthly",
+      "vat": "excluded"
+    }
+  ],
+  "deliverables": [
+    "Audience research and persona definition",
+    "Content strategy and editorial calendar",
+    "Community building (private group + email list)",
+    "Direct-response paid campaigns on Meta and Google",
+    "Pre-order or crowdfunding launch sequence"
+  ],
+  "channels": ["Meta Ads", "Google Ads", "Email", "Organic content"],
+  "outcomes": [
+    "Engaged audience of 1,000-10,000+ before launch",
+    "Email list with proven demand",
+    "Pre-launch revenue or pledged funds"
+  ],
+  "trackRecord": {
+    "campaignsLaunched": 46,
+    "prelaunchRevenueRaisedUsd": 1200000
+  },
+  "lastModified": "2026-04-30T00:00:00Z"
+}
