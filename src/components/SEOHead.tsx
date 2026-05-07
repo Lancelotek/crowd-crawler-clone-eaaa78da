@@ -58,7 +58,7 @@ const SEOHead = ({
   const selfUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const selfLang = lang || "en";
 
-  const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const jsonLdItems = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   return (
     <Helmet>
@@ -67,7 +67,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <meta
         name="robots"
-        content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+        content={isNoIndex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
       />
 
       <meta property="og:title" content={fullTitle} />
