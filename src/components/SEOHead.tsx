@@ -30,12 +30,16 @@ const SEOHead = ({
   type = "website",
   publishedAt,
   author,
-  noindex = false,
+  noIndex,
+  noindex,
   noHreflang = false,
+  schemaJson,
   jsonLd,
   lang,
   hreflangOverrides,
 }: SEOHeadProps) => {
+  const isNoIndex = noIndex ?? noindex ?? false;
+  const schema = schemaJson ?? jsonLd;
   const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
