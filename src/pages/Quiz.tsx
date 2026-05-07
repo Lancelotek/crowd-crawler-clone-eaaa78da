@@ -19,6 +19,8 @@ const Quiz = () => {
       <SEOHead
         title={isPolish ? "Kalkulator MVA – Oblicz swoje Minimum Viable Audience | JAY-23" : "MVA Calculator – Find Your Minimum Viable Audience | JAY-23"}
         description={isPolish ? "Sprawdź, jak dużą publiczność potrzebujesz zanim wystartujesz. Darmowy kalkulator MVA od JAY-23." : "Calculate exactly how many engaged followers you need before launching. Free MVA calculator by JAY-23."}
+        canonical={`/${lang}/quiz`}
+        lang={lang}
       />
       <MvaNavbar />
       <main className="pt-20">
