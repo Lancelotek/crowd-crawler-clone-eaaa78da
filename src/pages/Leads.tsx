@@ -407,7 +407,7 @@ export default function Leads() {
       {/* Header */}
       <header className="border-b border-[hsl(var(--dark-border))] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src={jay23Logo} alt="JAY-23" className="h-6 opacity-70" />
+          <img src={jay23Logo} alt="JAY-23" width={120} height={32} className="h-6 opacity-70" />
           <span className="text-white/60 text-sm font-mono">/ Lead Researcher</span>
           <a href="https://airtable.com/appOwc6kWVZuq167g/shrMmIpcwU1V3noqK" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" size="sm" className="bg-transparent border-[hsl(var(--dark-border))] text-white/60 hover:text-white hover:bg-white/5 gap-2">
