@@ -30,7 +30,7 @@ const LEGACY_SLUGS = new Set([
   "kuduare-offline-reflex-trainer-gamers-esports-kickstarter",
   "twistpod-the-ultimate-8-in-1-outdoor-station-redefining-adventure-gear-kickstarter",
   "no-scroll-journal---a-new-kickstarter-project-that-helps-you-reclaim-time-and-focus",
-  "top-meta-quest-2-accessories-for-2023",
+  
   "best-fire-extinguishers-of-2022-crowdfunding-zone",
   "reversible-zip-hoodies-as-one-of-the-best-multifunctional-clothes",
   "how-smart-is-a-smart-jacket",
@@ -168,7 +168,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={post.title}
+        title={post.title.length > 50 ? post.title : `${post.title} | JAY-23`}
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={absoluteImage}
