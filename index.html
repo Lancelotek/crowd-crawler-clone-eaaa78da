@@ -1,24 +1,25 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TQGLDXJL');</script>
+    <!-- Google Tag Manager (deferred until after load to protect LCP/TBT) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function loadGtm(){var f=document.getElementsByTagName('script')[0],j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-TQGLDXJL';f.parentNode.insertBefore(j,f);dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});}
+      if(document.readyState==='complete'){setTimeout(loadGtm,1500);}else{window.addEventListener('load',function(){setTimeout(loadGtm,1500);});}
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="icon" href="/favicon.png" type="image/png" sizes="any">
     <link rel="apple-touch-icon" href="/favicon.png">
     <!-- Static defaults for non-JS crawlers; SEOHead (react-helmet-async) overrides per-page in the browser -->
     <title>JAY-23 — Crowdfunding Prelaunch Marketing Agency | MVA Framework</title>
     <meta name="description" content="JAY-23 is a founder-led prelaunch marketing agency. The 90-day MVA Framework helps crowdfunding creators reach 1,000 true fans before launch. 46 campaigns, $1.2M+ raised.">
     <link rel="canonical" href="https://jay23.com/">
-    <link rel="alternate" hreflang="en" href="https://jay23.com/en">
-    <link rel="alternate" hreflang="pl" href="https://jay23.com/pl">
-    <link rel="alternate" hreflang="x-default" href="https://jay23.com/en">
+    <!-- hreflang is emitted per-route by SEOHead (react-helmet-async); not declared statically to avoid mismatch with /en and /pl canonicals -->
     <meta property="og:title" content="JAY-23 — Crowdfunding Prelaunch Marketing Agency">
     <meta property="og:description" content="The 90-day MVA Framework helps crowdfunding founders build 1,000 true fans before launch.">
     <meta property="og:image" content="https://jay23.com/og-default.jpg">
@@ -28,14 +29,13 @@
     <meta name="twitter:title" content="JAY-23 — Crowdfunding Prelaunch Marketing Agency">
     <meta name="twitter:description" content="The 90-day MVA Framework helps crowdfunding founders build 1,000 true fans before launch.">
     <meta name="twitter:image" content="https://jay23.com/og-default.jpg">
-    <!-- Google tag (gtag.js) — single load for GA4 + Google Ads -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTY7ZLKH38"></script>
+    <!-- Google tag (gtag.js) — deferred to protect LCP/TBT -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-HTY7ZLKH38');
-      gtag('config', 'AW-1030433666');
+      function loadGtag(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HTY7ZLKH38';document.head.appendChild(s);gtag('config','G-HTY7ZLKH38');gtag('config','AW-1030433666');}
+      if(document.readyState==='complete'){setTimeout(loadGtag,1500);}else{window.addEventListener('load',function(){setTimeout(loadGtag,1500);});}
     </script>
 
     <!-- Fonts -->
