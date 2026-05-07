@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
-import Index from "./pages/Index";
+const Index = lazy(() => import("./pages/Index"));
 import MailerLiteLoader from "./components/MailerLiteLoader";
 
 const BookCall = lazy(() => import("./pages/BookCall"));
