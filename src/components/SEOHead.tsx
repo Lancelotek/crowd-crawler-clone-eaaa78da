@@ -20,7 +20,7 @@ interface SEOHeadProps {
 }
 
 const BASE_URL = "https://jay23.com";
-const DEFAULT_OG = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c643dc2e-a0ce-4c0b-a6d0-862a393851b2/id-preview-ad86e95c--f7ebc2bd-7b48-4d18-bace-faa12c1a5096.lovable.app-1771157652360.png";
+const DEFAULT_OG = "https://jay23.com/og-default.jpg";
 
 const SEOHead = ({
   title,
