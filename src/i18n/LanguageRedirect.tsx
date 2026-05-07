@@ -21,16 +21,18 @@ export function LanguageRedirect() {
   const lang = detectLanguage();
   const path = location.pathname === "/" ? "" : location.pathname;
   const isRoot = location.pathname === "/";
+  const enTarget = `/en${path}`;
+  const plTarget = `/pl${path}`;
   return (
     <>
-      {isRoot && (
-        <SEOHead
-          title="Crowdfunding Prelaunch Marketing Agency | JAY-23"
-          description="JAY-23 helps founders build 1,000 true fans before launch. 90-day MVA program with Meta Ads, email funnels & community building. 46 campaigns, $1.2M+ raised."
-          canonical="/"
-          hreflangOverrides={{ en: "/en", pl: "/pl" }}
-        />
-      )}
+      <SEOHead
+        title={isRoot
+          ? "Crowdfunding Prelaunch Marketing Agency | JAY-23"
+          : "JAY-23 — MVA Framework"}
+        description="JAY-23 helps founders build 1,000 true fans before launch. 90-day MVA program with Meta Ads, email funnels & community building. 46 campaigns, $1.2M+ raised."
+        canonical={location.pathname}
+        hreflangOverrides={{ en: enTarget, pl: plTarget }}
+      />
       <Navigate to={`/${lang}${path}`} replace />
     </>
   );

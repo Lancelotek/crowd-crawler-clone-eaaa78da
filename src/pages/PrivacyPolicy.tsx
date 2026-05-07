@@ -99,6 +99,18 @@ const PrivacyPolicy = () => {
           <p>If you are a user in the EU, our processing of your personal information must be in accordance with the EU General Data Protection Regulation (GDPR). Under the GDPR, you have additional rights including the right to request explanation, receive a copy, request deletion, object to processing, and request access in a machine-readable format.</p>
 
           <p className="mt-8 text-xs font-semibold uppercase">BY USING OUR SERVICES, YOU SIGNIFY YOUR ACCEPTANCE OF THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THIS PRIVACY POLICY, YOU SHOULD NOT USE OUR SERVICES.</p>
+
+          <h2>Related</h2>
+          <ul>
+            <li><Link to={`${langPrefix}/terms-of-service`}>Terms of Service</Link></li>
+            <li><Link to={`${langPrefix}/impressum`}>Impressum / Legal Notice</Link></li>
+            <li><Link to={`${langPrefix}/about`}>About JAY-23</Link></li>
+            <li><Link to={`${langPrefix}/faq`}>Frequently Asked Questions</Link></li>
+            <li><Link to={`${langPrefix}/packages`}>MVA Packages & Pricing</Link></li>
+            <li><Link to={`${langPrefix}/book`}>Book a Strategy Call</Link></li>
+            <li><Link to={`${langPrefix}/blog`}>Articles by JAY-23</Link></li>
+            <li><Link to={langPrefix || "/en"}>Home</Link></li>
+          </ul>
         </div>
       </div>
     </div>
