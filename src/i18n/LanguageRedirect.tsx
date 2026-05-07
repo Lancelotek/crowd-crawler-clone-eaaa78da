@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 import type { Lang } from "./translations";
 
 function detectLanguage(): Lang {
@@ -19,7 +20,20 @@ export function LanguageRedirect() {
   const location = useLocation();
   const lang = detectLanguage();
   const path = location.pathname === "/" ? "" : location.pathname;
-  return <Navigate to={`/${lang}${path}`} replace />;
+  const isRoot = location.pathname === "/";
+  return (
+    <>
+      {isRoot && (
+        <SEOHead
+          title="Crowdfunding Prelaunch Marketing Agency | JAY-23"
+          description="JAY-23 helps founders build 1,000 true fans before launch. 90-day MVA program with Meta Ads, email funnels & community building. 46 campaigns, $1.2M+ raised."
+          canonical="/"
+          hreflangOverrides={{ en: "/en", pl: "/pl" }}
+        />
+      )}
+      <Navigate to={`/${lang}${path}`} replace />
+    </>
+  );
 }
 
 /** Store language preference when user explicitly switches */

@@ -33,11 +33,11 @@ const Index = () => {
 
   const seo = {
     en: {
-      title: "Prelaunch Marketing Agency for Kickstarter & Crowdfunding | JAY-23",
+      title: "Crowdfunding Prelaunch Marketing Agency | JAY-23",
       description: "JAY-23 helps founders build 1,000 true fans before launch. 90-day MVA program with Meta Ads, email funnels & community building. 46 campaigns, $1.2M+ raised.",
     },
     pl: {
-      title: "Agencja marketingu prelaunch dla Kickstarter i crowdfundingu | JAY-23",
+      title: "Marketing prelaunch dla crowdfundingu | JAY-23",
       description: "JAY-23 pomaga founderom zbudować 1000 prawdziwych fanów przed premierą. 90-dniowy program MVA z Meta Ads, lejkami email i budowaniem społeczności. 46 kampanii, $1.2M+ zebranych.",
     },
   };
