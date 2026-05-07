@@ -8,8 +8,12 @@ interface SEOHeadProps {
   type?: "website" | "article";
   publishedAt?: string;
   author?: string;
+  /** Prefer `noIndex`. `noindex` kept for backward compatibility. */
+  noIndex?: boolean;
   noindex?: boolean;
   noHreflang?: boolean;
+  /** Prefer `schemaJson`. `jsonLd` kept for backward compatibility. */
+  schemaJson?: Record<string, unknown> | Record<string, unknown>[];
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   lang?: string;
   hreflangOverrides?: { en: string; pl: string };
@@ -26,12 +30,16 @@ const SEOHead = ({
   type = "website",
   publishedAt,
   author,
-  noindex = false,
+  noIndex,
+  noindex,
   noHreflang = false,
+  schemaJson,
   jsonLd,
   lang,
   hreflangOverrides,
 }: SEOHeadProps) => {
+  const isNoIndex = noIndex ?? noindex ?? false;
+  const schema = schemaJson ?? jsonLd;
   const fullTitle = title.includes("MVA") || title.includes("JAY-23") ? title : `${title} | MVA Framework by JAY-23`;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
@@ -50,7 +58,7 @@ const SEOHead = ({
   const selfUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
   const selfLang = lang || "en";
 
-  const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+  const jsonLdItems = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
   return (
     <Helmet>
@@ -59,7 +67,7 @@ const SEOHead = ({
       <meta name="description" content={description} />
       <meta
         name="robots"
-        content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+        content={isNoIndex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
       />
 
       <meta property="og:title" content={fullTitle} />

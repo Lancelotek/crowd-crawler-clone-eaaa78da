@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import jay23Logo from "@/assets/jay23-logo.png";
+import SEOHead from "@/components/SEOHead";
 
 
 
@@ -398,6 +399,11 @@ export default function Leads() {
   // ─── Main UI ─────────────────────────────────────────
   return (
     <div className="min-h-screen bg-[hsl(var(--dark-bg))] text-white">
+      <SEOHead
+        title="Lead Researcher — JAY-23"
+        description="Internal lead research and outreach tool for JAY-23."
+        noIndex
+      />
       {/* Header */}
       <header className="border-b border-[hsl(var(--dark-border))] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
