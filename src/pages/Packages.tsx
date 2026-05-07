@@ -317,7 +317,7 @@ const Packages = () => {
           ? "Zbuduj 1 600 kupujących zanim startujesz. Wybierz pakiet MVA Framework i zacznij budować publiczność przed launchem."
           : "Build 1,600 buyers before you launch. Choose your MVA Framework package and start building your audience before launch day."
         }
-        canonical={isPl ? "https://jay23.com/pl/packages" : "https://jay23.com/en/packages"}
+        canonical={isPl ? "/pl/packages" : "/en/packages"}
         lang={isPl ? "pl" : "en"}
       />
       <MvaNavbar />
