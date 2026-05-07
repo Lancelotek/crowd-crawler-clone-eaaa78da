@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import jay23Logo from "@/assets/jay23-logo.png";
+import SEOHead from "@/components/SEOHead";
 
 
 
