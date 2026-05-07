@@ -30,7 +30,7 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-6 h-[68px] flex items-center justify-between">
-          <img src={logo} alt="JAY-23" className="h-14 w-auto object-contain" />
+          <img src={logo} alt="JAY-23" width={120} height={56} className="h-14 w-auto object-contain" />
 
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (

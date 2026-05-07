@@ -84,7 +84,7 @@ const Blog = () => {
                   <Link to={`${langPrefix}/blog/${post.slug}`} className="group block rounded-card border border-border bg-card overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all">
                     {post.cover_image && (
                       <div className="aspect-[16/10] overflow-hidden">
-                        <img src={post.cover_image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                        <img src={post.cover_image} alt={post.title} width={1200} height={675} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                       </div>
                     )}
                     <div className="p-5">
