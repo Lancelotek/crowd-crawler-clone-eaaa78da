@@ -8,8 +8,12 @@ interface SEOHeadProps {
   type?: "website" | "article";
   publishedAt?: string;
   author?: string;
+  /** Prefer `noIndex`. `noindex` kept for backward compatibility. */
+  noIndex?: boolean;
   noindex?: boolean;
   noHreflang?: boolean;
+  /** Prefer `schemaJson`. `jsonLd` kept for backward compatibility. */
+  schemaJson?: Record<string, unknown> | Record<string, unknown>[];
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   lang?: string;
   hreflangOverrides?: { en: string; pl: string };
