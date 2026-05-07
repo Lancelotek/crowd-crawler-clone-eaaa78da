@@ -168,7 +168,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={post.title}
+        title={post.title.length > 50 ? post.title : `${post.title} | JAY-23`}
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={absoluteImage}
