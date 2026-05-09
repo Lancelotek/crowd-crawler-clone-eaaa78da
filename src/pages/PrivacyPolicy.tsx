@@ -12,8 +12,8 @@ const PrivacyPolicy = () => {
           ? "Polityka prywatności — jak chronimy Twoje dane | JAY-23"
           : "Privacy Policy — How JAY-23 Protects Your Data (GDPR & CCPA)"}
         description={lang === "pl"
-          ? "Polityka prywatności JAY23 LLC: jakie dane zbieramy w formularzach, ciasteczkach i mailingach, na jakiej podstawie prawnej, jak długo je przechowujemy oraz jak skorzystać z praw RODO."
-          : "Full JAY23 LLC privacy policy: data we collect via forms, cookies and email, our lawful bases under GDPR, retention periods, third-party processors, and how to exercise your CCPA/GDPR rights."}
+          ? "Polityka prywatności JAY23 LLC: jakie dane zbieramy, na jakiej podstawie RODO, jak długo je przechowujemy i jak skorzystać z praw użytkownika."
+          : "JAY23 LLC privacy policy: data we collect via forms, cookies and email, GDPR lawful bases, retention periods, and how to exercise GDPR/CCPA rights."}
         canonical={`${langPrefix}/privacy-policy`}
         lang={lang}
       />
