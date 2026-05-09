@@ -78,6 +78,7 @@ const SEOHead = ({
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content="JAY-23 — MVA Framework" />
       <meta property="og:locale" content={lang === "pl" ? "pl_PL" : "en_US"} />
+      <meta property="og:locale:alternate" content={lang === "pl" ? "en_US" : "pl_PL"} />
       <meta property="og:url" content={canonicalUrl || BASE_URL} />
 
       <meta name="twitter:card" content="summary_large_image" />
