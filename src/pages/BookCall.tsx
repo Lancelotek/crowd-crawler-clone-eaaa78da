@@ -367,6 +367,21 @@ const BookCall = () => {
 
           {/* ── Ticker ── */}
           <Ticker lang={lang} />
+
+          {/* ── Related links (SEO/internal linking) ── */}
+          <nav aria-label="Related pages" className="mt-12 pt-6 border-t border-border/50">
+            <p className="text-[11px] uppercase tracking-widest text-muted-foreground/60 mb-3">
+              {lang === "pl" ? "Zobacz też" : "Explore more"}
+            </p>
+            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <li><Link to={`${langPrefix}/packages`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Pakiety i ceny" : "Packages & Pricing"}</Link></li>
+              <li><Link to={`${langPrefix}/process`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Nasz proces" : "The 90-Day Process"}</Link></li>
+              <li><Link to={`${langPrefix}/quiz`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Kalkulator MVA" : "MVA Calculator"}</Link></li>
+              <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "O JAY-23" : "About JAY-23"}</Link></li>
+              <li><Link to={`${langPrefix}/faq`} className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
+              <li><Link to={`${langPrefix}/blog`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Blog" : "Articles"}</Link></li>
+            </ul>
+          </nav>
         </div>
       </div>
 

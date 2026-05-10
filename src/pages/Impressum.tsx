@@ -29,6 +29,18 @@ const Impressum = () => {
 
           <p>JAY23 LLC is legally represented by the Board of Management (Kenneth Graham).</p>
           <p>Registered court: Buffalo, EIN Number 86–2209145</p>
+
+          <h2 className="font-display text-xl font-bold mt-10 mb-3">Related</h2>
+          <ul>
+            <li><Link to={`${langPrefix}/privacy-policy`}>Privacy Policy</Link></li>
+            <li><Link to={`${langPrefix}/terms-of-service`}>Terms of Service</Link></li>
+            <li><Link to={`${langPrefix}/about`}>About JAY-23</Link></li>
+            <li><Link to={`${langPrefix}/packages`}>MVA Packages & Pricing</Link></li>
+            <li><Link to={`${langPrefix}/book`}>Book a Strategy Call</Link></li>
+            <li><Link to={`${langPrefix}/faq`}>Frequently Asked Questions</Link></li>
+            <li><Link to={`${langPrefix}/blog`}>Articles by JAY-23</Link></li>
+            <li><Link to={langPrefix || "/en"}>Home</Link></li>
+          </ul>
         </div>
       </div>
     </div>

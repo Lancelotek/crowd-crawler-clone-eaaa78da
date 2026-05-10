@@ -78,6 +78,18 @@ const TermsOfService = () => {
             <li>Phone: <a href="tel:+16282417366">+1 (628) 241-7366</a></li>
             <li>Email: <a href="mailto:crowdfunding_zone@jay23.com">crowdfunding_zone@jay23.com</a></li>
           </ul>
+
+          <h2>Related</h2>
+          <ul>
+            <li><Link to={`${langPrefix}/privacy-policy`}>Privacy Policy</Link></li>
+            <li><Link to={`${langPrefix}/impressum`}>Impressum / Legal Notice</Link></li>
+            <li><Link to={`${langPrefix}/about`}>About JAY-23</Link></li>
+            <li><Link to={`${langPrefix}/faq`}>Frequently Asked Questions</Link></li>
+            <li><Link to={`${langPrefix}/packages`}>MVA Packages & Pricing</Link></li>
+            <li><Link to={`${langPrefix}/book`}>Book a Strategy Call</Link></li>
+            <li><Link to={`${langPrefix}/blog`}>Articles by JAY-23</Link></li>
+            <li><Link to={langPrefix || "/en"}>Home</Link></li>
+          </ul>
         </div>
       </div>
     </div>
