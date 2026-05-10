@@ -99,8 +99,8 @@ export function LanguageRedirect() {
       <SEOHead
         title={seo.title}
         description={seo.description}
-        canonical={location.pathname}
-        hreflangOverrides={{ en: enTarget, pl: plTarget }}
+        canonical={enTarget || "/en"}
+        hreflangOverrides={{ en: enTarget || "/en", pl: plTarget || "/pl" }}
       />
       <Navigate to={`/${lang}${path}`} replace />
     </>
