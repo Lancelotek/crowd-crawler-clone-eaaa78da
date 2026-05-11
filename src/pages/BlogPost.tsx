@@ -34,6 +34,18 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
+/** Build SEO title kept within 60 chars, always brand-suffixed so SEOHead doesn't re-append. */
+function buildSeoTitle(title: string): string {
+  const suffix = " | JAY-23";
+  const max = 60;
+  if (title.length + suffix.length <= max) return `${title}${suffix}`;
+  const room = max - suffix.length - 1; // 1 for ellipsis
+  let cut = title.slice(0, room);
+  const lastSpace = cut.lastIndexOf(" ");
+  if (lastSpace > room - 15) cut = cut.slice(0, lastSpace);
+  return `${cut.replace(/[\s,;:–-]+$/, "")}…${suffix}`;
+}
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { lang, langPrefix } = useLanguage();
@@ -159,7 +171,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={post.title.length > 50 ? post.title : `${post.title} | JAY-23`}
+        title={buildSeoTitle(post.title)}
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={absoluteImage}
