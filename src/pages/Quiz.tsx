@@ -24,8 +24,12 @@ const Quiz = () => {
       />
       <MvaNavbar />
       <main className="pt-20">
-        <CalculatorSection />
-      </main>
+        <h1 className="sr-only">
+          {isPolish
+            ? "Kalkulator MVA – Oblicz swoje Minimum Viable Audience"
+            : "MVA Calculator – Find Your Minimum Viable Audience"}
+        </h1>
+        <CalculatorSection /></main>
       <FooterSection />
     </>
   );
