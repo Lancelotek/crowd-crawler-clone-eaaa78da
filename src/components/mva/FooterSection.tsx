@@ -40,7 +40,7 @@ const FooterSection = () => {
 
           {/* Resources */}
           <div>
-            <h4 className="font-display text-sm font-bold mb-4 tracking-wide">{t("footer", "resources")}</h4>
+            <h3 className="font-display text-sm font-bold mb-4 tracking-wide">{t("footer", "resources")}</h3>
             <ul className="space-y-2.5">
               <li><a href={`${langPrefix}/blog`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav", "blog")}</a></li>
               <li>
