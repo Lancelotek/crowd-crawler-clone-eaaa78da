@@ -176,7 +176,7 @@ const Process = () => {
                       <div className="flex flex-col gap-5">
                         {phase.steps.map((step, j) => (
                           <div key={j} className={`flex flex-col gap-1 ${j < phase.steps.length - 1 ? "pb-5 border-b border-border/30" : ""}`}>
-                            <div className="text-[15px] font-semibold text-foreground leading-snug">{step.title}</div>
+                            <h3 className="text-[15px] font-semibold text-foreground leading-snug">{step.title}</h3>
                             <div className="text-[13px] text-muted-foreground leading-relaxed">{step.desc}</div>
                             <OwnerBadge owner={step.owner} />
                           </div>
