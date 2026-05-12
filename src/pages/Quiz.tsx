@@ -29,7 +29,52 @@ const Quiz = () => {
             ? "Kalkulator MVA – Oblicz swoje Minimum Viable Audience"
             : "MVA Calculator – Find Your Minimum Viable Audience"}
         </h1>
-        <CalculatorSection /></main>
+        <CalculatorSection />
+
+        <section className="px-6 py-20 border-t border-border/40">
+          <div className="container mx-auto max-w-[760px] space-y-6 text-[15px] leading-relaxed text-muted-foreground">
+            {isPolish ? (
+              <>
+                <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                  Czym właściwie jest Minimum Viable Audience?
+                </h2>
+                <p>
+                  MVA to najmniejsza liczba zaangażowanych odbiorców, jakiej potrzebujesz, żeby premiera produktu zakończyła się sukcesem komercyjnym — nie wirusowym wybuchem, tylko realnym przychodem na koncie. Większość founderów strzela na ślepo: budują produkt miesiącami, a potem desperacko szukają klientów w tygodniu premiery. Framework MVA odwraca tę logikę. Najpierw liczba, potem strategia, potem premiera.
+                </p>
+                <p>
+                  Kalkulator powyżej bierze pod uwagę cztery zmienne, które realnie decydują o sukcesie kampanii: typ produktu (cyfrowy konwertuje inaczej niż fizyczny), docelowy przychód, średnią cenę i specyfikę niszy. Wynik nie jest życzeniem — to konkretny target, który możesz rozłożyć na działania w 90-dniowym programie: budowanie listy mailowej, content, społeczność i sekwencja prelaunch.
+                </p>
+                <h3 className="font-display text-xl font-bold text-foreground pt-4">Jak czytać swój wynik</h3>
+                <p>
+                  Jeśli kalkulator pokazuje 800–1500 osób, jesteś w przedziale klasycznego MVA dla produktu cyfrowego lub kampanii crowdfundingowej w średniej półce cenowej. Powyżej 3000 — celujesz w premiery hardware lub produktów premium, gdzie potrzebujesz większego buforu konwersji. Poniżej 500 — zwykle oznacza usługę 1:1 lub bardzo wąską niszę B2B, gdzie liczy się jakość kontaktów, nie skala listy.
+                </p>
+                <p>
+                  Po wyliczeniu MVA nie zostawiamy Cię z liczbą. Każdy wynik kończy się <a href="/pl/report" className="text-primary hover:underline">spersonalizowanym raportem</a> z analizą TAM, kanałów dystrybucji i 90-dniowym harmonogramem. Jeśli chcesz omówić wynik z człowiekiem — <a href="/pl/book" className="text-primary hover:underline">umów bezpłatną 30-minutową konsultację</a>. Po szerszy kontekst sięgnij do naszych <a href="/pl/blog" className="text-primary hover:underline">artykułów o prelaunch</a> lub zobacz, jak wygląda <a href="/pl/process" className="text-primary hover:underline">cały 90-dniowy proces</a>.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className="font-display text-3xl md:text-4xl font-extrabold tracking-tight text-foreground">
+                  What a Minimum Viable Audience actually is
+                </h2>
+                <p>
+                  Your MVA is the smallest number of engaged followers you need to make your launch commercially successful — not viral, just profitable. Most founders skip this number entirely. They build for months, then scramble for customers in launch week. The MVA Framework inverts that order: number first, strategy second, launch third.
+                </p>
+                <p>
+                  The calculator above weighs the four variables that actually move launch outcomes: product type (digital converts differently than physical), target revenue, average price point, and niche-specific dynamics. The output is not aspirational — it is a concrete target you can break down into 90 days of list building, content, community, and prelaunch sequencing.
+                </p>
+                <h3 className="font-display text-xl font-bold text-foreground pt-4">How to read your result</h3>
+                <p>
+                  If the calculator returns 800–1,500, you are in the classic MVA range for a digital product or a mid-tier crowdfunding campaign. Above 3,000 typically means hardware or premium products that need a larger conversion buffer. Below 500 usually points to a 1:1 service or a tight B2B niche where lead quality matters more than list size.
+                </p>
+                <p>
+                  Your number is the start, not the end. Pair it with the <a href="/en/process" className="text-primary hover:underline">90-day MVA process</a> to see how the program is sequenced week by week, browse <a href="/en/blog" className="text-primary hover:underline">tactical articles on prelaunch, waitlists, and community</a>, or read the <a href="/en/faq" className="text-primary hover:underline">frequently asked questions</a> to understand the framework end-to-end. When you are ready to put it into motion, <a href="/en/book" className="text-primary hover:underline">book a free 30-minute strategy call</a> and we will pressure-test your number against your category, channel mix, and timeline.
+                </p>
+              </>
+            )}
+          </div>
+        </section>
+      </main>
       <FooterSection />
     </>
   );

@@ -95,6 +95,42 @@ const FAQ = () => {
             {data.subtitle}
           </p>
 
+          <section className="mb-14 space-y-5 text-[15px] leading-relaxed text-muted-foreground border-l-2 border-primary/40 pl-6">
+            {lang === "en" ? (
+              <>
+                <h2 className="font-display text-2xl font-bold text-foreground">Why prelaunch marketing decides your launch</h2>
+                <p>
+                  Most founders treat marketing as something that happens after the product is ready. By then, it is already too late. The launch window is short, attention is expensive, and a cold audience converts at a fraction of a warm one. The <strong>Minimum Viable Audience (MVA) Framework</strong> exists to fix this by reversing the order: build a small, qualified audience first, then ship a product they already want.
+                </p>
+                <p>
+                  JAY-23 has run this playbook across 46+ launches on Kickstarter, Indiegogo, and direct-to-consumer channels, helping founders raise more than $1.2M in prelaunch revenue. The pattern is consistent. Campaigns that arrive on launch day with 1,000 true fans typically convert 3–4x better than equivalent products launched cold, regardless of category, price point, or paid budget.
+                </p>
+                <p>
+                  The questions below cover the framework itself, the 90-day program structure, pricing for both English and Polish markets, and the practical mechanics of building a list, a community, and a launch sequence that actually converts. If you are evaluating whether MVA is the right fit for your product, start with the calculator on our <a href="/en/quiz" className="text-primary hover:underline">MVA Calculator page</a>, then read through the answers below. For tactical deep-dives, the <a href="/en/blog" className="text-primary hover:underline">articles section</a> covers waitlist conversion, community building, and prelaunch analytics in detail.
+                </p>
+                <p>
+                  Still unsure where your project sits? The fastest path is a <a href="/en/book" className="text-primary hover:underline">30-minute strategy call</a> — no pitch, just a direct read on what your launch needs.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className="font-display text-2xl font-bold text-foreground">Dlaczego marketing prelaunch decyduje o premierze</h2>
+                <p>
+                  Większość founderów traktuje marketing jako coś, co dzieje się po skończeniu produktu. Wtedy jest już za późno. Okno premiery jest wąskie, uwaga jest droga, a zimna publiczność konwertuje w ułamku stawki ciepłej. <strong>Framework Minimum Viable Audience (MVA)</strong> odwraca tę kolejność: najpierw mała, jakościowa publiczność, potem produkt, którego ona już chce.
+                </p>
+                <p>
+                  JAY-23 przeprowadził ten schemat przez 46+ premier na Kickstarterze, Indiegogo i w kanałach DTC, pomagając founderom zebrać ponad $1.2M w przychodach prelaunch. Schemat jest powtarzalny. Kampanie, które na dzień premiery mają 1000 prawdziwych fanów, konwertują zwykle 3–4x lepiej niż produkty startujące na zimno — niezależnie od kategorii, ceny czy budżetu reklamowego.
+                </p>
+                <p>
+                  Poniższe pytania obejmują sam framework, strukturę 90-dniowego programu, ceny dla rynku anglojęzycznego i polskiego, oraz praktyczną mechanikę budowy listy, społeczności i sekwencji premiery. Jeśli zastanawiasz się, czy MVA pasuje do Twojego produktu, zacznij od <a href="/pl/quiz" className="text-primary hover:underline">kalkulatora MVA</a>, a potem przejrzyj odpowiedzi poniżej. Po taktyczne pogłębienia sięgnij do <a href="/pl/blog" className="text-primary hover:underline">sekcji artykułów</a>.
+                </p>
+                <p>
+                  Nadal nie masz pewności? Najszybsza droga to <a href="/pl/book" className="text-primary hover:underline">30-minutowa konsultacja</a> — bez sprzedaży, tylko konkretna ocena tego, czego potrzebuje Twoja premiera.
+                </p>
+              </>
+            )}
+          </section>
+
           <h2 className="sr-only">{lang === "en" ? "Questions and answers" : "Pytania i odpowiedzi"}</h2>
           <Accordion type="single" collapsible className="space-y-3">
             {data.items.map((item, i) => (
