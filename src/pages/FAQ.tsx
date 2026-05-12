@@ -95,6 +95,7 @@ const FAQ = () => {
             {data.subtitle}
           </p>
 
+          <h2 className="sr-only">{lang === "en" ? "Questions and answers" : "Pytania i odpowiedzi"}</h2>
           <Accordion type="single" collapsible className="space-y-3">
             {data.items.map((item, i) => (
               <AccordionItem

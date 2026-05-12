@@ -165,7 +165,7 @@ const Process = () => {
                   <div className="grid gap-x-5 md:gap-x-7" style={{ gridTemplateColumns: "72px 1px 1fr", paddingBottom: i < PHASES.length - 1 ? "56px" : "0" }}>
                     <div className="text-right pt-0.5">
                       <div className="text-[11px] font-bold tracking-[0.1em] uppercase mb-1.5" style={{ color: phase.theme }}>Phase {phase.number}</div>
-                      <div className="text-xl md:text-[22px] font-bold text-foreground leading-tight mb-1.5">{phase.label}</div>
+                      <h2 className="text-xl md:text-[22px] font-bold text-foreground leading-tight mb-1.5">{phase.label}</h2>
                       <div className="text-[11px] text-muted-foreground/50 leading-snug">{phase.sub}</div>
                     </div>
                     <div className="relative flex flex-col items-center">
@@ -176,7 +176,7 @@ const Process = () => {
                       <div className="flex flex-col gap-5">
                         {phase.steps.map((step, j) => (
                           <div key={j} className={`flex flex-col gap-1 ${j < phase.steps.length - 1 ? "pb-5 border-b border-border/30" : ""}`}>
-                            <div className="text-[15px] font-semibold text-foreground leading-snug">{step.title}</div>
+                            <h3 className="text-[15px] font-semibold text-foreground leading-snug">{step.title}</h3>
                             <div className="text-[13px] text-muted-foreground leading-relaxed">{step.desc}</div>
                             <OwnerBadge owner={step.owner} />
                           </div>
