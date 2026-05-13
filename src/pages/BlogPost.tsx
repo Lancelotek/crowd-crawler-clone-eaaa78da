@@ -165,9 +165,9 @@ const BlogPost = () => {
       }
     : undefined;
 
-  const absoluteImage = post.cover_image
-    ? post.cover_image.startsWith("http") ? post.cover_image : `https://jay23.com${post.cover_image.startsWith("/") ? "" : "/"}${post.cover_image}`
-    : undefined;
+  const extras = BLOG_EXTRAS[post.slug];
+  const heroAlt = extras?.heroAlt || post.excerpt || post.title;
+  const jsonLd = buildBlogJsonLd({ post, langPrefix, lang, absoluteImage, extras });
 
   return (
     <div className="min-h-screen bg-background">
@@ -183,19 +183,7 @@ const BlogPost = () => {
         noindex={isLegacy}
         noHreflang={isLegacy || !hasCounterpart}
         hreflangOverrides={hreflangOverrides}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "headline": post.title,
-          "description": post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`),
-          "image": absoluteImage,
-          "datePublished": post.published_at,
-          "dateModified": post.published_at,
-          "author": { "@type": "Person", "name": post.author || "Marek Cieśla", "url": "https://jay23.com" },
-          "publisher": { "@type": "Organization", "name": "JAY-23", "logo": { "@type": "ImageObject", "url": "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp" } },
-          "mainEntityOfPage": { "@type": "WebPage", "@id": `https://jay23.com${langPrefix}/blog/${post.slug}` },
-          "inLanguage": lang,
-        }}
+        jsonLd={jsonLd}
       />
       <MvaNavbar />
 
@@ -242,7 +230,7 @@ const BlogPost = () => {
               <div className="rounded-card overflow-hidden mb-12 -mx-4 md:-mx-10">
                 <img
                   src={post.cover_image}
-                  alt={post.title}
+                  alt={heroAlt}
                   className="w-full h-auto"
                 />
               </div>
@@ -252,6 +240,10 @@ const BlogPost = () => {
               className="blog-prose"
               dangerouslySetInnerHTML={{ __html: markdownToHtml(post.content) }}
             />
+
+            {extras?.faqs?.length ? <BlogFAQ faqs={extras.faqs} isPl={isPl} /> : null}
+
+            <AuthorBio isPl={isPl} langPrefix={langPrefix} />
           </motion.div>
         </div>
       </article>
