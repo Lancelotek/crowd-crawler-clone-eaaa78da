@@ -89,21 +89,30 @@ function getBareSeo(pathname: string): SeoMeta {
 /** Redirects bare paths (e.g. "/" or "/blog") to the language-prefixed version */
 export function LanguageRedirect() {
   const location = useLocation();
+  const navigate = useNavigate();
   const lang = detectLanguage();
   const path = location.pathname === "/" ? "" : location.pathname;
   const enTarget = `/en${path}`;
   const plTarget = `/pl${path}`;
   const seo = getBareSeo(location.pathname);
+
+  // Defer navigation to next tick so Helmet has a chance to inject canonical/hreflang
+  // tags into <head>. JS-executing crawlers will see the canonical pointing to /en
+  // before the client-side redirect fires, consolidating duplicate-content signals.
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      navigate(`/${lang}${path}`, { replace: true });
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [lang, path, navigate]);
+
   return (
-    <>
-      <SEOHead
-        title={seo.title}
-        description={seo.description}
-        canonical={enTarget || "/en"}
-        hreflangOverrides={{ en: enTarget || "/en", pl: plTarget || "/pl" }}
-      />
-      <Navigate to={`/${lang}${path}`} replace />
-    </>
+    <SEOHead
+      title={seo.title}
+      description={seo.description}
+      canonical={enTarget || "/en"}
+      hreflangOverrides={{ en: enTarget || "/en", pl: plTarget || "/pl" }}
+    />
   );
 }
 
