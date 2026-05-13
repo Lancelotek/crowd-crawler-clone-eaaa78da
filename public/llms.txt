@@ -1,6 +1,21 @@
 # JAY-23 - MVA Framework (Full Content)
 
-> Complete knowledge base for JAY-23 prelaunch marketing agency. Updated: 2026-04-19
+> Complete knowledge base for JAY-23 prelaunch marketing agency. Updated: 2026-05-13
+
+## Pages
+
+- [Homepage (EN)](https://jay23.com/en): MVA Framework — 1,000 true fans in 90 days.
+- [Homepage (PL)](https://jay23.com/pl): Marketing prelaunch dla crowdfundingu.
+- [About](https://jay23.com/en/about): Founder-led prelaunch agency, Marek Cieśla and team.
+- [90-Day Process](https://jay23.com/en/process): Discover, Build, Launch — how the MVA Framework runs.
+- [Packages & Pricing](https://jay23.com/en/packages): MVA program tiers and what's included.
+- [MVA Calculator](https://jay23.com/en/quiz): Free quiz that estimates your Minimum Viable Audience.
+- [FAQ](https://jay23.com/en/faq): Common questions about pricing, deliverables, and the program.
+- [Blog](https://jay23.com/en/blog): Articles on prelaunch, audience building, and crowdfunding.
+- [Book a Strategy Call](https://jay23.com/en/book): Free 30-minute prelaunch consultation.
+- [Privacy Policy](https://jay23.com/en/privacy-policy): How we handle your data (GDPR/CCPA).
+- [Terms of Service](https://jay23.com/en/terms-of-service): Terms for using JAY-23 services.
+- [Impressum](https://jay23.com/en/impressum): Legal notice for JAY23 LLC.
 
 ## Homepage (/en)
 
