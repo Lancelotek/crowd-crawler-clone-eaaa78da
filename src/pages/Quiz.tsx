@@ -44,6 +44,9 @@ const Quiz = () => {
                 <p>
                   Kalkulator powyżej bierze pod uwagę cztery zmienne, które realnie decydują o sukcesie kampanii: typ produktu (cyfrowy konwertuje inaczej niż fizyczny), docelowy przychód, średnią cenę i specyfikę niszy. Wynik nie jest życzeniem — to konkretny target, który możesz rozłożyć na działania w 90-dniowym programie: budowanie listy mailowej, content, społeczność i sekwencja prelaunch.
                 </p>
+                <p>
+                  Zbudowaliśmy to narzędzie po tym, jak obserwowaliśmy founderów zarabiających sześciocyfrowe kwoty w dniu premiery z listą poniżej 2000 osób, podczas gdy inni z 50 000 followersów mieli problem ze sprzedażą pięćdziesięciu sztuk. Różnica nigdy nie leżała w zasięgu. Leżała w gotowości.
+                </p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">Jak czytać swój wynik</h3>
                 <p>
                   Jeśli kalkulator pokazuje 800–1500 osób, jesteś w przedziale klasycznego MVA dla produktu cyfrowego lub kampanii crowdfundingowej w średniej półce cenowej. Powyżej 3000 — celujesz w premiery hardware lub produktów premium, gdzie potrzebujesz większego buforu konwersji. Poniżej 500 — zwykle oznacza usługę 1:1 lub bardzo wąską niszę B2B, gdzie liczy się jakość kontaktów, nie skala listy.
@@ -66,6 +69,9 @@ const Quiz = () => {
                 </p>
                 <p>
                   The calculator above weighs the four variables that actually move launch outcomes: product type (digital converts differently than physical), target revenue, average price point, and niche-specific dynamics. The output is not aspirational — it is a concrete target you can break down into 90 days of list building, content, community, and prelaunch sequencing.
+                </p>
+                <p>
+                  We built this tool after watching dozens of founders raise six figures on launch day with lists smaller than 2,000 people, while others with 50,000 social followers struggled to sell fifty units. The difference was never reach. It was readiness.
                 </p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">How to read your result</h3>
                 <p>
