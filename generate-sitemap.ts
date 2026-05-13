@@ -123,10 +123,12 @@ async function generateSitemap() {
   </sitemap>
 </sitemapindex>`;
 
-  writeFileSync("dist/sitemap-en.xml", enXml);
-  writeFileSync("dist/sitemap-pl.xml", plXml);
-  writeFileSync("dist/sitemap_index.xml", indexXml);
-  writeFileSync("dist/sitemap.xml", combinedXml);
+  // Write to public/ so the dev server and preview serve them at /sitemap*.xml,
+  // and Vite will copy them into dist/ at build time.
+  writeFileSync("public/sitemap-en.xml", enXml);
+  writeFileSync("public/sitemap-pl.xml", plXml);
+  writeFileSync("public/sitemap_index.xml", indexXml);
+  writeFileSync("public/sitemap.xml", combinedXml);
 
   console.log(
     `✅ Sitemaps generated: sitemap_index.xml + sitemap-en.xml (${enEntries.length} URLs) + sitemap-pl.xml (${plEntries.length} URLs). Combined sitemap.xml kept for backward compatibility (${enEntries.length + plEntries.length} URLs).`
