@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import type { Lang } from "./translations";
 
