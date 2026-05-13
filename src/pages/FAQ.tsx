@@ -108,6 +108,10 @@ const FAQ = () => {
                 <p>
                   The questions below cover the framework itself, the 90-day program structure, pricing for both English and Polish markets, and the practical mechanics of building a list, a community, and a launch sequence that actually converts. If you are evaluating whether MVA is the right fit for your product, start with the calculator on our <a href="/en/quiz" className="text-primary hover:underline">MVA Calculator page</a>, then read through the answers below. For tactical deep-dives, the <a href="/en/blog" className="text-primary hover:underline">articles section</a> covers waitlist conversion, community building, and prelaunch analytics in detail.
                 </p>
+                <h3 className="font-display text-xl font-bold text-foreground pt-2">Who the MVA Framework is built for</h3>
+                <p>
+                  MVA works best for founders launching physical products on Kickstarter or Indiegogo, digital creators selling courses or templates, and B2B service providers who want a repeatable acquisition system. It is not a growth hack or a shortcut. It is a disciplined, sequential approach that trades ego metrics for revenue metrics. If you are tired of building in silence and hoping launch week delivers, the framework gives you a number to hit and a 90-day path to hit it.
+                </p>
                 <p>
                   Still unsure where your project sits? The fastest path is a <a href="/en/book" className="text-primary hover:underline">30-minute strategy call</a> — no pitch, just a direct read on what your launch needs.
                 </p>
@@ -123,6 +127,10 @@ const FAQ = () => {
                 </p>
                 <p>
                   Poniższe pytania obejmują sam framework, strukturę 90-dniowego programu, ceny dla rynku anglojęzycznego i polskiego, oraz praktyczną mechanikę budowy listy, społeczności i sekwencji premiery. Jeśli zastanawiasz się, czy MVA pasuje do Twojego produktu, zacznij od <a href="/pl/quiz" className="text-primary hover:underline">kalkulatora MVA</a>, a potem przejrzyj odpowiedzi poniżej. Po taktyczne pogłębienia sięgnij do <a href="/pl/blog" className="text-primary hover:underline">sekcji artykułów</a>.
+                </p>
+                <h3 className="font-display text-xl font-bold text-foreground pt-2">Dla kogo jest framework MVA</h3>
+                <p>
+                  MVA sprawdza się najlepiej u founderów startujących z produktami fizycznymi na Kickstarterze lub Indiegogo, twórców cyfrowych sprzedających kursy czy szablony, oraz dostawców usług B2B, którzy chcą powtarzalny system pozyskiwania klientów. To nie jest growth hack ani skrót. To zdyscyplinowane, sekwencyjne podejście, które zamienia metryki egorystyczne na metryki przychodowe. Jeśli masz dość budowania w ciszy i liczenia na to, że tydzień premiery przyniesie odbiorców, framework daje Ci liczbę do osiągnięcia i 90-dniową ścieżkę, żeby ją zrealizować.
                 </p>
                 <p>
                   Nadal nie masz pewności? Najszybsza droga to <a href="/pl/book" className="text-primary hover:underline">30-minutowa konsultacja</a> — bez sprzedaży, tylko konkretna ocena tego, czego potrzebuje Twoja premiera.
