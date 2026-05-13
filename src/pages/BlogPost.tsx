@@ -165,6 +165,12 @@ const BlogPost = () => {
       }
     : undefined;
 
+  const absoluteImage = post.cover_image
+    ? post.cover_image.startsWith("http")
+      ? post.cover_image
+      : `https://jay23.com${post.cover_image.startsWith("/") ? "" : "/"}${post.cover_image}`
+    : undefined;
+
   const extras = BLOG_EXTRAS[post.slug];
   const heroAlt = extras?.heroAlt || post.excerpt || post.title;
   const jsonLd = buildBlogJsonLd({ post, langPrefix, lang, absoluteImage, extras });
