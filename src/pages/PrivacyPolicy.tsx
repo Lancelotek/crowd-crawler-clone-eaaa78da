@@ -14,7 +14,8 @@ const PrivacyPolicy = () => {
         description={lang === "pl"
           ? "Polityka prywatności JAY23 LLC: jakie dane zbieramy, na jakiej podstawie RODO, jak długo je przechowujemy i jak skorzystać z praw użytkownika."
           : "JAY23 LLC privacy policy: data we collect via forms, cookies and email, GDPR lawful bases, retention periods, and how to exercise GDPR/CCPA rights."}
-        canonical={`${langPrefix}/privacy-policy`}
+        canonical="/en/privacy-policy"
+        noHreflang
         lang={lang}
       />
       <div className="container mx-auto max-w-[800px] px-6 py-20">
