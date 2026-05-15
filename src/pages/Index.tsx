@@ -34,7 +34,7 @@ const Index = () => {
   const seo = {
     en: {
       title: "MVA Framework — 1,000 True Fans in 90 Days | JAY-23",
-      description: "The 90-day MVA Framework: Meta Ads, email funnels, quizzes and community activation that took 46 crowdfunding campaigns past $1.2M raised.",
+      description: "The 90-day MVA Framework helps crowdfunding founders build 1,000 true fans before launch using Meta Ads, email funnels, and community activation. 46 campaigns, $1.2M+ raised.",
     },
     pl: {
       title: "Marketing prelaunch dla crowdfundingu | JAY-23",
