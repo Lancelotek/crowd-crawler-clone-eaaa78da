@@ -52,7 +52,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/privacy-policy": {
     title: "Privacy Policy — Data Protection & Your Rights | JAY-23 (EN & PL)",
-    description: "Read the JAY23 LLC privacy policy: what personal data we collect, why, how it's stored, who we share it with, and the GDPR/CCPA rights you can exercise at any time.",
+    description: "Redirecting to the JAY-23 privacy policy in your preferred language. Learn how JAY23 LLC handles personal data and your GDPR/CCPA rights.",
   },
   "/impressum": {
     title: "Impressum / Legal Notice | JAY23 LLC",
