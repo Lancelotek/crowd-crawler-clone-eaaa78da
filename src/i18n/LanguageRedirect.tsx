@@ -20,7 +20,7 @@ type SeoMeta = { title: string; description: string };
 const BARE_PATH_SEO: Record<string, SeoMeta> = {
   "/": {
     title: "JAY-23 | Prelaunch Marketing for Crowdfunding (EN & PL)",
-    description: "JAY-23 is a founder-led prelaunch agency helping crowdfunding creators reach 1,000 true fans in 90 days. Available in English and Polish — pick your language.",
+    description: "Choose your language to explore JAY-23's 90-day MVA Framework for crowdfunding prelaunch. English and Polish versions available.",
   },
   "/book": {
     title: "Book a Strategy Call with JAY-23 | Free 30-min Consultation",
@@ -52,7 +52,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/privacy-policy": {
     title: "Privacy Policy — Data Protection & Your Rights | JAY-23 (EN & PL)",
-    description: "Read the JAY23 LLC privacy policy: what personal data we collect, why, how it's stored, who we share it with, and the GDPR/CCPA rights you can exercise at any time.",
+    description: "Redirecting to the JAY-23 privacy policy in your preferred language. Learn how JAY23 LLC handles personal data and your GDPR/CCPA rights.",
   },
   "/impressum": {
     title: "Impressum / Legal Notice | JAY23 LLC",
