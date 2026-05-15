@@ -51,7 +51,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
     description: "The 90-day program that gets crowdfunding founders to 1,000 true fans before they launch. Meta Ads + email funnels + community.",
   },
   "/privacy-policy": {
-    title: "Privacy Policy — How JAY-23 Protects Your Data (GDPR & CCPA)",
+    title: "Privacy Policy — Data Protection & Your Rights | JAY-23 (EN & PL)",
     description: "Read the JAY23 LLC privacy policy: what personal data we collect, why, how it's stored, who we share it with, and the GDPR/CCPA rights you can exercise at any time.",
   },
   "/impressum": {
