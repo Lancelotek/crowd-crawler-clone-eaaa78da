@@ -20,6 +20,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Process = lazy(() => import("./pages/Process"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Leads = lazy(() => import("./pages/Leads"));
+const SeoDashboard = lazy(() => import("./pages/SeoDashboard"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About"));
 const Report = lazy(() => import("./pages/Report"));
