@@ -89,6 +89,7 @@ const App = () => (
           <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/about" element={<LanguageRedirect />} />
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
+          <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<PageFallback />}><NotFound /></Suspense>} />
         </Routes>
       </BrowserRouter>
