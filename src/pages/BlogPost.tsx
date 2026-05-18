@@ -8,6 +8,7 @@ import FooterSection from "@/components/mva/FooterSection";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { BLOG_EXTRAS, BlogFAQ, AuthorBio, buildBlogJsonLd } from "@/components/blog/BlogExtras";
+import { buildBlogImageAlt } from "@/lib/blogImageAlt";
 
 type Post = {
   id: string;
@@ -172,8 +173,9 @@ const BlogPost = () => {
     : undefined;
 
   const extras = BLOG_EXTRAS[post.slug];
-  const heroAlt = extras?.heroAlt || post.excerpt || post.title;
-  const jsonLd = buildBlogJsonLd({ post, langPrefix, lang, absoluteImage, extras });
+  const autoImageMeta = buildBlogImageAlt(post, lang as "en" | "pl");
+  const heroAlt = extras?.heroAlt || autoImageMeta.alt;
+  const jsonLd = buildBlogJsonLd({ post, langPrefix, lang, absoluteImage, imageAlt: heroAlt, extras });
 
   return (
     <div className="min-h-screen bg-background">
@@ -182,6 +184,7 @@ const BlogPost = () => {
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={absoluteImage}
+        ogImageAlt={heroAlt}
         type="article"
         publishedAt={post.published_at}
         lang={lang}
@@ -233,13 +236,20 @@ const BlogPost = () => {
             </div>
 
             {post.cover_image && (
-              <div className="rounded-card overflow-hidden mb-12 -mx-4 md:-mx-10">
+              <figure className="rounded-card overflow-hidden mb-12 -mx-4 md:-mx-10">
                 <img
                   src={post.cover_image}
                   alt={heroAlt}
+                  title={autoImageMeta.title}
+                  width={1200}
+                  height={675}
+                  loading="eager"
+                  decoding="async"
+                  // @ts-expect-error fetchpriority is valid HTML
+                  fetchpriority="high"
                   className="w-full h-auto"
                 />
-              </div>
+              </figure>
             )}
 
             <div
@@ -272,9 +282,12 @@ const BlogPost = () => {
                     <div className="aspect-[16/10] overflow-hidden">
                       <img
                         src={r.cover_image}
-                        alt={r.title}
+                        alt={buildBlogImageAlt(r, lang as "en" | "pl").alt}
+                        width={1200}
+                        height={750}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
                       />
                     </div>
                   )}
