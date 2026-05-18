@@ -20,6 +20,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Process = lazy(() => import("./pages/Process"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Leads = lazy(() => import("./pages/Leads"));
+const SeoDashboard = lazy(() => import("./pages/SeoDashboard"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About"));
 const Report = lazy(() => import("./pages/Report"));
@@ -88,6 +89,7 @@ const App = () => (
           <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/about" element={<LanguageRedirect />} />
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
+          <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<PageFallback />}><NotFound /></Suspense>} />
         </Routes>
       </BrowserRouter>
