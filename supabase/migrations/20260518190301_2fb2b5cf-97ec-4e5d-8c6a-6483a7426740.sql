@@ -1,0 +1,1 @@
+UPDATE public.blog_posts SET counterpart_slug='marka-osobista-zalozyciela-mva' WHERE slug='pre-launch-marketing-mva-playbook';
