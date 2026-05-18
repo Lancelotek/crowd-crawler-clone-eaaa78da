@@ -144,9 +144,10 @@ export function buildBlogJsonLd(opts: {
   langPrefix: string;
   lang: string;
   absoluteImage?: string;
+  imageAlt?: string;
   extras?: BlogStructuredExtras;
 }) {
-  const { post, langPrefix, lang, absoluteImage, extras } = opts;
+  const { post, langPrefix, lang, absoluteImage, imageAlt, extras } = opts;
   const url = `https://jay23.com${langPrefix}/blog/${post.slug}`;
   const inLanguage = lang === "pl" ? "pl-PL" : "en-US";
 
@@ -160,7 +161,13 @@ export function buildBlogJsonLd(opts: {
         ? `Przeczytaj "${post.title}" na blogu MVA Framework.`
         : `Read "${post.title}" on the MVA Framework blog.`),
     image: absoluteImage
-      ? { "@type": "ImageObject", url: absoluteImage, width: 1200, height: 630 }
+      ? {
+          "@type": "ImageObject",
+          url: absoluteImage,
+          width: 1200,
+          height: 630,
+          ...(imageAlt ? { caption: imageAlt, description: imageAlt, name: post.title } : {}),
+        }
       : undefined,
     datePublished: post.published_at,
     dateModified: post.published_at,
