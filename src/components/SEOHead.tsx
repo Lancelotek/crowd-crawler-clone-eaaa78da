@@ -91,19 +91,11 @@ const SEOHead = ({
 
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {canonical && !noHreflang && enUrl && plUrl && (
-        <>
-          <link rel="alternate" hrefLang="en" href={enUrl} />
-          <link rel="alternate" hrefLang="pl" href={plUrl} />
-          <link rel="alternate" hrefLang="x-default" href={enUrl} />
-        </>
-      )}
-      {canonical && noHreflang && selfUrl && (
-        <>
-          <link rel="alternate" hrefLang={selfLang} href={selfUrl} />
-          <link rel="alternate" hrefLang="x-default" href={selfUrl} />
-        </>
-      )}
+      {canonical && !noHreflang && enUrl && <link rel="alternate" hrefLang="en" href={enUrl} />}
+      {canonical && !noHreflang && plUrl && <link rel="alternate" hrefLang="pl" href={plUrl} />}
+      {canonical && !noHreflang && enUrl && <link rel="alternate" hrefLang="x-default" href={enUrl} />}
+      {canonical && noHreflang && selfUrl && <link rel="alternate" hrefLang={selfLang} href={selfUrl} />}
+      {canonical && noHreflang && selfUrl && <link rel="alternate" hrefLang="x-default" href={selfUrl} />}
 
       {jsonLdItems.map((item, i) => (
         <script key={i} type="application/ld+json">{JSON.stringify(item)}</script>
