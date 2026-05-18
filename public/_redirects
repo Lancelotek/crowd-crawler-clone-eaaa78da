@@ -1,5 +1,0 @@
-# Server-side 301 redirect: root to /en (SPA handles /pl detection client-side)
-/ /en 301
-
-# SPA fallback for all other routes
-/* /index.html 200
