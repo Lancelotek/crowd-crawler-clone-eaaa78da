@@ -104,10 +104,13 @@ const Table = ({ rows, keyLabel, max }: { rows: Row[]; keyLabel: string; max?: n
   );
 };
 
+const REFRESH_INTERVAL_MS = 2000 * 60 * 1000; // 2000 minutes
+
 export default function SeoDashboard() {
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -117,6 +120,7 @@ export default function SeoDashboard() {
       if (e) throw e;
       if ((res as any)?.error) throw new Error((res as any).error);
       setData(res as Data);
+      setLastRefreshed(new Date());
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load");
     } finally {
@@ -124,7 +128,11 @@ export default function SeoDashboard() {
     }
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    load();
+    const id = setInterval(load, REFRESH_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -136,6 +144,9 @@ export default function SeoDashboard() {
             <h1 className="text-3xl font-bold tracking-tight">SEO Dashboard</h1>
             <p className="text-sm text-muted-foreground mt-1">
               {data ? `${data.site} · last 28 days · updated ${new Date(data.generatedAt).toLocaleString()}` : "Loading…"}
+            </p>
+            <p className="text-xs text-muted-foreground/70 mt-1">
+              Auto-refresh every 2000 min · last refreshed {lastRefreshed ? lastRefreshed.toLocaleTimeString() : "—"}
             </p>
           </div>
           <Button variant="outline" size="sm" onClick={load} disabled={loading}>
