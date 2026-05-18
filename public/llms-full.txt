@@ -180,3 +180,15 @@ Set up a landing page with a lead magnet (free guide, calculator, template), pro
 - Company: Crowdfunding zone by JAY23 LLC
 - Address: 412 N. Main Street, STE 100, Buffalo, Wyoming 82834
 - Phone: +1 (628) 241-7366
+
+---
+
+## Recent Blog Posts (2026-05)
+
+### Pre-Launch Marketing: The MVA Playbook (2026)
+URL: https://jay23.com/en/blog/pre-launch-marketing-mva-playbook
+The full Minimum Viable Audience playbook for pre-launch marketing. Covers how to build 1,000 true fans before launch day using the 90-day MVA Framework — demand research, $1 Early Bird waitlist, Meta ads to Lookalikes, and the conversion sequence.
+
+### Kickstarter Pre-Launch Page: 12 Elements That Convert
+URL: https://jay23.com/en/blog/kickstarter-pre-launch-page-12-elements
+The 12 elements every high-converting Kickstarter pre-launch page needs: hero promise, 6-second visual, native Kickstarter VIP button, email capture, social proof, problem section, 3 benefits, how it works, founder section, pricing tease, FAQ, and second "Notify me" CTA.
