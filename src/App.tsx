@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
+import SEOHead from "@/components/SEOHead";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const Index = lazy(() => import("./pages/Index"));
 import MailerLiteLoader from "./components/MailerLiteLoader";
 
