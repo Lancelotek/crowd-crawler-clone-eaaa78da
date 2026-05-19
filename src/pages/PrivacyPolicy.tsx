@@ -9,15 +9,15 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title={lang === "pl"
-          ? "Polityka prywatności — jak chronimy Twoje dane | JAY-23"
-          : "Privacy Policy — How JAY-23 Protects Your Data (GDPR & CCPA)"}
+          ? "Polityka prywatności JAY23 LLC — RODO, cookies, prawa użytkownika"
+          : "Privacy Policy — Data, Cookies & GDPR/CCPA Rights | JAY23 LLC"}
         description={lang === "pl"
           ? "Polityka prywatności JAY23 LLC: jakie dane zbieramy, na jakiej podstawie RODO, jak długo je przechowujemy i jak skorzystać z praw użytkownika."
           : "Full privacy policy for JAY23 LLC: how we collect, process, and store personal data through forms, cookies, and email; your rights under GDPR and CCPA; retention periods and contact details."}
-        canonical="/en/privacy-policy"
-        noHreflang
+        canonical={`/${lang}/privacy-policy`}
         lang={lang}
       />
+
       <div className="container mx-auto max-w-[800px] px-6 py-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10">
           <ArrowLeft size={16} /> Back to Home
