@@ -41,7 +41,46 @@ const PageFallback = () => (
 
 const ContactRedirect = () => {
   const { lang } = useParams();
-  return <Navigate to={`/${lang ?? "en"}/book`} replace />;
+  const navigate = useNavigate();
+  const safeLang = lang === "pl" ? "pl" : "en";
+  const target = `/${safeLang}/book`;
+  const title = safeLang === "pl"
+    ? "Kontakt — Umów rozmowę strategiczną | JAY-23"
+    : "Contact — Book a Strategy Call | JAY-23";
+  const description = safeLang === "pl"
+    ? "Najlepszy sposób kontaktu z JAY-23 to bezpłatna 30-minutowa rozmowa strategiczna. Przekierowujemy do formularza rezerwacji."
+    : "The best way to reach JAY-23 is a free 30-minute strategy call. Redirecting you to the booking page.";
+
+  useEffect(() => {
+    const id = window.setTimeout(() => navigate(target, { replace: true }), 0);
+    return () => window.clearTimeout(id);
+  }, [navigate, target]);
+
+  return (
+    <SEOHead
+      title={title}
+      description={description}
+      canonical={target}
+      lang={safeLang}
+      hreflangOverrides={{ en: "/en/book", pl: "/pl/book" }}
+      schemaJson={{
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: title,
+        description,
+        url: `https://jay23.com${target}`,
+        inLanguage: safeLang,
+        mainEntityOfPage: `https://jay23.com${target}`,
+        isPartOf: { "@id": "https://jay23.com/#website" },
+        publisher: { "@id": "https://jay23.com/#organization" },
+       potentialAction: {
+          "@type": "ReserveAction",
+          target: `https://jay23.com${target}`,
+          name: safeLang === "pl" ? "Umów rozmowę" : "Book a call",
+        },
+      }}
+    />
+  );
 };
 
 /** Wraps children with LanguageProvider (reads :lang from URL) */
