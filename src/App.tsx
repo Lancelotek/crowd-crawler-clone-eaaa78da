@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
@@ -36,6 +36,11 @@ const PageFallback = () => (
   </div>
 );
 
+const ContactRedirect = () => {
+  const { lang } = useParams();
+  return <Navigate to={`/${lang ?? "en"}/book`} replace />;
+};
+
 /** Wraps children with LanguageProvider (reads :lang from URL) */
 const LangRoutes = () => (
   <LanguageProvider>
@@ -56,7 +61,9 @@ const LangRoutes = () => (
         <Route path="terms-of-service" element={<TermsOfService />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<ContactRedirect />} />
         <Route path="*" element={<NotFound />} />
+
       </Routes>
     </Suspense>
   </LanguageProvider>
@@ -88,6 +95,8 @@ const App = () => (
           <Route path="/terms-of-service" element={<LanguageRedirect />} />
           <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/about" element={<LanguageRedirect />} />
+          <Route path="/contact" element={<LanguageRedirect />} />
+
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
           <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<PageFallback />}><NotFound /></Suspense>} />
