@@ -61,7 +61,7 @@ const LangRoutes = () => (
         <Route path="terms-of-service" element={<TermsOfService />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="about" element={<About />} />
-        <Route path="contact" element={<Navigate to="../book" replace />} />
+        <Route path="contact" element={<ContactRedirect />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
