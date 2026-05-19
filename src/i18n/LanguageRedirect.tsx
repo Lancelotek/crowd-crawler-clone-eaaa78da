@@ -19,8 +19,8 @@ type SeoMeta = { title: string; description: string };
 
 const BARE_PATH_SEO: Record<string, SeoMeta> = {
   "/": {
-    title: "JAY-23 | Prelaunch Marketing for Crowdfunding (EN & PL)",
-    description: "Choose your language to explore JAY-23's 90-day MVA Framework for crowdfunding prelaunch. English and Polish versions available.",
+    title: "JAY-23 — Crowdfunding Prelaunch Agency (Choose Language: EN / PL)",
+    description: "Language selector for JAY-23. Pick English or Polish to explore the 90-day MVA Framework, case studies, and pricing for crowdfunding prelaunch.",
   },
   "/book": {
     title: "Book a Strategy Call with JAY-23 | Free 30-min Consultation",
