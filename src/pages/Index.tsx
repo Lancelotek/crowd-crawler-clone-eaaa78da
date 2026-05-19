@@ -33,12 +33,12 @@ const Index = () => {
 
   const seo = {
     en: {
-      title: "MVA Framework — 1,000 True Fans in 90 Days | JAY-23",
-      description: "The 90-day MVA Framework helps crowdfunding founders build 1,000 true fans before launch using Meta Ads, email funnels, and community activation. 46 campaigns, $1.2M+ raised.",
+      title: "Crowdfunding Prelaunch Marketing Agency — 90-Day MVA Framework | JAY-23",
+      description: "JAY-23 builds 1,000 true fans for crowdfunding founders in 90 days. Meta Ads, email funnels, and community activation across 46 campaigns and $1.2M+ raised.",
     },
     pl: {
-      title: "Marketing prelaunch dla crowdfundingu | JAY-23",
-      description: "90-dniowy MVA Framework: Meta Ads, lejki email, quizy i aktywacja społeczności, które dowiozły 46 kampanii crowdfundingowych ponad $1.2M.",
+      title: "Agencja marketingu prelaunch dla crowdfundingu — Framework MVA w 90 dni | JAY-23",
+      description: "JAY-23 buduje 1000 prawdziwych fanów dla founderów crowdfundingowych w 90 dni. Meta Ads, lejki email i społeczność — 46 kampanii i ponad $1.2M zebrane.",
     },
   };
 
