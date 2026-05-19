@@ -36,6 +36,11 @@ const PageFallback = () => (
   </div>
 );
 
+const ContactRedirect = () => {
+  const { lang } = useParams();
+  return <Navigate to={`/${lang ?? "en"}/book`} replace />;
+};
+
 /** Wraps children with LanguageProvider (reads :lang from URL) */
 const LangRoutes = () => (
   <LanguageProvider>
