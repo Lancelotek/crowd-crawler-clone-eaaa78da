@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
+import { supabase } from "@/integrations/supabase/client";
 
 type Lang = "pl" | "en";
 
@@ -190,16 +191,30 @@ function OptInForm({ lang }: { lang: Lang }) {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     if (!valid) { setError(c.emailError); return; }
     if (!consent) { setError(c.consentError); return; }
-    console.log("submit", { email, lang, consent });
-    setSent(true);
+    setLoading(true);
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke("founder-influencer-subscribe", {
+        body: { email: email.trim(), lang, consent },
+      });
+      if (fnError || (data && data.success === false)) {
+        throw new Error(fnError?.message || data?.error || "Subscription failed");
+      }
+      setSent(true);
+    } catch (err) {
+      console.error("founder-influencer subscribe error", err);
+      setError(c.emailError);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (sent) {
@@ -241,9 +256,10 @@ function OptInForm({ lang }: { lang: Lang }) {
       </label>
       <button
         type="submit"
-        className="w-full rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+        disabled={loading}
+        className="w-full rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:opacity-60"
       >
-        {c.submit}
+        {loading ? "..." : c.submit}
       </button>
       {error && <p className="text-sm text-destructive">{error}</p>}
       <p className="text-xs text-muted-foreground">{c.micro}</p>
