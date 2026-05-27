@@ -140,6 +140,7 @@ const App = () => (
           <Route path="/faq" element={<LanguageRedirect />} />
           <Route path="/about" element={<LanguageRedirect />} />
           <Route path="/contact" element={<LanguageRedirect />} />
+          <Route path="/founder-influencer" element={<LanguageRedirect />} />
 
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
           <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
