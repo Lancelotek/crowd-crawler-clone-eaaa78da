@@ -302,6 +302,7 @@ export const translations = {
     process: { en: "90-Day Process", pl: "Proces 90 dni" },
     packages: { en: "Packages", pl: "Pakiety" },
     bookCall: { en: "Book a Call", pl: "Umów rozmowę" },
+    founderInfluencer: { en: "Founder Influencer", pl: "Founder Influencer" },
     resources: { en: "RESOURCES", pl: "ZASOBY" },
     privacyPolicy: { en: "Privacy Policy", pl: "Polityka prywatności" },
     termsOfService: { en: "Terms of Service", pl: "Regulamin" },
