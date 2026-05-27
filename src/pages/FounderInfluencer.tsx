@@ -256,9 +256,10 @@ function OptInForm({ lang }: { lang: Lang }) {
       </label>
       <button
         type="submit"
-        className="w-full rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+        disabled={loading}
+        className="w-full rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:opacity-60"
       >
-        {c.submit}
+        {loading ? "..." : c.submit}
       </button>
       {error && <p className="text-sm text-destructive">{error}</p>}
       <p className="text-xs text-muted-foreground">{c.micro}</p>
