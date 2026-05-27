@@ -5,6 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
+import { supabase } from "@/integrations/supabase/client";
 
 type Lang = "pl" | "en";
 
