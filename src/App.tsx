@@ -30,6 +30,7 @@ const Report = lazy(() => import("./pages/Report"));
 const Packages = lazy(() => import("./pages/Packages"));
 const Quiz = lazy(() => import("./pages/Quiz"));
 const LP = lazy(() => import("./pages/LP"));
+const FounderInfluencer = lazy(() => import("./pages/FounderInfluencer"));
 
 const queryClient = new QueryClient();
 
@@ -104,6 +105,7 @@ const LangRoutes = () => (
         <Route path="faq" element={<FAQ />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<ContactRedirect />} />
+        <Route path="founder-influencer" element={<FounderInfluencer />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
