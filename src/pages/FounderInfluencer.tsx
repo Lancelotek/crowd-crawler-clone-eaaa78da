@@ -191,16 +191,30 @@ function OptInForm({ lang }: { lang: Lang }) {
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     if (!valid) { setError(c.emailError); return; }
     if (!consent) { setError(c.consentError); return; }
-    console.log("submit", { email, lang, consent });
-    setSent(true);
+    setLoading(true);
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke("founder-influencer-subscribe", {
+        body: { email: email.trim(), lang, consent },
+      });
+      if (fnError || (data && data.success === false)) {
+        throw new Error(fnError?.message || data?.error || "Subscription failed");
+      }
+      setSent(true);
+    } catch (err) {
+      console.error("founder-influencer subscribe error", err);
+      setError(c.emailError);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (sent) {
