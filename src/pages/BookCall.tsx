@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track, trackAdsConversion } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
+import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
@@ -183,6 +184,7 @@ const BookCall = () => {
       `}</style>
 
       <div className="min-h-screen bg-background">
+        <AdBridgeBanner ctaTo="#calendar" ctaLabel="Wybierz termin" source="book" />
         <div className="max-w-2xl mx-auto px-4 py-10 md:py-16">
           {/* Back link */}
           <Link

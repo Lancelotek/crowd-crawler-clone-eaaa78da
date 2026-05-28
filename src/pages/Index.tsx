@@ -7,6 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
 
+import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
@@ -184,6 +185,7 @@ const Index = () => {
           },
         ]}
       />
+      <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="home" />
       <header>
         <MvaNavbar />
       </header>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
+import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 import FooterSection from "@/components/mva/FooterSection";
 import CalculatorSection from "@/components/mva/CalculatorSection";
 import SEOHead from "@/components/SEOHead";
@@ -22,6 +23,7 @@ const Quiz = () => {
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
+      <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="quiz" />
       <MvaNavbar />
       <main className="pt-20">
         <h1 className="sr-only">
