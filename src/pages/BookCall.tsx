@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track, trackAdsConversion } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
+import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
