@@ -17,8 +17,8 @@ const Quiz = () => {
   return (
     <>
       <SEOHead
-        title={isPolish ? "Kalkulator MVA – Oblicz swoje Minimum Viable Audience | JAY-23" : "MVA Calculator – Find Your Minimum Viable Audience | JAY-23"}
-        description={isPolish ? "Sprawdź, jak dużą publiczność potrzebujesz zanim wystartujesz. Darmowy kalkulator MVA od JAY-23." : "Calculate exactly how many engaged followers you need before launching. Free MVA calculator by JAY-23."}
+        title={isPolish ? "Kalkulator Kickstarter — Ilu Fanów Potrzebujesz? | JAY-23" : "Kickstarter Calculator — How Many Fans Do You Need? | JAY-23"}
+        description={isPolish ? "Darmowy kalkulator MVA. Oblicz, ilu fanów potrzebujesz, by zebrać cel kampanii Kickstarter lub Indiegogo. Wynik w 2 minuty." : "Free MVA calculator. Find out how many true fans you need to hit your Kickstarter or Indiegogo goal. Personalized result in 2 minutes."}
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
