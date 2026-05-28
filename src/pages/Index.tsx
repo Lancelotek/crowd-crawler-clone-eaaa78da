@@ -185,6 +185,7 @@ const Index = () => {
           },
         ]}
       />
+      <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="home" />
       <header>
         <MvaNavbar />
       </header>

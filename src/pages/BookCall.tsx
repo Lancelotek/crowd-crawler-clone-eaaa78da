@@ -184,6 +184,7 @@ const BookCall = () => {
       `}</style>
 
       <div className="min-h-screen bg-background">
+        <AdBridgeBanner ctaTo="#calendar" ctaLabel="Wybierz termin" source="book" />
         <div className="max-w-2xl mx-auto px-4 py-10 md:py-16">
           {/* Back link */}
           <Link

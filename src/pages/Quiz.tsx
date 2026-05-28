@@ -23,6 +23,7 @@ const Quiz = () => {
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
+      <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="quiz" />
       <MvaNavbar />
       <main className="pt-20">
         <h1 className="sr-only">
