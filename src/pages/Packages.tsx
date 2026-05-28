@@ -312,10 +312,10 @@ const Packages = () => {
   return (
     <>
       <SEOHead
-        title={isPl ? "MVA Framework — Pakiety | JAY-23" : "MVA Framework — Packages | JAY-23"}
+        title={isPl ? "Pakiety i cennik — Agencja Kickstarter | JAY-23" : "MVA Framework Pricing — Kickstarter Prelaunch | JAY-23"}
         description={isPl
-          ? "Zbuduj 1 600 kupujących zanim startujesz. Wybierz pakiet MVA Framework i zacznij budować publiczność przed launchem."
-          : "Build 1,600 buyers before you launch. Choose your MVA Framework package and start building your audience before launch day."
+          ? "Cennik prowadzenia kampanii Kickstarter i crowdfunding. Pakiety MVA od 6000 PLN/mies. — 90 dni, Meta Ads, lejek email, społeczność. Zobacz cennik."
+          : "Transparent pricing for Kickstarter prelaunch. MVA packages from $1,500/mo — 90 days, Meta Ads, email funnel, community activation. See packages."
         }
         canonical={isPl ? "/pl/packages" : "/en/packages"}
         lang={isPl ? "pl" : "en"}

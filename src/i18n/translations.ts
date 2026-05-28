@@ -318,8 +318,8 @@ export const translations = {
     title: { en: "Book Your Free Strategy Call", pl: "Umów bezpłatną rozmowę strategiczną" },
     desc: { en: "Pick a time that works for you. 30 minutes, no strings attached.", pl: "Wybierz termin, który Ci odpowiada. 30 minut, bez zobowiązań." },
     back: { en: "Back to homepage", pl: "Wróć na stronę główną" },
-    seoTitle: { en: "Book a Free Strategy Call — Prelaunch Marketing | JAY-23", pl: "Umów bezpłatną rozmowę strategiczną — Marketing Prelaunch | JAY-23" },
-    seoDesc: { en: "Book a free discovery call with JAY-23. We'll assess your launch timeline, audience gap, and whether the MVA program is the right fit.", pl: "Umów bezpłatną rozmowę z JAY-23. Ocenimy Twój harmonogram launchu, lukę w publiczności i czy program MVA jest dla Ciebie." },
+    seoTitle: { en: "Book a Free Kickstarter Strategy Call | JAY-23", pl: "Bezpłatna konsultacja Kickstarter — Umów rozmowę | JAY-23" },
+    seoDesc: { en: "30-minute free call with a Kickstarter prelaunch expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans.", pl: "Bezpłatna 30-min konsultacja z ekspertem Kickstarter. Oszacujemy koszt leada (CPL), zaplanujemy 90 dni i pokażemy, jak założyć zbiórkę z sukcesem." },
     eyebrow: { en: "Free strategy call · 30 minutes", pl: "Bezpłatna rozmowa strategiczna · 30 minut" },
     h1_1: { en: "Find out if your product", pl: "Dowiedz się, czy Twój produkt" },
     h1_2: { en: "is ready for MVA.", pl: "jest gotowy na MVA." },
@@ -353,8 +353,8 @@ export const translations = {
     h1_3: { en: "before you launch.", pl: "zanim ruszysz." },
     desc: { en: "Three focused months. Each phase builds on the last — no wasted days, no guessing. Here's exactly what happens, and who does what.", pl: "Trzy skoncentrowane miesiące. Każda faza buduje na poprzedniej — zero zmarnowanych dni. Oto dokładnie co się dzieje i kto co robi." },
     calcMVA: { en: "Calculate your MVA", pl: "Oblicz swoje MVA" },
-    seoTitle: { en: "90-Day MVA Program — How It Works | JAY-23", pl: "Program MVA 90 dni — Jak to działa | JAY-23" },
-    seoDesc: { en: "Three phases to build your Minimum Viable Audience: persona mapping, paid ads with the Andromeda framework, and full launch campaign. See the complete process.", pl: "Trzy fazy budowania Minimum Viable Audience: mapowanie person, płatne reklamy z frameworkiem Andromeda i pełna kampania launchowa. Zobacz cały proces." },
+    seoTitle: { en: "How to Promote a Kickstarter — 90-Day Process | JAY-23", pl: "Jak Promować Kickstarter — Proces 90 Dni | JAY-23" },
+    seoDesc: { en: "The exact 90-day process to promote a Kickstarter: persona research, Meta Ads with the Andromeda framework, email funnel, and launch-day push.", pl: "Dokładny proces 90 dni promocji kampanii Kickstarter: research person, Meta Ads (framework Andromeda), lejek email i mobilizacja na dzień startu." },
   },
 
   // ─── Blog ────────────────────────────────────────────────
@@ -362,8 +362,8 @@ export const translations = {
     title: { en: "Articles by", pl: "Artykuły od" },
     titleAccent: { en: "JAY-23", pl: "JAY-23" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
-    seoTitle: { en: "Crowdfunding & Prelaunch Marketing Blog | JAY-23", pl: "Blog o crowdfundingu i marketingu prelaunch | JAY-23" },
-    seoDesc: { en: "Strategies for Kickstarter prelaunch, audience building, and crowdfunding marketing. Real tactics from 46 campaigns and $1.2M+ raised.", pl: "Strategie prelaunch na Kickstarter, budowanie publiczności i marketing crowdfundingowy. Sprawdzone taktyki z 46 kampanii i $1.2M+ zebranych." },
+    seoTitle: { en: "Kickstarter & Crowdfunding Marketing Blog | JAY-23", pl: "Blog: Kickstarter, Crowdfunding i Finansowanie Społecznościowe | JAY-23" },
+    seoDesc: { en: "Tactics for Kickstarter prelaunch, Indiegogo campaigns, audience building, and crowdfunding marketing. Real lessons from 46 campaigns, $1.2M+ raised.", pl: "Jak promować Kickstarter, jak założyć zbiórkę, platformy crowdfundingowe i finansowanie społecznościowe — taktyki z 46 kampanii i $1.2M+ zebranych." },
   },
 } as const;
 
