@@ -7,6 +7,8 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { track, trackAdsConversion } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
 import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
+
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
