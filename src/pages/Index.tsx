@@ -9,7 +9,6 @@ import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
 import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 import KickstarterBanner from "@/components/mva/KickstarterBanner";
 
-import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
