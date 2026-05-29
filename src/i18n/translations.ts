@@ -15,7 +15,8 @@ export const translations = {
 
   // ─── Hero ────────────────────────────────────────────────
   hero: {
-    eyebrow: { en: "MVA Framework · 90-day program", pl: "MVA Framework · program 90 dni" },
+    eyebrow: { en: "MVA Framework · 90-day program", pl: "Polska agencja Kickstarter · Crowdfunding" },
+
     h1_line1: { en: "46 Campaigns. $1.2M+ Raised.", pl: "46 kampanii. $1.2M+ zebranych." },
     h1_line2: { en: "Zero Cold Launches.", pl: "Zero zimnych startów." },
     h1_line3: { en: "", pl: "" },
