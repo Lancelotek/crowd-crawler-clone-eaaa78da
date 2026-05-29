@@ -32,16 +32,14 @@ const SectionFallback = () => (
 const Index = () => {
   const { lang } = useLanguage();
   useStoreLanguagePreference(lang);
-
   const seo = {
     en: {
+      title: "Kickstarter Prelaunch Marketing Agency — MVA Framework | JAY-23",
+      description: "We help founders build 1,000 true fans before launch. 90-day MVA Framework for Kickstarter, Indiegogo & Gamefound campaigns. 46 campaigns, $1.2M+ raised.",
+    },
     pl: {
       title: "Agencja Kickstarter Polska — 90-dniowy program MVA Framework | JAY-23",
       description: "Pomagamy polskim founderom uruchomić udane kampanie Kickstarter. MVA Framework — buduj 1000 fanów przed launchem. Case studies: Woolet, Crowder.pro.",
-    },
-
-      title: "Kickstarter Polska — Agencja Marketingu Crowdfunding | JAY-23",
-      description: "Promocja kampanii Kickstarter, Indiegogo i Gamefound. 90-dniowy framework MVA buduje 1000 fanów przed startem. 46 kampanii, $1.2M+ zebranych.",
     },
   };
 
