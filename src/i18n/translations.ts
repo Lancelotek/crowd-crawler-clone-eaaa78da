@@ -15,7 +15,8 @@ export const translations = {
 
   // ─── Hero ────────────────────────────────────────────────
   hero: {
-    eyebrow: { en: "MVA Framework · 90-day program", pl: "MVA Framework · program 90 dni" },
+    eyebrow: { en: "MVA Framework · 90-day program", pl: "Polska agencja Kickstarter · Crowdfunding" },
+
     h1_line1: { en: "46 Campaigns. $1.2M+ Raised.", pl: "46 kampanii. $1.2M+ zebranych." },
     h1_line2: { en: "Zero Cold Launches.", pl: "Zero zimnych startów." },
     h1_line3: { en: "", pl: "" },
@@ -318,16 +319,17 @@ export const translations = {
     title: { en: "Book Your Free Strategy Call", pl: "Umów bezpłatną rozmowę strategiczną" },
     desc: { en: "Pick a time that works for you. 30 minutes, no strings attached.", pl: "Wybierz termin, który Ci odpowiada. 30 minut, bez zobowiązań." },
     back: { en: "Back to homepage", pl: "Wróć na stronę główną" },
-    seoTitle: { en: "Book a Free Kickstarter Strategy Call | JAY-23", pl: "Bezpłatna konsultacja Kickstarter — Umów rozmowę | JAY-23" },
-    seoDesc: { en: "30-minute free call with a Kickstarter prelaunch expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans.", pl: "Bezpłatna 30-min konsultacja z ekspertem Kickstarter. Oszacujemy koszt leada (CPL), zaplanujemy 90 dni i pokażemy, jak założyć zbiórkę z sukcesem." },
+    seoTitle: { en: "Book a Free Kickstarter Strategy Call | JAY-23", pl: "Konsultacja Kickstarter — bezpłatna rozmowa 30 minut | JAY-23" },
+    seoDesc: { en: "30-minute free call with a Kickstarter prelaunch expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans.", pl: "Umów bezpłatną 30-minutową konsultację Kickstarter. Pokażemy Ci, ilu fanów potrzebujesz przed launchem i jak ich zebrać w 90 dni." },
     eyebrow: { en: "Free strategy call · 30 minutes", pl: "Bezpłatna rozmowa strategiczna · 30 minut" },
     h1_1: { en: "Find out if your product", pl: "Dowiedz się, czy Twój produkt" },
-    h1_2: { en: "is ready for MVA.", pl: "jest gotowy na MVA." },
-    subtitle: { en: "We'll analyse your idea, define your target audience and show you", pl: "Przeanalizujemy Twój pomysł, zdefiniujemy grupę docelową i pokażemy Ci," },
-    subtitleBold: { en: "how many leads you can collect in 90 days", pl: "ile leadów możesz zebrać w 90 dni" },
-    subtitleEnd: { en: "— before you spend a cent on ads.", pl: "— zanim wydasz złotówkę na reklamy." },
+    h1_2: { en: "is ready for MVA.", pl: "jest gotowy na Kickstarter." },
+    subtitle: { en: "We'll analyse your idea, define your target audience and show you", pl: "Przeanalizujemy Twój pomysł na kampanię Kickstarter, zdefiniujemy grupę docelową i pokażemy Ci," },
+    subtitleBold: { en: "how many leads you can collect in 90 days", pl: "ilu fanów musisz zebrać w 90 dni" },
+    subtitleEnd: { en: "— before you spend a cent on ads.", pl: "— zanim klikniesz Launch." },
     bullet1Title: { en: "Product-market fit assessment", pl: "Ocena product-market fit" },
-    bullet1Desc: { en: "We'll tell you honestly whether your niche is large enough to build 1,000 paying fans before launch.", pl: "Powiemy Ci szczerze, czy Twoja nisza jest wystarczająco duża, by zbudować 1000 płacących fanów przed premierą." },
+    bullet1Desc: { en: "We'll tell you honestly whether your niche is large enough to build 1,000 paying fans before launch.", pl: "Powiemy Ci szczerze, czy Twoja nisza jest wystarczająco duża, by zbudować 1000 płacących fanów przed kampanią Kickstarter." },
+
     bullet2Title: { en: "Estimated CPL and campaign budget", pl: "Szacowany CPL i budżet kampanii" },
     bullet2Desc: { en: "Concrete numbers, not guesswork. You leave the call with a realistic cost-per-lead figure in hand.", pl: "Konkretne liczby, nie zgadywanie. Wyjdziesz z rozmowy z realistycznym kosztem pozyskania leada." },
     bullet3Title: { en: "Your 90-day action plan", pl: "Twój plan działania na 90 dni" },

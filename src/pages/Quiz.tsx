@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
+
 import FooterSection from "@/components/mva/FooterSection";
 import CalculatorSection from "@/components/mva/CalculatorSection";
 import SEOHead from "@/components/SEOHead";
@@ -18,20 +20,23 @@ const Quiz = () => {
   return (
     <>
       <SEOHead
-        title={isPolish ? "Kalkulator Kickstarter — Ilu Fanów Potrzebujesz? | JAY-23" : "Kickstarter Calculator — How Many Fans Do You Need? | JAY-23"}
-        description={isPolish ? "Darmowy kalkulator MVA. Oblicz, ilu fanów potrzebujesz, by zebrać cel kampanii Kickstarter lub Indiegogo. Wynik w 2 minuty." : "Free MVA calculator. Find out how many true fans you need to hit your Kickstarter or Indiegogo goal. Personalized result in 2 minutes."}
+
+        title={isPolish ? "Kalkulator MVA — ilu fanów potrzebujesz na Kickstartera | JAY-23" : "Kickstarter Calculator — How Many Fans Do You Need? | JAY-23"}
+        description={isPolish ? "Sprawdź w 60 sekund, ilu prawdziwych fanów potrzebujesz, żeby Twoja kampania Kickstarter się udała. Darmowy kalkulator MVA od JAY-23." : "Free MVA calculator. Find out how many true fans you need to hit your Kickstarter or Indiegogo goal. Personalized result in 2 minutes."}
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
+      <KickstarterBanner source="quiz" />
       <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="quiz" />
       <MvaNavbar />
       <main className="pt-20">
         <h1 className="sr-only">
           {isPolish
-            ? "Kalkulator MVA – Oblicz swoje Minimum Viable Audience"
+            ? "Kalkulator MVA — ilu fanów potrzebujesz, żeby Twój Kickstarter się udał"
             : "MVA Calculator – Find Your Minimum Viable Audience"}
         </h1>
         <CalculatorSection />
+
 
         <section className="px-6 py-20 border-t border-border/40">
           <div className="container mx-auto max-w-[760px] space-y-6 text-[15px] leading-relaxed text-muted-foreground">
@@ -51,7 +56,7 @@ const Quiz = () => {
                 </p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">Jak czytać swój wynik</h3>
                 <p>
-                  Jeśli kalkulator pokazuje 800–1500 osób, jesteś w przedziale klasycznego MVA dla produktu cyfrowego lub kampanii crowdfundingowej w średniej półce cenowej. Powyżej 3000 — celujesz w premiery hardware lub produktów premium, gdzie potrzebujesz większego buforu konwersji. Poniżej 500 — zwykle oznacza usługę 1:1 lub bardzo wąską niszę B2B, gdzie liczy się jakość kontaktów, nie skala listy.
+                  Jeśli kalkulator pokazuje 800–1500 osób, jesteś w przedziale klasycznego MVA dla produktu cyfrowego lub kampanii Kickstarter / Gamefound w średniej półce cenowej. Powyżej 3000 — celujesz w premiery hardware lub produktów premium, gdzie potrzebujesz większego buforu konwersji. Poniżej 500 — zwykle oznacza usługę 1:1 lub bardzo wąską niszę B2B, gdzie liczy się jakość kontaktów, nie skala listy.
                 </p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">Najczęstsze błędy founderów</h3>
                 <p>

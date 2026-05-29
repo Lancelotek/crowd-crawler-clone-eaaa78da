@@ -6,8 +6,9 @@ import CookieConsent from "@/components/CookieConsent";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
-
 import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
+
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
 const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
@@ -34,10 +35,11 @@ const Index = () => {
 
   const seo = {
     en: {
-      title: "Kickstarter Prelaunch Marketing Agency — MVA Framework | JAY-23",
-      description: "Build 1,000 true fans before your Kickstarter or Indiegogo launch. 90-day MVA Framework by JAY-23 — 46 campaigns, $1.2M+ raised. Book a free call.",
-    },
     pl: {
+      title: "Agencja Kickstarter Polska — 90-dniowy program MVA Framework | JAY-23",
+      description: "Pomagamy polskim founderom uruchomić udane kampanie Kickstarter. MVA Framework — buduj 1000 fanów przed launchem. Case studies: Woolet, Crowder.pro.",
+    },
+
       title: "Kickstarter Polska — Agencja Marketingu Crowdfunding | JAY-23",
       description: "Promocja kampanii Kickstarter, Indiegogo i Gamefound. 90-dniowy framework MVA buduje 1000 fanów przed startem. 46 kampanii, $1.2M+ zebranych.",
     },
@@ -185,7 +187,9 @@ const Index = () => {
           },
         ]}
       />
+      <KickstarterBanner source="home" />
       <AdBridgeBanner ctaTo={`/${lang}/book`} ctaLabel="Umów rozmowę" source="home" />
+
       <header>
         <MvaNavbar />
       </header>
