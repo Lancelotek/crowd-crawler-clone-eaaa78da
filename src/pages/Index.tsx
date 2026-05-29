@@ -6,8 +6,6 @@ import CookieConsent from "@/components/CookieConsent";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
-import AdBridgeBanner from "@/components/mva/AdBridgeBanner";
-import KickstarterBanner from "@/components/mva/KickstarterBanner";
 
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
