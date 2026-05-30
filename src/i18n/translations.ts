@@ -17,11 +17,11 @@ export const translations = {
   hero: {
     eyebrow: { en: "MVA Framework · 90-day program", pl: "Polska agencja Kickstarter · Crowdfunding" },
 
-    h1_line1: { en: "46 Campaigns. $1.2M+ Raised.", pl: "46 kampanii. $1.2M+ zebranych." },
-    h1_line2: { en: "Zero Cold Launches.", pl: "Zero zimnych startów." },
+    h1_line1: { en: "46 Campaigns. $1.2M+ Raised.", pl: "Agencja Kickstarter Polska —" },
+    h1_line2: { en: "Zero Cold Launches.", pl: "udane kampanie z MVA Framework." },
     h1_line3: { en: "", pl: "" },
-    hook: { en: "Founders using the MVA Framework launch to a list that's already waiting", pl: "Founderzy korzystający z MVA Framework startują do listy, która już czeka" },
-    hookBold: { en: "— not silence.", pl: "— nie w ciszę." },
+    hook: { en: "Founders using the MVA Framework launch to a list that's already waiting", pl: "Pomagamy polskim founderom przygotować i przeprowadzić udane kampanie Kickstarter —" },
+    hookBold: { en: "— not silence.", pl: "z listą 1000 fanów gotową przed launchem." },
     hookEnd: { en: "", pl: "" },
     ctaPrimary: { en: "Book a Free Strategy Call →", pl: "Umów bezpłatną konsultację →" },
     ctaSecondary: { en: "Not ready yet? Take the free MVA Quiz", pl: "Nie jesteś gotowy? Wypełnij darmowy quiz MVA" },
