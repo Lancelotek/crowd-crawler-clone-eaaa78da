@@ -37,8 +37,8 @@ const Index = () => {
       description: "We help founders build 1,000 true fans before launch. 90-day MVA Framework for Kickstarter, Indiegogo & Gamefound campaigns. 46 campaigns, $1.2M+ raised.",
     },
     pl: {
-      title: "Agencja Kickstarter Polska — 90-dniowy program MVA Framework | JAY-23",
-      description: "Pomagamy polskim founderom uruchomić udane kampanie Kickstarter. MVA Framework — buduj 1000 fanów przed launchem. Case studies: Woolet, Crowder.pro.",
+      title: "Agencja Kickstarter Polska — MVA Framework w 90 dni | JAY-23",
+      description: "Agencja Kickstarter w Polsce. Budujemy 1000 prawdziwych fanów przed launchem kampanii. MVA Framework, 46 kampanii, $1.2M+ zebrane. Bezpłatna konsultacja.",
     },
   };
 
