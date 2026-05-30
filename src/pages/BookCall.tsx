@@ -184,6 +184,7 @@ const BookCall = () => {
         @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
       `}</style>
 
+      <KickstarterBanner />
       <div className="min-h-screen bg-background">
         <div className="max-w-2xl mx-auto px-4 py-10 md:py-16">
           {/* Back link */}
