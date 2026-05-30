@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
 
 import FooterSection from "@/components/mva/FooterSection";
 import CalculatorSection from "@/components/mva/CalculatorSection";

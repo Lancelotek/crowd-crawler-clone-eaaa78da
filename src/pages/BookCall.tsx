@@ -3,6 +3,7 @@ import { ArrowLeft, Calendar, Shield, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { track, trackAdsConversion } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
