@@ -258,10 +258,10 @@ const CalculatorSection = () => {
           <div className="text-center mb-8">
             <Calculator className="text-primary mx-auto mb-3" size={28} />
             <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-2">
-              {isPl ? <>Oblicz swoje Minimum<br />Viable Audience</> : <>Calculate Your Minimum<br />Viable Audience</>}
+              {isPl ? <>Ilu fanów potrzebujesz,<br />żeby Twój Kickstarter się udał</> : <>Calculate Your Minimum<br />Viable Audience</>}
             </h2>
             <p className="text-muted-foreground max-w-md mx-auto leading-relaxed text-sm">
-              {isPl ? "Sprawdź, jak dużą publiczność potrzebujesz zanim wystartujesz." : "Estimate how large your audience needs to be before launching your product."}
+              {isPl ? "Sprawdź w 60 sekund, jak dużą publiczność potrzebujesz, żeby Twoja kampania Kickstarter się udała." : "Estimate how large your audience needs to be before launching your product."}
             </p>
           </div>
         </motion.div>
