@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import MvaNavbar from "@/components/mva/MvaNavbar";
+import KickstarterBanner from "@/components/mva/KickstarterBanner";
 import HeroSection from "@/components/mva/HeroSection";
 import StickyCTA from "@/components/mva/StickyCTA";
 import CookieConsent from "@/components/CookieConsent";
@@ -183,6 +184,7 @@ const Index = () => {
           },
         ]}
       />
+      <KickstarterBanner />
       <header>
         <MvaNavbar />
       </header>

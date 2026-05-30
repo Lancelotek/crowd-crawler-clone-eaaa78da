@@ -277,3 +277,7 @@
 .blog-prose tbody tr:nth-child(even) {
   background: hsl(var(--muted) / 0.4);
 }
+
+/* Kickstarter ad-bridge banner: push fixed navbar + main content down when visible */
+html[data-ks-banner="1"] nav.fixed.top-0 { top: 44px; }
+html[data-ks-banner="1"] body { padding-top: 44px; }
