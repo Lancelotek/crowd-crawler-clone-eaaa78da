@@ -25,6 +25,7 @@ const Quiz = () => {
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
+      <KickstarterBanner />
       <MvaNavbar />
       <main className="pt-20">
         <h1 className="sr-only">

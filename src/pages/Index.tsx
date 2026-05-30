@@ -184,6 +184,7 @@ const Index = () => {
           },
         ]}
       />
+      <KickstarterBanner />
       <header>
         <MvaNavbar />
       </header>
