@@ -105,6 +105,8 @@ const Gamefound = () => {
         description="Prowadzimy kampanie Gamefound dla polskich founderów. MVA Framework: lista 1000+ Early Birds przed startem, launch day support, Late Pledge. Bezpłatna konsultacja."
         canonical="/pl/gamefound"
         lang="pl"
+        ogImage="https://jay23.com/og/gamefound-pl.jpg"
+        ogImageAlt="Agencja Gamefound — JAY-23"
         hreflangOverrides={{ en: "/en", pl: "/pl/gamefound" }}
         schemaJson={[orgSchema, faqSchema]}
       />
