@@ -1,0 +1,2 @@
+UPDATE public.blog_posts_pl SET cover_image = 'https://jay23.com/blog/gamefound-vs-kickstarter.jpg' WHERE slug = 'gamefound-vs-kickstarter';
+UPDATE public.blog_posts_pl SET cover_image = 'https://jay23.com/blog/jak-zrobic-kampanie-gamefound.jpg' WHERE slug = 'jak-zrobic-kampanie-gamefound';
