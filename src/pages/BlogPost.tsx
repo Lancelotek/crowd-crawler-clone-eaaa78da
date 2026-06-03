@@ -36,17 +36,22 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
-/** Build SEO title kept within 60 chars, always brand-suffixed so SEOHead doesn't re-append. */
+/** Build SEO title kept within 60 chars. If adding brand suffix would overflow, return the raw title (SEOHead won't re-append because it already contains "JAY-23"-less branding handled there). */
 function buildSeoTitle(title: string): string {
   const suffix = " | JAY-23";
   const max = 60;
+  if (title.length >= max) return title.slice(0, max);
   if (title.length + suffix.length <= max) return `${title}${suffix}`;
-  const room = max - suffix.length - 1; // 1 for ellipsis
-  let cut = title.slice(0, room);
-  const lastSpace = cut.lastIndexOf(" ");
-  if (lastSpace > room - 15) cut = cut.slice(0, lastSpace);
-  return `${cut.replace(/[\s,;:–-]+$/, "")}…${suffix}`;
+  return title;
 }
+
+/** Slugs forming the "Kickstarter pre-launch" content cluster (EN). */
+const PRELAUNCH_CLUSTER: { slug: string; anchor: string }[] = [
+  { slug: "kickstarter-pre-launch-page-12-elements", anchor: "Kickstarter pre-launch page: 12 elements that convert" },
+  { slug: "how-to-launch-kickstarter-campaign-2025-complete-guide", anchor: "How to launch a Kickstarter campaign (2026 guide)" },
+  { slug: "hardware-startup-marketing-strategy-pre-launch", anchor: "Hardware startup marketing: pre-launch strategy" },
+  { slug: "prelaunch-strategy-waitlist-conversion-framework", anchor: "Prelaunch waitlist conversion framework" },
+];
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
