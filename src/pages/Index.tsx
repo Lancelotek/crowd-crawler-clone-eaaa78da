@@ -33,8 +33,8 @@ const Index = () => {
   useStoreLanguagePreference(lang);
   const seo = {
     en: {
-      title: "Kickstarter Prelaunch Marketing Agency — MVA Framework | JAY-23",
-      description: "We help founders build 1,000 true fans before launch. 90-day MVA Framework for Kickstarter, Indiegogo & Gamefound campaigns. 46 campaigns, $1.2M+ raised.",
+      title: "Build Your Audience Before Your Product | MVA Framework",
+      description: "The 90-day Minimum Viable Audience program. Build 1,000 true fans before you launch — validate demand, grow a waitlist, and launch to buyers who already wait.",
     },
     pl: {
       title: "Agencja Kickstarter Polska — MVA Framework w 90 dni | JAY-23",
