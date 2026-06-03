@@ -9,6 +9,18 @@ const FooterSection = () => {
     <footer className="px-6 py-16 border-t border-border">
       <div className="container mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          {lang === "en" && (
+            <div className="md:col-span-4 pb-6 mb-2 border-b border-border/60">
+              <h2 className="font-display text-sm font-bold mb-3 tracking-wide">Guides</h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                <li><a href="/en/blog/kickstarter-pre-launch-page-12-elements" className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter pre-launch page: 12 elements</a></li>
+                <li><a href="/en/blog/how-to-launch-kickstarter-campaign-2025-complete-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">How to launch a Kickstarter campaign (2026)</a></li>
+                <li><a href="/en/blog/hardware-startup-marketing-strategy-pre-launch" className="text-sm text-muted-foreground hover:text-primary transition-colors">Hardware startup marketing: pre-launch strategy</a></li>
+                <li><a href="/en/blog/prelaunch-strategy-waitlist-conversion-framework" className="text-sm text-muted-foreground hover:text-primary transition-colors">Prelaunch waitlist conversion framework</a></li>
+                <li><a href="/en/quiz" className="text-sm text-primary font-semibold hover:underline">MVA calculator — how many true fans you need →</a></li>
+              </ul>
+            </div>
+          )}
           {/* Brand */}
           <div className="md:col-span-2">
             <a href={langPrefix || "/"}><img src={logo} alt="JAY-23" width={120} height={32} className="h-8 w-auto object-contain mb-4" /></a>

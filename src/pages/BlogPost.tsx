@@ -36,17 +36,22 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
-/** Build SEO title kept within 60 chars, always brand-suffixed so SEOHead doesn't re-append. */
+/** Build SEO title kept within 60 chars. If adding brand suffix would overflow, return the raw title (SEOHead won't re-append because it already contains "JAY-23"-less branding handled there). */
 function buildSeoTitle(title: string): string {
   const suffix = " | JAY-23";
   const max = 60;
+  if (title.length >= max) return title.slice(0, max);
   if (title.length + suffix.length <= max) return `${title}${suffix}`;
-  const room = max - suffix.length - 1; // 1 for ellipsis
-  let cut = title.slice(0, room);
-  const lastSpace = cut.lastIndexOf(" ");
-  if (lastSpace > room - 15) cut = cut.slice(0, lastSpace);
-  return `${cut.replace(/[\s,;:–-]+$/, "")}…${suffix}`;
+  return title;
 }
+
+/** Slugs forming the "Kickstarter pre-launch" content cluster (EN). */
+const PRELAUNCH_CLUSTER: { slug: string; anchor: string }[] = [
+  { slug: "kickstarter-pre-launch-page-12-elements", anchor: "Kickstarter pre-launch page: 12 elements that convert" },
+  { slug: "how-to-launch-kickstarter-campaign-2025-complete-guide", anchor: "How to launch a Kickstarter campaign (2026 guide)" },
+  { slug: "hardware-startup-marketing-strategy-pre-launch", anchor: "Hardware startup marketing: pre-launch strategy" },
+  { slug: "prelaunch-strategy-waitlist-conversion-framework", anchor: "Prelaunch waitlist conversion framework" },
+];
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -263,6 +268,25 @@ const BlogPost = () => {
           </motion.div>
         </div>
       </article>
+
+      {/* Kickstarter Pre-Launch Cluster — internal linking for SEO */}
+      {!isPl && PRELAUNCH_CLUSTER.some((c) => c.slug === post.slug) && (
+        <section className="pb-12 px-6 border-t border-border pt-12">
+          <div className="container mx-auto max-w-[680px]">
+            <h2 className="font-display text-xl md:text-2xl font-bold mb-4">Read next — Kickstarter pre-launch playbook</h2>
+            <ul className="space-y-2.5 text-[15px]">
+              {PRELAUNCH_CLUSTER.filter((c) => c.slug !== post.slug).map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/en/blog/${c.slug}`} className="text-primary hover:underline">{c.anchor}</Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/en/quiz" className="text-primary hover:underline font-semibold">Calculate your MVA — free MVA calculator →</Link>
+              </li>
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Related Articles */}
       {related.length > 0 && (
