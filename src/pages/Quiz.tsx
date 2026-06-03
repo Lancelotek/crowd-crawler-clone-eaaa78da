@@ -20,8 +20,8 @@ const Quiz = () => {
     <>
       <SEOHead
 
-        title={isPolish ? "Kalkulator MVA — ilu fanów potrzebujesz na Kickstartera | JAY-23" : "Kickstarter Calculator — How Many Fans Do You Need? | JAY-23"}
-        description={isPolish ? "Sprawdź w 60 sekund, ilu prawdziwych fanów potrzebujesz, żeby Twoja kampania Kickstarter się udała. Darmowy kalkulator MVA od JAY-23." : "Free MVA calculator. Find out how many true fans you need to hit your Kickstarter or Indiegogo goal. Personalized result in 2 minutes."}
+        title={isPolish ? "Kalkulator MVA — ilu fanów potrzebujesz na Kickstartera | JAY-23" : "MVA Calculator — How Many True Fans You Need Before Launch"}
+        description={isPolish ? "Sprawdź w 60 sekund, ilu prawdziwych fanów potrzebujesz, żeby Twoja kampania Kickstarter się udała. Darmowy kalkulator MVA od JAY-23." : "Free Minimum Viable Audience calculator. Answer 6 questions and get the exact number of true fans you need before launching your product."}
         canonical={`/${lang}/quiz`}
         lang={lang}
       />
@@ -31,7 +31,7 @@ const Quiz = () => {
         <h1 className="sr-only">
           {isPolish
             ? "Kalkulator MVA — ilu fanów potrzebujesz, żeby Twój Kickstarter się udał"
-            : "MVA Calculator – Find Your Minimum Viable Audience"}
+            : "MVA Calculator — How Many True Fans You Need Before Launch"}
         </h1>
         <CalculatorSection />
 
