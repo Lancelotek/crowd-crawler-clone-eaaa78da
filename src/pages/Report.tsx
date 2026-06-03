@@ -158,7 +158,7 @@ const Report = () => {
   if (!data) {
     return (
       <>
-        <SEOHead title="Raport MVA — JAY23" description="Spersonalizowany raport Minimum Viable Audience." noindex />
+        <SEOHead title="Raport MVA — JAY23" description="Spersonalizowany raport Minimum Viable Audience." />
         <MvaNavbar />
         <div className="min-h-screen bg-background flex items-center justify-center px-6">
           <div className="text-center max-w-md">
