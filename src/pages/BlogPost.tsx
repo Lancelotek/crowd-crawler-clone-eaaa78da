@@ -269,6 +269,25 @@ const BlogPost = () => {
         </div>
       </article>
 
+      {/* Kickstarter Pre-Launch Cluster — internal linking for SEO */}
+      {!isPl && PRELAUNCH_CLUSTER.some((c) => c.slug === post.slug) && (
+        <section className="pb-12 px-6 border-t border-border pt-12">
+          <div className="container mx-auto max-w-[680px]">
+            <h2 className="font-display text-xl md:text-2xl font-bold mb-4">Read next — Kickstarter pre-launch playbook</h2>
+            <ul className="space-y-2.5 text-[15px]">
+              {PRELAUNCH_CLUSTER.filter((c) => c.slug !== post.slug).map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/en/blog/${c.slug}`} className="text-primary hover:underline">{c.anchor}</Link>
+                </li>
+              ))}
+              <li>
+                <Link to="/en/quiz" className="text-primary hover:underline font-semibold">Calculate your MVA — free MVA calculator →</Link>
+              </li>
+            </ul>
+          </div>
+        </section>
+      )}
+
       {/* Related Articles */}
       {related.length > 0 && (
         <section className="pb-16 px-6 border-t border-border pt-16">
