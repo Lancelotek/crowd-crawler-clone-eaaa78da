@@ -98,7 +98,7 @@ const COPY = {
     ],
   },
   en: {
-    seoTitle: "The First AI Founder OS — Zero Hours on Camera",
+    seoTitle: "AI Founder OS — Zero Hours on Camera | JAY-23",
     seoDesc: "100% AI workflow with your own avatar. Zero hours on camera. 1,000 true fans in 90 days. Free 47-page Founder Influencer Playbook.",
     eyebrow: "New — The first AI Founder OS",
     h1: "Your product isn't ready. Your camera even less so. Your AI avatar has no excuses.",
