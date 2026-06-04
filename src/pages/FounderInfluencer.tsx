@@ -11,7 +11,7 @@ type Lang = "pl" | "en";
 
 const COPY = {
   pl: {
-    seoTitle: "Pierwszy AI Founder OS — Zero godzin przed kamerą",
+    seoTitle: "AI Founder OS — Zero godzin przed kamerą | JAY-23",
     seoDesc: "100% AI workflow z twoim avatarem. Zero godzin przed kamerą. 1000 prawdziwych fanów w 90 dni. Bezpłatny 47-stronicowy Playbook.",
     eyebrow: "Nowość — pierwszy AI Founder OS",
     h1: "Twój produkt nie jest gotowy. Twoja kamera tym bardziej. Twój AI avatar nie ma wymówek.",
