@@ -9,8 +9,8 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title={lang === "pl"
-          ? "Polityka prywatności JAY23 LLC — RODO i cookies"
-          : "Privacy Policy — Data, Cookies & GDPR Rights | JAY23"}
+          ? "Polityka prywatności — RODO i cookies | JAY-23"
+          : "Privacy Policy — Data, Cookies & GDPR Rights | JAY-23"}
         description={lang === "pl"
           ? "Polityka prywatności JAY23 LLC: jakie dane zbieramy, na jakiej podstawie RODO, jak długo je przechowujemy i jak skorzystać z praw użytkownika."
           : "Full privacy policy for JAY23 LLC: how we collect, process, and store personal data through forms, cookies, and email; your rights under GDPR and CCPA; retention periods and contact details."}
