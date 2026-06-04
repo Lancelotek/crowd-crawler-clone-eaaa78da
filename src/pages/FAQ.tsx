@@ -18,7 +18,7 @@ const faqData: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: 
   en: {
     title: "Frequently Asked Questions",
     subtitle: "Everything you need to know about the MVA Framework and working with JAY-23.",
-    seoTitle: "Kickstarter Prelaunch FAQ — Pricing, Process, Results | JAY-23",
+    seoTitle: "Kickstarter Prelaunch FAQ — Pricing & Process | JAY-23",
     seoDesc: "Answers about promoting a Kickstarter campaign, MVA Framework pricing, the 90-day process, expected CPL, and working with JAY-23.",
     items: [
       { q: "What is a Minimum Viable Audience (MVA)?", a: 'MVA is the smallest group of people you need to build BEFORE launching your product. Instead of building first and hoping people show up, the <a href="/en/blog" class="text-primary hover:underline">MVA Framework</a> flips the script: audience first, product second. Use our free <a href="/en#calculator" class="text-primary hover:underline">MVA Calculator</a> to find your number.' },
