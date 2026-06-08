@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Check, Mic, Cog, TrendingUp, ChevronDown } from "lucide-react";
+import { Check, Mic, Cog, TrendingUp, ChevronDown, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
@@ -87,6 +87,9 @@ const COPY = {
     success: "Sprawdź skrzynkę za 2 minuty. Playbook już leci.",
     successSub: "Jeśli nie widzisz maila — sprawdź spam lub napisz na hello@jay23.com.",
     micro: "Korzystamy z MailerLite. Bez spamu. Wypisz się kiedy chcesz.",
+    calendlyTitle: "Wolisz porozmawiać?",
+    calendlySub: "Umów 30-minutową rozmowę strategii Founder Influencer. Zero zobowiązań.",
+    calendlyBtn: "Umów bezpłatną rozmowę →",
     s9h: "Najczęstsze pytania",
     faq: [
       { q: "Ludzie zobaczą, że to AI i poczują się oszukani — prawda?", a: "Tylko jeśli to ukrywasz. Uczymy cię prowadzić z odkrytymi kartami — twoja publiczność szanuje transparentność. Founderzy z tremą przed kamerą to cicha większość; wielu się z tym utożsami. Twój insight jest aktywem. Avatar to tylko megafon." },
@@ -174,6 +177,9 @@ const COPY = {
     success: "Check your inbox in 2 minutes. The Playbook is on its way.",
     successSub: "If you don't see it — check spam or email hello@jay23.com.",
     micro: "We use MailerLite. No spam. Unsubscribe whenever.",
+    calendlyTitle: "Rather talk?",
+    calendlySub: "Book a 30-minute Founder Influencer strategy call. No commitment.",
+    calendlyBtn: "Book a free call →",
     s9h: "Common questions",
     faq: [
       { q: "Won't people see it's AI and feel cheated?", a: "Only if you hide it. We coach you to lead with the disclosure — your audience respects transparency. Camera-shy founders are the silent majority; many will relate. Your insight is the asset. The avatar is just the megaphone." },
@@ -516,6 +522,22 @@ export default function FounderInfluencer() {
             {c.faq.map((item, i) => (
               <FaqItem key={item.q} q={item.q} a={item.a} defaultOpen={i === 0} />
             ))}
+          </div>
+        </section>
+
+        {/* CALENDLY CTA */}
+        <section className="border-t border-border py-16 md:py-24">
+          <div className="mx-auto max-w-[600px] text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.calendlyTitle}</h2>
+            <p className="mt-3 text-lg text-muted-foreground">{c.calendlySub}</p>
+            <a
+              href="https://calendly.com/marekciesla/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+            >
+              {c.calendlyBtn} <ArrowRight size={18} />
+            </a>
           </div>
         </section>
       </main>
