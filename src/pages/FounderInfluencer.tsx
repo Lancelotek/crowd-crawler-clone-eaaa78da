@@ -35,6 +35,17 @@ const COPY = {
     stat1Big: "0 godz.", stat1Sub: "przed kamerą tygodniowo (po 2-min setupie)",
     stat2Big: "3–5×", stat2Sub: "wyższa częstotliwość publikacji vs. face-on",
     s3sources: "Źródła: D-ID 2026 AI Avatar Report, Founder-Led Marketing Trends 2026",
+    brandH: "Marka osobista foundera z AI — jak zbudować ją bez wychodzenia zza laptopa",
+    brandP1: "Marka osobista przestała być opcją. W 2026 to founder, nie firma, jest pierwszym punktem kontaktu klienta — z LinkedInem, YouTubem i krótkim wideo na czele. Problem: 9 na 10 technicznych founderów nigdy nie zbuduje konsekwentnej obecności, bo nie znosi kamery. Twój AI avatar rozwiązuje to w jednym ruchu.",
+    brandP2: "Łączymy HeyGen (avatar), GPT (scripty), nasz 90-dniowy framework MVA (dystrybucja + capture) i twoją prawdziwą tezę — żeby twoja marka osobista rosła co tydzień, nawet kiedy ty kodzisz, śpisz albo dowozisz produkt. Bez sesji nagraniowych, bez agencji, bez tła z IKEA.",
+    brandBullets: [
+      "Twoja teza foundera (spiky opinion) jako oś marki osobistej",
+      "AI avatar publikujący 1× long-form + 5× Shorts + 3× LinkedIn tygodniowo",
+      "Wbudowany framework MVA — marka osobista przekuta na 1000 prawdziwych fanów",
+      "Multilingual: PL + EN + DE z jednego scriptu",
+    ],
+    brandBlog: "Czytaj: ",
+    brandBlogLink: "HeyGen po polsku — czy działa i czym zastąpić",
     s4h: "Jak to działa",
     s4sub: "Od foundera do kanału w jedno popołudnie. Potem 90 dni compoundingu.",
     steps: [
@@ -125,6 +136,17 @@ const COPY = {
     stat1Big: "0 hours", stat1Sub: "on camera per week (after 2-min setup)",
     stat2Big: "3–5×", stat2Sub: "higher publishing frequency vs. face-on",
     s3sources: "Sources: D-ID 2026 AI Avatar Report, Founder-Led Marketing Trends 2026",
+    brandH: "Founder personal branding with AI — built without leaving your laptop",
+    brandP1: "Personal branding is no longer optional. In 2026 the founder, not the company, is the first touchpoint — LinkedIn, YouTube and short-form video lead. The problem: 9 of 10 technical founders never build a consistent presence because they hate the camera. Your AI avatar removes that single bottleneck.",
+    brandP2: "We combine HeyGen (avatar), GPT (scripts), our 90-day MVA framework (distribution + capture) and your real thesis — so your personal brand compounds weekly, even while you ship product, sleep, or ignore social entirely. No recording sessions, no agencies, no IKEA backdrop.",
+    brandBullets: [
+      "Your founder thesis (spiky opinion) as the spine of the personal brand",
+      "AI avatar shipping 1× long-form + 5× Shorts + 3× LinkedIn per week",
+      "MVA framework baked in — personal brand converted into 1,000 true fans",
+      "Multilingual: EN + PL + DE from a single script",
+    ],
+    brandBlog: "Read: ",
+    brandBlogLink: "HeyGen alternatives for founders — what actually works",
     s4h: "How it works",
     s4sub: "From founder to channel in one afternoon. Then 90 days of compounding.",
     steps: [
@@ -418,6 +440,33 @@ export default function FounderInfluencer() {
           </div>
           <p className="mt-4 text-xs text-muted-foreground">{c.s3sources}</p>
         </section>
+
+        {/* PERSONAL BRAND WEDGE */}
+        <section className="border-t border-border py-16 md:py-24">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.brandH}</h2>
+          <div className="mt-6 max-w-3xl space-y-5 text-lg text-muted-foreground">
+            <p>{c.brandP1}</p>
+            <p>{c.brandP2}</p>
+          </div>
+          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+            {c.brandBullets.map((b) => (
+              <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <Check className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span className="text-foreground">{b}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-muted-foreground">
+            {c.brandBlog}
+            <Link
+              to={lang === "pl" ? "/pl/blog/heygen-po-polsku-czy-dziala" : "/en/blog/heygen-alternatives-for-founders"}
+              className="text-primary underline underline-offset-4 hover:no-underline"
+            >
+              {c.brandBlogLink}
+            </Link>
+          </p>
+        </section>
+
 
         {/* HOW IT WORKS */}
         <section className="border-t border-border py-16 md:py-24">
