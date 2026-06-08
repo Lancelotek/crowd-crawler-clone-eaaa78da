@@ -331,13 +331,15 @@ export default function FounderInfluencer() {
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">{c.h1}</h1>
             <p className="mt-6 text-lg text-muted-foreground md:text-xl">{c.sub}</p>
             <div className="mt-8">
-              <button
-                onClick={scrollToOptIn}
-                className="rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+              <a
+                href="https://calendly.com/marekciesla/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
               >
-                {c.cta}
-              </button>
-              <p className="mt-3 text-sm text-muted-foreground">{c.ctaSub}</p>
+                {c.calendlyBtn} <ArrowRight size={18} />
+              </a>
+              <p className="mt-3 text-sm text-muted-foreground">{c.calendlySub}</p>
             </div>
           </div>
 
