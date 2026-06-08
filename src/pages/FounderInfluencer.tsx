@@ -441,6 +441,33 @@ export default function FounderInfluencer() {
           <p className="mt-4 text-xs text-muted-foreground">{c.s3sources}</p>
         </section>
 
+        {/* PERSONAL BRAND WEDGE */}
+        <section className="border-t border-border py-16 md:py-24">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.brandH}</h2>
+          <div className="mt-6 max-w-3xl space-y-5 text-lg text-muted-foreground">
+            <p>{c.brandP1}</p>
+            <p>{c.brandP2}</p>
+          </div>
+          <ul className="mt-8 grid gap-3 md:grid-cols-2">
+            {c.brandBullets.map((b) => (
+              <li key={b} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <Check className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span className="text-foreground">{b}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-muted-foreground">
+            {c.brandBlog}
+            <Link
+              to={lang === "pl" ? "/pl/blog/heygen-po-polsku-czy-dziala" : "/en/blog/heygen-alternatives-for-founders"}
+              className="text-primary underline underline-offset-4 hover:no-underline"
+            >
+              {c.brandBlogLink}
+            </Link>
+          </p>
+        </section>
+
+
         {/* HOW IT WORKS */}
         <section className="border-t border-border py-16 md:py-24">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.s4h}</h2>
