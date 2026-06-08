@@ -136,6 +136,17 @@ const COPY = {
     stat1Big: "0 hours", stat1Sub: "on camera per week (after 2-min setup)",
     stat2Big: "3–5×", stat2Sub: "higher publishing frequency vs. face-on",
     s3sources: "Sources: D-ID 2026 AI Avatar Report, Founder-Led Marketing Trends 2026",
+    brandH: "Founder personal branding with AI — built without leaving your laptop",
+    brandP1: "Personal branding is no longer optional. In 2026 the founder, not the company, is the first touchpoint — LinkedIn, YouTube and short-form video lead. The problem: 9 of 10 technical founders never build a consistent presence because they hate the camera. Your AI avatar removes that single bottleneck.",
+    brandP2: "We combine HeyGen (avatar), GPT (scripts), our 90-day MVA framework (distribution + capture) and your real thesis — so your personal brand compounds weekly, even while you ship product, sleep, or ignore social entirely. No recording sessions, no agencies, no IKEA backdrop.",
+    brandBullets: [
+      "Your founder thesis (spiky opinion) as the spine of the personal brand",
+      "AI avatar shipping 1× long-form + 5× Shorts + 3× LinkedIn per week",
+      "MVA framework baked in — personal brand converted into 1,000 true fans",
+      "Multilingual: EN + PL + DE from a single script",
+    ],
+    brandBlog: "Read: ",
+    brandBlogLink: "HeyGen alternatives for founders — what actually works",
     s4h: "How it works",
     s4sub: "From founder to channel in one afternoon. Then 90 days of compounding.",
     steps: [
