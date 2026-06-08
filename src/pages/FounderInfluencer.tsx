@@ -12,11 +12,11 @@ type Lang = "pl" | "en";
 
 const COPY = {
   pl: {
-    seoTitle: "AI Founder OS — Zero godzin przed kamerą | JAY-23",
-    seoDesc: "100% AI workflow z twoim avatarem. Zero godzin przed kamerą. 1000 prawdziwych fanów w 90 dni. Bezpłatny 47-stronicowy Playbook.",
-    eyebrow: "Nowość — pierwszy AI Founder OS",
-    h1: "Twój produkt nie jest gotowy. Twoja kamera tym bardziej. Twój AI avatar nie ma wymówek.",
-    sub: "100% AI workflow. Twoja twarz, twój głos, twój kanał — generowane i publikowane za ciebie. 1000 prawdziwych fanów w 90 dni, zero godzin przed kamerą.",
+    seoTitle: "HeyGen po polsku dla founderów — AI avatar + marka osobista | JAY-23",
+    seoDesc: "AI avatar (HeyGen, Synthesia, Argil) + 90-dniowy plan budowy marki osobistej foundera. Zero godzin przed kamerą. 1000 prawdziwych fanów. Bezpłatny Playbook.",
+    eyebrow: "HeyGen + Synthesia + Argil — pod jednym systemem",
+    h1: "HeyGen po polsku dla foundera: AI avatar i marka osobista bez godzin przed kamerą.",
+    sub: "Łączymy HeyGen, Synthesia i Argil w jeden workflow z 90-dniowym planem marki osobistej. Twoja twarz, twój głos, twój kanał — generowane i publikowane za ciebie. 1000 prawdziwych fanów w 90 dni.",
     cta: "Pobierz Founder Influencer Playbook",
     ctaSub: "Bezpłatny PDF. 47 stron. 90-dniowy plan, scripty, prompty, stack narzędzi.",
     you: "TY", yourAi: "TWÓJ AI",
