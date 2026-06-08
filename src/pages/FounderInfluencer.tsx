@@ -177,6 +177,9 @@ const COPY = {
     success: "Check your inbox in 2 minutes. The Playbook is on its way.",
     successSub: "If you don't see it — check spam or email hello@jay23.com.",
     micro: "We use MailerLite. No spam. Unsubscribe whenever.",
+    calendlyTitle: "Rather talk?",
+    calendlySub: "Book a 30-minute Founder Influencer strategy call. No commitment.",
+    calendlyBtn: "Book a free call →",
     s9h: "Common questions",
     faq: [
       { q: "Won't people see it's AI and feel cheated?", a: "Only if you hide it. We coach you to lead with the disclosure — your audience respects transparency. Camera-shy founders are the silent majority; many will relate. Your insight is the asset. The avatar is just the megaphone." },
