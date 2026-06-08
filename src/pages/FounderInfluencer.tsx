@@ -558,19 +558,18 @@ export default function FounderInfluencer() {
           </div>
         </section>
 
-        {/* CALENDLY CTA */}
+        {/* CALENDLY EMBED */}
         <section className="border-t border-border py-16 md:py-24">
-          <div className="mx-auto max-w-[600px] text-center">
+          <div className="mx-auto max-w-[680px] text-center mb-8">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.calendlyTitle}</h2>
             <p className="mt-3 text-lg text-muted-foreground">{c.calendlySub}</p>
-            <a
-              href="https://calendly.com/marekciesla/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
-            >
-              {c.calendlyBtn} <ArrowRight size={18} />
-            </a>
+          </div>
+          <div className="mx-auto max-w-[900px] rounded-card border border-border bg-background overflow-hidden">
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/marekciesla/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0B0B0F&text_color=F6F6FA&primary_color=6C5CE7"
+              style={{ minWidth: "320px", height: "700px" }}
+            />
           </div>
         </section>
       </main>
