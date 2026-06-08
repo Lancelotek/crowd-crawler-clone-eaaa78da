@@ -7,6 +7,7 @@ import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import { supabase } from "@/integrations/supabase/client";
 import { trackAdsConversion } from "@/lib/tracking";
+import founderVideo from "@/assets/founder-avatar.mp4.asset.json";
 
 type Lang = "pl" | "en";
 
