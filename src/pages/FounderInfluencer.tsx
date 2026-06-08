@@ -366,30 +366,18 @@ export default function FounderInfluencer() {
           </div>
 
           <div className="flex items-center justify-center">
-            <svg viewBox="0 0 400 360" className="w-full max-w-[380px]" aria-hidden="true">
-              <defs>
-                <linearGradient id="real" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--muted-foreground))" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="hsl(var(--muted-foreground))" stopOpacity="0.1" />
-                </linearGradient>
-                <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-              <circle cx="110" cy="100" r="42" fill="url(#real)" />
-              <path d="M50 200 Q110 150 170 200 L170 240 L50 240 Z" fill="url(#real)" />
-              <text x="110" y="270" textAnchor="middle" fontSize="12" fill="hsl(var(--muted-foreground))">{c.you}</text>
-              <line x1="200" y1="40" x2="200" y2="280" stroke="hsl(var(--border))" strokeDasharray="4 4" />
-              <circle cx="290" cy="100" r="42" fill="url(#ai)" />
-              <path d="M230 200 Q290 150 350 200 L350 240 L230 240 Z" fill="url(#ai)" />
-              <text x="290" y="270" textAnchor="middle" fontSize="12" fill="hsl(var(--primary))">{c.yourAi}</text>
-              <g transform="translate(60,300)">
-                {[0, 1, 2, 3, 4].map((i) => (
-                  <rect key={i} x={i * 56} y={0} width="48" height="32" rx="4" fill="hsl(var(--muted))" stroke="hsl(var(--border))" />
-                ))}
-              </g>
-            </svg>
+            <div className="w-full max-w-[420px] overflow-hidden rounded-2xl border border-border bg-secondary shadow-xl">
+              <video
+                src={founderVideo.url}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="h-auto w-full"
+                aria-label={c.yourAi}
+              />
+            </div>
           </div>
         </section>
 
