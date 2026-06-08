@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import { supabase } from "@/integrations/supabase/client";
+import { trackAdsConversion } from "@/lib/tracking";
 
 type Lang = "pl" | "en";
 
