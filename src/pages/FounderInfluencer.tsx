@@ -524,6 +524,22 @@ export default function FounderInfluencer() {
             ))}
           </div>
         </section>
+
+        {/* CALENDLY CTA */}
+        <section className="border-t border-border py-16 md:py-24">
+          <div className="mx-auto max-w-[600px] text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{c.calendlyTitle}</h2>
+            <p className="mt-3 text-lg text-muted-foreground">{c.calendlySub}</p>
+            <a
+              href="https://calendly.com/marekciesla/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+            >
+              {c.calendlyBtn} <ArrowRight size={18} />
+            </a>
+          </div>
+        </section>
       </main>
 
       <FooterSection />
