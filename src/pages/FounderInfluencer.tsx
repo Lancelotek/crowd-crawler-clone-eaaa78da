@@ -301,6 +301,27 @@ export default function FounderInfluencer() {
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
+  // Load Calendly widget script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
+
+  // Calendly → Google Ads conversion tracking
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== "https://calendly.com") return;
+      if (e.data?.event && e.data.event === "calendly.event_scheduled") {
+        trackAdsConversion("1xSfCInJ56IaEILXrOsD");
+      }
+    };
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, []);
+
   const stepIcons = [Mic, Cog, TrendingUp];
 
   return (
