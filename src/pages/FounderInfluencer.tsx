@@ -12,11 +12,11 @@ type Lang = "pl" | "en";
 
 const COPY = {
   pl: {
-    seoTitle: "AI Founder OS — Zero godzin przed kamerą | JAY-23",
-    seoDesc: "100% AI workflow z twoim avatarem. Zero godzin przed kamerą. 1000 prawdziwych fanów w 90 dni. Bezpłatny 47-stronicowy Playbook.",
-    eyebrow: "Nowość — pierwszy AI Founder OS",
-    h1: "Twój produkt nie jest gotowy. Twoja kamera tym bardziej. Twój AI avatar nie ma wymówek.",
-    sub: "100% AI workflow. Twoja twarz, twój głos, twój kanał — generowane i publikowane za ciebie. 1000 prawdziwych fanów w 90 dni, zero godzin przed kamerą.",
+    seoTitle: "HeyGen po polsku dla founderów — AI avatar + marka osobista | JAY-23",
+    seoDesc: "AI avatar (HeyGen, Synthesia, Argil) + 90-dniowy plan budowy marki osobistej foundera. Zero godzin przed kamerą. 1000 prawdziwych fanów. Bezpłatny Playbook.",
+    eyebrow: "HeyGen + Synthesia + Argil — pod jednym systemem",
+    h1: "HeyGen po polsku dla foundera: AI avatar i marka osobista bez godzin przed kamerą.",
+    sub: "Łączymy HeyGen, Synthesia i Argil w jeden workflow z 90-dniowym planem marki osobistej. Twoja twarz, twój głos, twój kanał — generowane i publikowane za ciebie. 1000 prawdziwych fanów w 90 dni.",
     cta: "Pobierz Founder Influencer Playbook",
     ctaSub: "Bezpłatny PDF. 47 stron. 90-dniowy plan, scripty, prompty, stack narzędzi.",
     you: "TY", yourAi: "TWÓJ AI",
@@ -102,11 +102,11 @@ const COPY = {
     ],
   },
   en: {
-    seoTitle: "AI Founder OS — Zero Hours on Camera | JAY-23",
-    seoDesc: "100% AI workflow with your own avatar. Zero hours on camera. 1,000 true fans in 90 days. Free 47-page Founder Influencer Playbook.",
-    eyebrow: "New — The first AI Founder OS",
-    h1: "Your product isn't ready. Your camera even less so. Your AI avatar has no excuses.",
-    sub: "100% AI workflow. Your face, your voice, your channel — generated and published for you. 1,000 true fans in 90 days, with zero hours on camera.",
+    seoTitle: "HeyGen Alternative for Founders — AI Avatar + Personal Brand | JAY-23",
+    seoDesc: "AI avatar (HeyGen, Synthesia, Argil) + 90-day personal branding plan for founders. Zero hours on camera. 1,000 true fans. Free 47-page Playbook.",
+    eyebrow: "HeyGen + Synthesia + Argil — under one system",
+    h1: "HeyGen for founders: AI avatar and personal brand with zero hours on camera.",
+    sub: "We combine HeyGen, Synthesia and Argil into one workflow with a 90-day personal brand plan. Your face, your voice, your channel — generated and published for you. 1,000 true fans in 90 days.",
     cta: "Get the Founder Influencer Playbook",
     ctaSub: "Free PDF. 47 pages. The 90-day plan, the scripts, the prompts, the tool stack.",
     you: "YOU", yourAi: "YOUR AI",
