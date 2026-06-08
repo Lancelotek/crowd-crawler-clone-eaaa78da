@@ -331,13 +331,15 @@ export default function FounderInfluencer() {
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">{c.h1}</h1>
             <p className="mt-6 text-lg text-muted-foreground md:text-xl">{c.sub}</p>
             <div className="mt-8">
-              <button
-                onClick={scrollToOptIn}
-                className="rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+              <a
+                href="https://calendly.com/marekciesla/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
               >
-                {c.cta}
-              </button>
-              <p className="mt-3 text-sm text-muted-foreground">{c.ctaSub}</p>
+                {c.calendlyBtn} <ArrowRight size={18} />
+              </a>
+              <p className="mt-3 text-sm text-muted-foreground">{c.calendlySub}</p>
             </div>
           </div>
 
@@ -494,7 +496,7 @@ export default function FounderInfluencer() {
           </blockquote>
         </section>
 
-        {/* OPT-IN */}
+        {/* CTA — Calendly (primary) */}
         <section id="get-the-playbook" ref={optInRef} className="border-t border-border py-16 md:py-24">
           <div className="grid gap-10 md:grid-cols-[1.4fr_1fr]">
             <div>
@@ -509,8 +511,17 @@ export default function FounderInfluencer() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-              <OptInForm lang={safeLang} />
+            <div className="rounded-2xl border border-border bg-card p-6 md:p-8 flex flex-col justify-center text-center">
+              <h3 className="text-2xl font-bold tracking-tight">{c.calendlyTitle}</h3>
+              <p className="mt-3 text-muted-foreground">{c.calendlySub}</p>
+              <a
+                href="https://calendly.com/marekciesla/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition hover:bg-primary/90"
+              >
+                {c.calendlyBtn} <ArrowRight size={18} />
+              </a>
             </div>
           </div>
         </section>
