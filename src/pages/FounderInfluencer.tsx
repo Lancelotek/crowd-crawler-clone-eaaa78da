@@ -35,6 +35,17 @@ const COPY = {
     stat1Big: "0 godz.", stat1Sub: "przed kamerą tygodniowo (po 2-min setupie)",
     stat2Big: "3–5×", stat2Sub: "wyższa częstotliwość publikacji vs. face-on",
     s3sources: "Źródła: D-ID 2026 AI Avatar Report, Founder-Led Marketing Trends 2026",
+    brandH: "Marka osobista foundera z AI — jak zbudować ją bez wychodzenia zza laptopa",
+    brandP1: "Marka osobista przestała być opcją. W 2026 to founder, nie firma, jest pierwszym punktem kontaktu klienta — z LinkedInem, YouTubem i krótkim wideo na czele. Problem: 9 na 10 technicznych founderów nigdy nie zbuduje konsekwentnej obecności, bo nie znosi kamery. Twój AI avatar rozwiązuje to w jednym ruchu.",
+    brandP2: "Łączymy HeyGen (avatar), GPT (scripty), nasz 90-dniowy framework MVA (dystrybucja + capture) i twoją prawdziwą tezę — żeby twoja marka osobista rosła co tydzień, nawet kiedy ty kodzisz, śpisz albo dowozisz produkt. Bez sesji nagraniowych, bez agencji, bez tła z IKEA.",
+    brandBullets: [
+      "Twoja teza foundera (spiky opinion) jako oś marki osobistej",
+      "AI avatar publikujący 1× long-form + 5× Shorts + 3× LinkedIn tygodniowo",
+      "Wbudowany framework MVA — marka osobista przekuta na 1000 prawdziwych fanów",
+      "Multilingual: PL + EN + DE z jednego scriptu",
+    ],
+    brandBlog: "Czytaj: ",
+    brandBlogLink: "HeyGen po polsku — czy działa i czym zastąpić",
     s4h: "Jak to działa",
     s4sub: "Od foundera do kanału w jedno popołudnie. Potem 90 dni compoundingu.",
     steps: [
