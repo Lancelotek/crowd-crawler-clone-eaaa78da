@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Check, Mic, Cog, TrendingUp, ChevronDown } from "lucide-react";
+import { Check, Mic, Cog, TrendingUp, ChevronDown, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
