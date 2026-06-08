@@ -396,9 +396,19 @@ export default function FounderInfluencer() {
                 muted
                 loop
                 playsInline
+                controls
+                controlsList="nodownload"
                 preload="metadata"
                 className="h-auto w-full"
                 aria-label={c.yourAi}
+                onClick={(e) => {
+                  const v = e.currentTarget;
+                  if (v.muted) {
+                    v.muted = false;
+                    v.volume = 1;
+                    void v.play();
+                  }
+                }}
               />
             </div>
           </div>
