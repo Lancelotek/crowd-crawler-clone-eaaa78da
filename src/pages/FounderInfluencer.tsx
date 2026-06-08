@@ -87,6 +87,9 @@ const COPY = {
     success: "Sprawdź skrzynkę za 2 minuty. Playbook już leci.",
     successSub: "Jeśli nie widzisz maila — sprawdź spam lub napisz na hello@jay23.com.",
     micro: "Korzystamy z MailerLite. Bez spamu. Wypisz się kiedy chcesz.",
+    calendlyTitle: "Wolisz porozmawiać?",
+    calendlySub: "Umów 30-minutową rozmowę strategii Founder Influencer. Zero zobowiązań.",
+    calendlyBtn: "Umów bezpłatną rozmowę →",
     s9h: "Najczęstsze pytania",
     faq: [
       { q: "Ludzie zobaczą, że to AI i poczują się oszukani — prawda?", a: "Tylko jeśli to ukrywasz. Uczymy cię prowadzić z odkrytymi kartami — twoja publiczność szanuje transparentność. Founderzy z tremą przed kamerą to cicha większość; wielu się z tym utożsami. Twój insight jest aktywem. Avatar to tylko megafon." },
