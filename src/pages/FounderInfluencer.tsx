@@ -9,6 +9,52 @@ import { supabase } from "@/integrations/supabase/client";
 import { trackAdsConversion } from "@/lib/tracking";
 import founderVideo from "@/assets/founder-avatar.mp4.asset.json";
 
+function FounderVideo({ src, label }: { src: string; label: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [unmuted, setUnmuted] = useState(false);
+
+  const unmute = () => {
+    const v = ref.current;
+    if (!v || unmuted) return;
+    v.muted = false;
+    v.volume = 1;
+    const p = v.play();
+    if (p && typeof p.then === "function") p.catch(() => {});
+    setUnmuted(true);
+  };
+
+  useEffect(() => {
+    if (unmuted) return;
+    const handler = () => unmute();
+    const opts = { once: true, passive: true } as AddEventListenerOptions;
+    window.addEventListener("pointerdown", handler, opts);
+    window.addEventListener("keydown", handler, opts);
+    window.addEventListener("touchstart", handler, opts);
+    return () => {
+      window.removeEventListener("pointerdown", handler);
+      window.removeEventListener("keydown", handler);
+      window.removeEventListener("touchstart", handler);
+    };
+  }, [unmuted]);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      autoPlay
+      muted
+      loop
+      playsInline
+      controls
+      controlsList="nodownload"
+      preload="metadata"
+      className="h-auto w-full"
+      aria-label={label}
+      onClick={unmute}
+    />
+  );
+}
+
 type Lang = "pl" | "en";
 
 const COPY = {
