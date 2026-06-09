@@ -390,26 +390,7 @@ export default function FounderInfluencer() {
 
           <div className="flex items-center justify-center">
             <div className="w-full max-w-[420px] overflow-hidden rounded-2xl border border-border bg-secondary shadow-xl">
-              <video
-                src={founderVideo.url}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                controlsList="nodownload"
-                preload="metadata"
-                className="h-auto w-full"
-                aria-label={c.yourAi}
-                onClick={(e) => {
-                  const v = e.currentTarget;
-                  if (v.muted) {
-                    v.muted = false;
-                    v.volume = 1;
-                    void v.play();
-                  }
-                }}
-              />
+              <FounderVideo src={founderVideo.url} label={c.yourAi} />
             </div>
           </div>
         </section>
