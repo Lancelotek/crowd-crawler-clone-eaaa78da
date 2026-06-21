@@ -43,7 +43,7 @@ const HeroSection = () => {
 
             </div>
             <h1 style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.018em", color: "#fff", marginBottom: "20px", textTransform: "uppercase", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.2s both" : "none" }}>
-              <span dangerouslySetInnerHTML={{ __html: t("hero", "h1_line1").replace(/46|(\$1\.2M\+)/g, '<span style="color:#673DFF">$&</span>') }} />
+              <span dangerouslySetInnerHTML={{ __html: t("hero", "h1_line1").replace(/SaaS &amp; eCommerce|SaaS & eCommerce|46|(\$1\.2M\+)/g, '<span style="color:#673DFF">$&</span>') }} />
               <br />
               {t("hero", "h1_line2")}
             </h1>
