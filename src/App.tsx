@@ -110,6 +110,8 @@ const LangRoutes = () => (
         <Route path="contact" element={<ContactRedirect />} />
         <Route path="founder-influencer" element={<FounderInfluencer />} />
         <Route path="gamefound" element={<Gamefound />} />
+        <Route path="saas-prelaunch-marketing-agency" element={<SaasPrelaunch />} />
+        <Route path="ecommerce-prelaunch-agency" element={<EcommercePrelaunch />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
