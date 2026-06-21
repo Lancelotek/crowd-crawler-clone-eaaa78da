@@ -32,6 +32,8 @@ const Quiz = lazy(() => import("./pages/Quiz"));
 const LP = lazy(() => import("./pages/LP"));
 const FounderInfluencer = lazy(() => import("./pages/FounderInfluencer"));
 const Gamefound = lazy(() => import("./pages/Gamefound"));
+const SaasPrelaunch = lazy(() => import("./pages/SaasPrelaunch"));
+const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 
 const queryClient = new QueryClient();
 
@@ -108,6 +110,8 @@ const LangRoutes = () => (
         <Route path="contact" element={<ContactRedirect />} />
         <Route path="founder-influencer" element={<FounderInfluencer />} />
         <Route path="gamefound" element={<Gamefound />} />
+        <Route path="saas-prelaunch-marketing-agency" element={<SaasPrelaunch />} />
+        <Route path="ecommerce-prelaunch-agency" element={<EcommercePrelaunch />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
