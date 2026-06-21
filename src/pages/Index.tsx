@@ -33,8 +33,8 @@ const Index = () => {
   useStoreLanguagePreference(lang);
   const seo = {
     en: {
-      title: "Build Your Audience Before Your Product | MVA Framework",
-      description: "The 90-day Minimum Viable Audience program. Build 1,000 true fans before you launch — validate demand, grow a waitlist, and launch to buyers who already wait.",
+      title: "Pre-Launch Marketing Agency for SaaS & eCommerce | JAY-23",
+      description: "Pre-launch marketing agency for SaaS and eCommerce founders. 90-day MVA Framework, 46 campaigns, $1.2M+ raised. Launch to 1,000+ true fans, not silence.",
     },
     pl: {
       title: "Agencja Kickstarter Polska — MVA Framework w 90 dni | JAY-23",
