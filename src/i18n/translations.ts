@@ -15,12 +15,12 @@ export const translations = {
 
   // ─── Hero ────────────────────────────────────────────────
   hero: {
-    eyebrow: { en: "MVA Framework · 90-day program", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
+    eyebrow: { en: "Pre-Launch Marketing · 90-day MVA Framework", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
 
-    h1_line1: { en: "46 Campaigns. $1.2M+ Raised.", pl: "46 kampanii. $1.2M+ zebranych." },
-    h1_line2: { en: "Zero Cold Launches.", pl: "Zero zimnych startów." },
+    h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce", pl: "46 kampanii. $1.2M+ zebranych." },
+    h1_line2: { en: "Founders.", pl: "Zero zimnych startów." },
     h1_line3: { en: "", pl: "" },
-    hook: { en: "Founders using the MVA Framework launch to a list that's already waiting", pl: "Pomagamy polskim founderom przygotować i przeprowadzić udane kampanie Kickstarter. MVA Framework startuje Twoją kampanię do listy, która już czeka" },
+    hook: { en: "46 campaigns, $1.2M+ raised. We run the 90-day MVA Framework so SaaS and eCommerce founders launch to 1,000+ true fans already waiting", pl: "Pomagamy polskim founderom przygotować i przeprowadzić udane kampanie Kickstarter. MVA Framework startuje Twoją kampanię do listy, która już czeka" },
     hookBold: { en: "— not silence.", pl: "— nie w ciszę." },
     hookEnd: { en: "", pl: "" },
     ctaPrimary: { en: "Book a Free Strategy Call →", pl: "Umów bezpłatną konsultację →" },
