@@ -138,12 +138,12 @@ const EcommercePrelaunchPL = () => {
   return (
     <>
       <SEOHead
-        title="Agencja prelaunch marketingu dla eCommerce i crowdfundingu | JAY-23"
-        description="Agencja prelaunch dla marek eCommerce, DTC i kampanii crowdfundingowych. 90-dniowy framework MVA: walidacja popytu, 1000+ kupujących, finansowanie produkcji preorderem. 46 kampanii, 1,2 mln USD+ zebrane."
+        title="Agencja eCommerce dla założycieli przed startem | Framework MVA | JAY-23"
+        description="Agencja ecommerce specjalizująca się w prelaunchu: walidacja popytu, 1000+ kupujących i finansowanie produkcji z preorderów. 46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC."
         canonical="/pl/agencja-prelaunch-ecommerce"
         lang="pl"
         ogImage="https://jay23.com/og-default.jpg"
-        ogImageAlt="Agencja prelaunch eCommerce — JAY-23"
+        ogImageAlt="Agencja ecommerce dla założycieli przed startem — JAY-23"
         hreflangOverrides={{ en: "/en/ecommerce-prelaunch-agency", pl: "/pl/agencja-prelaunch-ecommerce" }}
         schemaJson={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
