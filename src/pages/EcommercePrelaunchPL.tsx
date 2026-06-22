@@ -207,6 +207,29 @@ const EcommercePrelaunchPL = () => {
         </div>
       </section>
 
+      {/* AGENCJA ECOMMERCE — keyword-targeted section */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Agencja ecommerce</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            Agencja eCommerce dla założycieli przed startem — co to konkretnie znaczy.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p>Klasyczna agencja ecommerce w Polsce robi trzy rzeczy: wdraża sklep na Shopify lub WooCommerce, odpala reklamy Meta i Google Ads, optymalizuje konwersję checkoutu. To dobra robota — pod warunkiem, że masz już ruch, listę i sprzedaż. Jeśli dopiero planujesz <strong className="font-medium text-white">wprowadzenie produktu na rynek</strong>, te usługi przychodzą o 6 miesięcy za późno.</p>
+            <p>Specjalizujemy się w fazie, którą większość agencji ecommerce pomija: <strong className="font-medium text-white">jak uruchomić sklep internetowy</strong>, mając w dniu startu listę 1000+ ludzi gotowych kupić, a nie pustą bazę i nadzieję. Pre-launch to nie „kampania zapowiadająca” na Instagramie — to mierzalny, 90-dniowy proces walidacji popytu, budowania publiczności i prefinansowania produkcji.</p>
+            <p>Pracujemy z założycielami DTC, twórcami kampanii crowdfundingowych (Kickstarter, Gamefound, Indiegogo) i markami produktów fizycznych w segmencie 150–2000 zł. Po starcie przekazujemy działający system zespołowi in-house lub klasycznej agencji performance — nie konkurujemy z nimi, otwieramy im rynek.</p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+              Umów rozmowę <ArrowRight size={14} />
+            </Link>
+            <Link to={`${langPrefix}/process`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+              Zobacz framework MVA
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* WHY MVA */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
