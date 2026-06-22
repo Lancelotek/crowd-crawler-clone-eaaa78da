@@ -43,6 +43,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://jay23.com/pl/agencja-prelaunch-ecommerce</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jay23.com/pl/agencja-prelaunch-saas</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jay23.com/pl/privacy-policy</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>yearly</changefreq>
