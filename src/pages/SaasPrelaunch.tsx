@@ -144,7 +144,7 @@ const SaasPrelaunch = () => {
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"
         ogImageAlt="SaaS Pre-Launch Marketing Agency — JAY-23"
-        hreflangOverrides={{ en: "/en/saas-prelaunch-marketing-agency", pl: "/pl" }}
+        hreflangOverrides={{ en: "/en/saas-prelaunch-marketing-agency", pl: "/pl/agencja-prelaunch-saas" }}
         schemaJson={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       <MvaNavbar />
