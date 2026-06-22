@@ -160,22 +160,21 @@ const EcommercePrelaunchPL = () => {
             className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-7 flex items-center gap-2"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Prelaunch marketing · Dla eCommerce i crowdfundingu
+            Agencja eCommerce · Prelaunch i crowdfunding
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
             className="font-display text-[clamp(40px,5.6vw,78px)] font-black uppercase leading-[0.98] tracking-tight text-white mb-8 max-w-[16ch]"
           >
-            Agencja prelaunch dla założycieli <span className="text-primary">eCommerce i crowdfundingu</span>.
+            Agencja eCommerce dla założycieli, którzy startują <span className="text-primary">z kupującymi pierwszego dnia</span>.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
             className="text-[clamp(16px,1.55vw,20px)] font-light text-white/55 max-w-[680px] leading-relaxed mb-10"
           >
-            Większość startów produktów fizycznych umiera, bo publiczność buduje się po wysyłce towaru, nie przed.
-            Prowadzimy 90-dniowy framework MVA — walidujemy popyt, budujemy 1000+ kupujących, finansujemy produkcję preorderem.
+            Większość agencji ecommerce wchodzi po starcie sklepu — gasić pożar, gdy ROAS się sypie i magazyn stoi. My pracujemy <strong className="font-medium text-white/80">przed</strong> startem: walidujemy popyt, budujemy 1000+ kupujących i finansujemy produkcję preorderem. 90-dniowy framework MVA.
             46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC.
           </motion.p>
 
