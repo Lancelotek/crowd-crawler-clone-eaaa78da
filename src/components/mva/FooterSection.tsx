@@ -73,8 +73,8 @@ const FooterSection = () => {
           <div>
             <h2 className="font-display text-sm font-bold mb-4 tracking-wide">{t("footer", "services")}</h2>
             <ul className="space-y-2.5">
-              <li><a href={`${langPrefix}/agencja-prelaunch-ecommerce`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "ecommerce")}</a></li>
-              <li><a href={`${langPrefix}/agencja-prelaunch-saas`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "saas")}</a></li>
+              <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-ecommerce` : `${langPrefix}/ecommerce-prelaunch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "ecommerce")}</a></li>
+              <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-saas` : `${langPrefix}/saas-prelaunch-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "saas")}</a></li>
             </ul>
           </div>
         </div>
