@@ -113,6 +113,7 @@ const LangRoutes = () => (
         <Route path="gamefound" element={<Gamefound />} />
         <Route path="saas-prelaunch-marketing-agency" element={<SaasPrelaunch />} />
         <Route path="ecommerce-prelaunch-agency" element={<EcommercePrelaunch />} />
+        <Route path="agencja-prelaunch-ecommerce" element={<EcommercePrelaunchPL />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
