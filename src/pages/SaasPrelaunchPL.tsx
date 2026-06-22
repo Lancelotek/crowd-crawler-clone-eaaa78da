@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, X, Target, Users, LineChart, Rocket, Zap, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, X, Target, Users, LineChart, Rocket } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
 
-const SaasPrelaunch = () => {
+const SaasPrelaunchPL = () => {
   const { langPrefix } = useLanguage();
-  const bookLink = `${langPrefix}/book?source=saas-pillar`;
-  const quizLink = `${langPrefix}/quiz?source=saas-pillar`;
+  const bookLink = `${langPrefix}/book?source=saas-pillar-pl`;
+  const quizLink = `${langPrefix}/quiz?source=saas-pillar-pl`;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -19,102 +19,102 @@ const SaasPrelaunch = () => {
   const reasons = [
     {
       icon: Target,
-      label: "Demand validation",
-      title: "Stop building for an audience that may not exist",
-      body: "Most SaaS founders write code for 6–12 months before they know if anyone wants the product. We invert the order: validate buying intent with a landing page, lead magnet and paid traffic before the first line of production code. If the cost-per-lead is wrong, the idea is wrong — and you saved a year.",
+      label: "Walidacja popytu",
+      title: "Sprawdź popyt, zanim zespół spędzi pół roku na produkcie",
+      body: "Większość founderów SaaS najpierw buduje, a dopiero potem pyta rynek, czy problem jest wystarczająco bolesny. My odwracamy kolejność: pozycjonowanie, landing, lead magnet i płatny ruch testują intencję zakupu przed developmentem. Jeśli CPL, aktywacja albo deklarowana gotowość płatności się nie spina — dowiadujesz się tego po 30 dniach, nie po roku kodowania.",
     },
     {
       icon: Users,
-      label: "1,000 true fans",
-      title: "Build a Minimum Viable Audience, not just a waitlist",
-      body: "A waitlist is a list of email addresses. An MVA is 1,000+ people who self-identified as having the exact problem your SaaS solves, ranked by intent. Day-one paid conversion on an MVA is 8–14×, not 2–3% like a cold launch on Product Hunt.",
+      label: "1000 właściwych leadów",
+      title: "Buduj Minimum Viable Audience, nie martwą waitlistę",
+      body: "Lista zapisów to adresy e-mail. MVA to 1000+ osób, które same wskazały konkretny problem, segment i poziom intencji. Dla SaaS oznacza to bazę użytkowników gotowych do bety, rozmów discovery, onboardingów i płatnej aktywacji w pierwszym tygodniu startu.",
     },
     {
       icon: LineChart,
-      label: "Real GTM data",
-      title: "Know your CAC, payback and message before you launch",
-      body: "By the time we hand off, you have CPL benchmarks, the message-market fit angle that actually converted, the channel mix that worked, and a rough LTV/CAC model — not a deck of assumptions. Investors and your future Head of Growth get a base camp instead of a blank page.",
+      label: "Dane GTM przed startem",
+      title: "Poznaj CAC, komunikat i kanał, zanim produkt trafi na rynek",
+      body: "Po 90 dniach masz benchmark CPL, zwycięskie kąty komunikacji, dane z paid social / LinkedIn / Reddita i pierwszą mapę LTV/CAC. To twardy materiał do roadmapy, pitch decka i rozmów z inwestorami — nie slajd z założeniami o rynku.",
     },
     {
       icon: Rocket,
-      label: "Launch day with leverage",
-      title: "Day-one revenue that doesn't depend on a single tweet",
-      body: "Cold launches put 100% of risk on launch-day virality. We script a 4-wave activation across email, retargeting and Slack/Discord communities so even a quiet launch day produces 50–200 paying activations and 1,500+ trials in week one.",
+      label: "Launch z dźwignią",
+      title: "Dzień startu nie może zależeć od jednego posta na Product Hunt",
+      body: "Zimny launch koncentruje całe ryzyko w jednym dniu. MVA rozkłada je na 4 fale aktywacji: e-mail, retargeting, społeczności i founder-led outreach do najbardziej zaangażowanych leadów. Efekt: triale, rozmowy sprzedażowe i pierwsi płacący użytkownicy od dnia pierwszego.",
     },
   ];
 
   const phases = [
-    { n: "01", title: "Discover — narrow positioning & ICP", body: "We pressure-test the wedge: which exact ICP segment, which pain, which willingness to pay. We map adjacent SaaS that already monetizes a similar audience and reverse-engineer their messaging gaps. Output: positioning doc, 3 message angles, lead magnet that pulls signups for $1.50–$4 CPL." },
-    { n: "02", title: "Build — landing, lead magnet, paid funnel", body: "One sharp landing page on your domain. A lead magnet that's actually useful (template, mini-tool, benchmark report), not a generic ebook. Meta + LinkedIn + Reddit ad funnels, MailerLite or Customer.io sequences, and a tagged event layer so day-one cohorts are tracked from day one." },
-    { n: "03", title: "Launch — activate the MVA across 4 waves", body: "T-7 days: warm-up email + Loom video. Launch day: 4 staggered email waves + retargeting + community drops. Week one: founder-led DMs to top 5% engaged leads, onboarding loops, weekly close calls. We optimize until activation curves stabilize, not until launch night ends." },
+    { n: "01", title: "Discover — ICP, problem i obietnica", body: "Zawężamy segment: kto ma problem, ile dziś za niego płaci, jaki trigger powoduje zakup. Analizujemy konkurencyjne SaaS, alternatywy manualne i język rynku. Efekt: dokument pozycjonowania, 3 kąty komunikacji i lead magnet, który zbiera sygnały intencji, nie przypadkowe zapisy." },
+    { n: "02", title: "Build — landing, lead magnet, płatny lejek", body: "Budujemy jedną ostrą stronę na Twojej domenie, lead magnet przydatny dla ICP oraz kampanie Meta, LinkedIn, Reddit lub Google Search. Do tego sekwencja e-mail, tracking GA4/UTM i scoring leadów, żeby odróżnić ciekawość od realnej gotowości zakupu." },
+    { n: "03", title: "Launch — aktywacja MVA i pierwszy cohort", body: "T-7 dni: rozgrzewka, founder story i segmentacja leadów. Dzień startu: 4 fale maili, retargeting i outreach do top 5% zaangażowanych. Tydzień 1: onboarding, rozmowy sprzedażowe, feedback loop i pierwsze decyzje produktowe oparte na zachowaniu użytkowników." },
   ];
 
   const deliverables = [
-    "Positioning, ICP and message-market fit doc",
-    "1 conversion-optimized landing page (your domain)",
-    "Lead magnet (template / mini-tool / benchmark report)",
-    "Meta, LinkedIn and Reddit paid ad funnels",
-    "Email sequence (5–9 emails) in MailerLite / Customer.io",
-    "Analytics + UTM event layer (GA4 + Plausible)",
-    "Launch-day playbook and 4-wave activation script",
-    "Weekly metrics review and CPL/CAC benchmarks",
+    "Dokument pozycjonowania, ICP i message-market fit",
+    "Landing page zoptymalizowany pod zapisy / betę / demo",
+    "Lead magnet: template, mini-tool, benchmark albo raport",
+    "Lejki reklamowe Meta, LinkedIn, Reddit lub Google Search",
+    "Sekwencja e-mailowa 5–9 wiadomości w MailerLite / Customer.io",
+    "GA4, UTM, event layer i scoring intencji leadów",
+    "Playbook startu SaaS z 4-falową aktywacją",
+    "Cotygodniowy raport CPL, activation rate i sygnałów CAC",
   ];
 
   const comparison = [
-    { row: "Pre-launch demand validation", mva: true, cold: false },
-    { row: "Day-one paying users", mva: "50–200", cold: "0–10" },
-    { row: "CAC known before launch", mva: true, cold: false },
-    { row: "Launch-day risk concentration", mva: "Distributed", cold: "All on PH/X" },
-    { row: "Time to first revenue cohort", mva: "Day 1", cold: "Month 2–4" },
-    { row: "Investor narrative", mva: "Demand-validated", cold: "We hope" },
-    { row: "Cost", mva: "$6k + ad spend", cold: "$0 + opportunity cost" },
+    { row: "Walidacja popytu przed developmentem", mva: true, cold: false },
+    { row: "Płacący użytkownicy w dniu startu", mva: "20–100", cold: "0–5" },
+    { row: "Znany komunikat i ICP", mva: true, cold: false },
+    { row: "Wstępny CAC przed launch'em", mva: true, cold: false },
+    { row: "Ryzyko dnia startu", mva: "Rozłożone", cold: "Wszystko na PH/X" },
+    { row: "Pierwszy cohort użytkowników", mva: "Dzień 1", cold: "Miesiąc 2–4" },
+    { row: "Koszt", mva: "6 000 zł/mies + media", cold: "0 zł + spalony runway" },
   ];
 
   const faqs = [
     {
-      q: "How is this different from a generic SaaS marketing agency?",
-      a: "Most agencies optimize a launched product — they take what you built and try to grow it. We work the other side of the line: we validate demand, build the audience, and de-risk launch day. Once you've launched and CAC stabilizes, a performance agency is the right next vendor. Hiring one before MVA is putting media spend behind an unvalidated message.",
+      q: "Czym różni się agencja prelaunch SaaS od zwykłej agencji marketingowej?",
+      a: "Typowa agencja marketingowa skaluje produkt, który już istnieje. My pracujemy wcześniej: walidujemy popyt, budujemy publiczność, testujemy komunikat i przygotowujemy launch tak, żeby pierwszy cohort użytkowników nie był przypadkiem. Performance agency ma sens po ustabilizowaniu CAC; przed MVA często tylko przepala budżet na niezwalidowany przekaz.",
     },
     {
-      q: "We're a B2B SaaS with a $50k ACV. Does pre-launch marketing apply?",
-      a: "Yes, with adjustments. For high-ACV B2B we don't run a 1,000-lead MVA — we build a 100–250 named-account list, qualify it manually, and use LinkedIn + warm intros instead of broad Meta. Same framework, different channels and scoring.",
+      q: "Czy to działa dla B2B SaaS z wysokim ACV?",
+      a: "Tak, ale inaczej niż dla self-serve. Przy wysokim ACV nie celujemy w 1000 przypadkowych leadów. Budujemy mniejszą, jakościową listę nazwanych kont, testujemy komunikat przez LinkedIn, warm intro, eksperckie treści i demo requesty. Framework MVA zostaje ten sam, zmienia się kanał i scoring intencji.",
     },
     {
-      q: "How long is the engagement and what does it cost?",
-      a: "90 days is the standard MVA cycle. Pricing is $1,500/month for 3 months ($4,500 total) for the agency fee, plus your media budget — typically $3,000–$8,000 across the 90 days. Full breakdown on the packages page.",
+      q: "Na jakim etapie SaaS powinniśmy zacząć prelaunch?",
+      a: "Najlepiej przed pełnym developmentem albo przy MVP/becie. Jeśli masz już produkt, ale launch był cichy, nadal możemy użyć frameworku MVA jako resetu: zawężenie ICP, nowa strona, nowe kąty komunikacji i ponowny test kanałów przed większym budżetem growth.",
     },
     {
-      q: "Do you guarantee a number of leads or sign-ups?",
-      a: "We guarantee process and benchmarks: a working funnel within 30 days, CPL within the agreed range, and weekly transparent reporting. Volume depends on category, ICP and budget — across 46 campaigns the median MVA size is 1,200–2,500. We won't promise a number we can't model.",
+      q: "Ile trwa współpraca i ile kosztuje?",
+      a: "Standardowy cykl MVA trwa 90 dni. Cena w Polsce: 6 000 zł netto miesięcznie przez 3 miesiące, plus budżet mediowy — zwykle 12 000–32 000 zł na cały cykl. Zakres zależy od segmentu, ACV i kanałów. Pełny rozkład jest na stronie packages.",
     },
     {
-      q: "What if our SaaS is already launched but stuck?",
-      a: "Different problem, different playbook. If you have a live product with low conversion, we run a Reset Sprint instead: redefine ICP, rewrite landing, retest channel-message fit. Some SaaS need pre-launch logic re-applied post-launch — we can scope that on the call.",
+      q: "Czy gwarantujecie liczbę leadów albo płacących użytkowników?",
+      a: "Gwarantujemy proces, tempo wdrożenia i transparentne benchmarki: działający lejek w 30 dni, test komunikacji, cotygodniowe dane CPL i rekomendacje. Nie obiecujemy liczby bez modelu. W SaaS wolimy uczciwie policzyć potencjał niż sprzedać gwarancję, której nie da się kontrolować bez ceny, kategorii i budżetu.",
     },
     {
-      q: "Can we keep working with you after launch?",
-      a: "Yes. About 40% of MVA clients continue with us into a launch + first 90 days post-launch retainer focused on activation, retention loops and channel expansion. We're not a forever-agency — we hand off to your in-house growth lead when the system is stable.",
+      q: "Jakie kanały najlepiej działają dla prelaunch SaaS?",
+      a: "Najczęściej: LinkedIn dla B2B, Reddit i społeczności niszowe dla produktów prosumenckich, Meta dla szerokich problemów oraz Google Search przy wyraźnej intencji. Kanał wybieramy po researchu ICP. Nie zaczynamy od kanału — zaczynamy od problemu, języka rynku i gotowości do zapisu lub rozmowy.",
     },
     {
-      q: "Which tools and stack do you work with?",
-      a: "Landing: Webflow / Framer / Next.js (your call). Email: MailerLite, Customer.io or Loops. Ads: Meta, LinkedIn, Reddit, sometimes Google Search for high-intent. Analytics: GA4 + Plausible + your product analytics (PostHog / Mixpanel). We adapt to your stack — no forced migrations.",
+      q: "Czy pomagacie z Product Hunt?",
+      a: "Tak, ale Product Hunt traktujemy jako amplifikator, nie strategię. Przygotowujemy assets, copy, sekwencję aktywacji i community drops, ale nie opieramy startu wyłącznie na rankingu dnia. MVA ma działać nawet wtedy, gdy PH nie dowiezie oczekiwanej ekspozycji.",
     },
     {
-      q: "Where are you based and how do we communicate?",
-      a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with founders globally. Weekly 30-min sync, async daily updates in Slack or your tool, monthly strategy review.",
+      q: "Gdzie jesteście zarejestrowani i jak pracujemy?",
+      a: "JAY-23 to JAY23 LLC z siedzibą w Wyoming, USA. Pracujemy zdalnie z founderami z Polski, EU, UK i USA. Standard: cotygodniowy 30-minutowy sync, asynchroniczne update'y, wspólna tablica z eksperymentami i miesięczny przegląd strategii.",
     },
   ];
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Pre-launch marketing agency for SaaS",
+    serviceType: "Agencja prelaunch dla SaaS",
     provider: { "@id": "https://jay23.com/#organization" },
-    areaServed: { "@type": "Place", name: "Global" },
-    name: "SaaS Pre-Launch Marketing — MVA Framework",
-    description: "Pre-launch marketing agency for SaaS founders. 90-day MVA Framework: positioning, landing, paid funnel and 1,000+ true fans before launch day.",
-    url: "https://jay23.com/en/saas-prelaunch-marketing-agency",
-    offers: { "@type": "Offer", price: "1500", priceCurrency: "USD", priceSpecification: { "@type": "UnitPriceSpecification", price: "1500", priceCurrency: "USD", unitText: "MONTH" } },
+    areaServed: { "@type": "Place", name: "Polska" },
+    name: "Agencja prelaunch SaaS — Framework MVA",
+    description: "Agencja prelaunch dla founderów SaaS. 90-dniowy framework MVA: walidacja popytu, 1000+ leadów, launch z płacącymi użytkownikami od dnia pierwszego.",
+    url: "https://jay23.com/pl/agencja-prelaunch-saas",
+    offers: { "@type": "Offer", price: "6000", priceCurrency: "PLN", priceSpecification: { "@type": "UnitPriceSpecification", price: "6000", priceCurrency: "PLN", unitText: "MONTH" } },
   };
 
   const faqSchema = {
@@ -130,26 +130,25 @@ const SaasPrelaunch = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://jay23.com/en" },
-      { "@type": "ListItem", position: 2, name: "SaaS Pre-Launch Marketing", item: "https://jay23.com/en/saas-prelaunch-marketing-agency" },
+      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://jay23.com/pl" },
+      { "@type": "ListItem", position: 2, name: "Agencja prelaunch SaaS", item: "https://jay23.com/pl/agencja-prelaunch-saas" },
     ],
   };
 
   return (
     <>
       <SEOHead
-        title="Pre-Launch Marketing Agency for SaaS Founders | JAY-23"
-        description="90-day MVA Framework for SaaS founders: validate demand, build 1,000+ true fans, launch with day-one paying users. 46 campaigns, $1.2M+ raised. Free strategy call."
-        canonical="/en/saas-prelaunch-marketing-agency"
-        lang="en"
+        title="Agencja prelaunch SaaS | Marketing przed startem"
+        description="Agencja prelaunch dla SaaS: 90-dniowy MVA Framework, walidacja popytu, 1000+ leadów i launch z płacącymi użytkownikami od dnia pierwszego."
+        canonical="/pl/agencja-prelaunch-saas"
+        lang="pl"
         ogImage="https://jay23.com/og-default.jpg"
-        ogImageAlt="SaaS Pre-Launch Marketing Agency — JAY-23"
+        ogImageAlt="Agencja prelaunch SaaS — JAY-23"
         hreflangOverrides={{ en: "/en/saas-prelaunch-marketing-agency", pl: "/pl/agencja-prelaunch-saas" }}
         schemaJson={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
       <MvaNavbar />
 
-      {/* HERO */}
       <section className="relative overflow-hidden bg-[hsl(var(--dark-bg))] min-h-screen flex flex-col justify-center">
         <div className="absolute -top-[10%] -right-[15%] w-[65vw] h-[65vw] max-w-[760px] max-h-[760px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.18)_0%,transparent_65%)] pointer-events-none" />
         <div className="absolute -bottom-[20%] -left-[10%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.08)_0%,transparent_65%)] pointer-events-none" />
@@ -160,23 +159,22 @@ const SaasPrelaunch = () => {
             className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-7 flex items-center gap-2"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Pre-launch marketing · For SaaS founders
+            Prelaunch marketing · Dla founderów SaaS
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
             className="font-display text-[clamp(40px,5.6vw,78px)] font-black uppercase leading-[0.98] tracking-tight text-white mb-8 max-w-[16ch]"
           >
-            Pre-launch marketing agency for <span className="text-primary">SaaS founders</span>.
+            Agencja prelaunch dla założycieli <span className="text-primary">SaaS</span>.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
-            className="text-[clamp(16px,1.55vw,20px)] font-light text-white/55 max-w-[680px] leading-relaxed mb-10"
+            className="text-[clamp(16px,1.55vw,20px)] font-light text-white/55 max-w-[700px] leading-relaxed mb-10"
           >
-            Most SaaS launches die in silence because the audience is built after the product, not before it.
-            We run the 90-day MVA Framework: validate demand, build 1,000+ true fans, ship to a launch day that actually has buyers.
-            46 campaigns, $1.2M+ in committed revenue.
+            Większość startupów SaaS startuje za późno z marketingiem: najpierw produkt, potem publiczność, potem paniczne szukanie pierwszych użytkowników.
+            JAY-23 prowadzi 90-dniowy framework MVA — walidujemy popyt, budujemy 1000+ leadów i przygotowujemy launch SaaS z płacącymi użytkownikami od dnia pierwszego.
           </motion.p>
 
           <motion.div
@@ -184,37 +182,35 @@ const SaasPrelaunch = () => {
             className="flex flex-wrap gap-3"
           >
             <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-              Book a free strategy call <ArrowRight size={16} />
+              Umów bezpłatną rozmowę strategiczną <ArrowRight size={16} />
             </Link>
             <Link to={quizLink} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-white/5 transition-all">
-              Calculate your MVA
+              Policz swoją MVA
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* PROBLEM */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">The cold-launch trap</p>
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Pułapka cichego launchu</p>
           <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
-            Why 9 out of 10 SaaS launches go quiet on day one.
+            Dlaczego dobry SaaS może nie dostać drugiej szansy na pierwszy start.
           </h2>
           <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
-            <p>The default SaaS playbook looks like this: build for a year, launch on Product Hunt, hope for #1 of the day, then panic when MRR plateaus at $4k. The bug is structural — the audience is being asked to discover the product the same week it's available to buy.</p>
-            <p>Day-one cold launches concentrate 100% of risk on a single 24-hour window. If the tweet underperforms, the launch underperforms. If a competitor launches the same day, you're invisible. If your message doesn't land in the first 6 seconds of a hunter's scroll, you're at 30 upvotes by 11am.</p>
-            <p>The fix isn't a better launch — it's an audience that already exists when the launch happens. That audience is what we call a Minimum Viable Audience: 1,000+ self-identified buyers who told you, in advance, that they have the exact problem your SaaS solves. Built right, an MVA does 8–14× the day-one conversion of a cold launch and gives you a working CAC model before you spend on growth.</p>
+            <p>Domyślny scenariusz wygląda znajomo: roadmapa, MVP, kilka miesięcy developmentu, launch na Product Hunt, post na LinkedIn i nadzieja, że rynek sam zrozumie wartość produktu. Problem nie leży w samym launchu. Problem polega na tym, że publiczność poznaje produkt dopiero wtedy, gdy powinna już kupować.</p>
+            <p>Prelaunch marketing dla SaaS przesuwa najważniejsze decyzje wcześniej: kto jest realnym ICP, jaki problem sprzedaje się najostrzej, który kanał dowozi intencję i jaki komunikat obniża koszt zapisu. To nie jest „budowanie hype'u”. To kontrolowany test rynku przed startem.</p>
+            <p>Minimum Viable Audience daje founderowi bazę ludzi, którzy już rozumieją problem i czekają na rozwiązanie. Dzięki temu launch nie jest zimnym krzykiem w próżnię, tylko aktywacją rozgrzanej grupy użytkowników, z której da się zbudować pierwszy cohort, case study i roadmapę opartą na danych.</p>
           </div>
         </div>
       </section>
 
-      {/* WHY MVA FOR SAAS */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Why MVA for SaaS</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Dlaczego MVA dla SaaS</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Four reasons SaaS founders use MVA before they write production code.
+              Cztery powody, dla których founderzy SaaS budują publiczność przed produktem.
             </h2>
           </div>
 
@@ -242,13 +238,12 @@ const SaasPrelaunch = () => {
         </div>
       </section>
 
-      {/* PHASES */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">90-day MVA Framework</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">90-dniowy framework MVA</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              How we take a SaaS from idea to launch with paying users on day one.
+              Jak prowadzimy SaaS od hipotezy do startu z realną intencją zakupu.
             </h2>
           </div>
 
@@ -268,19 +263,18 @@ const SaasPrelaunch = () => {
 
           <div className="mt-12 text-center">
             <Link to={`${langPrefix}/process`} className="text-[14px] text-white/60 underline underline-offset-4 hover:text-white">
-              See the full process breakdown →
+              Zobacz pełny rozkład procesu →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* DELIVERABLES */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[900px] px-6">
           <div className="mb-12 max-w-[640px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">What you get</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Co dostajesz</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Concrete deliverables. No retainers without artifacts.
+              Konkretne artefakty dla launchu SaaS, nie ogólny consulting.
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -294,21 +288,20 @@ const SaasPrelaunch = () => {
         </div>
       </section>
 
-      {/* COMPARISON */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[900px] px-6">
           <div className="mb-12 max-w-[640px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">MVA vs cold launch</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">MVA vs zimny start</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              The same SaaS, two launch strategies, very different day-ones.
+              Ten sam SaaS, dwie strategie startu, zupełnie inny pierwszy cohort.
             </h2>
           </div>
 
           <div className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-hidden">
             <div className="grid grid-cols-[1.5fr,1fr,1fr] text-[12px] font-semibold tracking-[0.12em] uppercase text-white/45 border-b border-white/8">
-              <div className="px-6 py-4">Criterion</div>
-              <div className="px-6 py-4 text-center bg-primary/5 text-primary">MVA Framework</div>
-              <div className="px-6 py-4 text-center">Cold launch</div>
+              <div className="px-6 py-4">Kryterium</div>
+              <div className="px-6 py-4 text-center bg-primary/5 text-primary">Framework MVA</div>
+              <div className="px-6 py-4 text-center">Zimny start</div>
             </div>
             {comparison.map((c, i) => (
               <div key={i} className={`grid grid-cols-[1.5fr,1fr,1fr] text-[14px] ${i < comparison.length - 1 ? "border-b border-white/5" : ""}`}>
@@ -329,16 +322,14 @@ const SaasPrelaunch = () => {
         </div>
       </section>
 
-      {/* CASE STUDIES */}
       <CaseStudiesSection />
 
-      {/* FAQ */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
           <div className="mb-12">
             <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">FAQ</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Frequently asked questions.
+              Najczęściej zadawane pytania.
             </h2>
           </div>
 
@@ -361,18 +352,17 @@ const SaasPrelaunch = () => {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-32 border-t border-white/5 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.12)_0%,transparent_65%)] pointer-events-none" />
         <div className="container mx-auto max-w-[820px] px-6 text-center relative z-10">
           <h2 className="font-display text-[clamp(34px,5vw,64px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">
-            Ready for a SaaS launch with <span className="text-primary">paying users on day one</span>?
+            Gotowy startować z <span className="text-primary">użytkownikami, nie z ciszą</span>?
           </h2>
-          <p className="text-[17px] text-white/55 mb-10 max-w-[520px] mx-auto font-light leading-relaxed">
-            30 minutes. Free. You walk out with a concrete MVA plan for your SaaS — whether or not you keep working with us.
+          <p className="text-[17px] text-white/55 mb-10 max-w-[540px] mx-auto font-light leading-relaxed">
+            30 minut. Bezpłatnie. Wychodzisz z konkretnym planem MVA dla swojego SaaS — nawet jeśli nie będziemy dalej pracować razem.
           </p>
           <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-8 py-4 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-            Book a strategy call <ArrowRight size={16} />
+            Umów rozmowę strategiczną <ArrowRight size={16} />
           </Link>
         </div>
       </section>
@@ -382,4 +372,4 @@ const SaasPrelaunch = () => {
   );
 };
 
-export default SaasPrelaunch;
+export default SaasPrelaunchPL;
