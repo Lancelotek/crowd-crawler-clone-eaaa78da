@@ -138,12 +138,12 @@ const EcommercePrelaunchPL = () => {
   return (
     <>
       <SEOHead
-        title="Agencja prelaunch marketingu dla eCommerce i crowdfundingu | JAY-23"
-        description="Agencja prelaunch dla marek eCommerce, DTC i kampanii crowdfundingowych. 90-dniowy framework MVA: walidacja popytu, 1000+ kupujących, finansowanie produkcji preorderem. 46 kampanii, 1,2 mln USD+ zebrane."
+        title="Agencja eCommerce dla założycieli przed startem | Framework MVA | JAY-23"
+        description="Agencja ecommerce specjalizująca się w prelaunchu: walidacja popytu, 1000+ kupujących i finansowanie produkcji z preorderów. 46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC."
         canonical="/pl/agencja-prelaunch-ecommerce"
         lang="pl"
         ogImage="https://jay23.com/og-default.jpg"
-        ogImageAlt="Agencja prelaunch eCommerce — JAY-23"
+        ogImageAlt="Agencja ecommerce dla założycieli przed startem — JAY-23"
         hreflangOverrides={{ en: "/en/ecommerce-prelaunch-agency", pl: "/pl/agencja-prelaunch-ecommerce" }}
         schemaJson={[serviceSchema, faqSchema, breadcrumbSchema]}
       />
@@ -160,22 +160,21 @@ const EcommercePrelaunchPL = () => {
             className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-7 flex items-center gap-2"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Prelaunch marketing · Dla eCommerce i crowdfundingu
+            Agencja eCommerce · Prelaunch i crowdfunding
           </motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
             className="font-display text-[clamp(40px,5.6vw,78px)] font-black uppercase leading-[0.98] tracking-tight text-white mb-8 max-w-[16ch]"
           >
-            Agencja prelaunch dla założycieli <span className="text-primary">eCommerce i crowdfundingu</span>.
+            Agencja eCommerce dla założycieli, którzy startują <span className="text-primary">z kupującymi pierwszego dnia</span>.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
             className="text-[clamp(16px,1.55vw,20px)] font-light text-white/55 max-w-[680px] leading-relaxed mb-10"
           >
-            Większość startów produktów fizycznych umiera, bo publiczność buduje się po wysyłce towaru, nie przed.
-            Prowadzimy 90-dniowy framework MVA — walidujemy popyt, budujemy 1000+ kupujących, finansujemy produkcję preorderem.
+            Większość agencji ecommerce wchodzi po starcie sklepu — gasić pożar, gdy ROAS się sypie i magazyn stoi. My pracujemy <strong className="font-medium text-white/80">przed</strong> startem: walidujemy popyt, budujemy 1000+ kupujących i finansujemy produkcję preorderem. 90-dniowy framework MVA.
             46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC.
           </motion.p>
 
@@ -204,6 +203,29 @@ const EcommercePrelaunchPL = () => {
             <p>Domyślny playbook eCommerce: zamów towar, postaw Shopify, włącz reklamy Meta, módl się o ROAS 2× zanim skończy się kapitał obrotowy. Błąd jest strukturalny — zimna reklama konwersyjna pokazana komuś, kto nigdy nie słyszał o marce, konwertuje na 0,3–0,7%. Płacisz za odkrycie i konwersję w tym samym kliknięciu.</p>
             <p>Crowdfunding ma ten sam problem w ostrzejszej formie: dzień startu na Kickstarterze albo Gamefoundzie jest zerojedynkowy. Jeśli pierwsze 72 godziny nie złapią prędkości finansowania, algorytm platformy przestaje Cię promować i kampania toczy się w stronę cichej porażki przez kolejne 28 dni.</p>
             <p>Lekarstwem nie jest lepszy hook ani większy budżet — jest publiczność, która już Cię zna, chce produkt i jest gotowa kupić w dniu pierwszym. To Minimum Viable Audience: 1000+ samozidentyfikowanych kupujących zbudowanych w 90 dni. Dobrze wykorzystana MVA robi 8–14× konwersję dnia pierwszego względem zimnego startu i finansuje partię produkcyjną zaliczkami.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* AGENCJA ECOMMERCE — keyword-targeted section */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Agencja ecommerce</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            Agencja eCommerce dla założycieli przed startem — co to konkretnie znaczy.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p>Klasyczna agencja ecommerce w Polsce robi trzy rzeczy: wdraża sklep na Shopify lub WooCommerce, odpala reklamy Meta i Google Ads, optymalizuje konwersję checkoutu. To dobra robota — pod warunkiem, że masz już ruch, listę i sprzedaż. Jeśli dopiero planujesz <strong className="font-medium text-white">wprowadzenie produktu na rynek</strong>, te usługi przychodzą o 6 miesięcy za późno.</p>
+            <p>Specjalizujemy się w fazie, którą większość agencji ecommerce pomija: <strong className="font-medium text-white">jak uruchomić sklep internetowy</strong>, mając w dniu startu listę 1000+ ludzi gotowych kupić, a nie pustą bazę i nadzieję. Pre-launch to nie „kampania zapowiadająca” na Instagramie — to mierzalny, 90-dniowy proces walidacji popytu, budowania publiczności i prefinansowania produkcji.</p>
+            <p>Pracujemy z założycielami DTC, twórcami kampanii crowdfundingowych (Kickstarter, Gamefound, Indiegogo) i markami produktów fizycznych w segmencie 150–2000 zł. Po starcie przekazujemy działający system zespołowi in-house lub klasycznej agencji performance — nie konkurujemy z nimi, otwieramy im rynek.</p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+              Umów rozmowę <ArrowRight size={14} />
+            </Link>
+            <Link to={`${langPrefix}/process`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+              Zobacz framework MVA
+            </Link>
           </div>
         </div>
       </section>
