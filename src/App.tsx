@@ -34,6 +34,7 @@ const FounderInfluencer = lazy(() => import("./pages/FounderInfluencer"));
 const Gamefound = lazy(() => import("./pages/Gamefound"));
 const SaasPrelaunch = lazy(() => import("./pages/SaasPrelaunch"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
+const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
 
 const queryClient = new QueryClient();
 
