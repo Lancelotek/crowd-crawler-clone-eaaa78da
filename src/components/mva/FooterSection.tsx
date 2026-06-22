@@ -8,9 +8,9 @@ const FooterSection = () => {
   return (
     <footer className="px-6 py-16 border-t border-border">
       <div className="container mx-auto max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
           {lang === "en" && (
-            <div className="md:col-span-4 pb-6 mb-2 border-b border-border/60">
+            <div className="md:col-span-5 pb-6 mb-2 border-b border-border/60">
               <h2 className="font-display text-sm font-bold mb-3 tracking-wide">Guides</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
                 <li><a href="/en/blog/kickstarter-pre-launch-page-12-elements" className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter pre-launch page: 12 elements</a></li>
@@ -66,6 +66,15 @@ const FooterSection = () => {
               <li><a href={`${langPrefix}/privacy-policy`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "privacyPolicy")}</a></li>
               <li><a href={`${langPrefix}/terms-of-service`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "termsOfService")}</a></li>
               <li><a href={`${langPrefix}/impressum`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "impressum")}</a></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h2 className="font-display text-sm font-bold mb-4 tracking-wide">{t("footer", "services")}</h2>
+            <ul className="space-y-2.5">
+              <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-ecommerce` : `${langPrefix}/ecommerce-prelaunch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "ecommerce")}</a></li>
+              <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-saas` : `${langPrefix}/saas-prelaunch-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "saas")}</a></li>
             </ul>
           </div>
         </div>
