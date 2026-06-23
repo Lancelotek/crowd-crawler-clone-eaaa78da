@@ -138,8 +138,8 @@ const SaasPrelaunch = () => {
   return (
     <>
       <SEOHead
-        title="Pre-Launch Marketing Agency for SaaS Founders | JAY-23"
-        description="90-day MVA Framework for SaaS founders: validate demand, build 1,000+ true fans, launch with day-one paying users. 46 campaigns, $1.2M+ raised. Free strategy call."
+        title="SaaS Go-to-Market & Pre-Launch Marketing Agency | JAY-23"
+        description="SaaS go-to-market strategy that ships: 90-day MVA Framework validates demand, builds 1,000+ true fans, and lands day-one paying users. 46 campaigns, $1.2M+ raised."
         canonical="/en/saas-prelaunch-marketing-agency"
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"
