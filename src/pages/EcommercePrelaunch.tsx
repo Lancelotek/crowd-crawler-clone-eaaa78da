@@ -208,6 +208,49 @@ const EcommercePrelaunch = () => {
         </div>
       </section>
 
+      {/* MONEY KEYWORDS — product launch / crowdfunding / kickstarter */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Product launch agency</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            A product launch agency for founders who'd rather de-risk than gamble.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p>A typical <strong className="font-medium text-white">product launch agency</strong> shows up six weeks before launch day with a press kit, an influencer list and a prayer. By then the expensive decisions — price, positioning, channel, offer — are already locked. We work 90 days earlier, when those decisions are still cheap to change, and we test each one with real ad spend, real leads and real deposits before you commit to a production run.</p>
+          </div>
+
+          <div className="mt-14">
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Crowdfunding marketing agency</p>
+            <h3 className="font-display text-[clamp(26px,3vw,38px)] font-black uppercase leading-[1.08] tracking-tight text-white mb-6">
+              Crowdfunding marketing agency with 46 campaigns and $1.2M+ raised.
+            </h3>
+            <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+              <p>As a <strong className="font-medium text-white">crowdfunding marketing agency</strong>, we don't show up on launch day with a press list — we spend 60–90 days building an MVA of intent-scored backers so the first 72 hours of your Kickstarter or Gamefound campaign hit funding goal before the platform algorithm decides whether to amplify or bury you. That's the difference between a campaign that compounds and one that quietly funds at 110%.</p>
+              <p>The same playbook works for Indiegogo, Crowd Supply, and BackerKit launches — and adapts cleanly for late-pledge optimization once your campaign closes.</p>
+            </div>
+          </div>
+
+          <div className="mt-14">
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Kickstarter marketing agency</p>
+            <h3 className="font-display text-[clamp(26px,3vw,38px)] font-black uppercase leading-[1.08] tracking-tight text-white mb-6">
+              Kickstarter marketing agency that builds backers before launch day, not during it.
+            </h3>
+            <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+              <p>Most <strong className="font-medium text-white">Kickstarter marketing agency</strong> work is reactive — they jump in mid-campaign when funding velocity is already dropping. We build the audience first: a landing page, Meta + TikTok funnel, lead magnet (early-bird deposit or notify-me), and a 4-wave activation script ready for T-0. The campaign launches with 1,000+ pre-qualified backers, not strangers.</p>
+              <p>Average MVA-driven Kickstarter or Gamefound campaign hits its funding goal in under 48 hours. That triggers the Popular / Projects We Love placement, which then carries cold backers for the rest of the 30-day window.</p>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+                Plan your crowdfunding launch <ArrowRight size={14} />
+              </Link>
+              <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+                Read crowdfunding playbooks
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY MVA */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
