@@ -138,8 +138,8 @@ const SaasPrelaunch = () => {
   return (
     <>
       <SEOHead
-        title="Pre-Launch Marketing Agency for SaaS Founders | JAY-23"
-        description="90-day MVA Framework for SaaS founders: validate demand, build 1,000+ true fans, launch with day-one paying users. 46 campaigns, $1.2M+ raised. Free strategy call."
+        title="SaaS Go-to-Market & Pre-Launch Marketing Agency | JAY-23"
+        description="SaaS go-to-market strategy that ships: 90-day MVA Framework validates demand, builds 1,000+ true fans, and lands day-one paying users. 46 campaigns, $1.2M+ raised."
         canonical="/en/saas-prelaunch-marketing-agency"
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"
@@ -204,6 +204,29 @@ const SaasPrelaunch = () => {
             <p>The default SaaS playbook looks like this: build for a year, launch on Product Hunt, hope for #1 of the day, then panic when MRR plateaus at $4k. The bug is structural — the audience is being asked to discover the product the same week it's available to buy.</p>
             <p>Day-one cold launches concentrate 100% of risk on a single 24-hour window. If the tweet underperforms, the launch underperforms. If a competitor launches the same day, you're invisible. If your message doesn't land in the first 6 seconds of a hunter's scroll, you're at 30 upvotes by 11am.</p>
             <p>The fix isn't a better launch — it's an audience that already exists when the launch happens. That audience is what we call a Minimum Viable Audience: 1,000+ self-identified buyers who told you, in advance, that they have the exact problem your SaaS solves. Built right, an MVA does 8–14× the day-one conversion of a cold launch and gives you a working CAC model before you spend on growth.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* SAAS GO-TO-MARKET — keyword-targeted section */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">SaaS go-to-market</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            SaaS go-to-market strategy that ships, not the one that lives in a deck.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p>Most <strong className="font-medium text-white">SaaS go-to-market strategy</strong> documents are 40 slides of ICP, personas, channel mix and a 12-month plan — with zero evidence that anyone will pay. MVA is the operational version of GTM: instead of slides you get a live funnel, a real CPL, a tested message, and a list of intent-scored leads ready for beta before your first production sprint.</p>
+            <p>For self-serve SaaS (PLG, freemium, $20–$100 MRR) we run Meta, Reddit and niche-community funnels with template or mini-tool lead magnets. For B2B with $20k–$100k ACV, GTM means named-account lists, LinkedIn outbound, expert content, and warm intros — the framework holds, channels and scoring change. Either way, you launch with a <strong className="font-medium text-white">SaaS launch strategy</strong> backed by data, not assumptions.</p>
+            <p>After 90 days you have the answers GTM decisions actually need: which segment buys fastest, which message has the lowest CAC, which channel scales linearly when you double spend, which objections kill conversion. That's the brief for your first growth hire, your next investor update, and a roadmap you can defend — not a strategy doc that ages out in 90 days.</p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+              Build your SaaS GTM <ArrowRight size={14} />
+            </Link>
+            <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+              Read SaaS marketing playbooks
+            </Link>
           </div>
         </div>
       </section>
