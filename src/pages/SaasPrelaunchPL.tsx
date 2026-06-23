@@ -205,6 +205,29 @@ const SaasPrelaunchPL = () => {
         </div>
       </section>
 
+      {/* GO TO MARKET — keyword-targeted section */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Go to market dla SaaS</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            Go to market dla SaaS — strategia, której nie zbudujesz w deku inwestorskim.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p>Większość strategii <strong className="font-medium text-white">go to market</strong> dla SaaS w Polsce żyje w PDF-ie: jest ICP, są persony, są kanały, jest plan na 12 miesięcy. Nie ma jednego: dowodu, że ktoś naprawdę zapłaci. MVA jest praktyczną wersją GTM — zamiast slajdów dostajesz działający lejek, realny CPL, mapę kanałów i listę leadów gotowych do bety jeszcze przed pierwszym sprintem produktowym.</p>
+            <p>Pracujemy zarówno z self-serve SaaS (PLG, freemium, $10–$100 MRR), jak i z B2B o wysokim ACV ($10k–$100k), gdzie GTM oznacza named accounts, LinkedIn outbound i discovery calls. Framework zostaje ten sam, zmieniają się kanał, scoring intencji i lead magnet. Dla self-serve — Meta, Reddit, społeczności. Dla enterprise — LinkedIn, warm intro, eksperckie treści i webinary z analitykami.</p>
+            <p>Po 90 dniach masz konkretne odpowiedzi pod decyzje GTM: który segment kupuje najszybciej, jaki komunikat ma najniższy CAC, który kanał skaluje się przy podwojeniu budżetu, jakie zastrzeżenia blokują zakup. To materiał na pierwszy hire growth lead, rozmowę z inwestorem i obronę roadmapy — nie kolejny dokument „strategiczny", który zestarzeje się w 3 miesiące.</p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+              Zbuduj GTM dla swojego SaaS <ArrowRight size={14} />
+            </Link>
+            <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+              Zobacz playbooki marketingu SaaS
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
