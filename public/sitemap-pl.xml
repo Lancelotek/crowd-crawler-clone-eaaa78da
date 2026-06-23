@@ -2,73 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jay23.com/pl</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/blog</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/book</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/process</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/faq</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/about</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/report</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/agencja-prelaunch-ecommerce</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jay23.com/pl/packages</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jay23.com/pl/agencja-prelaunch-saas</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/privacy-policy</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/terms-of-service</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jay23.com/pl/impressum</loc>
-    <lastmod>2026-06-22</lastmod>
+    <lastmod>2026-06-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -79,13 +85,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/jak-zrobic-kampanie-gamefound</loc>
+    <loc>https://jay23.com/pl/blog/gamefound-vs-kickstarter</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/gamefound-vs-kickstarter</loc>
+    <loc>https://jay23.com/pl/blog/jak-zrobic-kampanie-gamefound</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -103,7 +109,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/jak-zalozyc-zbiorke-kickstarter</loc>
+    <loc>https://jay23.com/pl/blog/lead-magnet-co-to-przyklady</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -115,7 +121,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/lead-magnet-co-to-przyklady</loc>
+    <loc>https://jay23.com/pl/blog/jak-zalozyc-zbiorke-kickstarter</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -145,13 +151,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://jay23.com/pl/blog/1000-prawdziwych-fanow-framework</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://jay23.com/pl/blog/jak-zbudowac-liste-mailingowa</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/strategia-prelaunch-kompletny-przewodnik</loc>
+    <loc>https://jay23.com/pl/blog/budowanie-spolecznosci-wokol-produktu</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -163,13 +175,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jay23.com/pl/blog/1000-prawdziwych-fanow-framework</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://jay23.com/pl/blog/budowanie-spolecznosci-wokol-produktu</loc>
+    <loc>https://jay23.com/pl/blog/strategia-prelaunch-kompletny-przewodnik</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
