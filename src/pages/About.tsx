@@ -32,7 +32,7 @@ const content = {
     ctaBook: "Book a Free Consultation",
   },
   pl: {
-    seoTitle: "O JAY-23 — Agencja Kickstarter i Crowdfundingu | Marek Cieśla",
+    seoTitle: "O JAY-23 — Agencja Kickstarter | Marek Cieśla",
     seoDesc: "JAY-23 to polska agencja marketingu Kickstarter i crowdfunding założona przez Marka Cieślę. 46 kampanii, ponad $1.2M zebranych na Kickstarter i Indiegogo.",
     heroTitle: "Pomagamy founderom budować publiczność ZANIM zbudują produkt",
     heroSub: "JAY-23 to studio growth marketingu specjalizujące się w strategiach prelaunch i budowaniu Minimum Viable Audience.",

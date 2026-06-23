@@ -38,7 +38,7 @@ const Index = () => {
       description: "Pre-launch marketing agency for SaaS and eCommerce founders. 90-day MVA Framework, 46 campaigns, $1.2M+ raised. Launch to 1,000+ true fans, not silence.",
     },
     pl: {
-      title: "Agencja Kickstarter Polska — MVA Framework w 90 dni | JAY-23",
+      title: "Agencja Kickstarter PL — MVA w 90 dni | JAY-23",
       description: "Agencja Kickstarter w Polsce. Budujemy 1000 prawdziwych fanów przed launchem kampanii. MVA Framework, 46 kampanii, $1.2M+ zebrane. Bezpłatna konsultacja.",
     },
   };
