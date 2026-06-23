@@ -230,6 +230,29 @@ const EcommercePrelaunchPL = () => {
         </div>
       </section>
 
+      {/* LAUNCH PRODUKTU — keyword-targeted section */}
+      <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+        <div className="container mx-auto max-w-[820px] px-6">
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Launch produktu</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
+            Launch produktu — od pomysłu do 1 000 kupujących pierwszego dnia.
+          </h2>
+          <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+            <p><strong className="font-medium text-white">Launch produktu</strong> to nie jeden dzień, tylko 90 dni przygotowania, w których podejmujesz wszystkie ryzykowne decyzje na małym budżecie. Cena, pozycjonowanie, kanał, komunikat, oferta — każdy z tych elementów testujemy zanim fabryka wystawi fakturę, a Meta zacznie pobierać pełny CAC za zimny ruch.</p>
+            <p>Klasyczne <strong className="font-medium text-white">wprowadzenie produktu na rynek</strong> wygląda tak: gotowy SKU, sklep na Shopify, 20 000 zł w Meta Ads, ROAS 0,8× i pytanie „dlaczego nie idzie?”. Framework MVA odwraca kolejność — najpierw landing i lead magnet, potem 4–8 tygodni płatnego testu komunikatu, dopiero potem zaliczki, produkcja i twardy launch z bazą 1000+ kupujących, którzy już raz powiedzieli „chcę”.</p>
+            <p>Po 90 dniach masz konkretne liczby pod decyzję inwestorską: realny CPL, koszt pozyskania kupującego, konwersję landing → zaliczka, dane do projekcji LTV i listę osób gotowych zamówić w T-0. To różnica między <em className="text-white/80">launchem produktu</em> jako loterii a kontrolowanym uruchomieniem z modelem finansowym, który spina się przed pierwszym przelewem do fabryki.</p>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
+              Zaplanuj launch produktu <ArrowRight size={14} />
+            </Link>
+            <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
+              Przeczytaj playbooki na blogu
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* WHY MVA */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
