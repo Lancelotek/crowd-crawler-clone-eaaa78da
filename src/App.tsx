@@ -41,6 +41,9 @@ const KickstarterAgency = lazy(() => import("./pages/KickstarterAgency"));
 const CrowdfundingAgency = lazy(() => import("./pages/CrowdfundingAgency"));
 const ProductLaunchAgency = lazy(() => import("./pages/ProductLaunchAgency"));
 const KickstarterMarketingAgency = lazy(() => import("./pages/KickstarterMarketingAgency"));
+const LaunchBoomAlternative = lazy(() => import("./pages/LaunchBoomAlternative"));
+const Agency2Alternative = lazy(() => import("./pages/Agency2Alternative"));
+const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
 
 const queryClient = new QueryClient();
 
@@ -126,6 +129,9 @@ const LangRoutes = () => (
         <Route path="crowdfunding-agency" element={<CrowdfundingAgency />} />
         <Route path="product-launch-agency" element={<ProductLaunchAgency />} />
         <Route path="kickstarter-marketing-agency" element={<KickstarterMarketingAgency />} />
+        <Route path="launchboom-alternative" element={<LaunchBoomAlternative />} />
+        <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
+        <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
