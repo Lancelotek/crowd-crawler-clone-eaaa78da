@@ -129,6 +129,9 @@ const LangRoutes = () => (
         <Route path="crowdfunding-agency" element={<CrowdfundingAgency />} />
         <Route path="product-launch-agency" element={<ProductLaunchAgency />} />
         <Route path="kickstarter-marketing-agency" element={<KickstarterMarketingAgency />} />
+        <Route path="launchboom-alternative" element={<LaunchBoomAlternative />} />
+        <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
+        <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
