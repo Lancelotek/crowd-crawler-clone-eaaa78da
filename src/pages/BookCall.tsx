@@ -119,9 +119,10 @@ function CalendarModal({ open, onClose, url }: { open: boolean; onClose: () => v
               </div>
               <button
                 onClick={onClose}
+                aria-label="Close booking calendar"
                 className="bg-transparent border border-white/15 text-white/60 w-7 h-7 rounded-md cursor-pointer text-base flex items-center justify-center hover:text-white/90 transition-colors"
               >
-                ✕
+                <span aria-hidden="true">✕</span>
               </button>
             </div>
             <iframe

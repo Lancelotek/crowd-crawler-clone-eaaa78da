@@ -48,7 +48,7 @@ const AuthoritySection = () => {
               <h3 className="font-display text-lg font-bold mb-2 group-hover:text-primary transition-colors">{a.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{a.desc}</p>
               <span className="text-xs font-semibold text-primary inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                Read more <ArrowRight size={12} />
+                Read the full case study <ArrowRight size={12} aria-hidden="true" />
               </span>
             </motion.a>
           ))}
