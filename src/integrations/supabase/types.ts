@@ -104,6 +104,45 @@ export type Database = {
         }
         Relationships: []
       }
+      click2pack_leads: {
+        Row: {
+          brand: string | null
+          created_at: string
+          email: string
+          id: string
+          lang: string
+          monthly_revenue: string | null
+          name: string
+          referrer: string | null
+          source: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          brand?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          lang?: string
+          monthly_revenue?: string | null
+          name: string
+          referrer?: string | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          brand?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          lang?: string
+          monthly_revenue?: string | null
+          name?: string
+          referrer?: string | null
+          source?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       saved_leads: {
         Row: {
           buying_signal: string
