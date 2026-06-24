@@ -122,6 +122,10 @@ const LangRoutes = () => (
         <Route path="agencja-prelaunch-saas" element={<SaasPrelaunchPL />} />
         <Route path="agencja-prelaunch-ecommerce" element={<EcommercePrelaunchPL />} />
         <Route path="click2pack" element={<Click2Pack />} />
+        <Route path="kickstarter-agency" element={<KickstarterAgency />} />
+        <Route path="crowdfunding-agency" element={<CrowdfundingAgency />} />
+        <Route path="product-launch-agency" element={<ProductLaunchAgency />} />
+        <Route path="kickstarter-marketing-agency" element={<KickstarterMarketingAgency />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
