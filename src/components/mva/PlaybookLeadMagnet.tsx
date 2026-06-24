@@ -171,12 +171,13 @@ const PlaybookLeadMagnet = ({ bookLink }: Props) => {
                 </p>
                 <Link
                   to={`${bookLink.split("?")[0]}?source=playbook-pdf`}
-                  onClick={() =>
+                  onClick={() => {
                     track("cta_click", {
                       cta: "book_call_after_pdf",
                       destination: "/book",
-                    })
-                  }
+                    });
+                    trackPredef.bookingClick("playbook-pdf");
+                  }}
                   className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold text-[14.5px] px-6 py-3.5 rounded-lg hover:brightness-110 transition-all"
                 >
                   Book a free 30-min strategy call <ArrowRight size={16} />
