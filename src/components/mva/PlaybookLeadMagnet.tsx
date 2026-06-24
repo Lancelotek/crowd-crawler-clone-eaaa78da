@@ -31,6 +31,8 @@ const triggerDownload = () => {
 };
 
 const PlaybookLeadMagnet = ({ bookLink }: Props) => {
+  const navigate = useNavigate();
+  const { langPrefix } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
