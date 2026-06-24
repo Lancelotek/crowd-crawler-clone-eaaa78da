@@ -18,7 +18,7 @@ type Props = {
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
