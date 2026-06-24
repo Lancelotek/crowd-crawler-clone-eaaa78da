@@ -45,6 +45,7 @@ const LaunchBoomAlternative = lazy(() => import("./pages/LaunchBoomAlternative")
 const Agency2Alternative = lazy(() => import("./pages/Agency2Alternative"));
 const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
 const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
+const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
 
 const queryClient = new QueryClient();
 
@@ -134,6 +135,7 @@ const LangRoutes = () => (
         <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
         <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
+        <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
