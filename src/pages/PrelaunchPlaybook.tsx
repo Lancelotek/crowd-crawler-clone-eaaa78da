@@ -139,6 +139,9 @@ const PrelaunchPlaybook = () => {
             </ul>
           </Section>
 
+          {/* LEAD MAGNET — gated PDF checklist */}
+          <PlaybookLeadMagnet bookLink={bookLink} />
+
           {/* 4 */}
           <Section id="phase-1-discover" eyebrow="04" title="Phase 1 — Discover. Find the wedge before you spend a dollar on ads.">
             <p>Most pre-launch work fails in this phase before the founder realizes it has started. The mistake is launching ads against the broadest possible audience with the message that lives in the pitch deck. The pitch-deck message is written for investors; it's a story about market size and competitive advantage. The pre-launch message is written for buyers; it's a story about a specific pain you have today and the relief that's coming.</p>
