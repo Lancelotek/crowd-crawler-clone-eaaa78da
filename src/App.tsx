@@ -37,6 +37,10 @@ const SaasPrelaunchPL = lazy(() => import("./pages/SaasPrelaunchPL"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
 const Click2Pack = lazy(() => import("./pages/Click2Pack"));
+const KickstarterAgency = lazy(() => import("./pages/KickstarterAgency"));
+const CrowdfundingAgency = lazy(() => import("./pages/CrowdfundingAgency"));
+const ProductLaunchAgency = lazy(() => import("./pages/ProductLaunchAgency"));
+const KickstarterMarketingAgency = lazy(() => import("./pages/KickstarterMarketingAgency"));
 
 const queryClient = new QueryClient();
 
@@ -118,6 +122,10 @@ const LangRoutes = () => (
         <Route path="agencja-prelaunch-saas" element={<SaasPrelaunchPL />} />
         <Route path="agencja-prelaunch-ecommerce" element={<EcommercePrelaunchPL />} />
         <Route path="click2pack" element={<Click2Pack />} />
+        <Route path="kickstarter-agency" element={<KickstarterAgency />} />
+        <Route path="crowdfunding-agency" element={<CrowdfundingAgency />} />
+        <Route path="product-launch-agency" element={<ProductLaunchAgency />} />
+        <Route path="kickstarter-marketing-agency" element={<KickstarterMarketingAgency />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
