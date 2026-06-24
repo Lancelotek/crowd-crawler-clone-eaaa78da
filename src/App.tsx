@@ -44,6 +44,7 @@ const KickstarterMarketingAgency = lazy(() => import("./pages/KickstarterMarketi
 const LaunchBoomAlternative = lazy(() => import("./pages/LaunchBoomAlternative"));
 const Agency2Alternative = lazy(() => import("./pages/Agency2Alternative"));
 const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
+const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
 
 const queryClient = new QueryClient();
 
