@@ -135,6 +135,7 @@ const LangRoutes = () => (
         <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
         <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
+        <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
