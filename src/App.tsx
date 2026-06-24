@@ -133,6 +133,7 @@ const LangRoutes = () => (
         <Route path="launchboom-alternative" element={<LaunchBoomAlternative />} />
         <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
         <Route path="jellop-alternative" element={<JellopAlternative />} />
+        <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
