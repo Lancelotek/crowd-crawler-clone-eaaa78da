@@ -37,6 +37,10 @@ const SaasPrelaunchPL = lazy(() => import("./pages/SaasPrelaunchPL"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
 const Click2Pack = lazy(() => import("./pages/Click2Pack"));
+const KickstarterAgency = lazy(() => import("./pages/KickstarterAgency"));
+const CrowdfundingAgency = lazy(() => import("./pages/CrowdfundingAgency"));
+const ProductLaunchAgency = lazy(() => import("./pages/ProductLaunchAgency"));
+const KickstarterMarketingAgency = lazy(() => import("./pages/KickstarterMarketingAgency"));
 
 const queryClient = new QueryClient();
 
