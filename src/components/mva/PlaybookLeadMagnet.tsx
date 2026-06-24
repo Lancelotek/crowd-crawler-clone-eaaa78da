@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Download, CheckCircle2, FileText } from "lucide-react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent, track as trackPredef } from "@/lib/tracking";
 
 const PDF_URL = "/prelaunch-checklist.pdf";
 
@@ -15,20 +16,8 @@ type Props = {
   bookLink: string;
 };
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-    dataLayer?: Record<string, unknown>[];
-  }
-}
-
 const track = (event: string, params: Record<string, unknown> = {}) => {
-  try {
-    window.gtag?.("event", event, { ...params, source: "prelaunch-playbook" });
-    window.dataLayer?.push({ event, ...params, source: "prelaunch-playbook" });
-  } catch {
-    // ignore
-  }
+  trackEvent(event, { ...params, source: "prelaunch-playbook" });
 };
 
 const triggerDownload = () => {
