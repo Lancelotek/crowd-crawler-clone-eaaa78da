@@ -36,6 +36,7 @@ const SaasPrelaunch = lazy(() => import("./pages/SaasPrelaunch"));
 const SaasPrelaunchPL = lazy(() => import("./pages/SaasPrelaunchPL"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
+const Click2Pack = lazy(() => import("./pages/Click2Pack"));
 
 const queryClient = new QueryClient();
 
@@ -116,6 +117,7 @@ const LangRoutes = () => (
         <Route path="ecommerce-prelaunch-agency" element={<EcommercePrelaunch />} />
         <Route path="agencja-prelaunch-saas" element={<SaasPrelaunchPL />} />
         <Route path="agencja-prelaunch-ecommerce" element={<EcommercePrelaunchPL />} />
+        <Route path="click2pack" element={<Click2Pack />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
@@ -151,6 +153,7 @@ const App = () => (
           <Route path="/about" element={<LanguageRedirect />} />
           <Route path="/contact" element={<LanguageRedirect />} />
           <Route path="/founder-influencer" element={<LanguageRedirect />} />
+          <Route path="/click2pack" element={<LanguageRedirect />} />
 
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
           <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
