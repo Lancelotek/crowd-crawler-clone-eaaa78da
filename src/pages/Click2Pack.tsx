@@ -744,6 +744,22 @@ const LeadForm = ({
         referrer: typeof document !== "undefined" ? document.referrer.slice(0, 500) : null,
       } as never);
       if (error) throw error;
+
+      // Push to MailerLite (group 191139495358236092). Non-blocking: DB insert is source of truth.
+      try {
+        await supabase.functions.invoke("click2pack-subscribe", {
+          body: {
+            name: form.name.trim().slice(0, 200),
+            email: form.email.trim().slice(0, 320),
+            brand: form.brand.trim().slice(0, 200) || null,
+            monthly_revenue: form.revenue || null,
+            lang,
+          },
+        });
+      } catch (mlErr) {
+        console.warn("click2pack MailerLite sync failed", mlErr);
+      }
+
       setState("success");
       setForm({ name: "", brand: "", email: "", revenue: "", company: "" });
     } catch (err) {
