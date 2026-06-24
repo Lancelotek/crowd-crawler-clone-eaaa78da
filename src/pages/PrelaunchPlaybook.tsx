@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
+import PlaybookLeadMagnet from "@/components/mva/PlaybookLeadMagnet";
 
 const sections = [
   { id: "what-is-prelaunch", label: "1. What pre-launch marketing actually is" },
