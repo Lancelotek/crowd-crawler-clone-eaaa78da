@@ -6,6 +6,7 @@ import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
+import PlaybookLeadMagnet from "@/components/mva/PlaybookLeadMagnet";
 
 const sections = [
   { id: "what-is-prelaunch", label: "1. What pre-launch marketing actually is" },
@@ -137,6 +138,9 @@ const PrelaunchPlaybook = () => {
               <li><strong className="text-white font-medium">Launch (Days 76–90):</strong> 4-wave activation. Day-one revenue. Optimize through funding.</li>
             </ul>
           </Section>
+
+          {/* LEAD MAGNET — gated PDF checklist */}
+          <PlaybookLeadMagnet bookLink={bookLink} />
 
           {/* 4 */}
           <Section id="phase-1-discover" eyebrow="04" title="Phase 1 — Discover. Find the wedge before you spend a dollar on ads.">
