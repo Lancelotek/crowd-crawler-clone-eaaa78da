@@ -1,0 +1,28 @@
+# JAY-23 disavow file for Google Search Console
+# Generated: 2026-06-24
+# Source: Semrush backlink audit (Authority Score ≤ 3, spam TLDs, scraper directories,
+# unrelated thin-content blog networks). Old self-owned project domains (sneakpick.io,
+# flowix.co, woof.one, getcare.today as a project) intentionally NOT disavowed — they
+# pass legitimate brand context even if low-authority.
+#
+# Upload at: https://search.google.com/search-console/disavow-links
+# Property: https://jay23.com/
+#
+# Submit only after spot-checking a handful of URLs from the worst domains.
+
+# === Clear PBN / spammy thin-content blogs ===
+domain:ctkdenverlimps.blogspot.com
+
+# === Spam TLDs (.cfd / .monster / .sbs / .icu / .top etc. — low-quality networks) ===
+domain:wants.cfd
+domain:knows.monster
+
+# === Scraper / "website value" / "domain stats" directories ===
+domain:allwebsitesdirectory.com
+domain:bestwebstats.com
+domain:domainsc.com
+domain:getwebsiteworth.com
+domain:globalecommerce.org
+
+# === Low-authority unrelated referrer (re-evaluate after next crawl) ===
+domain:getcare.today
