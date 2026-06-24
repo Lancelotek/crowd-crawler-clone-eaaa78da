@@ -64,9 +64,18 @@ const PlaybookLeadMagnet = ({ bookLink }: Props) => {
         currency: "USD",
       });
       trackPredef.leadSubmit("prelaunch-playbook-pdf");
+      trackEvent("funnel_step", {
+        funnel: "prelaunch-playbook",
+        step: 1,
+        step_name: "lead_magnet_submit",
+        source: "prelaunch-playbook",
+      });
+      // trigger download, then redirect to the dedicated thank-you page
+      triggerDownload();
       setDone(true);
-      // small delay so the click feels intentional
-      setTimeout(triggerDownload, 250);
+      setTimeout(() => {
+        navigate(`${langPrefix}/playbook-thank-you`);
+      }, 350);
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Try again in a moment.");
