@@ -60,6 +60,7 @@ const PlaybookLeadMagnet = ({ bookLink }: Props) => {
         value: 1,
         currency: "USD",
       });
+      trackPredef.leadSubmit("prelaunch-playbook-pdf");
       setDone(true);
       // small delay so the click feels intentional
       setTimeout(triggerDownload, 250);
