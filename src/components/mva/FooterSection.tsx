@@ -75,7 +75,24 @@ const FooterSection = () => {
             <ul className="space-y-2.5">
               <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-ecommerce` : `${langPrefix}/ecommerce-prelaunch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "ecommerce")}</a></li>
               <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-saas` : `${langPrefix}/saas-prelaunch-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "saas")}</a></li>
-              <li><a href={`${langPrefix}/click2pack`} className="text-sm text-muted-foreground hover:text-primary transition-colors">click2pack — live commerce</a></li>
+              <li>
+                <a
+                  href={`${langPrefix}/click2pack`}
+                  onClick={() => {
+                    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+                      (window as any).gtag("event", "click2pack_footer_click", {
+                        event_category: "navigation",
+                        event_label: "footer_services",
+                        link_url: `${langPrefix}/click2pack`,
+                        lang,
+                      });
+                    }
+                  }}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  click2pack — live commerce
+                </a>
+              </li>
             </ul>
           </div>
         </div>
