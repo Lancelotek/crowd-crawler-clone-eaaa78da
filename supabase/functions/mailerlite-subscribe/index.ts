@@ -16,7 +16,7 @@ serve(async (req) => {
       throw new Error('MAILERLITE_API_KEY is not configured');
     }
 
-    const { name, email, quizData } = await req.json();
+    const { name, email, quizData, source } = await req.json();
 
     if (!email || !name) {
       return new Response(
@@ -35,6 +35,8 @@ serve(async (req) => {
     }
 
     const fields: Record<string, string> = { name };
+
+    if (source) fields.signup_source = String(source).slice(0, 80);
 
     if (quizData) {
       if (quizData.product) fields.quiz_product = String(quizData.product);
