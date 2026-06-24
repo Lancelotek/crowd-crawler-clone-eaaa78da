@@ -324,7 +324,7 @@ const COPY = {
       copy: "© 2026 click2pack. Part of the JAY-23 group.",
     },
   },
-} as const;
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
