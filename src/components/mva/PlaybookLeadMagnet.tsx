@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Download, CheckCircle2, FileText } from "lucide-react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent, track as trackPredef } from "@/lib/tracking";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const PDF_URL = "/prelaunch-checklist.pdf";
 
