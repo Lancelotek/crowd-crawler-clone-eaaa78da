@@ -328,7 +328,7 @@ const COPY = {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
 const Click2Pack = () => {
@@ -508,7 +508,7 @@ const Hero = ({ c }: { c: typeof COPY.pl.hero }) => (
 );
 
 /* ─── Stat band ────────────────────────────────────────────────────────── */
-const StatBand = ({ items }: { items: readonly (readonly [string, string])[] }) => (
+const StatBand = ({ items }: { items: string[][] }) => (
   <section className="bg-[#0A0A12] text-white border-t border-white/5">
     <div className="container mx-auto max-w-6xl px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
       {items.map(([num, label], i) => (
