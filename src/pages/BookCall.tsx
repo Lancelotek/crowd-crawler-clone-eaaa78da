@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { ArrowLeft, Check } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowLeft, Check, Calendar, ExternalLink, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
@@ -8,6 +8,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
+
 
 const BookCall = () => {
   const { lang, langPrefix } = useLanguage();
