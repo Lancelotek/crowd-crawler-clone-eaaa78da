@@ -75,7 +75,11 @@ const BookCall = () => {
         ],
         back: "Wróć na stronę główną",
         loading: "Ładowanie kalendarza…",
+        loadingHint: "Łączymy się z Calendly. Może to chwilę potrwać przy wolniejszym połączeniu.",
         guarantee: "Bez sprzedaży. Bez prezentacji. Po prostu rozmowa.",
+        fallbackTitle: "Kalendarz nie chce się załadować?",
+        fallbackHint: "Otwórz Calendly w nowej karcie — wszystkie wolne terminy znajdziesz tam.",
+        openExternal: "Otwórz Calendly",
       }
     : {
         eyebrow: "Free call · 30 minutes",
@@ -89,7 +93,11 @@ const BookCall = () => {
         ],
         back: "Back to homepage",
         loading: "Loading calendar…",
+        loadingHint: "Connecting to Calendly. This can take a moment on slower connections.",
         guarantee: "No sales. No deck. Just a conversation.",
+        fallbackTitle: "Calendar not loading?",
+        fallbackHint: "Open Calendly in a new tab — all available slots are there.",
+        openExternal: "Open Calendly",
       };
 
   return (
