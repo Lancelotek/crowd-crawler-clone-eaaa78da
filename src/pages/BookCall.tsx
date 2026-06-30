@@ -5,7 +5,6 @@ import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { track } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
@@ -16,7 +15,6 @@ const BookCall = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    track.pageView?.("book");
 
     // Load Calendly widget
     const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
