@@ -75,6 +75,18 @@ const FooterSection = () => {
             <ul className="space-y-2.5">
               <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-ecommerce` : `${langPrefix}/ecommerce-prelaunch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "ecommerce")}</a></li>
               <li><a href={lang === "pl" ? `${langPrefix}/agencja-prelaunch-saas` : `${langPrefix}/saas-prelaunch-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("footer", "saas")}</a></li>
+              <li><a href={`${langPrefix}/tiktok-shop-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Agencja TikTok Shop" : "TikTok Shop agency"}</a></li>
+              {lang === "en" && (
+                <>
+                  <li><a href={`${langPrefix}/kickstarter-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter agency</a></li>
+                  <li><a href={`${langPrefix}/crowdfunding-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Crowdfunding agency</a></li>
+                  <li><a href={`${langPrefix}/product-launch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Product launch agency</a></li>
+                  <li><a href={`${langPrefix}/kickstarter-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter marketing</a></li>
+                  <li><a href={`${langPrefix}/launchboom-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">LaunchBoom alternative</a></li>
+                  <li><a href={`${langPrefix}/jellop-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Jellop alternative</a></li>
+                  <li><a href={`${langPrefix}/agency-2-0-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Agency 2.0 alternative</a></li>
+                </>
+              )}
               <li>
                 <a
                   href={`${langPrefix}/click2pack`}
