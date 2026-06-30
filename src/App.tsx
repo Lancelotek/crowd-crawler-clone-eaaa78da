@@ -46,6 +46,7 @@ const Agency2Alternative = lazy(() => import("./pages/Agency2Alternative"));
 const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
 const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
 const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
+const TikTokShopAgency = lazy(() => import("./pages/TikTokShopAgency"));
 
 const queryClient = new QueryClient();
 
@@ -136,6 +137,7 @@ const LangRoutes = () => (
         <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
         <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
+        <Route path="tiktok-shop-agency" element={<TikTokShopAgency />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
