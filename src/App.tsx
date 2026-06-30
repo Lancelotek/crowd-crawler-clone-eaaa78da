@@ -47,6 +47,7 @@ const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
 const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
 const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
 const TikTokShopAgency = lazy(() => import("./pages/TikTokShopAgency"));
+const TikTokShopAgencyPL = lazy(() => import("./pages/TikTokShopAgencyPL"));
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,11 @@ const ContactRedirect = () => {
   );
 };
 
+const TikTokShopAgencyByLang = () => {
+  const { lang } = useParams();
+  return lang === "pl" ? <TikTokShopAgencyPL /> : <TikTokShopAgency />;
+};
+
 /** Wraps children with LanguageProvider (reads :lang from URL) */
 const LangRoutes = () => (
   <LanguageProvider>
@@ -137,7 +143,7 @@ const LangRoutes = () => (
         <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
         <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
-        <Route path="tiktok-shop-agency" element={<TikTokShopAgency />} />
+        <Route path="tiktok-shop-agency" element={<TikTokShopAgencyByLang />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
