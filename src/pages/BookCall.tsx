@@ -149,18 +149,54 @@ const BookCall = () => {
             </div>
 
             {/* RIGHT — Calendly embed */}
-            <div className="rounded-2xl border border-white/8 bg-white overflow-hidden">
+            <div className="relative rounded-2xl border border-white/8 bg-white overflow-hidden min-h-[560px] sm:min-h-[640px] lg:min-h-[720px]">
               {/* Calendly inline widget begin */}
               <div
-                className="calendly-inline-widget"
+                className="calendly-inline-widget w-full h-[560px] sm:h-[640px] lg:h-[720px]"
                 data-url={CALENDLY_URL}
-                style={{ minWidth: 320, height: 700 }}
-              >
-                <div className="flex items-center justify-center h-full text-sm text-muted-foreground">
-                  {t.loading}
-                </div>
-              </div>
+                style={{ minWidth: 280 }}
+              />
               {/* Calendly inline widget end */}
+
+              {/* Loading placeholder — sits underneath; Calendly's iframe covers it once ready */}
+              {!loaded && !failed && (
+                <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center bg-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Loader2 size={22} className="text-primary animate-spin" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <p className="text-[15px] font-medium text-[hsl(var(--dark-bg))]">{t.loading}</p>
+                    <p className="text-[13px] text-black/50 max-w-[280px] leading-relaxed">{t.loadingHint}</p>
+                  </div>
+                  {/* Skeleton grid */}
+                  <div className="mt-2 grid grid-cols-7 gap-1.5 opacity-60">
+                    {Array.from({ length: 21 }).map((_, i) => (
+                      <div key={i} className="h-6 w-6 rounded bg-black/5 animate-pulse" />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Failure fallback */}
+              {failed && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center bg-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                    <Calendar size={22} className="text-primary" />
+                  </div>
+                  <div className="space-y-1.5 max-w-[320px]">
+                    <p className="text-[15px] font-semibold text-[hsl(var(--dark-bg))]">{t.fallbackTitle}</p>
+                    <p className="text-[13px] text-black/55 leading-relaxed">{t.fallbackHint}</p>
+                  </div>
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
+                  >
+                    {t.openExternal} <ExternalLink size={14} />
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
