@@ -46,6 +46,8 @@ export interface SeoLandingContent {
   ctaLead: string;
   ctaAccent: string;
   ctaSub: string;
+  /** When set, enables hreflang alternates pointing to EN + PL counterparts. */
+  hreflangOverrides?: { en: string; pl: string };
 }
 
 const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingContent; lang?: "en" | "pl" }) => {
@@ -115,7 +117,8 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
         description={content.metaDescription}
         canonical={content.canonical}
         lang={lang}
-        noHreflang
+        noHreflang={!content.hreflangOverrides}
+        hreflangOverrides={content.hreflangOverrides}
         ogImage="https://jay23.com/og-default.jpg"
         ogImageAlt={content.breadcrumbName}
         schemaJson={[serviceSchema, faqSchema, breadcrumbSchema]}

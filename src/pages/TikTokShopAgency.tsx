@@ -67,6 +67,7 @@ const content: SeoLandingContent = {
   ctaLead: "Ready for a TikTok Shop that actually",
   ctaAccent: "ships revenue every week",
   ctaSub: "30 minutes. Free. You leave with a creator-led TikTok Shop plan and a clear view of whether the two-months-free model fits your margins.",
+  hreflangOverrides: { en: "/en/tiktok-shop-agency", pl: "/pl/tiktok-shop-agency" },
 };
 
 const TikTokShopAgency = () => <SeoLandingTemplate content={content} />;
