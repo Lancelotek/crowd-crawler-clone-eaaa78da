@@ -1,399 +1,130 @@
-import { useEffect, useState } from "react";
-import { ArrowLeft, Calendar, Shield, Play } from "lucide-react";
+import { useEffect } from "react";
+import { ArrowLeft, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
-import KickstarterBanner from "@/components/mva/KickstarterBanner";
+import MvaNavbar from "@/components/mva/MvaNavbar";
+import FooterSection from "@/components/mva/FooterSection";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { track, trackAdsConversion } from "@/lib/tracking";
+import { track } from "@/lib/tracking";
 import { initCalendlyTracking } from "@/lib/gadsConversions";
-
 
 const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
-const TICKER_ITEMS = [
-  { name: "Piotr K.", gender: "m", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Agnieszka M.", gender: "f", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Krzysztof B.", gender: "m", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Marta W.", gender: "f", time: { en: "last week", pl: "w zeszłym tygodniu" } },
-  { name: "Tomasz J.", gender: "m", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
-  { name: "Karolina R.", gender: "f", time: { en: "2 weeks ago", pl: "2 tygodnie temu" } },
-];
-
-const AVATARS = [
-  { initials: "JR", bg: "hsl(var(--primary))" },
-  { initials: "ST", bg: "#10B981" },
-  { initials: "DM", bg: "#F59E0B" },
-  { initials: "EL", bg: "hsl(var(--destructive))" },
-];
-
-/* ── Video Placeholder (Loom/Vimeo-ready) ─────────────────── */
-function VideoPlaceholder() {
-  return (
-    <div
-      data-video-slot="loom"
-      className="relative w-full overflow-hidden rounded-xl border border-border/30"
-      style={{ paddingBottom: "56.25%", maxWidth: 560, background: "#0a0a12" }}
-    >
-      {/* Play icon */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-        <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-          <Play className="w-7 h-7 text-primary fill-primary ml-0.5" />
-        </div>
-        <span className="text-[13px] text-muted-foreground/50 font-medium">
-          Wideo pojawi się wkrótce
-        </span>
-      </div>
-    </div>
-  );
-}
-
-/* ── Founder Attribution ──────────────────────────────────── */
-function FounderAttribution() {
-  return (
-    <div className="flex items-center gap-3 mt-4">
-      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-xs font-semibold text-foreground">
-        MC
-      </div>
-      <div className="flex flex-col">
-        <span className="text-sm font-semibold text-foreground leading-tight">Marek Cieśla</span>
-        <span className="text-[13px] text-muted-foreground leading-tight">
-          Founder JAY-23 · 46 kampanii · $1.2M+ zebranych
-        </span>
-      </div>
-    </div>
-  );
-}
-
-/* ── Ticker ─────────────────────────────────────────────── */
-function Ticker({ lang }: { lang: "en" | "pl" }) {
-  const doubled = [...TICKER_ITEMS, ...TICKER_ITEMS];
-  return (
-    <div
-      className="overflow-hidden mb-8"
-      style={{
-        maskImage: "linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",
-        WebkitMaskImage: "linear-gradient(90deg,transparent,black 10%,black 90%,transparent)",
-      }}
-    >
-      <div className="flex whitespace-nowrap" style={{ animation: "ticker 22s linear infinite" }}>
-        {doubled.map((item, i) => {
-          const verb = lang === "pl"
-            ? (item.gender === "f" ? "umówiła rozmowę" : "umówił rozmowę")
-            : "booked a call";
-          return (
-            <div key={i} className="inline-flex items-center gap-1.5 px-5 text-xs text-muted-foreground/50">
-              <div className="w-1 h-1 rounded-full bg-emerald-500 shrink-0" />
-              <span className="text-muted-foreground font-semibold">{item.name}</span>
-              {" "}{verb} · {item.time[lang]}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-/* ── Calendly Modal ──────────────────────────────────────── */
-function CalendarModal({ open, onClose, url }: { open: boolean; onClose: () => void; url: string }) {
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-          className="fixed inset-0 bg-black/80 z-[200] flex items-center justify-center p-6"
-        >
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.95, opacity: 0 }}
-            className="bg-white rounded-2xl w-full max-w-[720px] overflow-hidden shadow-2xl"
-          >
-            <div className="bg-foreground p-3.5 px-5 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" />
-                <span className="text-sm font-semibold text-white">Book your free strategy call</span>
-              </div>
-              <button
-                onClick={onClose}
-                aria-label="Close booking calendar"
-                className="bg-transparent border border-white/15 text-white/60 w-7 h-7 rounded-md cursor-pointer text-base flex items-center justify-center hover:text-white/90 transition-colors"
-              >
-                <span aria-hidden="true">✕</span>
-              </button>
-            </div>
-            <iframe
-              src={url}
-              width="100%"
-              height="660"
-              frameBorder="0"
-              title="Book a call"
-              className="block"
-            />
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
-/* ── Main Page ───────────────────────────────────────────── */
 const BookCall = () => {
-  const { t, lang, langPrefix } = useLanguage();
-  const [calOpen, setCalOpen] = useState(false);
-  const [slots, setSlots] = useState(3);
+  const { lang, langPrefix } = useLanguage();
+  const isPL = lang === "pl";
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (Math.random() > 0.65) setSlots((s) => Math.max(s - 1, 1));
-    }, 9000);
-    return () => clearInterval(timer);
-  }, []);
+    window.scrollTo(0, 0);
+    track("page_view", { page: "book", source: "discovery-call" });
 
-  // Calendly → Google Ads conversion tracking
-  useEffect(() => {
+    // Load Calendly widget
+    const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+    if (!existing) {
+      const s = document.createElement("script");
+      s.src = "https://assets.calendly.com/assets/external/widget.js";
+      s.async = true;
+      document.body.appendChild(s);
+    }
+
     initCalendlyTracking();
   }, []);
 
-  const bullets = [
-    { title: t("bookCall", "bullet1Title"), desc: t("bookCall", "bullet1Desc") },
-    { title: t("bookCall", "bullet2Title"), desc: t("bookCall", "bullet2Desc") },
-    { title: t("bookCall", "bullet3Title"), desc: t("bookCall", "bullet3Desc") },
-  ];
+  const t = isPL
+    ? {
+        eyebrow: "Bezpłatna rozmowa · 30 minut",
+        h1Lead: "Umów discovery call",
+        h1Accent: "z JAY-23",
+        sub: "30 minut, bez zobowiązań, bez pitchu. Opowiadasz, co budujesz — wychodzisz z konkretnym pomysłem na pierwszy krok.",
+        bullets: [
+          "Krótka analiza Twojego pomysłu lub etapu",
+          "Konkretne wskazówki dopasowane do Twojego rynku",
+          "Jasna odpowiedź, czy i jak możemy pomóc",
+        ],
+        back: "Wróć na stronę główną",
+        loading: "Ładowanie kalendarza…",
+        guarantee: "Bez sprzedaży. Bez prezentacji. Po prostu rozmowa.",
+      }
+    : {
+        eyebrow: "Free call · 30 minutes",
+        h1Lead: "Book a discovery call",
+        h1Accent: "with JAY-23",
+        sub: "30 minutes, no commitment, no pitch. You tell us what you're building — you leave with a concrete first step.",
+        bullets: [
+          "Quick read on your idea or current stage",
+          "Concrete advice tailored to your market",
+          "Clear answer on whether and how we can help",
+        ],
+        back: "Back to homepage",
+        loading: "Loading calendar…",
+        guarantee: "No sales. No deck. Just a conversation.",
+      };
 
   return (
     <>
       <SEOHead
-        title={t("bookCall", "seoTitle")}
-        description={t("bookCall", "seoDesc")}
-        canonical={`${langPrefix}/book`}
+        title={isPL ? "Umów discovery call — JAY-23" : "Book a discovery call — JAY-23"}
+        description={t.sub}
+        canonical={`/${lang}/book`}
         lang={lang}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": `https://jay23.com/${lang}` },
-            { "@type": "ListItem", "position": 2, "name": lang === "pl" ? "Umów rozmowę" : "Book a Call", "item": `https://jay23.com${langPrefix}/book` },
-          ],
-        }}
+        hreflangOverrides={{ en: "/en/book", pl: "/pl/book" }}
       />
+      <MvaNavbar />
 
-      <style>{`
-        @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-      `}</style>
-
-      <KickstarterBanner />
-      <div className="min-h-screen bg-background">
-        <div className="max-w-2xl mx-auto px-4 py-10 md:py-16">
-          {/* Back link */}
+      <main className="bg-[hsl(var(--dark-bg))] min-h-screen pt-28 pb-20">
+        <div className="container mx-auto max-w-[1100px] px-6">
           <Link
-            to={langPrefix}
-            className="inline-flex items-center gap-1.5 text-[13px] text-muted-foreground/50 hover:text-muted-foreground transition-colors mb-10"
+            to={langPrefix || "/"}
+            className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors mb-10"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            {t("bookCall", "back")}
+            <ArrowLeft size={14} /> {t.back}
           </Link>
 
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-2 mb-5"
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-blink" />
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
-              {t("bookCall", "eyebrow")}
-            </span>
-          </motion.div>
+          <div className="grid lg:grid-cols-[1fr,1.4fr] gap-12 items-start">
+            {/* LEFT — copy */}
+            <div className="lg:sticky lg:top-28">
+              <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-5 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                {t.eyebrow}
+              </p>
+              <h1 className="font-display text-[clamp(34px,4.4vw,56px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">
+                {t.h1Lead} <span className="text-primary">{t.h1Accent}</span>.
+              </h1>
+              <p className="text-[16px] text-white/60 font-light leading-relaxed mb-8 max-w-[440px]">
+                {t.sub}
+              </p>
 
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="font-display text-3xl md:text-5xl font-extrabold leading-[1.1] tracking-tight mb-5"
-          >
-            {t("bookCall", "h1_1")}
-            <br />
-            <span className="text-primary">{t("bookCall", "h1_2")}</span>
-          </motion.h1>
+              <ul className="space-y-3 mb-10">
+                {t.bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3 text-[15px] text-white/75 font-light leading-relaxed">
+                    <Check size={18} className="text-primary mt-0.5 shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-muted-foreground leading-relaxed text-base md:text-lg mb-8 max-w-xl"
-          >
-            {t("bookCall", "subtitle")}{" "}
-            <strong className="text-foreground">{t("bookCall", "subtitleBold")}</strong>
-            {" "}{t("bookCall", "subtitleEnd")}
-          </motion.p>
-
-          {/* ── Video Placeholder (hidden until video is ready) ── */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="mb-10"
-          >
-            <VideoPlaceholder />
-            <FounderAttribution />
-          </motion.div> */}
-
-          {/* ── Bullets ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col gap-4 mb-10"
-          >
-            {bullets.map((b, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <div className="mt-1.5 w-2 h-2 rounded-full bg-primary shrink-0" />
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">{b.title}</strong>
-                  {" — "}
-                  {b.desc}
-                </p>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* ── Social proof ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex items-center gap-3 mb-10"
-          >
-            <div className="flex -space-x-2">
-              {AVATARS.map((a, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-full border-2 border-background flex items-center justify-center text-[10px] font-bold text-white"
-                  style={{ background: a.bg }}
-                >
-                  {a.initials}
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground">
-              {t("bookCall", "socialProof")} ·{" "}
-              <span className="text-primary font-semibold">{t("bookCall", "rating")}</span>
-            </p>
-          </motion.div>
-
-          {/* ── Urgency bar ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-destructive/10 border border-destructive/25 rounded-[10px] p-2.5 px-4 flex items-center gap-2.5 mb-7"
-          >
-            <div className="w-2 h-2 rounded-full bg-destructive animate-blink shrink-0" />
-            <div className="text-[13px] text-destructive/80 font-medium">
-              {(() => {
-                if (lang === "pl") {
-                  if (slots === 1) return "Zostało tylko 1 miejsce w tym tygodniu";
-                  if (slots >= 2 && slots <= 4) return `Zostały tylko ${slots} miejsca w tym tygodniu`;
-                  return `Zostało ${slots} wolnych miejsc w tym tygodniu`;
-                }
-                return t("bookCall", "slotsLeft").replace("{slots}", String(slots));
-              })()}
-            </div>
-            <div className="ml-auto text-xs font-bold text-destructive bg-destructive/15 py-0.5 px-2.5 rounded-full shrink-0">
-              {slots} / 10
-            </div>
-          </motion.div>
-
-          {/* ── CTA button ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="mb-6"
-          >
-            <button
-              onClick={() => { setCalOpen(true); track.bookingClick("book_page"); }}
-              className="w-full flex items-center justify-center gap-2.5 bg-primary text-primary-foreground py-4.5 px-8 rounded-[var(--radius-button)] text-base font-bold animate-pulse-cta hover:bg-primary/90 hover:shadow-[0_8px_36px_hsl(var(--primary)/0.45)] hover:translate-y-[-1px] active:scale-[0.98] transition-all"
-            >
-              <Calendar className="w-5 h-5" />
-              {t("bookCall", "ctaBtn")}
-              <span className="text-primary-foreground/60">→</span>
-            </button>
-            <p className="text-center text-xs text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
-              <Shield className="w-3 h-3" />
-              {t("bookCall", "ctaSub")}
-            </p>
-          </motion.div>
-
-          {/* ── Guarantee (moved directly below CTA) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.38 }}
-            className="bg-card border border-border rounded-[var(--radius-card)] p-5 flex items-start gap-4 mb-6"
-          >
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-              <Shield className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-foreground mb-1">{t("bookCall", "guarantee")}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                {t("bookCall", "guaranteeDesc")}
+              <p className="text-[13px] text-white/40 font-light border-t border-white/8 pt-5 max-w-[380px]">
+                {t.guarantee}
               </p>
             </div>
-          </motion.div>
 
-          {/* ── Slots bar ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-card border border-border rounded-xl p-3.5 px-4.5 mb-6"
-          >
-            <div className="flex justify-between mb-2">
-              <span className="text-xs text-muted-foreground/50 font-medium">{t("bookCall", "slotsLabel")}</span>
-              <span className="text-xs font-bold text-primary">{t("bookCall", "slotsOpen").replace("{slots}", String(slots))}</span>
-            </div>
-            <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+            {/* RIGHT — Calendly embed */}
+            <div className="rounded-2xl border border-white/8 bg-white overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-600"
-                style={{ width: `${Math.round(((10 - slots) / 10) * 100)}%` }}
-              />
+                className="calendly-inline-widget"
+                data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=0B0B0F&primary_color=6C3BFF`}
+                style={{ minWidth: 320, height: 760 }}
+              >
+                <div className="flex items-center justify-center h-full text-sm text-muted-foreground">
+                  {t.loading}
+                </div>
+              </div>
             </div>
-          </motion.div>
-
-          {/* ── Ticker ── */}
-          <Ticker lang={lang} />
-
-          {/* ── Related links (SEO/internal linking) ── */}
-          <nav aria-label="Related pages" className="mt-12 pt-6 border-t border-border/50">
-            <p className="text-[11px] uppercase tracking-widest text-muted-foreground/60 mb-3">
-              {lang === "pl" ? "Zobacz też" : "Explore more"}
-            </p>
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              <li><Link to={`${langPrefix}/packages`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Pakiety i ceny" : "Packages & Pricing"}</Link></li>
-              <li><Link to={`${langPrefix}/process`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Nasz proces" : "The 90-Day Process"}</Link></li>
-              <li><Link to={`${langPrefix}/quiz`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Kalkulator MVA" : "MVA Calculator"}</Link></li>
-              <li><Link to={`${langPrefix}/about`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "O JAY-23" : "About JAY-23"}</Link></li>
-              <li><Link to={`${langPrefix}/faq`} className="text-muted-foreground hover:text-primary transition-colors">FAQ</Link></li>
-              <li><Link to={`${langPrefix}/blog`} className="text-muted-foreground hover:text-primary transition-colors">{lang === "pl" ? "Blog" : "Articles"}</Link></li>
-            </ul>
-          </nav>
+          </div>
         </div>
-      </div>
+      </main>
 
-      <CalendarModal
-        open={calOpen}
-        onClose={() => setCalOpen(false)}
-        url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1`}
-      />
+      <FooterSection />
     </>
   );
 };
