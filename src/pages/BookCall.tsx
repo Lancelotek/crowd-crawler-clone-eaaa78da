@@ -108,15 +108,17 @@ const BookCall = () => {
 
             {/* RIGHT — Calendly embed */}
             <div className="rounded-2xl border border-white/8 bg-white overflow-hidden">
+              {/* Calendly inline widget begin */}
               <div
                 className="calendly-inline-widget"
-                data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=0B0B0F&primary_color=6C3BFF`}
-                style={{ minWidth: 320, height: 760 }}
+                data-url={CALENDLY_URL}
+                style={{ minWidth: 320, height: 700 }}
               >
                 <div className="flex items-center justify-center h-full text-sm text-muted-foreground">
                   {t.loading}
                 </div>
               </div>
+              {/* Calendly inline widget end */}
             </div>
           </div>
         </div>
