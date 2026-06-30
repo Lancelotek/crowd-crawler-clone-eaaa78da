@@ -48,13 +48,37 @@ export interface SeoLandingContent {
   ctaSub: string;
 }
 
-const SeoLandingTemplate = ({ content }: { content: SeoLandingContent }) => {
+const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingContent; lang?: "en" | "pl" }) => {
   const { langPrefix } = useLanguage();
   const bookLink = `${langPrefix}/book?source=${content.bookSource}`;
   const quizLink = `${langPrefix}/quiz?source=${content.bookSource}`;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  const t = lang === "pl" ? {
+    bookHero: "Umów bezpłatną rozmowę strategiczną",
+    quiz: "Policz swoje MVA",
+    framework90: "90-dniowy framework MVA",
+    whatYouGet: "Co dostajesz",
+    fullProcess: "Zobacz pełny proces →",
+    criterion: "Kryterium",
+    faq: "FAQ",
+    faqTitle: "Najczęściej zadawane pytania.",
+    bookCta: "Umów rozmowę strategiczną",
+    homeCrumb: "Strona główna",
+  } : {
+    bookHero: "Book a free strategy call",
+    quiz: "Calculate your MVA",
+    framework90: "90-day MVA Framework",
+    whatYouGet: "What you get",
+    fullProcess: "See the full process breakdown →",
+    criterion: "Criterion",
+    faq: "FAQ",
+    faqTitle: "Frequently asked questions.",
+    bookCta: "Book a strategy call",
+    homeCrumb: "Home",
+  };
 
   const serviceSchema = {
     "@context": "https://schema.org",
