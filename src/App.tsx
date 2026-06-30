@@ -101,6 +101,11 @@ const ContactRedirect = () => {
   );
 };
 
+const TikTokShopAgencyByLang = () => {
+  const { lang } = useParams();
+  return lang === "pl" ? <TikTokShopAgencyPL /> : <TikTokShopAgency />;
+};
+
 /** Wraps children with LanguageProvider (reads :lang from URL) */
 const LangRoutes = () => (
   <LanguageProvider>
@@ -137,6 +142,7 @@ const LangRoutes = () => (
         <Route path="agency-2-0-alternative" element={<Agency2Alternative />} />
         <Route path="jellop-alternative" element={<JellopAlternative />} />
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
+        <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="tiktok-shop-agency" element={<TikTokShopAgencyByLang />} />
         <Route path="*" element={<NotFound />} />
 
