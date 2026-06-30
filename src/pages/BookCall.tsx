@@ -13,21 +13,54 @@ const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 const BookCall = () => {
   const { lang, langPrefix } = useLanguage();
   const isPL = lang === "pl";
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
     // Load Calendly widget
-    const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+    const SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
+    const existing = document.querySelector(`script[src*="assets.calendly.com/assets/external/widget.js"]`) as HTMLScriptElement | null;
+
+    const markLoaded = () => {
+      // Calendly injects an iframe into .calendly-inline-widget once ready
+      const tryDetect = () => {
+        const iframe = document.querySelector(".calendly-inline-widget iframe");
+        if (iframe) {
+          setLoaded(true);
+          return true;
+        }
+        return false;
+      };
+      if (tryDetect()) return;
+      const interval = window.setInterval(() => {
+        if (tryDetect()) window.clearInterval(interval);
+      }, 250);
+      // Hard timeout — show fallback after 8s
+      window.setTimeout(() => {
+        window.clearInterval(interval);
+        if (!document.querySelector(".calendly-inline-widget iframe")) {
+          setFailed(true);
+        }
+      }, 8000);
+    };
+
     if (!existing) {
       const s = document.createElement("script");
-      s.src = "https://assets.calendly.com/assets/external/widget.js";
+      s.src = SCRIPT_SRC;
       s.async = true;
+      s.onload = markLoaded;
+      s.onerror = () => setFailed(true);
       document.body.appendChild(s);
+    } else {
+      markLoaded();
     }
 
     initCalendlyTracking();
   }, []);
+
+
 
   const t = isPL
     ? {
