@@ -19,12 +19,20 @@ const BookCall = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Load Calendly widget
     const SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
+    const CSS_HREF = "https://assets.calendly.com/assets/external/widget.css";
+
+    // Preload CSS so Calendly's first paint is faster
+    if (!document.querySelector(`link[href="${CSS_HREF}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = CSS_HREF;
+      document.head.appendChild(link);
+    }
+
     const existing = document.querySelector(`script[src*="assets.calendly.com/assets/external/widget.js"]`) as HTMLScriptElement | null;
 
     const markLoaded = () => {
-      // Calendly injects an iframe into .calendly-inline-widget once ready
       const tryDetect = () => {
         const iframe = document.querySelector(".calendly-inline-widget iframe");
         if (iframe) {
@@ -36,14 +44,13 @@ const BookCall = () => {
       if (tryDetect()) return;
       const interval = window.setInterval(() => {
         if (tryDetect()) window.clearInterval(interval);
-      }, 250);
-      // Hard timeout — show fallback after 8s
+      }, 120);
       window.setTimeout(() => {
         window.clearInterval(interval);
         if (!document.querySelector(".calendly-inline-widget iframe")) {
           setFailed(true);
         }
-      }, 8000);
+      }, 10000);
     };
 
     if (!existing) {
@@ -52,7 +59,7 @@ const BookCall = () => {
       s.async = true;
       s.onload = markLoaded;
       s.onerror = () => setFailed(true);
-      document.body.appendChild(s);
+      document.head.appendChild(s);
     } else {
       markLoaded();
     }
