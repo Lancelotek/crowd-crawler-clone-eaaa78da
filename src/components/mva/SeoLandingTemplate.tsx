@@ -103,7 +103,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://jay23.com/en" },
+      { "@type": "ListItem", position: 1, name: t.homeCrumb, item: `https://jay23.com/${lang}` },
       { "@type": "ListItem", position: 2, name: content.breadcrumbName, item: `https://jay23.com${content.canonical}` },
     ],
   };
@@ -114,7 +114,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
         title={content.metaTitle}
         description={content.metaDescription}
         canonical={content.canonical}
-        lang="en"
+        lang={lang}
         noHreflang
         ogImage="https://jay23.com/og-default.jpg"
         ogImageAlt={content.breadcrumbName}
@@ -155,10 +155,10 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
             className="flex flex-wrap gap-3"
           >
             <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-              Book a free strategy call <ArrowRight size={16} />
+              {t.bookHero} <ArrowRight size={16} />
             </Link>
             <Link to={quizLink} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-white/5 transition-all">
-              Calculate your MVA
+              {t.quiz}
             </Link>
           </motion.div>
         </div>
@@ -214,7 +214,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">90-day MVA Framework</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{t.framework90}</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
               {content.phasesTitle}
             </h2>
@@ -234,7 +234,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
           </div>
           <div className="mt-12 text-center">
             <Link to={`${langPrefix}/process`} className="text-[14px] text-white/60 underline underline-offset-4 hover:text-white">
-              See the full process breakdown →
+              {t.fullProcess}
             </Link>
           </div>
         </div>
@@ -244,7 +244,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[900px] px-6">
           <div className="mb-12 max-w-[640px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">What you get</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{t.whatYouGet}</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
               {content.deliverablesTitle}
             </h2>
@@ -271,7 +271,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
           </div>
           <div className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-hidden">
             <div className="grid grid-cols-[1.5fr,1fr,1fr] text-[12px] font-semibold tracking-[0.12em] uppercase text-white/45 border-b border-white/8">
-              <div className="px-6 py-4">Criterion</div>
+              <div className="px-6 py-4">{t.criterion}</div>
               <div className="px-6 py-4 text-center bg-primary/5 text-primary">MVA Framework</div>
               <div className="px-6 py-4 text-center">{content.comparisonRightLabel}</div>
             </div>
@@ -301,9 +301,9 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">FAQ</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{t.faq}</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Frequently asked questions.
+              {t.faqTitle}
             </h2>
           </div>
           <div className="space-y-3">
@@ -336,7 +336,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
             {content.ctaSub}
           </p>
           <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-8 py-4 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-            Book a strategy call <ArrowRight size={16} />
+            {t.bookCta} <ArrowRight size={16} />
           </Link>
         </div>
       </section>

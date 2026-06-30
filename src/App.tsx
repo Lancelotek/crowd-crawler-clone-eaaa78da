@@ -47,6 +47,7 @@ const JellopAlternative = lazy(() => import("./pages/JellopAlternative"));
 const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
 const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
 const TikTokShopAgency = lazy(() => import("./pages/TikTokShopAgency"));
+const TikTokShopAgencyPL = lazy(() => import("./pages/TikTokShopAgencyPL"));
 
 const queryClient = new QueryClient();
 
