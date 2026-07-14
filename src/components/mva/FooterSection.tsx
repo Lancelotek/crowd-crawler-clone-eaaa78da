@@ -8,15 +8,16 @@ const FooterSection = () => {
   return (
     <footer className="px-6 py-16 border-t border-border">
       <div className="container mx-auto max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-10 mb-12">
           {lang === "en" && (
-            <div className="md:col-span-5 pb-6 mb-2 border-b border-border/60">
+            <div className="md:col-span-6 pb-6 mb-2 border-b border-border/60">
               <h2 className="font-display text-sm font-bold mb-3 tracking-wide">Guides</h2>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
                 <li><a href="/en/blog/kickstarter-pre-launch-page-12-elements" className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter pre-launch page: 12 elements</a></li>
                 <li><a href="/en/blog/how-to-launch-kickstarter-campaign-2025-complete-guide" className="text-sm text-muted-foreground hover:text-primary transition-colors">How to launch a Kickstarter campaign (2026)</a></li>
                 <li><a href="/en/blog/hardware-startup-marketing-strategy-pre-launch" className="text-sm text-muted-foreground hover:text-primary transition-colors">Hardware startup marketing: pre-launch strategy</a></li>
                 <li><a href="/en/blog/prelaunch-strategy-waitlist-conversion-framework" className="text-sm text-muted-foreground hover:text-primary transition-colors">Prelaunch waitlist conversion framework</a></li>
+                <li><a href="/en/blog/product-launch-strategy-90-day-framework" className="text-sm text-muted-foreground hover:text-primary transition-colors">Product launch strategy: 90-day framework</a></li>
                 <li><a href="/en/quiz" className="text-sm text-primary font-semibold hover:underline">MVA calculator — how many true fans you need →</a></li>
               </ul>
             </div>
@@ -79,12 +80,10 @@ const FooterSection = () => {
               {lang === "en" && (
                 <>
                   <li><a href={`${langPrefix}/kickstarter-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter agency</a></li>
+                  <li><a href={`${langPrefix}/kickstarter-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter marketing</a></li>
                   <li><a href={`${langPrefix}/crowdfunding-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Crowdfunding agency</a></li>
                   <li><a href={`${langPrefix}/product-launch-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Product launch agency</a></li>
-                  <li><a href={`${langPrefix}/kickstarter-marketing-agency`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Kickstarter marketing</a></li>
-                  <li><a href={`${langPrefix}/launchboom-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">LaunchBoom alternative</a></li>
-                  <li><a href={`${langPrefix}/jellop-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Jellop alternative</a></li>
-                  <li><a href={`${langPrefix}/agency-2-0-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Agency 2.0 alternative</a></li>
+                  <li><a href={`${langPrefix}/gamefound`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Gamefound agency</a></li>
                 </>
               )}
               <li>
@@ -107,7 +106,21 @@ const FooterSection = () => {
               </li>
             </ul>
           </div>
+
+          {/* Alternatives (EN-only competitive cluster) */}
+          {lang === "en" && (
+            <div>
+              <h2 className="font-display text-sm font-bold mb-4 tracking-wide">Alternatives</h2>
+              <ul className="space-y-2.5">
+                <li><a href={`${langPrefix}/launchboom-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">LaunchBoom alternative</a></li>
+                <li><a href={`${langPrefix}/jellop-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Jellop alternative</a></li>
+                <li><a href={`${langPrefix}/agency-2-0-alternative`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Agency 2.0 alternative</a></li>
+                <li><a href={`${langPrefix}/founder-influencer`} className="text-sm text-muted-foreground hover:text-primary transition-colors">Founder-led influencer</a></li>
+              </ul>
+            </div>
+          )}
         </div>
+
 
         {/* Bottom bar */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
