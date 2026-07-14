@@ -24,6 +24,7 @@ const Process = lazy(() => import("./pages/Process"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const Leads = lazy(() => import("./pages/Leads"));
 const SeoDashboard = lazy(() => import("./pages/SeoDashboard"));
+const InternalLinksAudit = lazy(() => import("./pages/InternalLinksAudit"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const About = lazy(() => import("./pages/About"));
 const Report = lazy(() => import("./pages/Report"));
@@ -183,6 +184,7 @@ const App = () => (
 
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
           <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
+          <Route path="/seo/internal-links" element={<Suspense fallback={<PageFallback />}><InternalLinksAudit /></Suspense>} />
           <Route path="*" element={<Suspense fallback={<PageFallback />}><NotFound /></Suspense>} />
         </Routes>
       </BrowserRouter>
