@@ -1,0 +1,2 @@
+UPDATE public.blog_posts SET counterpart_slug='strategia-prelaunch-kompletny-przewodnik' WHERE slug='product-launch-strategy-90-day-framework';
+UPDATE public.blog_posts_pl SET counterpart_slug='product-launch-strategy-90-day-framework' WHERE slug='strategia-prelaunch-kompletny-przewodnik';
