@@ -348,14 +348,27 @@ const Packages = () => {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.7 }}
-                className="font-display text-[clamp(48px,6vw,88px)] font-black uppercase leading-[0.94] tracking-tight text-white mb-7"
+                className="font-display text-[clamp(40px,5vw,72px)] font-black uppercase leading-[0.96] tracking-tight text-white mb-4"
               >
                 {isPl ? (
-                  <>ZBUDUJ<br />SWOICH<br /><span className="text-primary">1 600</span><br /><span className="text-white/25">KUPUJĄCYCH.</span></>
+                  <>PAKIETY I CENNIK<br /><span className="text-primary">MVA FRAMEWORK</span></>
                 ) : (
-                  <>BUILD<br />YOUR<br /><span className="text-primary">1,600</span><br /><span className="text-white/25">BUYERS.</span></>
+                  <>MVA FRAMEWORK<br /><span className="text-primary">PACKAGES & PRICING</span></>
                 )}
               </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.7 }}
+                className="font-display text-[clamp(28px,3.5vw,52px)] font-black uppercase leading-[0.98] tracking-tight text-white/30 mb-7"
+              >
+                {isPl ? (
+                  <>ZBUDUJ SWOICH <span className="text-white/50">1 600 KUPUJĄCYCH</span></>
+                ) : (
+                  <>BUILD YOUR <span className="text-white/50">1,600 BUYERS</span></>
+                )}
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
