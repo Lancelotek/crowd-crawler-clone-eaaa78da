@@ -34,7 +34,7 @@ const MvaNavbar = () => {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-lg shadow-background/30" : "bg-transparent border-b border-transparent"}`}>
         <div className="container mx-auto max-w-[1200px] px-6 h-[64px] flex items-center justify-between">
-          <Link to={langPrefix} aria-label={lang === "pl" ? "JAY-23 — strona główna" : "JAY-23 — Home"}><img src={logo} alt="JAY-23" width={120} height={32} className={`h-8 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} /></Link>
+          <Link to={langPrefix} aria-label={lang === "pl" ? "JAY-23 — strona główna" : "JAY-23 — Home"}><img src={logo} alt="JAY-23 logo" width={120} height={32} className={`h-8 w-auto object-contain transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`} /></Link>
           <ul className="hidden md:flex items-center gap-7">
             {navItems.map((item) => (
               <li key={item.label}>

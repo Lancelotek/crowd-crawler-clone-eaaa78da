@@ -24,7 +24,7 @@ const FooterSection = () => {
           )}
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href={langPrefix || "/"}><img src={logo} alt="JAY-23" width={120} height={32} className="h-8 w-auto object-contain mb-4" /></a>
+            <a href={langPrefix || "/"}><img src={logo} alt="JAY-23 logo" width={120} height={32} className="h-8 w-auto object-contain mb-4" /></a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-4">
               {t("footer", "desc")}
             </p>

@@ -17,7 +17,7 @@ export const translations = {
   hero: {
     eyebrow: { en: "Pre-Launch Marketing · 90-day MVA Framework", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
 
-    h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce", pl: "46 kampanii. $1.2M+ zebranych." },
+    h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce", pl: "Agencja Pre-Launch Marketingu" },
     h1_line2: { en: "Founders.", pl: "Zero zimnych startów." },
     h1_line3: { en: "", pl: "" },
     hook: { en: "46 campaigns, $1.2M+ raised. We run the 90-day MVA Framework so SaaS and eCommerce founders launch to 1,000+ true fans already waiting", pl: "Pomagamy polskim founderom przygotować i przeprowadzić udane kampanie Kickstarter. MVA Framework startuje Twoją kampanię do listy, która już czeka" },
