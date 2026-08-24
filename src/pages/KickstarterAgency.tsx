@@ -2,8 +2,8 @@ import { Target, Users, LineChart, Rocket } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "Kickstarter Agency — Pre-Launch Marketing for Crowdfunding | JAY-23",
-  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch day. 46 campaigns, $1.2M+ raised. 90-day MVA Framework, fixed-fee, no revenue share.",
+  metaTitle: "Kickstarter Agency for Day-One Fully Funded Campaigns",
+  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch day. 90-day MVA Framework, fixed fee, no revenue share. 46 campaigns, $1.2M+ raised.",
   canonical: "/en/kickstarter-agency",
   breadcrumbName: "Kickstarter Agency",
   serviceType: "Kickstarter marketing agency",

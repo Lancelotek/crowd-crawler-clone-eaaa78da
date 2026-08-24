@@ -2,8 +2,8 @@ import { Wallet, Users, Layers, Rocket } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "Jellop Alternative — Kickstarter Marketing Without 25% Performance Cut | JAY-23",
-  metaDescription: "Looking for a Jellop alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no performance percentage, full pre-launch + paid + email.",
+  metaTitle: "Jellop Alternative: Reviews, Pricing & Full-Funnel Option",
+  metaDescription: "Jellop alternative compared: 25% performance cut vs fixed monthly fee, and why pre-launch beats live-campaign-only ads. 46 campaigns, $1.2M+ raised.",
   canonical: "/en/jellop-alternative",
   breadcrumbName: "Jellop Alternative",
   serviceType: "Kickstarter ad agency (Jellop alternative)",
@@ -55,6 +55,32 @@ const content: SeoLandingContent = {
     { row: "Owned audience after campaign", mva: "1,000+ leads", cold: "~0" },
     { row: "Best fit", mva: "Pre-launch + launch", cold: "Already-funded campaigns" },
     { row: "Can be combined", mva: "Yes (post-launch)", cold: "Yes (post-launch)" },
+  ],
+  extraSections: [
+    {
+      h2: "Jellop reviews",
+      paras: [
+        "Jellop's reputation is built on live-campaign paid media for Kickstarter, and the reviews reflect that: creators who arrive with an existing audience and a strong campaign page tend to report solid results from the ads themselves.",
+        "The critique we hear is scope. Jellop enters when the campaign is already live, so the outcome depends almost entirely on assets and audience you built before they arrived. Creators who launched cold and expected ads to compensate report the weakest results — which is a sequencing problem, not an ad problem.",
+        "The second theme is the performance percentage. A cut of pledges reads as painless when the campaign underperforms and expensive when it succeeds, and it is the reason most creators start comparing fixed-fee options after their first campaign.",
+      ],
+    },
+    {
+      h2: "Jellop vs Funded Today",
+      paras: [
+        "Both are live-campaign paid media specialists working on performance terms, and both do that job well. The practical difference is the deal structure and how aggressively spend is scaled against your margin.",
+        "Neither builds the pre-launch layer. Neither owns your email list, your reservation funnel or your day-one activation. If you compare them against each other you are choosing between two versions of the same stage of the campaign.",
+        "The comparison that actually changes results is pre-launch versus live-campaign-only: a list of 1,000+ pre-qualified buyers on day one makes any ad partner look better, because they are retargeting warm demand instead of buying cold traffic at campaign prices.",
+      ],
+    },
+    {
+      h2: "Jellop pricing explained",
+      paras: [
+        "Jellop works on a performance model — a percentage of the pledges attributable to their media, typically quoted around 25%, with your ad spend on top. There is little upfront cost, which is exactly why the model is attractive to first-time creators.",
+        "The cost profile is inverted compared to a fixed fee: cheap if the campaign disappoints, expensive if it works. On a $400,000 campaign a quarter of attributed pledges is a serious number, and it is charged after your production costs are already locked.",
+        "Our model is $1,500/month flat with zero share of pledges, covering pre-launch, funnel, email and launch activation. Run both numbers against your target raise before you sign either — on a campaign that hits its goal, the fixed fee is usually the cheaper path.",
+      ],
+    },
   ],
   faqs: [
     { q: "Is Jellop bad?", a: "No. They're one of the most respected paid-media operators in crowdfunding and they do their specific job well. The point isn't that Jellop is wrong — it's that paid-to-live-page is one layer of a Kickstarter campaign, and it only works when there's already momentum to scale. If you're trying to figure out who builds the momentum in the first place, that's a different vendor." },

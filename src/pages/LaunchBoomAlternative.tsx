@@ -2,8 +2,8 @@ import { Scale, Wallet, Users, Rocket } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "LaunchBoom Alternative — Kickstarter Pre-Launch Without Revenue Share | JAY-23",
-  metaDescription: "Looking for a LaunchBoom alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no revenue share, founder-led. 46 campaigns, $1.2M+ raised.",
+  metaTitle: "LaunchBoom Alternative: Pricing, Reviews & Fixed Fee",
+  metaDescription: "LaunchBoom alternative compared: revenue share vs fixed monthly fee, what LaunchBoom actually costs, and when a founder-led team fits better.",
   canonical: "/en/launchboom-alternative",
   breadcrumbName: "LaunchBoom Alternative",
   serviceType: "Kickstarter pre-launch agency (LaunchBoom alternative)",
@@ -55,6 +55,32 @@ const content: SeoLandingContent = {
     { row: "Reservation flow", mva: "Deposit / $1 / email", cold: "TYP / $1 hold" },
     { row: "4-wave launch activation", mva: true, cold: true },
     { row: "Owned audience after campaign", mva: "Yes", cold: "Yes" },
+  ],
+  extraSections: [
+    {
+      h2: "What does LaunchBoom cost?",
+      paras: [
+        "LaunchBoom does not publish a public price list, and the number creators quote us varies with campaign size. The pattern we see in quotes founders bring to discovery calls is a setup or strategy fee in the low five figures, a monthly management fee on top, and a percentage of pledges on the back end — plus ad spend, which is always the creator's own budget on either model.",
+        "The percentage is the part that changes the maths. A 5% share of a $300,000 campaign is $15,000; on $1M it is $50,000. That is on top of fees already paid during pre-launch, and it lands exactly when your cash is committed to manufacturing. Our model is flat: $1,500/month for as long as we work together, and nothing on the pledges.",
+        "If you already have a LaunchBoom quote, bring it to the call. We will put both models side by side against your target raise and your margin, and if the percentage model is genuinely cheaper for your campaign we will say so.",
+      ],
+    },
+    {
+      h2: "LaunchBoom reviews: what creators actually say",
+      paras: [
+        "Reviews of LaunchBoom skew positive on strategy and process — the pre-launch playbook works, the reservation funnel converts, and the material creators receive is well built. That matches what we see; we are not going to pretend otherwise.",
+        "The recurring criticism is structural rather than strategic: creators report being sold by a senior strategist and then handed to an account manager, minimum spend levels that exclude first-time creators, and a percentage that feels expensive in hindsight on a campaign that over-performed. Those are commercial complaints, not competence complaints.",
+        "Read reviews with your own constraint in mind. If your raise target is above $500k and you value a large team with a deep bench, a percentage model with an agency at scale can be the right call. If you are running your first or second campaign and need a fixed, predictable cost with the senior person actually in the room, that is the gap this page exists to fill.",
+      ],
+    },
+    {
+      h2: "LaunchBoom vs JAY-23 side by side",
+      paras: [
+        "Same architecture: pre-launch landing page, low-friction reservation, tagged email list, paid traffic tuned to reservation cost, and a launch-hour activation that fires email, retargeting and community drops together.",
+        "Different commercial terms: fixed $1,500/month instead of fee plus percentage of pledges, month-to-month instead of a 12-month MSA, and one operator running the campaign instead of an account team. Capacity is the trade-off — we cap concurrent campaigns, so we are sometimes booked.",
+        "Different scale of bench: LaunchBoom has specialists per function. We are deliberately small and founder-led. Pick the model that matches how much of your budget you want spent on coordination versus execution.",
+      ],
+    },
   ],
   faqs: [
     { q: "Are you saying LaunchBoom doesn't work?", a: "No — the opposite. LaunchBoom built the modern pre-launch playbook for Kickstarter and their results speak for themselves. We respect the work. The reason creators end up on this page is almost always commercial: the percentage of pledges doesn't fit their margin model, the minimum spend is out of reach, or they want the senior person on the call to also be the senior person on the campaign. If those things don't bother you, LaunchBoom is a perfectly valid pick." },

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -34,16 +34,43 @@ const LEGACY_SLUGS = new Set([
   "the-best-travel-jacket-what-should-it-have",
   "smart-outfit-in-2021-what-is-a-reversible-hoodie",
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
+  "climbstation-review-17-reasons-why-its-the-future-of-indoor-climbing",
+  "unlock-customer-needs-maximize-product-impact-discovery-roxart",
+  "buying-an-electronic-chess-board-a-comprehensive-comparison",
+  "motorhead-3d-collection---official-self-crowdfunded-tribute-for-fans-collectors-and-3d-print-enthusiasts",
+  "kuduare-offline-reflex-trainer-gamers-esports-kickstarter",
+  "twistpod-the-ultimate-8-in-1-outdoor-station-redefining-adventure-gear-kickstarter",
+  "no-scroll-journal---a-new-kickstarter-project-that-helps-you-reclaim-time-and-focus",
+  "top-meta-quest-2-accessories-for-2023",
+  "best-fire-extinguishers-of-2022-crowdfunding-zone",
 ]);
 
-/** Build SEO title kept within 60 chars. If adding brand suffix would overflow, return the raw title (SEOHead won't re-append because it already contains "JAY-23"-less branding handled there). */
-function buildSeoTitle(title: string): string {
+/** Duplicate/legacy URLs that must consolidate onto the canonical slug. */
+const SLUG_ALIASES: Record<string, string> = {
+  "co-to-jest-minimum-viable-audience-mva-przewodnik-dla-founderow":
+    "co-to-jest-minimum-viable-audience-mva-przewodnik",
+};
+
+
+/** Hand-written SEO titles (<=60 chars) for posts whose editorial title is too long. */
+const SEO_TITLE_OVERRIDES: Record<string, string> = {
+  "go-to-market-strategy-template-saas": "Go-to-Market Strategy Template for SaaS Founders (2026)",
+  "product-launch-strategy-90-day-framework": "Product Launch Strategy: The 90-Day Framework",
+};
+
+/** Build SEO title kept within 60 chars, never cutting mid-word. */
+function buildSeoTitle(title: string, slug?: string): string {
+  const override = slug ? SEO_TITLE_OVERRIDES[slug] : undefined;
+  if (override) return override;
   const suffix = " | JAY-23";
   const max = 60;
-  if (title.length >= max) return title.slice(0, max);
   if (title.length + suffix.length <= max) return `${title}${suffix}`;
-  return title;
+  if (title.length <= max) return title;
+  const cut = title.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  return (lastSpace > 30 ? cut.slice(0, lastSpace) : cut).replace(/[\s—–\-–(,:;]+$/, "");
 }
+
 
 /** Slugs forming the "Kickstarter pre-launch" content cluster (EN). */
 const PRELAUNCH_CLUSTER: { slug: string; anchor: string }[] = [
@@ -63,10 +90,15 @@ const BlogPost = () => {
   const [related, setRelated] = useState<Pick<Post, "slug" | "title" | "excerpt" | "cover_image" | "category" | "read_time">[]>([]);
 
   const isLegacy = slug ? LEGACY_SLUGS.has(slug) : false;
+  const aliasTarget = slug ? SLUG_ALIASES[slug] : undefined;
+
+
+
 
   useEffect(() => {
     const fetchPost = async () => {
-      if (!slug) return;
+      if (!slug || aliasTarget) return;
+
       const table = isPl ? "blog_posts_pl" : "blog_posts";
       const { data, error } = await supabase
         .from(table)
@@ -129,9 +161,14 @@ const BlogPost = () => {
       setLoading(false);
     };
     fetchPost();
-  }, [slug, isPl, isLegacy]);
+  }, [slug, isPl, isLegacy, aliasTarget]);
+
+  if (aliasTarget) {
+    return <Navigate to={`${langPrefix}/blog/${aliasTarget}`} replace />;
+  }
 
   if (loading) {
+
     return (
       <div className="min-h-screen bg-background">
         <MvaNavbar />
@@ -185,7 +222,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={buildSeoTitle(post.title)}
+        title={buildSeoTitle(post.title, post.slug)}
         description={post.excerpt || (isPl ? `Przeczytaj "${post.title}" na blogu MVA Framework.` : `Read "${post.title}" on the MVA Framework blog.`)}
         canonical={`${langPrefix}/blog/${post.slug}`}
         ogImage={absoluteImage}

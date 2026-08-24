@@ -63,6 +63,30 @@ const Blog = () => {
             </h1>
           </motion.div>
 
+          {lang === "en" && (
+            <div className="mb-12 rounded-card border border-border bg-card/60 p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <div className="flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-2">Start here</p>
+                <p className="text-[15px] text-muted-foreground leading-relaxed">
+                  New to pre-launch? Read{" "}
+                  <a href="/en/prelaunch-marketing-playbook" className="text-foreground font-semibold hover:text-primary transition-colors underline underline-offset-4">
+                    The Complete Pre-Launch Marketing Playbook
+                  </a>{" "}
+                  and{" "}
+                  <a href="/en/blog/product-launch-strategy-90-day-framework" className="text-foreground font-semibold hover:text-primary transition-colors underline underline-offset-4">
+                    Product Launch Strategy: the 90-day framework
+                  </a>{" "}
+                  before anything else.
+                </p>
+              </div>
+              <a href="/en/prelaunch-marketing-playbook" className="shrink-0 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold px-6 py-3 hover:brightness-110 transition-all">
+                Read the playbook →
+              </a>
+            </div>
+          )}
+
+
+
           {loading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 6 }).map((_, i) => (

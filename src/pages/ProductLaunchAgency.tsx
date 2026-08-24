@@ -2,8 +2,8 @@ import { Target, Users, LineChart, Rocket } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "Product Launch Agency — Pre-Launch Marketing for New Products | JAY-23",
-  metaDescription: "Product launch agency that builds demand before launch day. 90-day MVA Framework: 1,000+ pre-qualified buyers, day-one revenue, 46 campaigns, $1.2M+ raised.",
+  metaTitle: "Product Launch Agency — Demand Before Launch Day | JAY-23",
+  metaDescription: "Product launch agency that builds demand before launch day. 90-day MVA Framework: 1,000+ pre-qualified buyers and day-one revenue, not day-one silence.",
   canonical: "/en/product-launch-agency",
   breadcrumbName: "Product Launch Agency",
   serviceType: "Product launch marketing agency",

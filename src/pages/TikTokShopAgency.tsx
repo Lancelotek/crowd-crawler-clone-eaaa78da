@@ -2,7 +2,7 @@ import { Video, Users, Radio, TrendingUp } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "TikTok Shop Agency — Influencer Video & Live Selling | JAY-23",
+  metaTitle: "TikTok Shop Agency — Creator Video & Live Selling | JAY-23",
   metaDescription: "TikTok Shop agency for brands selling through creators, shoppable video and live. Two months free, then performance fee on revenue. No retainer risk.",
   canonical: "/en/tiktok-shop-agency",
   breadcrumbName: "TikTok Shop Agency",

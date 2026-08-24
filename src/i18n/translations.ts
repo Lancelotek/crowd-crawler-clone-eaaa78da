@@ -17,7 +17,7 @@ export const translations = {
   hero: {
     eyebrow: { en: "Pre-Launch Marketing · 90-day MVA Framework", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
 
-    h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce", pl: "Agencja Pre-Launch Marketingu" },
+    h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce ", pl: "Agencja Pre-Launch Marketingu" },
     h1_line2: { en: "Founders.", pl: "Zero zimnych startów." },
     h1_line3: { en: "", pl: "" },
     hook: { en: "46 campaigns, $1.2M+ raised. We run the 90-day MVA Framework so SaaS and eCommerce founders launch to 1,000+ true fans already waiting", pl: "Pomagamy polskim founderom przygotować i przeprowadzić udane kampanie Kickstarter. MVA Framework startuje Twoją kampanię do listy, która już czeka" },
@@ -364,10 +364,10 @@ export const translations = {
 
   // ─── Blog ────────────────────────────────────────────────
   blog: {
-    title: { en: "Articles by", pl: "Artykuły od" },
-    titleAccent: { en: "JAY-23", pl: "JAY-23" },
+    title: { en: "Pre-Launch & Crowdfunding ", pl: "Artykuły o prelaunch " },
+    titleAccent: { en: "Marketing Articles", pl: "i crowdfundingu" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
-    seoTitle: { en: "Kickstarter & Crowdfunding Marketing Blog | JAY-23", pl: "Blog: Kickstarter, Crowdfunding i Finansowanie Społecznościowe | JAY-23" },
+    seoTitle: { en: "Kickstarter & Crowdfunding Marketing Blog | JAY-23", pl: "Blog: Kickstarter, Crowdfunding i Prelaunch | JAY-23" },
     seoDesc: { en: "Tactics for Kickstarter prelaunch, Indiegogo campaigns, audience building, and crowdfunding marketing. Real lessons from 46 campaigns, $1.2M+ raised.", pl: "Jak promować Kickstarter, jak założyć zbiórkę, platformy crowdfundingowe i finansowanie społecznościowe — taktyki z 46 kampanii i $1.2M+ zebranych." },
   },
 } as const;

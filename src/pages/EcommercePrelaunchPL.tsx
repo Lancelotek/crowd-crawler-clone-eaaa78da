@@ -138,8 +138,8 @@ const EcommercePrelaunchPL = () => {
   return (
     <>
       <SEOHead
-        title="Agencja eCommerce dla założycieli przed startem | Framework MVA | JAY-23"
-        description="Agencja ecommerce specjalizująca się w prelaunchu: walidacja popytu, 1000+ kupujących i finansowanie produkcji z preorderów. 46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC."
+        title="Agencja prelaunch eCommerce — MVA Framework | JAY-23"
+        description="Agencja prelaunch dla founderów eCommerce i DTC. 90-dniowy MVA Framework waliduje popyt i buduje 1000+ kupujących przed startem sprzedaży."
         canonical="/pl/agencja-prelaunch-ecommerce"
         lang="pl"
         ogImage="https://jay23.com/og-default.jpg"

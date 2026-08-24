@@ -2,7 +2,7 @@ import { Scale, Wallet, Users, Rocket } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "Agency 2.0 Alternative — Crowdfunding Without 7-Figure Minimums | JAY-23",
+  metaTitle: "Agency 2.0 Alternative — No 7-Figure Minimum | JAY-23",
   metaDescription: "Looking for an Agency 2.0 alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no minimum raise, founder-led. 46 campaigns, $1.2M+ raised.",
   canonical: "/en/agency-2-0-alternative",
   breadcrumbName: "Agency 2.0 Alternative",
@@ -55,6 +55,16 @@ const content: SeoLandingContent = {
     { row: "Pre-launch funnel & paid ads", mva: true, cold: true },
     { row: "4-wave launch activation", mva: true, cold: true },
     { row: "Owned audience after campaign", mva: true, cold: true },
+  ],
+  extraSections: [
+    {
+      h2: "Agency 2.0 pricing: what the minimums actually mean",
+      paras: [
+        "Agency 2.0 works with campaigns that expect to raise seven figures. The minimums quoted to creators — a substantial monthly retainer plus a media budget commitment — exist because that is the level at which their model works, not because smaller campaigns are badly run.",
+        "For a first-time creator the practical effect is exclusion: if you cannot commit to a large monthly media budget for the full pre-launch window, you do not qualify, and no amount of negotiating changes the structure. That is what sends most creators to this page.",
+        "Our number is $1,500/month with no minimum raise and no committed media budget beyond what your funnel proves it can spend profitably. Start at $2,000-3,000 of test spend, scale only into segments that convert. If your campaign genuinely is heading past seven figures, an agency at scale may serve you better — and we will tell you that on the call.",
+      ],
+    },
   ],
   faqs: [
     { q: "Is Agency 2.0 bad?", a: "No. They're one of the most established crowdfunding agencies and their portfolio is real. They're built for a specific tier of campaign — typically large hardware, high-AOV consumer products, and creators with existing audiences. If you fit that profile and the commercial terms work, they're a strong pick. The reason you'd land on this page is almost always that your campaign size or budget is below their threshold." },
