@@ -16,6 +16,7 @@ const MvaNavbar = () => {
     { label: t("nav", "caseStudies"), href: "#case-studies" },
     { label: t("nav", "process"), href: `${langPrefix}/process`, isLink: true },
     { label: t("nav", "blog"), href: `${langPrefix}/blog`, isLink: true },
+    { label: "LIVE", href: `${langPrefix}/live`, isLink: true },
     { label: t("nav", "faq"), href: "#faq" },
   ];
 
