@@ -49,6 +49,7 @@ const PrelaunchPlaybook = lazy(() => import("./pages/PrelaunchPlaybook"));
 const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
 const TikTokShopAgency = lazy(() => import("./pages/TikTokShopAgency"));
 const TikTokShopAgencyPL = lazy(() => import("./pages/TikTokShopAgencyPL"));
+const Live = lazy(() => import("./pages/Live"));
 
 const queryClient = new QueryClient();
 
@@ -145,6 +146,7 @@ const LangRoutes = () => (
         <Route path="prelaunch-marketing-playbook" element={<PrelaunchPlaybook />} />
         <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="tiktok-shop-agency" element={<TikTokShopAgencyByLang />} />
+        <Route path="live" element={<Live />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
@@ -172,6 +174,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<LanguageRedirect />} />
           <Route path="/packages" element={<LanguageRedirect />} />
           <Route path="/quiz" element={<LanguageRedirect />} />
+          <Route path="/live" element={<LanguageRedirect />} />
           <Route path="/lp" element={<LanguageRedirect />} />
           <Route path="/privacy-policy" element={<LanguageRedirect />} />
           <Route path="/impressum" element={<LanguageRedirect />} />
