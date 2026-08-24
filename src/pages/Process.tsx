@@ -208,8 +208,23 @@ const Process = () => {
                 {t("footer", "bookCall")}
               </Link>
             </div>
+
+            {lang === "en" && (
+              <p className="mt-8 text-sm text-muted-foreground leading-relaxed max-w-[620px]">
+                Want the full method in writing? Read{" "}
+                <Link to="/en/prelaunch-marketing-playbook" className="text-foreground font-semibold underline underline-offset-4 hover:text-primary transition-colors">
+                  The Complete Pre-Launch Marketing Playbook
+                </Link>{" "}
+                or the{" "}
+                <Link to="/en/blog/product-launch-strategy-90-day-framework" className="text-foreground font-semibold underline underline-offset-4 hover:text-primary transition-colors">
+                  90-day product launch strategy
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </section>
+
       </main>
       <FooterSection />
     </div>

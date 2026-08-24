@@ -40,8 +40,11 @@ export interface SeoLandingContent {
   comparisonTitle: string;
   comparisonRightLabel: string;
   comparison: { row: string; mva: boolean | string; cold: boolean | string }[];
+  // Optional long-form sections rendered before the FAQ
+  extraSections?: { h2: string; paras: string[] }[];
   // FAQ
   faqs: { q: string; a: string }[];
+
   // Final CTA
   ctaLead: string;
   ctaAccent: string;
@@ -300,7 +303,26 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
       {/* CASE STUDIES */}
       <CaseStudiesSection />
 
+      {/* LONG-FORM SECTIONS */}
+      {content.extraSections?.length ? (
+        <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
+          <div className="container mx-auto max-w-[820px] px-6 space-y-16">
+            {content.extraSections.map((s, i) => (
+              <div key={i}>
+                <h2 className="font-display text-[clamp(26px,3.2vw,40px)] font-black uppercase leading-[1.08] tracking-tight text-white mb-6">
+                  {s.h2}
+                </h2>
+                <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
+                  {s.paras.map((p, j) => <p key={j}>{p}</p>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* FAQ */}
+
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
           <div className="mb-12">

@@ -769,8 +769,18 @@ const Packages = () => {
               : "30-minute call. You walk away with a plan — whether you hire me or not."
             }
           </p>
+          {!isPl && (
+            <p className="text-[13px] text-white/40 mt-6 font-light">
+              Not ready to talk? Read{" "}
+              <a href="/en/prelaunch-marketing-playbook" className="text-white/70 underline underline-offset-4 hover:text-white">
+                the complete pre-launch marketing playbook
+              </a>{" "}
+              first.
+            </p>
+          )}
         </div>
       </section>
+
 
       <FooterSection />
     </>

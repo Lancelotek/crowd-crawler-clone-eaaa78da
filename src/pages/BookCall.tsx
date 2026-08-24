@@ -110,7 +110,7 @@ const BookCall = () => {
   return (
     <>
       <SEOHead
-        title={isPL ? "Umów discovery call — JAY-23" : "Book a discovery call — JAY-23"}
+        title={isPL ? "Umów discovery call — 30 minut bez zobowiązań | JAY-23" : "Book a discovery call — 30 minutes, no commitment"}
         description={t.sub}
         canonical={`/${lang}/book`}
         lang={lang}

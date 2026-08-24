@@ -138,8 +138,8 @@ const EcommercePrelaunch = () => {
   return (
     <>
       <SEOHead
-        title="Product Launch Agency for eCommerce, Crowdfunding & DTC | JAY-23"
-        description="Crowdfunding marketing agency & Kickstarter launch partner. 90-day MVA Framework validates demand, builds 1,000+ buyers, funds production with pre-orders. 46 campaigns, $1.2M+ raised."
+        title="eCommerce Pre-Launch Agency for DTC and Crowdfunding"
+        description="Pre-launch agency for eCommerce and DTC founders. The 90-day MVA Framework validates demand and builds 1,000+ buyers before launch. $1.2M+ raised."
         canonical="/en/ecommerce-prelaunch-agency"
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"

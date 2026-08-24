@@ -158,7 +158,7 @@ const Report = () => {
   if (!data) {
     return (
       <>
-        <SEOHead title="Raport MVA — JAY23" description="Spersonalizowany raport Minimum Viable Audience." />
+        <SEOHead title="Raport MVA — audyt gotowości do launchu | JAY-23" description="Bezpłatny raport MVA: sprawdzamy, czy Twój produkt ma zbudowaną publiczność gotową kupić w dniu startu. Wynik w 48 godzin." canonical="/pl/report" lang="pl" noHreflang />
         <MvaNavbar />
         <div className="min-h-screen bg-background flex items-center justify-center px-6">
           <div className="text-center max-w-md">
@@ -185,7 +185,7 @@ const Report = () => {
 
   return (
     <>
-      <SEOHead title="Twoja Analiza MVA — JAY23" description="Spersonalizowany raport Minimum Viable Audience. Sprawdź, ile osób potrzebujesz w swojej publiczności." />
+      <SEOHead title="Raport MVA — audyt gotowości do launchu | JAY-23" description="Bezpłatny raport MVA: sprawdzamy, czy Twój produkt ma zbudowaną publiczność gotową kupić w dniu startu. Wynik w 48 godzin." canonical="/pl/report" lang="pl" noHreflang noIndex />
       <MvaNavbar />
       <main className="min-h-screen bg-background py-16 px-6">
         <div className="container mx-auto max-w-[800px]">

@@ -138,7 +138,7 @@ const SaasPrelaunchPL = () => {
   return (
     <>
       <SEOHead
-        title="Agencja prelaunch SaaS | Marketing przed startem"
+        title="Agencja prelaunch SaaS — marketing przed startem | JAY-23"
         description="Agencja prelaunch dla SaaS: 90-dniowy MVA Framework, walidacja popytu, 1000+ leadów i launch z płacącymi użytkownikami od dnia pierwszego."
         canonical="/pl/agencja-prelaunch-saas"
         lang="pl"

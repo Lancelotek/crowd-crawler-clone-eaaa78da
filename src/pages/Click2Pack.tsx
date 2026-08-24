@@ -30,7 +30,7 @@ import {
 
 const COPY = {
   pl: {
-    seoTitle: "click2pack — Sprzedaż live dla marek beauty & skincare | JAY-23",
+    seoTitle: "click2pack — sprzedaż live dla marek beauty | JAY-23",
     seoDesc:
       "Agencja live commerce dla marek beauty i skincare DTC. Łączymy Twój produkt z twórcami sprzedającymi na żywo na TikTok Shop — bierzemy na siebie twórców, umowy, logistykę i prowizje.",
     nav: {
@@ -182,7 +182,7 @@ const COPY = {
     },
   },
   en: {
-    seoTitle: "click2pack — Live commerce for beauty & skincare brands | JAY-23",
+    seoTitle: "click2pack — Live Commerce for Beauty & Skincare Brands",
     seoDesc:
       "Live commerce agency for beauty and skincare DTC brands. We connect your products with creators selling live on TikTok Shop — and handle creators, contracts, fulfilment and commissions for you.",
     nav: {
