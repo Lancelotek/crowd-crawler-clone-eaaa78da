@@ -232,7 +232,7 @@ const LiveCalculator = ({ copy, locale, onResult }: Props) => {
       </div>
 
       {/* Result panel */}
-      <div className="lg:sticky lg:top-24">
+      <div className="sticky bottom-4 z-20 lg:static lg:bottom-auto lg:sticky lg:top-24">
         <div className="rounded-card border border-border bg-card p-6 shadow-lg shadow-foreground/5">
           <dl className="space-y-3">
             <div className="flex items-baseline justify-between gap-4">
