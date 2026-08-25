@@ -1312,7 +1312,7 @@ const CreatorForm = ({ c, shared, lang }: { c: CreatorFormCopy; shared: SharedFo
   };
 
   return (
-    <div id="formularz-twórcy".toLowerCase() && "formularz-tworcy" className="rounded-3xl bg-white p-7 md:p-10 scroll-mt-24 border border-[#673DFF]/20">
+    <div id="formularz-tworcy" className="rounded-3xl bg-white p-7 md:p-10 scroll-mt-24 border border-[#673DFF]/20">
       <h3 className="font-display text-2xl font-bold tracking-tight text-[#0B0B0F]">{c.title}</h3>
       <p className="mt-2 text-sm text-[#0B0B0F]/60">{c.sub}</p>
 
