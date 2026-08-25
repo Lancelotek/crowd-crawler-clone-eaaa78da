@@ -960,7 +960,7 @@ const MarketSection = ({ c }: { c: typeof COPY.pl.market }) => (
               ))}
             </ul>
             <a
-              href={i === 0 ? "#formularz-marki" : "#formularz-tworcY".toLowerCase()}
+              href={i === 0 ? "#formularz-marki" : "#formularz-tworcy"}
               onClick={() => c2pEvent("c2p_market_cta", { side: i === 0 ? "brand" : "creator" })}
               className={`mt-8 inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-xl text-white transition-colors ${
                 i === 0 ? "bg-emerald-500 hover:bg-emerald-600" : "bg-[#673DFF] hover:bg-[#5730e0]"
