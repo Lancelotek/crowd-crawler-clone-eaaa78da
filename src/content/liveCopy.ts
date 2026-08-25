@@ -108,14 +108,14 @@ export interface LiveCopy {
 
 export const livePl: LiveCopy = {
   meta: {
-    title: "Sprzedaż na żywo dla marek e-commerce — TikTok Shop, Meta, YouTube | Jay23",
+    title: "Sprzedaż na żywo TikTok Shop dla marek e-commerce | Jay23",
     description:
-      "Prowadzimy transmisje sprzedażowe na TikTok Shop, Instagramie i YouTube. Płacisz 9% od sprzedaży, bez abonamentu. Szkolenie dla firm od 2 900 PLN.",
+      "Prowadzimy sprzedaż na żywo na TikTok Shop, Instagramie i YouTube: twórcy, transmisje, liczby. Płacisz 9% od sprzedaży, bez abonamentu.",
     canonical: "/pl/live",
   },
   hero: {
     eyebrow: "Jay23 LIVE",
-    h1: "Sprzedaż na żywo dla Twojej marki. Płacisz od wyniku.",
+    h1: "Sprzedaż na żywo na TikTok Shop dla Twojej marki. Płacisz od wyniku.",
     lead:
       "TikTok Shop ruszył w Polsce 15 czerwca 2026. Prowadzimy transmisje sprzedażowe, rekrutujemy twórców i pilnujemy liczb. Bierzemy 9% od tego, co sprzedamy. Bez abonamentu.",
     ctaPrimary: "Umów bezpłatny audyt kanału",
@@ -138,7 +138,7 @@ export const livePl: LiveCopy = {
     ],
   },
   how: {
-    heading: "Jak to działa",
+    heading: "Jak działa sprzedaż na żywo z Jay23",
     steps: [
       {
         title: "Audyt liczb",
@@ -390,14 +390,14 @@ export const livePl: LiveCopy = {
 
 export const liveEn: LiveCopy = {
   meta: {
-    title: "Live Selling for E-commerce Brands — TikTok Shop, Meta, YouTube | Jay23",
+    title: "Live Selling Agency for E-commerce — TikTok Shop | Jay23",
     description:
-      "We run live shopping streams on TikTok Shop, Instagram and YouTube. You pay 9% of sales, no retainer. One-day team training available.",
+      "Live selling agency for e-commerce brands: TikTok Shop, Instagram and YouTube streams, creators and numbers. You pay 9% of sales, no retainer.",
     canonical: "/en/live",
   },
   hero: {
     eyebrow: "Jay23 LIVE",
-    h1: "Your brand, sold live. You pay on results.",
+    h1: "Live selling on TikTok Shop for your brand. You pay on results.",
     lead:
       "TikTok Shop launched in Poland on 15 June 2026 and across four more EU markets this year. We run the streams, recruit the creators and watch the numbers. We take 9% of what we sell. No retainer.",
     ctaPrimary: "Book a channel audit",
@@ -420,7 +420,7 @@ export const liveEn: LiveCopy = {
     ],
   },
   how: {
-    heading: "How it works",
+    heading: "How live selling with Jay23 works",
     steps: [
       {
         title: "Audit the numbers",
