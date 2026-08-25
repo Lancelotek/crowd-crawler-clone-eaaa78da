@@ -39,6 +39,46 @@ const LiveTrainingModal = ({ copy, locale, open, onClose }: Props) => {
     defaultValues: { fullName: "", company: "", email: "", phone: "", participants: "", format: "", timing: "" },
   });
 
+  // ── Funnel tracking: start, validation errors, abandonment ──
+  const startedRef = useRef(false);
+  const submittedRef = useRef(false);
+
+  useEffect(() => {
+    if (open) {
+      startedRef.current = false;
+      submittedRef.current = false;
+      setState("idle");
+    }
+  }, [open]);
+
+  const trackStart = () => {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      liveEvent("live_form_start", { locale, form_type: "live_training" });
+    }
+  };
+
+  const trackAbandon = () => {
+    if (startedRef.current && !submittedRef.current) {
+      liveEvent("live_form_abandon", { locale, form_type: "live_training" });
+    }
+  };
+
+  const handleClose = () => {
+    trackAbandon();
+    onClose();
+  };
+
+  const onInvalid = (fieldErrors: Record<string, unknown>) => {
+    const fields = Object.keys(fieldErrors);
+    liveEvent("live_form_validation_error", {
+      locale,
+      form_type: "live_training",
+      error_fields: fields.join(","),
+      error_count: fields.length,
+    });
+  };
+
   const onSubmit = async (values: Values) => {
     setState("sending");
     try {
@@ -49,10 +89,12 @@ const LiveTrainingModal = ({ copy, locale, open, onClose }: Props) => {
         price_quoted: 2900,
         page_url: window.location.href,
       });
+      submittedRef.current = true;
       liveEvent("live_training_submit", { locale, participants: values.participants, format: values.format });
       setState("success");
     } catch (err) {
       console.error("live_training submit failed:", err);
+      liveEvent("live_form_submit_error", { locale, form_type: "live_training" });
       setState("error");
     }
   };

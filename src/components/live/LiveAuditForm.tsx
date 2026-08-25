@@ -102,7 +102,7 @@ const LiveAuditForm = ({ copy, locale, calculatorResult }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit, onInvalid)} onFocus={trackStart} noValidate className="space-y-5">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className={labelCls} htmlFor="la-name">{f.name} *</label>
