@@ -108,9 +108,9 @@ const LiveTrainingModal = ({ copy, locale, open, onClose }: Props) => {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-start sm:items-center justify-center p-4 overflow-y-auto">
-      <div className="fixed inset-0 bg-foreground/60 backdrop-blur-sm" onClick={onClose} aria-hidden />
+      <div className="fixed inset-0 bg-foreground/60 backdrop-blur-sm" onClick={handleClose} aria-hidden />
       <div role="dialog" aria-modal="true" aria-labelledby="lt-title" className="relative w-full max-w-lg my-8 rounded-card border border-border bg-card p-6 sm:p-8 shadow-2xl">
-        <button type="button" onClick={onClose} aria-label={t.close} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
+        <button type="button" onClick={handleClose} aria-label={t.close} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
           <X size={20} aria-hidden />
         </button>
         <h3 id="lt-title" className="font-display text-2xl font-bold mb-6 pr-8">{t.title}</h3>
@@ -121,7 +121,7 @@ const LiveTrainingModal = ({ copy, locale, open, onClose }: Props) => {
             <p className="text-base font-medium leading-relaxed">{t.success}</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit, onInvalid)} onFocus={trackStart} noValidate className="space-y-4">
             <div>
               <label className={labelCls} htmlFor="lt-name">{t.fullName} *</label>
               <input id="lt-name" {...register("fullName")} className={inputCls} aria-describedby={errors.fullName ? "lt-name-err" : undefined} />
