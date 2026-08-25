@@ -90,6 +90,14 @@ const FooterSection = () => {
               )}
               <li>
                 <a
+                  href={`${langPrefix}/live`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Jay23 LIVE
+                </a>
+              </li>
+              <li>
+                <a
                   href={`${langPrefix}/click2pack`}
                   onClick={() => {
                     if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
