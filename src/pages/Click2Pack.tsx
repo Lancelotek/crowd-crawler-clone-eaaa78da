@@ -929,8 +929,8 @@ const DiagramBoxLight = ({ children, accent = false }: { children: React.ReactNo
 const MarketSection = ({ c }: { c: typeof COPY.pl.market }) => (
   <section className="bg-[#0A0A12] text-white py-20 md:py-28">
     <div className="container mx-auto max-w-6xl px-6">
-      <SectionHeader eyebrow={c.eyebrow} h2="" dark />
-      <div className="grid md:grid-cols-2 gap-5 mt-2">
+      <SectionHeader eyebrow={c.eyebrow} h2={c.eyebrow} dark />
+      <div className="grid md:grid-cols-2 gap-5 mt-12">
         {([c.brands, c.creators] as const).map((side, i) => (
           <motion.div
             key={i}
