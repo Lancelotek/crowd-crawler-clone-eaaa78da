@@ -38,6 +38,35 @@ const LiveAuditForm = ({ copy, locale, calculatorResult }: Props) => {
     defaultValues: { name: "", brand: "", email: "", shop: "", category: "", revenue: "", selling: "", message: "" },
   });
 
+  // ── Funnel tracking: start, validation errors, abandonment ──
+  const startedRef = useRef(false);
+  const submittedRef = useRef(false);
+
+  useEffect(() => {
+    return () => {
+      if (startedRef.current && !submittedRef.current) {
+        liveEvent("live_form_abandon", { locale, form_type: "live_audit" });
+      }
+    };
+  }, [locale]);
+
+  const trackStart = () => {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      liveEvent("live_form_start", { locale, form_type: "live_audit" });
+    }
+  };
+
+  const onInvalid = (fieldErrors: Record<string, unknown>) => {
+    const fields = Object.keys(fieldErrors);
+    liveEvent("live_form_validation_error", {
+      locale,
+      form_type: "live_audit",
+      error_fields: fields.join(","),
+      error_count: fields.length,
+    });
+  };
+
   const onSubmit = async (values: Values) => {
     setState("sending");
     try {
@@ -48,10 +77,12 @@ const LiveAuditForm = ({ copy, locale, calculatorResult }: Props) => {
         calculator_result: calculatorResult,
         page_url: window.location.href,
       });
+      submittedRef.current = true;
       liveEvent("live_audit_submit", { locale, revenue_band: values.revenue, category: values.category });
       setState("success");
     } catch (err) {
       console.error("live_audit submit failed:", err);
+      liveEvent("live_form_submit_error", { locale, form_type: "live_audit" });
       setState("error");
     }
   };
