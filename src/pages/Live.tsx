@@ -74,6 +74,8 @@ const Live = () => {
         title={copy.meta.title}
         description={copy.meta.description}
         canonical={copy.meta.canonical}
+        ogImage={`${BASE}/og/live.jpg`}
+        ogImageAlt={copy.meta.title}
         lang={locale}
         type="website"
         hreflangOverrides={{ en: "/en/live", pl: "/pl/live" }}
