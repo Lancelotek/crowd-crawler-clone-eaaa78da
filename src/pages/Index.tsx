@@ -66,8 +66,8 @@ const Index = () => {
             "url": "https://jay23.com",
             "logo": "https://jay23.com/assets/jay23-logo-C_2EM8Im.webp",
             "description": lang === "pl"
-              ? "MVA Framework — 90-dniowy program pomagający founderom zbudować 1000 prawdziwych fanów przed premierą produktu."
-              : "MVA Framework — 90-day program helping founders build 1,000 true fans before product launch.",
+              ? "MVA Framework — 90-dniowy program pomagający founderom zbudować 1000 prawdziwych fanów przed Kickstarter, TikTok Shop, SaaS i sales-led launchami."
+              : "MVA Framework — 90-day program helping founders build 1,000 true fans before Kickstarter, TikTok Shop, SaaS and sales-led launches.",
             "sameAs": ["https://www.linkedin.com/in/marekciesla/"],
             "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "url": "https://jay23.com/en/book" },
           },
