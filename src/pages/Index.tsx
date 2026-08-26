@@ -78,8 +78,8 @@ const Index = () => {
             "provider": { "@type": "Organization", "name": "JAY-23" },
             "url": "https://jay23.com/",
             "description": lang === "pl"
-              ? "90-dniowy program budowania Minimum Viable Audience — 1000 prawdziwych fanów — za pomocą płatnych reklam, lejków email, quizów i aktywacji społeczności."
-              : "A 90-day program that builds your Minimum Viable Audience — 1,000 true fans — using paid ads, email funnels, quizzes, and community activation.",
+              ? "90-dniowy program budowania Minimum Viable Audience — 1000 prawdziwych fanów — za pomocą płatnych reklam, lejków email, quizów i aktywacji społeczności dla Kickstarter, TikTok Shop, SaaS i sales-led launchy."
+              : "A 90-day program that builds your Minimum Viable Audience — 1,000 true fans — using paid ads, email funnels, quizzes, and community activation for Kickstarter, TikTok Shop, SaaS and sales-led launches.",
             "serviceType": "Pre-launch Audience Building",
             "areaServed": "Worldwide",
           },
