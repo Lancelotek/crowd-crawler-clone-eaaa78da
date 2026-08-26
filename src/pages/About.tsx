@@ -7,8 +7,8 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const content = {
   en: {
-    seoTitle: "About JAY-23 — Kickstarter Prelaunch Agency by Marek Cieśla",
-    seoDesc: "JAY-23 is a Kickstarter and crowdfunding marketing agency founded by Marek Cieśla. 46 campaigns managed, $1.2M+ raised on Kickstarter and Indiegogo.",
+    seoTitle: "About JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency by Marek Cieśla",
+    seoDesc: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches — 46 campaigns managed, $1.2M+ raised.",
     heroTitle: "We help founders build an audience BEFORE they build a product",
     heroSub: "JAY-23 is a growth marketing studio specializing in prelaunch strategies and building Minimum Viable Audiences.",
     founderName: "Marek Ciesla",
@@ -32,8 +32,8 @@ const content = {
     ctaBook: "Book a Free Consultation",
   },
   pl: {
-    seoTitle: "O JAY-23 — Agencja Kickstarter | Marek Cieśla",
-    seoDesc: "JAY-23 to polska agencja marketingu Kickstarter i crowdfunding założona przez Marka Cieślę. 46 kampanii, ponad $1.2M zebranych na Kickstarter i Indiegogo.",
+    seoTitle: "O JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | Marek Cieśla",
+    seoDesc: "JAY-23 to agencja wzrostu prelaunch założona przez Marka Cieślę. Kickstarter, TikTok Shop, SaaS i sales-led launchy — 46 kampanii, ponad $1.2M zebranych.",
     heroTitle: "Pomagamy founderom budować publiczność ZANIM zbudują produkt",
     heroSub: "JAY-23 to studio growth marketingu specjalizujące się w strategiach prelaunch i budowaniu Minimum Viable Audience.",
     founderName: "Marek Cieśla",

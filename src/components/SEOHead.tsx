@@ -82,7 +82,7 @@ const SEOHead = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
-      <meta property="og:site_name" content={lang === "pl" ? "JAY-23 — Agencja Kickstarter PL" : "JAY-23 — Kickstarter Prelaunch Agency"} />
+      <meta property="og:site_name" content={lang === "pl" ? "JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth" : "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency"} />
       <meta property="og:locale" content={lang === "pl" ? "pl_PL" : "en_US"} />
       <meta property="og:locale:alternate" content={lang === "pl" ? "en_US" : "pl_PL"} />
       <meta property="og:url" content={canonicalUrl || BASE_URL} />

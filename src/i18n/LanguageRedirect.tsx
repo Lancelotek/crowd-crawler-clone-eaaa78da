@@ -17,22 +17,25 @@ function detectLanguage(): Lang {
 
 type SeoMeta = { title: string; description: string };
 
+const BASE_TITLE = "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework";
+const BASE_DESCRIPTION = "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.";
+
 const BARE_PATH_SEO: Record<string, SeoMeta> = {
   "/": {
-    title: "JAY-23 — Kickstarter Prelaunch Marketing Agency (EN / PL)",
-    description: "Choose your language. JAY-23 is a Kickstarter and crowdfunding marketing agency — 90-day MVA Framework, 46 campaigns, $1.2M+ raised.",
+    title: "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency (EN / PL)",
+    description: BASE_DESCRIPTION,
   },
   "/book": {
     title: "Book a Free Kickstarter Strategy Call | JAY-23",
-    description: "30-minute free call with a Kickstarter prelaunch expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans.",
+    description: "30-minute free call with a prelaunch growth expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans before Kickstarter, TikTok Shop, SaaS or sales-led launch.",
   },
   "/process": {
     title: "How to Promote a Kickstarter — 90-Day Process | JAY-23",
     description: "The 90-day process to promote a Kickstarter campaign: persona research, Meta Ads, email funnel, and launch-day push. Step-by-step.",
   },
   "/thank-you": {
-    title: "Thank You — Request Received | JAY-23 Kickstarter Agency",
-    description: "Thanks for reaching out to JAY-23. Next steps for your Kickstarter prelaunch strategy and how to join the founder community.",
+    title: "Thank You — Request Received | JAY-23",
+    description: "Thanks for reaching out to JAY-23. Next steps for your Kickstarter, TikTok Shop, SaaS or sales-led prelaunch strategy and how to join the founder community.",
   },
   "/blog": {
     title: "Kickstarter & Crowdfunding Marketing Blog | JAY-23",
@@ -40,7 +43,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/packages": {
     title: "Kickstarter Agency Pricing — MVA Packages | JAY-23",
-    description: "Transparent pricing for Kickstarter prelaunch. MVA packages from $1,500/mo — 90 days, Meta Ads, email funnel, community activation.",
+    description: "Transparent pricing for prelaunch growth. MVA packages from $1,500/mo — 90 days, Meta Ads, email funnel, community activation for Kickstarter, TikTok Shop, SaaS and sales-led launches.",
   },
   "/quiz": {
     title: "Kickstarter Calculator — How Many Fans Do You Need? | JAY-23",
@@ -56,10 +59,10 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/impressum": {
     title: "Impressum / Legal Notice — JAY23 LLC",
-    description: "Legal notice and company information for JAY23 LLC, the entity behind JAY-23 — Kickstarter prelaunch marketing agency.",
+    description: "Legal notice and company information for JAY23 LLC, the entity behind JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency.",
   },
   "/terms-of-service": {
-    title: "Terms of Service — JAY-23 Kickstarter Agency",
+    title: "Terms of Service — JAY-23",
     description: "Terms governing your use of JAY-23 services, the MVA Framework program, and the jay23.com website.",
   },
   "/faq": {
@@ -67,8 +70,8 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
     description: "Answers about promoting a Kickstarter campaign, MVA pricing, the 90-day process, expected CPL, and working with JAY-23.",
   },
   "/about": {
-    title: "About JAY-23 — Kickstarter Agency by Marek Cieśla",
-    description: "JAY-23 is a Kickstarter and crowdfunding agency founded by Marek Cieśla. 46 campaigns, $1.2M+ raised on Kickstarter and Indiegogo.",
+    title: "About JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency by Marek Cieśla",
+    description: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches — 46 campaigns, $1.2M+ raised.",
   },
 };
 
@@ -77,12 +80,12 @@ function getBareSeo(pathname: string): SeoMeta {
   if (pathname.startsWith("/blog/")) {
     return {
       title: "Article | Articles by JAY-23",
-      description: "Insights on crowdfunding prelaunch, audience building, and the MVA Framework from JAY-23.",
+      description: "Insights on prelaunch growth, audience building, and the MVA Framework from JAY-23.",
     };
   }
   return {
-    title: "JAY-23 — Crowdfunding Prelaunch Marketing Agency",
-    description: "JAY-23 helps founders build 1,000 true fans before launch with the 90-day MVA Framework.",
+    title: BASE_TITLE,
+    description: BASE_DESCRIPTION,
   };
 }
 

@@ -367,8 +367,8 @@ export const translations = {
     title: { en: "Pre-Launch & Crowdfunding ", pl: "Artykuły o prelaunch " },
     titleAccent: { en: "Marketing Articles", pl: "i crowdfundingu" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
-    seoTitle: { en: "Kickstarter & Crowdfunding Marketing Blog | JAY-23", pl: "Blog: Kickstarter, Crowdfunding i Prelaunch | JAY-23" },
-    seoDesc: { en: "Tactics for Kickstarter prelaunch, Indiegogo campaigns, audience building, and crowdfunding marketing. Real lessons from 46 campaigns, $1.2M+ raised.", pl: "Jak promować Kickstarter, jak założyć zbiórkę, platformy crowdfundingowe i finansowanie społecznościowe — taktyki z 46 kampanii i $1.2M+ zebranych." },
+    seoTitle: { en: "Pre-Launch Growth Blog — Kickstarter, TikTok Shop, SaaS & Sales | JAY-23", pl: "Blog: Kickstarter, TikTok Shop, SaaS i Sales Growth | JAY-23" },
+    seoDesc: { en: "Tactics for Kickstarter, TikTok Shop, SaaS and sales-led launches. Audience building, creator commerce, Meta Ads, email funnels and community activation. Lessons from 46 campaigns and $1.2M+ raised.", pl: "Taktyki dla Kickstarter, TikTok Shop, SaaS i sales-led launchy. Budowanie publiczności, creator commerce, Meta Ads, lejki email i aktywacja społeczności. Wnioski z 46 kampanii i $1.2M+ zebranych." },
   },
 } as const;
 
