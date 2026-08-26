@@ -34,12 +34,12 @@ const Index = () => {
   useStoreLanguagePreference(lang);
   const seo = {
     en: {
-      title: "Pre-Launch Marketing Agency for SaaS & eCommerce | JAY-23",
-      description: "Pre-launch marketing agency for SaaS and eCommerce founders. 90-day MVA Framework, 46 campaigns, $1.2M+ raised. Launch to 1,000+ true fans, not silence.",
+      title: "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework",
+      description: "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.",
     },
     pl: {
-      title: "Agencja Kickstarter PL — MVA w 90 dni | JAY-23",
-      description: "Agencja Kickstarter w Polsce. Budujemy 1000 prawdziwych fanów przed launchem kampanii. MVA Framework, 46 kampanii, $1.2M+ zebrane. Bezpłatna konsultacja.",
+      title: "JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | MVA Framework",
+      description: "90-dniowy MVA Framework dla Kickstarter, TikTok Shop, SaaS i sales-led launchy: Meta Ads, creator commerce, lejki email i aktywacja społeczności, które pomogły 46 kampaniom zebrać ponad $1.2M.",
     },
   };
 
