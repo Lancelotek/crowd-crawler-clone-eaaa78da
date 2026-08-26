@@ -526,9 +526,15 @@ const Click2Pack = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={lang === "pl" ? "pl_PL" : "en_US"} />
         <meta property="og:locale:alternate" content={lang === "pl" ? "en_US" : "pl_PL"} />
+        <meta property="og:image" content="https://jay23.com/og/click2pack.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={c.ogTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={c.ogTitle} />
         <meta name="twitter:description" content={c.ogDesc} />
+        <meta name="twitter:image" content="https://jay23.com/og/click2pack.jpg" />
+        <meta name="twitter:image:alt" content={c.ogTitle} />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
