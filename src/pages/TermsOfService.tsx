@@ -8,8 +8,8 @@ const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Terms of Service"
-        description="Terms of Service for JAY23 LLC and the MVA Framework website."
+        title={lang === "pl" ? "Regulamin serwisu JAY-23 | Warunki korzystania" : "Terms of Service — JAY-23 Website Terms of Use"}
+        description={lang === "pl" ? "Regulamin korzystania ze strony JAY-23 i usług JAY23 LLC: zakres usług, płatności, odpowiedzialność i prawa autorskie." : "Terms of use for the JAY-23 website and JAY23 LLC services: scope of work, payments, liability and intellectual property."}
         canonical={`/${lang}/terms-of-service`}
         lang={lang}
         hreflangOverrides={{ en: "/en/terms-of-service", pl: "/pl/terms-of-service" }}

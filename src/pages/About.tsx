@@ -7,7 +7,7 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const content = {
   en: {
-    seoTitle: "About JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency by Marek Cieśla",
+    seoTitle: "About JAY-23 — Prelaunch Growth Agency by Marek Cieśla",
     seoDesc: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches — 46 campaigns managed, $1.2M+ raised.",
     heroTitle: "We help founders build an audience BEFORE they build a product",
     heroSub: "JAY-23 is a growth marketing studio specializing in prelaunch strategies and building Minimum Viable Audiences.",
