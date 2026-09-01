@@ -228,7 +228,10 @@ const SEOHead = ({
     const list = Array.isArray(items) ? items : [items];
     list.filter(Boolean).forEach(addJsonLd);
 
-    if (breadcrumbs) {
+    const hasBreadcrumb = list.some(
+      (it) => (it as { "@type"?: string })?.["@type"] === "BreadcrumbList",
+    );
+    if (breadcrumbs && !hasBreadcrumb) {
       const crumbs = buildBreadcrumbs(canonicalPathOnly, title);
       if (crumbs) addJsonLd(crumbs);
     }
