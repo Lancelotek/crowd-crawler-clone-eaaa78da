@@ -7,7 +7,7 @@ const Impressum = () => {
   const { lang, langPrefix } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title="Impressum" description="Legal disclosure (Impressum) for JAY23 LLC, operator of the MVA Framework website." canonical={`/${lang}/impressum`} lang={lang} hreflangOverrides={{ en: "/en/impressum", pl: "/pl/impressum" }} />
+      <SEOHead title={lang === "pl" ? "Impressum — dane firmy JAY23 LLC | JAY-23" : "Impressum — JAY23 LLC Company Details | JAY-23"} description={lang === "pl" ? "Dane rejestrowe JAY23 LLC (Wyoming, USA), operatora strony JAY-23 i frameworku MVA. Adres, kontakt i informacje prawne." : "Registered details for JAY23 LLC (Wyoming, USA), operator of the JAY-23 site and the MVA Framework. Address, contact and legal information."} canonical={`/${lang}/impressum`} lang={lang} hreflangOverrides={{ en: "/en/impressum", pl: "/pl/impressum" }} />
       <div className="container mx-auto max-w-[800px] px-6 py-20">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-10">
           <ArrowLeft size={16} /> Back to Home
