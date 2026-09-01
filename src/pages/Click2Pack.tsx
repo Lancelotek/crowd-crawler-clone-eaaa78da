@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -511,32 +511,16 @@ const Click2Pack = () => {
 
   return (
     <div className="min-h-screen bg-[#F6F6F9] text-[#0B0B0F]">
-      <Helmet>
-        <html lang={lang} />
-        <title>{c.seoTitle}</title>
-        <meta name="description" content={c.seoDesc} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="pl" href="https://jay23.com/pl/click2pack" />
-        <link rel="alternate" hrefLang="en" href="https://jay23.com/en/click2pack" />
-        <link rel="alternate" hrefLang="x-default" href="https://jay23.com/en/click2pack" />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-        <meta property="og:title" content={c.ogTitle} />
-        <meta property="og:description" content={c.ogDesc} />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content={lang === "pl" ? "pl_PL" : "en_US"} />
-        <meta property="og:locale:alternate" content={lang === "pl" ? "en_US" : "pl_PL"} />
-        <meta property="og:image" content="https://jay23.com/og/click2pack.jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content={c.ogTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={c.ogTitle} />
-        <meta name="twitter:description" content={c.ogDesc} />
-        <meta name="twitter:image" content="https://jay23.com/og/click2pack.jpg" />
-        <meta name="twitter:image:alt" content={c.ogTitle} />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <SEOHead
+        title={c.seoTitle}
+        description={c.seoDesc}
+        canonical={`${langPrefix}/click2pack`}
+        lang={lang}
+        ogImage="https://jay23.com/og/click2pack.jpg"
+        ogImageAlt={c.ogTitle}
+        hreflangOverrides={{ en: "/en/click2pack", pl: "/pl/click2pack" }}
+        schemaJson={faqSchema}
+      />
 
       <C2PNav nav={c.nav} langPrefix={langPrefix} />
       <Hero c={c.hero} />
