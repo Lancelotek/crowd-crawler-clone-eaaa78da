@@ -312,7 +312,7 @@ const Packages = () => {
   return (
     <>
       <SEOHead
-        title={isPl ? "Pakiety i cennik — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | JAY-23" : "MVA Framework Pricing — Kickstarter, TikTok Shop, SaaS & Sales Growth | JAY-23"}
+        title={isPl ? "Pakiety i cennik MVA — Kickstarter, TikTok Shop, SaaS | JAY-23" : "MVA Framework Pricing — Kickstarter, TikTok Shop, SaaS | JAY-23"}
         description={isPl
           ? "Cennik programu MVA dla Kickstarter, TikTok Shop, SaaS i sales-led launchy. Pakiety od 6000 PLN/mies. — 90 dni, Meta Ads, lejek email, społeczność. Zobacz cennik."
           : "Transparent pricing for Kickstarter, TikTok Shop, SaaS and sales-led prelaunch. MVA packages from $1,500/mo — 90 days, Meta Ads, email funnel, community activation. See packages."
