@@ -18,7 +18,7 @@
     <!-- Static defaults for non-JS crawlers; SEOHead (react-helmet-async) overrides per-page in the browser -->
     <title>JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework</title>
     <meta name="description" content="The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.">
-    <!-- canonical + hreflang are emitted per-route by SEOHead (react-helmet-async); no static canonical to avoid every subpage declaring itself as the homepage -->
+    <!-- canonical + hreflang are emitted per-route: prerendered into dist/<route>/index.html at build time and kept in sync by SEOHead at runtime -->
 
     <meta property="og:title" content="JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework">
     <meta property="og:description" content="The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.">
