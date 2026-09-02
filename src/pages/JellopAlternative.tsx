@@ -1,4 +1,5 @@
 import { Wallet, Users, Layers, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -82,13 +83,7 @@ const content: SeoLandingContent = {
       ],
     },
   ],
-  faqs: [
-    { q: "Is Jellop bad?", a: "No. They're one of the most respected paid-media operators in crowdfunding and they do their specific job well. The point isn't that Jellop is wrong — it's that paid-to-live-page is one layer of a Kickstarter campaign, and it only works when there's already momentum to scale. If you're trying to figure out who builds the momentum in the first place, that's a different vendor." },
-    { q: "Can we run MVA before launch and Jellop after?", a: "Yes, and that's a sensible stack for larger campaigns. MVA builds the audience and runs days 1–3; once the campaign is on Popular and has organic compounding, a performance-paid specialist scaling Meta and Google can extract additional ROI. We're explicit about that hand-off and don't try to monopolize the engagement." },
-    { q: "Do you take a percentage of pledges or ad-attributed revenue?", a: "No. Fixed $1,500/month, period. Ad spend goes directly to Meta/Reddit on your card — no markup, no performance cut." },
-    { q: "What if our campaign goes live next week and we never did pre-launch?", a: "Then MVA isn't the right fit and we'll say so on the first call. A live-campaign performance specialist (Jellop, Funded Today, etc.) is a better choice for a campaign already in-market. We'll tell you that for free." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally." },
-  ],
+  faqs: LANDING_FAQS["/en/jellop-alternative"],
   ctaLead: "Want the pre-launch layer that makes",
   ctaAccent: "paid-media ROI actually work",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan and an honest read on whether you also need a performance-paid vendor post-launch.",

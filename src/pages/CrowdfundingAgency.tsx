@@ -1,4 +1,5 @@
 import { Target, Users, LineChart, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -56,13 +57,7 @@ const content: SeoLandingContent = {
     { row: "Time to first revenue cohort", mva: "Hour 1", cold: "Week 2–3" },
     { row: "Cost", mva: "$1.5k/mo + ad spend", cold: "$0 + missed goal" },
   ],
-  faqs: [
-    { q: "Kickstarter, Indiegogo or Gamefound — which one is right for us?", a: "Hardware, design and consumer products: usually Kickstarter (largest audience, strongest algorithm). Tabletop, board games and tabletop RPGs: increasingly Gamefound (lower fees, category focus, late-pledge tooling). Indiegogo: best for flexible funding, post-Kickstarter continuation, and categories Kickstarter restricts. We pick during the Discover phase based on your ICP and category, not a default preference." },
-    { q: "How is this different from a PR or video production agency?", a: "PR pitches press; video studios make the campaign film. Both valuable, neither builds the audience the algorithm needs. We build the demand side. We're commonly hired alongside a video studio and a PR firm — three vendors, three jobs." },
-    { q: "What does it cost?", a: "Fixed $1,500/month (PLN equivalent for Polish creators). No revenue share, no success fee. Ad budget is separate — typical campaigns spend $3k–$15k on paid traffic over 90 days." },
-    { q: "Does this work for late-pledge and reorder campaigns?", a: "Yes. MVA logic applies to Late Pledge, Indiegogo InDemand and Gamefound's post-campaign tools. We rebuild the audience signal from the original campaign and run a compressed 30–45 day activation." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally." },
-  ],
+  faqs: LANDING_FAQS["/en/crowdfunding-agency"],
   ctaLead: "Ready for a crowdfunding campaign that funds",
   ctaAccent: "before day one ends",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan and a platform recommendation — whether or not you keep working with us.",

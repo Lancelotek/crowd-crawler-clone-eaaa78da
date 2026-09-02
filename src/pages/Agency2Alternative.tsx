@@ -1,4 +1,5 @@
 import { Scale, Wallet, Users, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -66,13 +67,7 @@ const content: SeoLandingContent = {
       ],
     },
   ],
-  faqs: [
-    { q: "Is Agency 2.0 bad?", a: "No. They're one of the most established crowdfunding agencies and their portfolio is real. They're built for a specific tier of campaign — typically large hardware, high-AOV consumer products, and creators with existing audiences. If you fit that profile and the commercial terms work, they're a strong pick. The reason you'd land on this page is almost always that your campaign size or budget is below their threshold." },
-    { q: "What's the largest campaign you've worked on?", a: "Our top single-campaign result is $332,694 (Woolet on Kickstarter). Across 46 campaigns we've raised $1.2M+. We're transparent that we're not a fit for $5M hardware launches — for those, Agency 2.0 or LaunchBoom at their top tier is the right call." },
-    { q: "Do you take a percentage of what we raise?", a: "No. Fixed $1,500/month, period. Ad budget is separate and goes directly to your Meta/Reddit account on your card." },
-    { q: "Do you work on Indiegogo, not just Kickstarter?", a: "Yes — Kickstarter, Indiegogo and Gamefound. Platform recommendation is part of the Discover phase based on your category and ICP, not a default." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally." },
-  ],
+  faqs: LANDING_FAQS["/en/agency-2-0-alternative"],
   ctaLead: "Want a real crowdfunding partner",
   ctaAccent: "below the seven-figure tier",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan sized for your goal — whether or not you keep working with us.",

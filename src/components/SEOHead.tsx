@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { getRouteMeta, withBrandSuffix } from "@/seo/routeMeta";
+import { buildRouteSchema } from "@/seo/prerenderRoutes";
+
 
 interface SEOHeadProps {
   title: string;
@@ -111,37 +114,48 @@ const buildBreadcrumbs = (path: string, title: string) => {
 
 const SEOHead = ({
   title,
-  description,
+  description: descriptionProp,
   canonical,
-  ogImage = DEFAULT_OG,
-  ogImageAlt,
-  type = "website",
-  publishedAt,
-  author,
+  ogImage: ogImageProp = DEFAULT_OG,
+  ogImageAlt: ogImageAltProp,
+  type: typeProp = "website",
+  publishedAt: publishedAtProp,
+  author: authorProp,
   noIndex,
   noindex,
-  noHreflang = false,
+  noHreflang: noHreflangProp = false,
   schemaJson,
   jsonLd,
-  lang,
-  hreflangOverrides,
-  breadcrumbs = true,
+  lang: langProp,
+  hreflangOverrides: hreflangOverridesProp,
+  breadcrumbs: breadcrumbsProp = true,
+
 }: SEOHeadProps) => {
   const { pathname } = useLocation();
-  const isNoIndex = noIndex ?? noindex ?? false;
-  const schema = schemaJson ?? jsonLd;
+
+  // The registry is authoritative: when a route is listed in ROUTE_META, its
+  // values win over the props so the hydrated head equals the prerendered head.
+  const routeMeta = getRouteMeta(canonical || pathname);
+
+  const effTitle = routeMeta?.title ?? title;
+  const description = routeMeta?.description ?? descriptionProp;
+  const type = routeMeta?.type ?? typeProp;
+  const ogImage = routeMeta?.ogImage ?? ogImageProp;
+  const ogImageAlt = routeMeta?.ogImageAlt ?? ogImageAltProp;
+  const lang = routeMeta?.lang ?? langProp;
+  const publishedAt = routeMeta?.publishedAt ?? publishedAtProp;
+  const author = routeMeta?.author ?? authorProp;
+  const isNoIndex = routeMeta ? !!routeMeta.noIndex : noIndex ?? noindex ?? false;
+  const noHreflang = routeMeta ? !routeMeta.alternates : noHreflangProp;
+  const hreflangOverrides = routeMeta?.alternates ?? hreflangOverridesProp;
+  const schema = routeMeta ? buildRouteSchema(routeMeta) : schemaJson ?? jsonLd;
+  const breadcrumbs = routeMeta ? false : breadcrumbsProp;
 
   // The brand suffix is only appended when it still fits inside Google's ~60 char limit.
-  const BRAND_SUFFIX = " | MVA Framework by JAY-23";
-  const fullTitle =
-    title.includes("MVA") ||
-    title.includes("JAY-23") ||
-    title.length + BRAND_SUFFIX.length > 60
-      ? title
-      : `${title}${BRAND_SUFFIX}`;
-
+  const fullTitle = withBrandSuffix(effTitle);
 
   const serializedSchema = schema ? JSON.stringify(schema) : "";
+
 
   useEffect(() => {
     const canonicalPath = canonical || pathname;
@@ -235,10 +249,10 @@ const SEOHead = ({
       addAlternate("en", enUrl);
       addAlternate("pl", plUrl);
       addAlternate("x-default", enUrl);
-    } else {
-      addAlternate(selfLang, canonicalUrl);
-      addAlternate("x-default", canonicalUrl);
     }
+    // No counterpart in the other language → emit no hreflang at all.
+    // A self-referencing pair is worse than nothing.
+
 
     // 8. JSON-LD (per-page). The static Organization/WebSite graph in index.html
     // carries no data-seo attribute and is never touched.

@@ -1,4 +1,5 @@
 import { Scale, Wallet, Users, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -82,13 +83,7 @@ const content: SeoLandingContent = {
       ],
     },
   ],
-  faqs: [
-    { q: "Are you saying LaunchBoom doesn't work?", a: "No — the opposite. LaunchBoom built the modern pre-launch playbook for Kickstarter and their results speak for themselves. We respect the work. The reason creators end up on this page is almost always commercial: the percentage of pledges doesn't fit their margin model, the minimum spend is out of reach, or they want the senior person on the call to also be the senior person on the campaign. If those things don't bother you, LaunchBoom is a perfectly valid pick." },
-    { q: "Do you offer a TYP-style reservation page like LaunchBoom?", a: "Yes, with options. We run three reservation models depending on your category: full deposit (hardware with strong margin), $1 hold (most products), pure email opt-in (creative, tabletop, lower AOV). The point isn't to copy a specific UI — it's to match the friction level to your buyer's intent." },
-    { q: "Are you a smaller team — does that mean less capacity?", a: "Yes and yes. JAY-23 is intentionally a small operator-led shop, not an agency at scale. We cap concurrent campaigns so the founder can actually run each one. If we're booked, we say so." },
-    { q: "What happens after the campaign ends?", a: "The MailerLite list, the ad accounts, the landing page and the funnel are all on your domain and your tools. We hand over everything; you keep the audience and re-use it for product #2. No data lock-in." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally." },
-  ],
+  faqs: LANDING_FAQS["/en/launchboom-alternative"],
   ctaLead: "Want the LaunchBoom playbook on",
   ctaAccent: "fixed-fee terms",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan and a fee comparison against the LaunchBoom quote you already have — whether or not you keep working with us.",

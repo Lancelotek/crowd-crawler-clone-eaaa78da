@@ -1,4 +1,5 @@
 import { Target, Users, LineChart, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -56,13 +57,7 @@ const content: SeoLandingContent = {
     { row: "Investor narrative", mva: "Demand-validated", cold: "We hope" },
     { row: "Cost", mva: "$1.5k/mo + ad spend", cold: "$0 + opportunity cost" },
   ],
-  faqs: [
-    { q: "What kinds of products do you launch?", a: "Hardware, software, DTC, B2B SaaS, creator products, marketplaces, and crowdfunded products. The MVA framework holds; channels and lead-magnet shape change by category. We're a poor fit for pure local services, single-city restaurants, and anything with sub-$100k LTV at a sub-$500 ACV." },
-    { q: "How is this different from a launch PR or growth agency?", a: "PR agencies pitch press for launch week. Growth agencies optimize a launched product. Neither builds the demand side before launch. MVA fills that gap — and once you've launched and CAC stabilizes, a growth agency is the right next vendor." },
-    { q: "What does it cost?", a: "Fixed $1,500/month. No revenue share, no success fee. Ad budget is separate — typical launches spend $5k–$20k on paid traffic over 90 days." },
-    { q: "Can you work with our existing brand, agency, or product team?", a: "Yes. We're a dedicated launch layer, not a full-service replacement. We coordinate with your existing brand studio, PR firm, and product team. We bring the demand strategy, audience build and launch playbook." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with founders globally." },
-  ],
+  faqs: LANDING_FAQS["/en/product-launch-agency"],
   ctaLead: "Ready for a product launch with",
   ctaAccent: "paying customers on day one",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan for your launch — whether or not you keep working with us.",

@@ -1,4 +1,5 @@
 import { Target, Users, LineChart, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -56,13 +57,7 @@ const content: SeoLandingContent = {
     { row: "Re-usable for product #2", mva: true, cold: false },
     { row: "Cost", mva: "$1.5k/mo + ad spend", cold: "Burned ad spend" },
   ],
-  faqs: [
-    { q: "What's the ad budget you recommend?", a: "Typical 90-day Kickstarter MVA runs $3k–$15k in paid spend, with most going to Meta (broad reach) and Reddit (niche communities). Hardware and design products skew higher; tabletop and creative often hit goal on the lower end thanks to dense community channels." },
-    { q: "Do you only run Meta ads, or other channels too?", a: "Meta, Reddit, niche newsletters, Discord and Slack community drops, and selectively LinkedIn for B2B-adjacent products. Channel mix is decided during Discover based on where your ICP actually lives — we don't force a default stack." },
-    { q: "What if our ad creative isn't ready?", a: "We script and direct the creative — short-form video, static, and copy. You provide product footage and brand assets; we shape it into ad units. For complex hardware we coordinate with your video studio so the campaign film and ad creative use the same source material." },
-    { q: "What does it cost — and do you take a percentage of pledges?", a: "Fixed $1,500/month. No revenue share, no percentage of pledges, no success fee. Ad budget is separate." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally." },
-  ],
+  faqs: LANDING_FAQS["/en/kickstarter-marketing-agency"],
   ctaLead: "Ready to spend Kickstarter ad budget where",
   ctaAccent: "it actually compounds",
   ctaSub: "30 minutes. Free. You walk out with a concrete Kickstarter marketing plan and a realistic ad budget for your category — whether or not you keep working with us.",

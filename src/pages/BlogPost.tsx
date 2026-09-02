@@ -52,24 +52,10 @@ const SLUG_ALIASES: Record<string, string> = {
 };
 
 
-/** Hand-written SEO titles (<=60 chars) for posts whose editorial title is too long. */
-const SEO_TITLE_OVERRIDES: Record<string, string> = {
-  "go-to-market-strategy-template-saas": "Go-to-Market Strategy Template for SaaS Founders (2026)",
-  "product-launch-strategy-90-day-framework": "Product Launch Strategy: The 90-Day Framework",
-};
+// SEO titles for posts live in src/seo/blogSeoTitle.ts — shared with the
+// build-time prerenderer so both heads always agree.
+import { buildSeoTitle } from "@/seo/blogSeoTitle";
 
-/** Build SEO title kept within 60 chars, never cutting mid-word. */
-function buildSeoTitle(title: string, slug?: string): string {
-  const override = slug ? SEO_TITLE_OVERRIDES[slug] : undefined;
-  if (override) return override;
-  const suffix = " | JAY-23";
-  const max = 60;
-  if (title.length + suffix.length <= max) return `${title}${suffix}`;
-  if (title.length <= max) return title;
-  const cut = title.slice(0, max);
-  const lastSpace = cut.lastIndexOf(" ");
-  return (lastSpace > 30 ? cut.slice(0, lastSpace) : cut).replace(/[\s—–\-–(,:;]+$/, "");
-}
 
 
 /** Slugs forming the "Kickstarter pre-launch" content cluster (EN). */
