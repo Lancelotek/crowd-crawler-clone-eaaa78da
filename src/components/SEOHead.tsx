@@ -148,6 +148,21 @@ const SEOHead = ({
     const canonicalUrl = abs(canonicalPath);
     const selfLang = lang || "en";
 
+    // Dev-time guard: fail loudly on metadata that Google would truncate.
+    if (import.meta.env.DEV) {
+      if (fullTitle.length > 60) {
+        console.error(
+          `[SEO] Title too long (${fullTitle.length}/60) on ${canonicalPath}: "${fullTitle}"`,
+        );
+      }
+      if (description.length > 158) {
+        console.error(
+          `[SEO] Description too long (${description.length}/158) on ${canonicalPath}: "${description}"`,
+        );
+      }
+    }
+
+
     // 1. Clear per-route repeatable tags so stale values never leak.
     document.head
       .querySelectorAll('link[rel="alternate"][hreflang][data-seo]')
