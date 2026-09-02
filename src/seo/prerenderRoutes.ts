@@ -158,6 +158,8 @@ export type BlogRow = {
   slug: string;
   title: string;
   excerpt?: string | null;
+  /** Markdown body — first paragraphs become the no-JS fallback. */
+  content?: string | null;
   cover_image?: string | null;
   published_at?: string | null;
   author?: string | null;
