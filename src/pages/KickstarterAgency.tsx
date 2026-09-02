@@ -1,4 +1,5 @@
 import { Target, Users, LineChart, Rocket } from "lucide-react";
+import { LANDING_FAQS } from "@/seo/landingFaqs";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
@@ -56,13 +57,7 @@ const content: SeoLandingContent = {
     { row: "Stretch goal hit rate", mva: "Common", cold: "Rare" },
     { row: "Cost", mva: "$1.5k/mo + ad spend", cold: "$0 + missed goal" },
   ],
-  faqs: [
-    { q: "How is this different from a Kickstarter PR or video agency?", a: "PR agencies pitch journalists; video agencies make the campaign film. Both are valuable, neither builds the backer audience the algorithm rewards. We do the audience layer — the demand side of the campaign. We're often hired alongside a video studio or PR firm, not instead of one." },
-    { q: "What does it cost — and do you take a percentage of pledges?", a: "Fixed monthly fee of $1,500 (PLN equivalent for Polish creators). No revenue share, no percentage of pledges, no success fee. You own 100% of what you raise. Ad budget is separate — typical campaigns spend $3k–$15k on paid traffic over 90 days." },
-    { q: "We have 6 weeks until launch. Can we still work together?", a: "Tight but possible for simpler products. The framework is built for 90 days; in 6 weeks we compress the discover phase and accept slightly higher CPLs. For complex hardware, we'd recommend pushing launch back 4 weeks rather than running a half-baked MVA." },
-    { q: "Do you only work with hardware/product campaigns or also tabletop, games, and creative?", a: "All Kickstarter categories. Tabletop games and creative projects often have the highest MVA leverage because backer communities are tightly clustered (BoardGameGeek, Reddit r/boardgames, Discord servers) — exactly where MVA targeting excels." },
-    { q: "Where are you based?", a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with creators globally. Weekly sync, async daily updates, monthly strategy review." },
-  ],
+  faqs: LANDING_FAQS["/en/kickstarter-agency"],
   ctaLead: "Ready for a Kickstarter launch that hits goal",
   ctaAccent: "before the first day ends",
   ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan for your campaign — whether or not you keep working with us.",
