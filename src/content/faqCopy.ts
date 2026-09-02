@@ -4,7 +4,7 @@ interface FaqItem {
   a: string; // supports HTML
 }
 
-export const FAQ_COPY = {
+export const FAQ_COPY: Record<"en" | "pl", { title: string; subtitle: string; seoTitle: string; seoDesc: string; items: FaqItem[] }> = {
   en: {
     title: "Frequently Asked Questions",
     subtitle: "Everything you need to know about the MVA Framework and working with JAY-23.",
