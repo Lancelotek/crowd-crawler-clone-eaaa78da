@@ -131,10 +131,15 @@ const SEOHead = ({
   const isNoIndex = noIndex ?? noindex ?? false;
   const schema = schemaJson ?? jsonLd;
 
+  // The brand suffix is only appended when it still fits inside Google's ~60 char limit.
+  const BRAND_SUFFIX = " | MVA Framework by JAY-23";
   const fullTitle =
-    title.includes("MVA") || title.includes("JAY-23") || title.length > 50
+    title.includes("MVA") ||
+    title.includes("JAY-23") ||
+    title.length + BRAND_SUFFIX.length > 60
       ? title
-      : `${title} | MVA Framework by JAY-23`;
+      : `${title}${BRAND_SUFFIX}`;
+
 
   const serializedSchema = schema ? JSON.stringify(schema) : "";
 
