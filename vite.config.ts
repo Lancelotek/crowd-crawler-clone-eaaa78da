@@ -12,6 +12,7 @@ import {
   type BlogRow,
   type PrerenderRoute,
 } from "./src/seo/prerenderRoutes";
+import { blogFallbackBody } from "./src/seo/fallbackBody";
 
 const SUPABASE_URL = "https://zquojuopxmvvzadwshjx.supabase.co";
 const SUPABASE_ANON_KEY =
@@ -27,7 +28,8 @@ const fetchBlogRoutes = async (): Promise<PrerenderRoute[]> => {
   const { createClient } = await import("@supabase/supabase-js");
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   const legacy = await legacySlugs();
-  const columns = "slug, title, excerpt, cover_image, published_at, author, counterpart_slug";
+  const columns =
+    "slug, title, excerpt, content, cover_image, published_at, author, counterpart_slug";
   const [{ data: en }, { data: pl }] = await Promise.all([
     supabase.from("blog_posts").select(columns),
     supabase.from("blog_posts_pl").select(columns),
@@ -35,11 +37,11 @@ const fetchBlogRoutes = async (): Promise<PrerenderRoute[]> => {
   const rows: PrerenderRoute[] = [];
   for (const row of (en ?? []) as BlogRow[]) {
     if (legacy.has(row.slug)) continue;
-    rows.push(toPrerenderRoute(blogRouteMeta(row, "en")));
+    rows.push(toPrerenderRoute(blogRouteMeta(row, "en"), blogFallbackBody(row, "en")));
   }
   for (const row of (pl ?? []) as BlogRow[]) {
     if (legacy.has(row.slug)) continue;
-    rows.push(toPrerenderRoute(blogRouteMeta(row, "pl")));
+    rows.push(toPrerenderRoute(blogRouteMeta(row, "pl"), blogFallbackBody(row, "pl")));
   }
   return rows;
 };
