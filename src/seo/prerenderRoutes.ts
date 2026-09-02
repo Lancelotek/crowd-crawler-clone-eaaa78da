@@ -152,7 +152,7 @@ export const toPrerenderRoute = (meta: RouteMeta, body?: string): PrerenderRoute
 });
 
 /** Static routes. Blog posts are appended at build time (see vite.config.ts). */
-export const PRERENDER_ROUTES: PrerenderRoute[] = ROUTE_META.map(toPrerenderRoute);
+export const PRERENDER_ROUTES: PrerenderRoute[] = ROUTE_META.map((meta) => toPrerenderRoute(meta));
 
 export type BlogRow = {
   slug: string;
