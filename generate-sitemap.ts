@@ -136,7 +136,7 @@ async function generateSitemap() {
       .filter((p) => !LEGACY_SLUGS.has(p.slug))
       .map((p) => ({
         loc: `/en/blog/${p.slug}`,
-        lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+        lastmod: p.published_at ? p.published_at.split("T")[0] : undefined,
         changefreq: "monthly",
         priority: "0.6",
       }))),
@@ -149,7 +149,7 @@ async function generateSitemap() {
       .map((p) => ({ loc: p.loc, changefreq: p.changefreq, priority: p.priority })),
     ...((plPosts ?? []).map((p) => ({
       loc: `/pl/blog/${p.slug}`,
-      lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+      lastmod: p.published_at ? p.published_at.split("T")[0] : undefined,
       changefreq: "monthly",
       priority: "0.6",
     }))),
