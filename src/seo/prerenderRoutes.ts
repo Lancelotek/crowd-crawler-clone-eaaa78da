@@ -19,6 +19,7 @@ import {
   type RouteMeta,
   withBrandSuffix,
 } from "./routeMeta";
+import { buildSeoTitle } from "./blogSeoTitle";
 
 export { BASE_URL };
 
@@ -168,7 +169,7 @@ export const blogRouteMeta = (row: BlogRow, lang: "en" | "pl"): RouteMeta => {
     path: `/${lang}/blog/${row.slug}`,
     lang,
     type: "article",
-    title: row.title,
+    title: buildSeoTitle(row.title, row.slug),
     description:
       row.excerpt ||
       (lang === "pl"
@@ -206,44 +207,44 @@ export const buildHeadTags = (route: PrerenderRoute) => {
     v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const tags = [
     `<title>${esc(route.title)}</title>`,
-    `<meta name="description" content="${esc(route.description)}">`,
-    `<link rel="canonical" href="${url}">`,
+    `<meta name="description" data-seo="1" content="${esc(route.description)}">`,
+    `<link rel="canonical" data-seo="1" href="${url}">`,
   ];
 
-  if (route.noIndex) tags.push(`<meta name="robots" content="noindex,nofollow">`);
+  if (route.noIndex) tags.push(`<meta name="robots" data-seo="1" content="noindex,nofollow">`);
 
   if (route.alternates) {
     tags.push(
-      `<link rel="alternate" hreflang="en" href="${route.alternates.en}">`,
-      `<link rel="alternate" hreflang="pl" href="${route.alternates.pl}">`,
-      `<link rel="alternate" hreflang="x-default" href="${route.alternates.en}">`,
+      `<link rel="alternate" data-seo="1" hreflang="en" href="${route.alternates.en}">`,
+      `<link rel="alternate" data-seo="1" hreflang="pl" href="${route.alternates.pl}">`,
+      `<link rel="alternate" data-seo="1" hreflang="x-default" href="${route.alternates.en}">`,
     );
   }
 
   tags.push(
-    `<meta property="og:title" content="${esc(route.ogTitle)}">`,
-    `<meta property="og:description" content="${esc(route.ogDescription)}">`,
-    `<meta property="og:type" content="${route.type}">`,
-    `<meta property="og:url" content="${url}">`,
-    `<meta property="og:image" content="${route.ogImage}">`,
-    `<meta property="og:image:width" content="1200">`,
-    `<meta property="og:image:height" content="630">`,
-    `<meta property="og:image:alt" content="${esc(route.ogImageAlt)}">`,
-    `<meta property="og:locale" content="${route.lang === "pl" ? "pl_PL" : "en_US"}">`,
-    `<meta name="twitter:card" content="summary_large_image">`,
-    `<meta name="twitter:title" content="${esc(route.ogTitle)}">`,
-    `<meta name="twitter:description" content="${esc(route.ogDescription)}">`,
-    `<meta name="twitter:image" content="${route.ogImage}">`,
-    `<meta name="twitter:image:alt" content="${esc(route.ogImageAlt)}">`,
+    `<meta property="og:title" data-seo="1" content="${esc(route.ogTitle)}">`,
+    `<meta property="og:description" data-seo="1" content="${esc(route.ogDescription)}">`,
+    `<meta property="og:type" data-seo="1" content="${route.type}">`,
+    `<meta property="og:url" data-seo="1" content="${url}">`,
+    `<meta property="og:image" data-seo="1" content="${route.ogImage}">`,
+    `<meta property="og:image:width" data-seo="1" content="1200">`,
+    `<meta property="og:image:height" data-seo="1" content="630">`,
+    `<meta property="og:image:alt" data-seo="1" content="${esc(route.ogImageAlt)}">`,
+    `<meta property="og:locale" data-seo="1" content="${route.lang === "pl" ? "pl_PL" : "en_US"}">`,
+    `<meta name="twitter:card" data-seo="1" content="summary_large_image">`,
+    `<meta name="twitter:title" data-seo="1" content="${esc(route.ogTitle)}">`,
+    `<meta name="twitter:description" data-seo="1" content="${esc(route.ogDescription)}">`,
+    `<meta name="twitter:image" data-seo="1" content="${route.ogImage}">`,
+    `<meta name="twitter:image:alt" data-seo="1" content="${esc(route.ogImageAlt)}">`,
   );
 
   if (route.type === "article" && route.publishedAt)
-    tags.push(`<meta property="article:published_time" content="${route.publishedAt}">`);
-  if (route.author) tags.push(`<meta property="article:author" content="${esc(route.author)}">`);
+    tags.push(`<meta property="article:published_time" data-seo="1" content="${route.publishedAt}">`);
+  if (route.author) tags.push(`<meta property="article:author" data-seo="1" content="${esc(route.author)}">`);
 
   for (const item of route.schema) {
     tags.push(
-      `<script type="application/ld+json">${JSON.stringify(item).replace(/</g, "\\u003c")}</script>`,
+      `<script type="application/ld+json" data-seo="1">${JSON.stringify(item).replace(/</g, "\\u003c")}</script>`,
     );
   }
 
