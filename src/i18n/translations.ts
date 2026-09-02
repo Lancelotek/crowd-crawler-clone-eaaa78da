@@ -322,7 +322,7 @@ export const translations = {
     title: { en: "Book Your Free Strategy Call", pl: "Umów bezpłatną rozmowę strategiczną" },
     desc: { en: "Pick a time that works for you. 30 minutes, no strings attached.", pl: "Wybierz termin, który Ci odpowiada. 30 minut, bez zobowiązań." },
     back: { en: "Back to homepage", pl: "Wróć na stronę główną" },
-    seoTitle: { en: "Book a Free Kickstarter Strategy Call | JAY-23", pl: "Konsultacja Kickstarter — bezpłatna rozmowa 30 minut | JAY-23" },
+    seoTitle: { en: "Book a Free Kickstarter Strategy Call | JAY-23", pl: "Konsultacja Kickstarter — 30 minut, bezpłatnie | JAY-23" },
     seoDesc: { en: "30-minute free call with a Kickstarter prelaunch expert. We'll audit your funnel, estimate your CPL, and map a 90-day plan to 1,000 fans.", pl: "Umów bezpłatną 30-minutową konsultację Kickstarter. Pokażemy Ci, ilu fanów potrzebujesz przed launchem i jak ich zebrać w 90 dni." },
     eyebrow: { en: "Free strategy call · 30 minutes", pl: "Bezpłatna rozmowa strategiczna · 30 minut" },
     h1_1: { en: "Find out if your product", pl: "Dowiedz się, czy Twój produkt" },
@@ -367,8 +367,8 @@ export const translations = {
     title: { en: "Pre-Launch & Crowdfunding ", pl: "Artykuły o prelaunch " },
     titleAccent: { en: "Marketing Articles", pl: "i crowdfundingu" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
-    seoTitle: { en: "Pre-Launch Growth Blog — Kickstarter, TikTok Shop, SaaS & Sales | JAY-23", pl: "Blog: Kickstarter, TikTok Shop, SaaS i Sales Growth | JAY-23" },
-    seoDesc: { en: "Tactics for Kickstarter, TikTok Shop, SaaS and sales-led launches. Audience building, creator commerce, Meta Ads, email funnels and community activation. Lessons from 46 campaigns and $1.2M+ raised.", pl: "Taktyki dla Kickstarter, TikTok Shop, SaaS i sales-led launchy. Budowanie publiczności, creator commerce, Meta Ads, lejki email i aktywacja społeczności. Wnioski z 46 kampanii i $1.2M+ zebranych." },
+    seoTitle: { en: "Pre-Launch Marketing Blog — Kickstarter & SaaS | JAY-23", pl: "Blog: Kickstarter, TikTok Shop, SaaS i Sales Growth | JAY-23" },
+    seoDesc: { en: "Tactics for Kickstarter, TikTok Shop and SaaS launches: audience building, Meta Ads, email funnels. Lessons from 46 campaigns and $1.2M+ raised.", pl: "Taktyki dla Kickstarter, TikTok Shop i SaaS: budowanie publiczności, Meta Ads, lejki email. Wnioski z 46 kampanii i $1.2M+ zebranych." },
   },
 } as const;
 

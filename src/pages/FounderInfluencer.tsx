@@ -59,7 +59,7 @@ type Lang = "pl" | "en";
 
 const COPY = {
   pl: {
-    seoTitle: "HeyGen po polsku dla founderów — AI avatar + marka osobista | JAY-23",
+    seoTitle: "HeyGen po polsku dla founderów — AI avatar | JAY-23",
     seoDesc: "AI avatar (HeyGen, Synthesia, Argil) + 90-dniowy plan budowy marki osobistej foundera. Zero godzin przed kamerą. 1000 prawdziwych fanów. Bezpłatny Playbook.",
     eyebrow: "HeyGen + Synthesia + Argil — pod jednym systemem",
     h1: "HeyGen po polsku dla foundera: AI avatar i marka osobista bez godzin przed kamerą.",
@@ -160,7 +160,7 @@ const COPY = {
     ],
   },
   en: {
-    seoTitle: "HeyGen Alternative for Founders — AI Avatar + Personal Brand | JAY-23",
+    seoTitle: "HeyGen Alternative for Founders — AI Avatar | JAY-23",
     seoDesc: "AI avatar (HeyGen, Synthesia, Argil) + 90-day personal branding plan for founders. Zero hours on camera. 1,000 true fans. Free 47-page Playbook.",
     eyebrow: "HeyGen + Synthesia + Argil — under one system",
     h1: "HeyGen for founders: AI avatar and personal brand with zero hours on camera.",

@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import { LanguageRedirect } from "@/i18n/LanguageRedirect";
 import SEOHead from "@/components/SEOHead";
+import { RETIRED_BLOG_SLUGS } from "@/lib/retiredBlogSlugs";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Index = lazy(() => import("./pages/Index"));
@@ -102,6 +103,14 @@ const ContactRedirect = () => {
   );
 };
 
+/** Retired blog slugs 301 to their replacement page instead of soft-404'ing. */
+const BlogPostOrRedirect = () => {
+  const { lang, slug } = useParams();
+  const target = slug ? RETIRED_BLOG_SLUGS[slug] : undefined;
+  if (target) return <Navigate to={`/${lang || "en"}${target}`} replace />;
+  return <BlogPost />;
+};
+
 const TikTokShopAgencyByLang = () => {
   const { lang } = useParams();
   return lang === "pl" ? <TikTokShopAgencyPL /> : <TikTokShopAgency />;
@@ -121,7 +130,7 @@ const LangRoutes = () => (
         <Route path="quiz" element={<Quiz />} />
         <Route path="lp" element={<LP />} />
         <Route path="blog" element={<Blog />} />
-        <Route path="blog/:slug" element={<BlogPost />} />
+        <Route path="blog/:slug" element={<BlogPostOrRedirect />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="impressum" element={<Impressum />} />
         <Route path="terms-of-service" element={<TermsOfService />} />

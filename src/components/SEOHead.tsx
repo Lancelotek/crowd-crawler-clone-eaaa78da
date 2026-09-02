@@ -131,10 +131,15 @@ const SEOHead = ({
   const isNoIndex = noIndex ?? noindex ?? false;
   const schema = schemaJson ?? jsonLd;
 
+  // The brand suffix is only appended when it still fits inside Google's ~60 char limit.
+  const BRAND_SUFFIX = " | MVA Framework by JAY-23";
   const fullTitle =
-    title.includes("MVA") || title.includes("JAY-23") || title.length > 50
+    title.includes("MVA") ||
+    title.includes("JAY-23") ||
+    title.length + BRAND_SUFFIX.length > 60
       ? title
-      : `${title} | MVA Framework by JAY-23`;
+      : `${title}${BRAND_SUFFIX}`;
+
 
   const serializedSchema = schema ? JSON.stringify(schema) : "";
 
@@ -142,6 +147,21 @@ const SEOHead = ({
     const canonicalPath = canonical || pathname;
     const canonicalUrl = abs(canonicalPath);
     const selfLang = lang || "en";
+
+    // Dev-time guard: fail loudly on metadata that Google would truncate.
+    if (import.meta.env.DEV) {
+      if (fullTitle.length > 60) {
+        console.error(
+          `[SEO] Title too long (${fullTitle.length}/60) on ${canonicalPath}: "${fullTitle}"`,
+        );
+      }
+      if (description.length > 158) {
+        console.error(
+          `[SEO] Description too long (${description.length}/158) on ${canonicalPath}: "${description}"`,
+        );
+      }
+    }
+
 
     // 1. Clear per-route repeatable tags so stale values never leak.
     document.head

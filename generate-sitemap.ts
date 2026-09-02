@@ -26,7 +26,20 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
-type Page = { loc: string; changefreq: string; priority: string };
+type Page = { loc: string; changefreq: string; priority: string; noIndex?: true };
+
+// Single source of truth: pages whose component passes `noIndex` to SEOHead.
+// Anything flagged here is excluded from every sitemap automatically.
+const NOINDEX_PATHS = new Set([
+  "/en/report",
+  "/en/lp",
+  "/en/thank-you",
+  "/en/playbook-thank-you",
+  "/pl/report",
+  "/pl/lp",
+  "/pl/thank-you",
+  "/pl/playbook-thank-you",
+]);
 
 const enStaticPages: Page[] = [
   { loc: "/en", changefreq: "weekly", priority: "1.0" },
@@ -87,14 +100,14 @@ const plStaticPages: Page[] = [
 ];
 
 
-function buildUrlset(entries: { loc: string; lastmod: string; changefreq: string; priority: string }[]): string {
+function buildUrlset(entries: { loc: string; lastmod?: string; changefreq: string; priority: string }[]): string {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
   for (const e of entries) {
     xml += `
   <url>
-    <loc>${BASE_URL}${e.loc}</loc>
-    <lastmod>${e.lastmod}</lastmod>
+    <loc>${BASE_URL}${e.loc}</loc>${e.lastmod ? `
+    <lastmod>${e.lastmod}</lastmod>` : ""}
     <changefreq>${e.changefreq}</changefreq>
     <priority>${e.priority}</priority>
   </url>`;
@@ -116,12 +129,14 @@ async function generateSitemap() {
 
   // EN entries
   const enEntries = [
-    ...enStaticPages.map((p) => ({ loc: p.loc, lastmod: today, changefreq: p.changefreq, priority: p.priority })),
+    ...enStaticPages
+      .filter((p) => !p.noIndex && !NOINDEX_PATHS.has(p.loc))
+      .map((p) => ({ loc: p.loc, changefreq: p.changefreq, priority: p.priority })),
     ...((enPosts ?? [])
       .filter((p) => !LEGACY_SLUGS.has(p.slug))
       .map((p) => ({
         loc: `/en/blog/${p.slug}`,
-        lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+        lastmod: p.published_at ? p.published_at.split("T")[0] : undefined,
         changefreq: "monthly",
         priority: "0.6",
       }))),
@@ -129,10 +144,12 @@ async function generateSitemap() {
 
   // PL entries
   const plEntries = [
-    ...plStaticPages.map((p) => ({ loc: p.loc, lastmod: today, changefreq: p.changefreq, priority: p.priority })),
+    ...plStaticPages
+      .filter((p) => !p.noIndex && !NOINDEX_PATHS.has(p.loc))
+      .map((p) => ({ loc: p.loc, changefreq: p.changefreq, priority: p.priority })),
     ...((plPosts ?? []).map((p) => ({
       loc: `/pl/blog/${p.slug}`,
-      lastmod: p.published_at ? p.published_at.split("T")[0] : today,
+      lastmod: p.published_at ? p.published_at.split("T")[0] : undefined,
       changefreq: "monthly",
       priority: "0.6",
     }))),

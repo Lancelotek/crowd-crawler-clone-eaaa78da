@@ -41,7 +41,7 @@ function c2pEvent(name: string, params: Record<string, unknown> = {}) {
 
 const COPY = {
   pl: {
-    seoTitle: "click2pack — commerce dla twórców | katalog, sklepy, realizacja",
+    seoTitle: "click2pack — commerce dla twórców | katalog i sklepy",
     seoDesc:
       "Katalog produktów wielu dostawców, sieć twórców i system, który obsługuje zamówienia z transmisji, filmów i sklepów twórców. Beauty na start.",
     ogTitle: "click2pack — commerce dla twórców",
@@ -263,7 +263,7 @@ const COPY = {
     },
   },
   en: {
-    seoTitle: "click2pack — creator commerce | catalogue, storefronts, fulfilment",
+    seoTitle: "click2pack — creator commerce catalogue & storefronts",
     seoDesc:
       "A multi-supplier product catalogue, a network of creators and one system handling orders from streams, videos and creator storefronts. Starting with beauty.",
     ogTitle: "click2pack — creator commerce",
