@@ -1,0 +1,91 @@
+import { LANDING_FAQS } from "../../seo/landingFaqs";
+import type { SeoLandingContent } from "./types";
+
+export const content: SeoLandingContent = {
+  metaTitle: "Jellop Alternative: Reviews, Pricing & Full-Funnel Option",
+  metaDescription: "Jellop alternative compared: 25% performance cut vs fixed monthly fee, and why pre-launch beats live-campaign-only ads. 46 campaigns, $1.2M+ raised.",
+  canonical: "/en/jellop-alternative",
+  breadcrumbName: "Jellop Alternative",
+  serviceType: "Kickstarter ad agency (Jellop alternative)",
+  eyebrow: "Jellop alternative · Full funnel, not just paid",
+  h1Lead: "The Jellop alternative for creators who want",
+  h1Accent: "the full funnel, not just live-campaign ads",
+  heroSub: "Jellop is a paid-media specialist that drives traffic to live Kickstarter campaigns on a performance-based fee. That model works when your campaign is already funded. We run the layer before that: 90 days of pre-launch funnels and audience building, then a 4-wave launch activation — for a fixed monthly fee, no performance cut.",
+  bookSource: "jellop-alternative",
+  problemEyebrow: "Why creators look for an alternative",
+  problemTitle: "What Jellop is great at — and where the gap is.",
+  problemParas: [
+    "Jellop has a strong reputation for one specific thing: scaling paid ads to a live Kickstarter campaign that already has product-market fit and early momentum. If your campaign is already on the Popular page on day 2, pointing Jellop's paid-media operation at it is a legitimate way to scale.",
+    "The gap creators hit is the inverse problem: campaigns that don't reach Popular on day 2 don't get the algorithmic placement that makes paid-to-live-page ROI work. Cold traffic to a struggling campaign converts at 1–2% and burns budget. By the time you'd hand it to a performance-ads agency, the algorithmic window has already closed.",
+    "The fix is to do the audience layer before the campaign goes live, not after. Build 1,000+ pre-qualified backers in the 60–90 days before launch, activate them in coordinated waves during the first 48 hours, then — once you have day-one momentum — paid-media scaling actually has something to compound. That's the layer MVA delivers and Jellop, by design, doesn't.",
+  ],
+  reasonsEyebrow: "MVA vs Jellop",
+  reasonsTitle: "Four reasons creators pick MVA over Jellop (or run both).",
+  reasons: [
+    { icon: "Layers", label: "Full funnel", title: "Pre-launch, launch, paid — not just live-page ads", body: "We own the demand side: positioning, landing page, lead magnet, email sequences, launch-day activation. Paid is one channel inside the funnel, not the whole engagement." },
+    { icon: "Wallet", label: "Pricing model", title: "Fixed monthly fee, no performance percentage", body: "$1,500/month flat. No 15–25% performance cut on ad-attributed pledges, no commission on raise. Your ad spend goes straight to Meta/Reddit on your card." },
+    { icon: "Users", label: "Pre-launch audience", title: "Build 1,000+ pre-qualified backers before launch", body: "An owned email list scored by intent, on your MailerLite — re-usable for product #2. Paid ads to a live campaign give you backers; pre-launch ads give you an audience you keep." },
+    { icon: "Rocket", label: "Day-one momentum", title: "Trigger the algorithm that makes paid ROI work", body: "4-wave activation puts 40–70% of goal on the board in 48 hours. That's the algorithmic momentum that makes live-page paid traffic ROI-positive — including, if you want, a Jellop or similar performance engagement after launch." },
+  ],
+  phasesTitle: "How an MVA engagement compares to a Jellop-style paid engagement.",
+  phases: [
+    { n: "01", title: "Discover — offer, hook, ICP", body: "Positioning, reward tiers, ICP segments, category reverse-engineering. Decide channel mix (Meta, Reddit, niche communities) based on where your backers actually live." },
+    { n: "02", title: "Build — pre-launch funnel & paid ads", body: "Pre-launch landing on your domain. Lead magnet that pulls pre-qualified backers at $4–$12 each. Meta + Reddit + niche-community funnels. MailerLite sequences. Tagged event layer end-to-end — so paid attribution holds up." },
+    { n: "03", title: "Launch — 4-wave activation", body: "T-7 warm-up. Launch hour: email + retargeting + community drops fired simultaneously. First 48 hours: founder DMs, paid scaled to converting segments only. From day 3 onward, paid economics actually compound." },
+  ],
+  deliverablesTitle: "What you get instead of (or alongside) a Jellop engagement.",
+  deliverables: [
+    "Offer, reward tier and pledge ladder review",
+    "Pre-launch landing page on your domain",
+    "Lead magnet that pulls pre-qualified backers",
+    "Meta, Reddit and community ad funnels (creative + targeting)",
+    "Email sequence (5–9 emails) in MailerLite",
+    "Analytics + UTM layer (GA4 + Plausible)",
+    "Launch-day 4-wave activation playbook",
+    "Founder-led weekly reviews through funding",
+  ],
+  comparisonEyebrow: "MVA vs Jellop",
+  comparisonTitle: "Different layer of the campaign — pick the one your campaign needs.",
+  comparisonRightLabel: "Jellop (typical)",
+  comparison: [
+    { row: "Pre-launch audience build", mva: true, cold: false },
+    { row: "Live-campaign paid scaling", mva: "Yes (day 3+)", cold: "Core focus" },
+    { row: "Pricing model", mva: "Fixed $1,500/mo", cold: "Fee + % of ad-attributed pledges" },
+    { row: "Email sequences & lifecycle", mva: true, cold: false },
+    { row: "Owned audience after campaign", mva: "1,000+ leads", cold: "~0" },
+    { row: "Best fit", mva: "Pre-launch + launch", cold: "Already-funded campaigns" },
+    { row: "Can be combined", mva: "Yes (post-launch)", cold: "Yes (post-launch)" },
+  ],
+  extraSections: [
+    {
+      h2: "Jellop reviews",
+      paras: [
+        "Jellop's reputation is built on live-campaign paid media for Kickstarter, and the reviews reflect that: creators who arrive with an existing audience and a strong campaign page tend to report solid results from the ads themselves.",
+        "The critique we hear is scope. Jellop enters when the campaign is already live, so the outcome depends almost entirely on assets and audience you built before they arrived. Creators who launched cold and expected ads to compensate report the weakest results — which is a sequencing problem, not an ad problem.",
+        "The second theme is the performance percentage. A cut of pledges reads as painless when the campaign underperforms and expensive when it succeeds, and it is the reason most creators start comparing fixed-fee options after their first campaign.",
+      ],
+    },
+    {
+      h2: "Jellop vs Funded Today",
+      paras: [
+        "Both are live-campaign paid media specialists working on performance terms, and both do that job well. The practical difference is the deal structure and how aggressively spend is scaled against your margin.",
+        "Neither builds the pre-launch layer. Neither owns your email list, your reservation funnel or your day-one activation. If you compare them against each other you are choosing between two versions of the same stage of the campaign.",
+        "The comparison that actually changes results is pre-launch versus live-campaign-only: a list of 1,000+ pre-qualified buyers on day one makes any ad partner look better, because they are retargeting warm demand instead of buying cold traffic at campaign prices.",
+      ],
+    },
+    {
+      h2: "Jellop pricing explained",
+      paras: [
+        "Jellop works on a performance model — a percentage of the pledges attributable to their media, typically quoted around 25%, with your ad spend on top. There is little upfront cost, which is exactly why the model is attractive to first-time creators.",
+        "The cost profile is inverted compared to a fixed fee: cheap if the campaign disappoints, expensive if it works. On a $400,000 campaign a quarter of attributed pledges is a serious number, and it is charged after your production costs are already locked.",
+        "Our model is $1,500/month flat with zero share of pledges, covering pre-launch, funnel, email and launch activation. Run both numbers against your target raise before you sign either — on a campaign that hits its goal, the fixed fee is usually the cheaper path.",
+      ],
+    },
+  ],
+  faqs: LANDING_FAQS["/en/jellop-alternative"],
+  ctaLead: "Want the pre-launch layer that makes",
+  ctaAccent: "paid-media ROI actually work",
+  ctaSub: "30 minutes. Free. You walk out with a concrete MVA plan and an honest read on whether you also need a performance-paid vendor post-launch.",
+};
+
+export default content;
