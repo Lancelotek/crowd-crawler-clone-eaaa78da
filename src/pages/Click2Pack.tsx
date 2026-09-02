@@ -16,6 +16,7 @@ import {
   Truck,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getPrerenderRoute } from "@/seo/prerenderRoutes";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Accordion,
@@ -509,18 +510,22 @@ const Click2Pack = () => {
     })),
   };
 
+  // Same source of truth as the build-time pre-rendered <head> (see src/seo/prerenderRoutes.ts)
+  const preMeta = getPrerenderRoute(`${langPrefix}/click2pack`);
+
   return (
     <div className="min-h-screen bg-[#F6F6F9] text-[#0B0B0F]">
       <SEOHead
-        title={c.seoTitle}
-        description={c.seoDesc}
+        title={preMeta?.title ?? c.seoTitle}
+        description={preMeta?.description ?? c.seoDesc}
         canonical={`${langPrefix}/click2pack`}
         lang={lang}
-        ogImage="https://jay23.com/og/click2pack.jpg"
-        ogImageAlt={c.ogTitle}
+        ogImage={preMeta?.ogImage ?? "https://jay23.com/og/click2pack.jpg"}
+        ogImageAlt={preMeta?.ogImageAlt ?? c.ogTitle}
         hreflangOverrides={{ en: "/en/click2pack", pl: "/pl/click2pack" }}
         schemaJson={faqSchema}
       />
+
 
       <C2PNav nav={c.nav} langPrefix={langPrefix} />
       <Hero c={c.hero} />
