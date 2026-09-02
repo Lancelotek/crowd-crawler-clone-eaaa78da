@@ -16,6 +16,7 @@ import {
   Truck,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { getPrerenderRoute } from "@/seo/prerenderRoutes";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Accordion,
