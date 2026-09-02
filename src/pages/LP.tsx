@@ -30,6 +30,8 @@ const LP = () => {
         description={lang === "pl" ? "90-dniowy program dla founderów. 46 kampanii, $1.2M+ zebranych." : "90-day program for founders. 46 campaigns, $1.2M+ raised."}
         canonical={`/${lang}/lp`}
         lang={lang}
+        noIndex
+
       />
 
       {/* Announcement bar */}
