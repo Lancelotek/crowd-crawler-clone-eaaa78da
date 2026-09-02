@@ -60,7 +60,7 @@ const PrelaunchPlaybook = () => {
   return (
     <>
       <SEOHead
-        title="The Complete Pre-Launch Marketing Playbook (2026) | MVA Framework"
+        title="The Complete Pre-Launch Marketing Playbook (2026)"
         description="A 3,500-word operator's playbook for pre-launch marketing. Validate demand, build 1,000+ true fans, ship a launch day that produces real revenue. By JAY-23."
         canonical="/en/prelaunch-marketing-playbook"
         lang="en"

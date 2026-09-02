@@ -53,7 +53,7 @@ const ThankYou = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead title={c.seoTitle} description={c.seoDesc} canonical={`/${lang}/thank-you`} />
+      <SEOHead title={c.seoTitle} description={c.seoDesc} canonical={`/${lang}/thank-you`} noIndex />
       <MvaNavbar />
       <main className="flex items-center justify-center px-6 py-24 min-h-[80vh]">
         <motion.div

@@ -32,7 +32,7 @@ const content = {
     ctaBook: "Book a Free Consultation",
   },
   pl: {
-    seoTitle: "O JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | Marek Cieśla",
+    seoTitle: "O JAY-23 — agencja Kickstarter Marka Cieśli",
     seoDesc: "JAY-23 to agencja wzrostu prelaunch założona przez Marka Cieślę. Kickstarter, TikTok Shop, SaaS i sales-led launchy — 46 kampanii, ponad $1.2M zebranych.",
     heroTitle: "Pomagamy founderom budować publiczność ZANIM zbudują produkt",
     heroSub: "JAY-23 to studio growth marketingu specjalizujące się w strategiach prelaunch i budowaniu Minimum Viable Audience.",

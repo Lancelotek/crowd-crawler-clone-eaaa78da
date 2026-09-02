@@ -2,8 +2,8 @@ import { Video, Users, Radio, TrendingUp } from "lucide-react";
 import SeoLandingTemplate, { type SeoLandingContent } from "@/components/mva/SeoLandingTemplate";
 
 const content: SeoLandingContent = {
-  metaTitle: "Agencja TikTok Shop — sprzedaż przez influencerów, video i live | JAY-23",
-  metaDescription: "Agencja TikTok Shop dla marek sprzedających przez twórców, shoppable video i live. Dwa miesiące za darmo, potem prowizja od wygenerowanego revenue. Bez retainera.",
+  metaTitle: "Agencja TikTok Shop — video, live i influencerzy | JAY-23",
+  metaDescription: "Agencja TikTok Shop dla marek sprzedających przez twórców, shoppable video i live. Dwa miesiące za darmo, potem prowizja od revenue. Bez retainera.",
   canonical: "/pl/tiktok-shop-agency",
   breadcrumbName: "Agencja TikTok Shop",
   serviceType: "Agencja TikTok Shop",
