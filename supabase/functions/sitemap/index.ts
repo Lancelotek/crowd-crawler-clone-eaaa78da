@@ -28,6 +28,17 @@ const LEGACY_SLUGS = new Set([
   "woolet-classic-2-0-review-the-ultra-slim-trackable-wallet",
 ]);
 
+const NOINDEX_PATHS = new Set([
+  "/en/report",
+  "/en/lp",
+  "/en/thank-you",
+  "/en/playbook-thank-you",
+  "/pl/report",
+  "/pl/lp",
+  "/pl/thank-you",
+  "/pl/playbook-thank-you",
+]);
+
 const staticPages = [
   // EN pages
   { loc: "/en", changefreq: "weekly", priority: "1.0" },
@@ -80,6 +91,7 @@ Deno.serve(async (req) => {
 
     // Static pages with hreflang alternates
     for (const page of staticPages) {
+      if (NOINDEX_PATHS.has(page.loc)) continue;
       const pathWithoutLang = page.loc.replace(/^\/(en|pl)/, "");
       const lang = page.loc.startsWith("/pl") ? "pl" : "en";
       const otherLang = lang === "en" ? "pl" : "en";
