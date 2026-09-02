@@ -20,6 +20,7 @@ import {
   withBrandSuffix,
 } from "./routeMeta";
 import { buildSeoTitle } from "./blogSeoTitle";
+import { buildFallbackBody } from "./fallbackBody";
 
 export { BASE_URL };
 
@@ -43,6 +44,11 @@ export type PrerenderRoute = {
   publishedAt?: string;
   author?: string;
   schema: Record<string, unknown>[];
+  /**
+   * Per-route no-JS body: a short, faithful summary of the page's own copy,
+   * injected into <div id="root"> and replaced by React on hydration.
+   */
+  body: string;
 };
 
 const humanize = (segment: string) =>
@@ -127,7 +133,7 @@ export const buildRouteSchema = (meta: RouteMeta): Record<string, unknown>[] => 
   return schema;
 };
 
-export const toPrerenderRoute = (meta: RouteMeta): PrerenderRoute => ({
+export const toPrerenderRoute = (meta: RouteMeta, body?: string): PrerenderRoute => ({
   path: meta.path,
   lang: meta.lang,
   title: withBrandSuffix(meta.title),
@@ -142,15 +148,18 @@ export const toPrerenderRoute = (meta: RouteMeta): PrerenderRoute => ({
   ...(meta.publishedAt ? { publishedAt: meta.publishedAt } : {}),
   ...(meta.author ? { author: meta.author } : {}),
   schema: buildRouteSchema(meta),
+  body: body ?? buildFallbackBody(meta),
 });
 
 /** Static routes. Blog posts are appended at build time (see vite.config.ts). */
-export const PRERENDER_ROUTES: PrerenderRoute[] = ROUTE_META.map(toPrerenderRoute);
+export const PRERENDER_ROUTES: PrerenderRoute[] = ROUTE_META.map((meta) => toPrerenderRoute(meta));
 
 export type BlogRow = {
   slug: string;
   title: string;
   excerpt?: string | null;
+  /** Markdown body — first paragraphs become the no-JS fallback. */
+  content?: string | null;
   cover_image?: string | null;
   published_at?: string | null;
   author?: string | null;
@@ -264,5 +273,11 @@ export const renderPrerenderedHtml = (indexHtml: string, route: PrerenderRoute) 
     .replace(/<link\s+rel="canonical"[^>]*>\s*/gi, "");
 
   html = html.replace(/<html([^>]*)lang="[^"]*"/i, `<html$1lang="${route.lang}"`);
-  return html.replace(/<\/head>/i, `  ${buildHeadTags(route)}\n  </head>`);
+  html = html.replace(/<\/head>/i, `  ${buildHeadTags(route)}\n  </head>`);
+
+  // Swap the generic homepage fallback for this route's own no-JS summary.
+  return html.replace(
+    /<div id="root">[\s\S]*?<\/div>/i,
+    `<div id="root">\n      ${route.body}\n    </div>`,
+  );
 };

@@ -1,57 +1,47 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Check, X, type LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  X,
+  HelpCircle,
+  Layers,
+  LineChart,
+  Radio,
+  Rocket,
+  Scale,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
+import type { SeoLandingContent } from "@/content/landings/types";
+
+export type { SeoLandingContent };
+
+/** Landing copy stores icons by lucide name so the copy files stay pure data. */
+const ICONS: Record<string, LucideIcon> = {
+  Layers,
+  LineChart,
+  Radio,
+  Rocket,
+  Scale,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
+};
+const resolveIcon = (name: string): LucideIcon => ICONS[name] ?? HelpCircle;
 import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
 
-export interface SeoLandingContent {
-  // SEO
-  metaTitle: string;
-  metaDescription: string;
-  canonical: string;
-  breadcrumbName: string;
-  serviceType: string;
-  // Hero
-  eyebrow: string;
-  h1Lead: string;
-  h1Accent: string;
-  heroSub: string;
-  bookSource: string;
-  // Problem
-  problemEyebrow: string;
-  problemTitle: string;
-  problemParas: string[];
-  // Reasons (4)
-  reasonsEyebrow: string;
-  reasonsTitle: string;
-  reasons: { icon: LucideIcon; label: string; title: string; body: string }[];
-  // Phases (3)
-  phasesTitle: string;
-  phases: { n: string; title: string; body: string }[];
-  // Deliverables
-  deliverablesTitle: string;
-  deliverables: string[];
-  // Comparison
-  comparisonEyebrow: string;
-  comparisonTitle: string;
-  comparisonRightLabel: string;
-  comparison: { row: string; mva: boolean | string; cold: boolean | string }[];
-  // Optional long-form sections rendered before the FAQ
-  extraSections?: { h2: string; paras: string[] }[];
-  // FAQ
-  faqs: { q: string; a: string }[];
-
-  // Final CTA
-  ctaLead: string;
-  ctaAccent: string;
-  ctaSub: string;
-  /** When set, enables hreflang alternates pointing to EN + PL counterparts. */
-  hreflangOverrides?: { en: string; pl: string };
-}
 
 const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingContent; lang?: "en" | "pl" }) => {
   const { langPrefix } = useLanguage();
@@ -194,7 +184,7 @@ const SeoLandingTemplate = ({ content, lang = "en" }: { content: SeoLandingConte
           </div>
           <div className="grid md:grid-cols-2 gap-5">
             {content.reasons.map((r, i) => {
-              const Icon = r.icon;
+              const Icon = resolveIcon(r.icon);
               return (
                 <motion.div
                   key={i}
