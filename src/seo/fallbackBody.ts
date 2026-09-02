@@ -147,8 +147,8 @@ const faqFallback = (lang: "en" | "pl") => {
 
 const processFallback = (lang: "en" | "pl") =>
   wrap([
-    h1(t.process.seoTitle[lang]),
-    p(t.process.seoDesc[lang]),
+    h1(`${t.process.h1_1[lang]} ${t.process.h1_2[lang]} ${t.process.h1_3[lang]}`),
+    p(t.process.desc[lang]),
     ...PHASES.map((phase) =>
       [
         h2(`${phase.number} · ${phase.label} — ${phase.sub}`),
@@ -162,17 +162,16 @@ const processFallback = (lang: "en" | "pl") =>
 
 const bookFallback = (lang: "en" | "pl") =>
   wrap([
-    h1(label(lang, t.bookCall.title.en, t.bookCall.title.pl)),
-    p(label(lang, t.bookCall.subtitle.en, t.bookCall.subtitle.pl)),
+    h1(`${t.bookCall.h1_1[lang]} ${t.bookCall.h1_2[lang]}`),
+    p(`${t.bookCall.subtitle[lang]} ${t.bookCall.subtitleBold[lang]} ${t.bookCall.subtitleEnd[lang]}`),
     ul([
-      label(lang, t.bookCall.point1.en, t.bookCall.point1.pl),
-      label(lang, t.bookCall.point2.en, t.bookCall.point2.pl),
-      label(lang, t.bookCall.point3.en, t.bookCall.point3.pl),
+      `${t.bookCall.bullet1Title[lang]} — ${t.bookCall.bullet1Desc[lang]}`,
+      `${t.bookCall.bullet2Title[lang]} — ${t.bookCall.bullet2Desc[lang]}`,
+      `${t.bookCall.bullet3Title[lang]} — ${t.bookCall.bullet3Desc[lang]}`,
     ]),
-    link(
-      "https://calendly.com/marekciesla/30min",
-      label(lang, "Pick a slot on Calendly", "Wybierz termin w Calendly"),
-    ),
+    p(`${t.bookCall.guarantee[lang]} — ${t.bookCall.guaranteeDesc[lang]}`),
+    p(t.bookCall.ctaSub[lang]),
+    link("https://calendly.com/marekciesla/30min", t.bookCall.ctaBtn[lang]),
   ]);
 
 const liveFallback = (lang: "en" | "pl") => {
