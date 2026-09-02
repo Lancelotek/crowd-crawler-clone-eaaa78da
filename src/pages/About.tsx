@@ -4,59 +4,8 @@ import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter } from "lucide-react";
+import { ABOUT_COPY as content } from "@/content/aboutCopy";
 
-const content = {
-  en: {
-    seoTitle: "About JAY-23 — Prelaunch Growth Agency by Marek Cieśla",
-    seoDesc: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches — 46 campaigns managed, $1.2M+ raised.",
-    heroTitle: "We help founders build an audience BEFORE they build a product",
-    heroSub: "JAY-23 is a growth marketing studio specializing in prelaunch strategies and building Minimum Viable Audiences.",
-    founderName: "Marek Ciesla",
-    founderTitle: "Founder & CEO, JAY-23",
-    bio1: "Marek Ciesla is a marketing strategist with over 10 years of experience building and launching digital and physical products. He has worked with 50+ startups and founders, helping them build audiences and generate demand before product launch.",
-    bio2: "Creator of the MVA (Minimum Viable Audience) Framework — a 90-day methodology for building 1,000 true fans before the product hits the market. The audience-first approach that JAY-23 applies is based on combining content marketing, community building, and prelaunch strategy.",
-    bio3: "Marek is also an experienced crowdfunding practitioner — he has collaborated on campaigns that collectively raised over $1M in funding on Kickstarter and Indiegogo.",
-    whatWeDoTitle: "What we do",
-    card1Title: "MVA Framework",
-    card1Desc: "A 90-day audience-building program before launch. From idea to 1,000 ready customers.",
-    card2Title: "Prelaunch Strategy",
-    card2Desc: "Waitlist, content, community — we build demand for your product before you create it.",
-    card3Title: "Growth Consulting",
-    card3Desc: "Free 30-minute strategy consultation. We assess what you can do RIGHT NOW.",
-    stat1: "50+ startup collaborations",
-    stat2: "1,000+ founders on our list",
-    stat3: "$1M+ raised in crowdfunding",
-    stat4: "90 days to MVA",
-    ctaTitle: "Want to build your MVA?",
-    ctaCalc: "Calculate Your MVA",
-    ctaBook: "Book a Free Consultation",
-  },
-  pl: {
-    seoTitle: "O JAY-23 — agencja Kickstarter Marka Cieśli",
-    seoDesc: "JAY-23 to agencja wzrostu prelaunch założona przez Marka Cieślę. Kickstarter, TikTok Shop, SaaS i sales-led launchy — 46 kampanii, ponad $1.2M zebranych.",
-    heroTitle: "Pomagamy founderom budować publiczność ZANIM zbudują produkt",
-    heroSub: "JAY-23 to studio growth marketingu specjalizujące się w strategiach prelaunch i budowaniu Minimum Viable Audience.",
-    founderName: "Marek Cieśla",
-    founderTitle: "Founder & CEO, JAY-23",
-    bio1: "Marek Cieśla to strateg marketingowy z ponad 10-letnim doświadczeniem w budowaniu i launchowaniu produktów cyfrowych i fizycznych. Pracował z ponad 50 startupami i founderami, pomagając im budować publiczność i generować popyt przed premierą produktu.",
-    bio2: "Twórca frameworka MVA (Minimum Viable Audience) — 90-dniowej metodologii budowania 1000 prawdziwych fanów zanim produkt trafi na rynek. Podejście audience-first, które JAY-23 stosuje, bazuje na połączeniu content marketingu, community buildingu i strategii prelaunch.",
-    bio3: "Marek jest również doświadczonym praktykiem crowdfundingu — współpracował przy kampaniach, które łącznie pozyskały ponad $1M finansowania na platformach Kickstarter i Indiegogo.",
-    whatWeDoTitle: "Co robimy",
-    card1Title: "MVA Framework",
-    card1Desc: "90-dniowy program budowania publiczności przed launchem. Od pomysłu do 1000 gotowych klientów.",
-    card2Title: "Strategia Prelaunch",
-    card2Desc: "Waitlist, content, community — budujemy popyt na Twój produkt zanim go stworzysz.",
-    card3Title: "Growth Consulting",
-    card3Desc: "Bezpłatna 30-minutowa konsultacja strategiczna. Sprawdzamy co możesz zrobić TERAZ.",
-    stat1: "50+ współprac ze startupami",
-    stat2: "1000+ founderów na naszej liście",
-    stat3: "$1M+ pozyskane w crowdfundingu",
-    stat4: "90 dni do MVA",
-    ctaTitle: "Chcesz zbudować swoje MVA?",
-    ctaCalc: "Oblicz swoje MVA",
-    ctaBook: "Umów bezpłatną konsultację",
-  },
-};
 
 const About = () => {
   const { lang, langPrefix } = useLanguage();
