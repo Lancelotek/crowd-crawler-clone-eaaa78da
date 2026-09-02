@@ -1,15 +1,41 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import * as LucideIcons from "lucide-react";
-import { ArrowRight, Check, X, HelpCircle, type LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  X,
+  HelpCircle,
+  Layers,
+  LineChart,
+  Radio,
+  Rocket,
+  Scale,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
 import type { SeoLandingContent } from "@/content/landings/types";
 
 export type { SeoLandingContent };
 
 /** Landing copy stores icons by lucide name so the copy files stay pure data. */
-const resolveIcon = (name: string): LucideIcon =>
-  ((LucideIcons as unknown as Record<string, LucideIcon>)[name] ?? HelpCircle);
+const ICONS: Record<string, LucideIcon> = {
+  Layers,
+  LineChart,
+  Radio,
+  Rocket,
+  Scale,
+  Target,
+  TrendingUp,
+  Users,
+  Video,
+  Wallet,
+};
+const resolveIcon = (name: string): LucideIcon => ICONS[name] ?? HelpCircle;
 import { useLanguage } from "@/i18n/LanguageContext";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
