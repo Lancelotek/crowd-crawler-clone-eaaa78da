@@ -537,7 +537,7 @@ export const liveEn: LiveCopy = {
     yesTitle: "We take it on if:",
     yes: [
       "gross margin of at least 55%, comfortably 65%+",
-      "average order value from 80 PLN, ideally 100–150 PLN",
+      "average order value from €20, ideally €25–35",
       "category: beauty, supplements, accessories, fashion, home decor",
       "at least 10 SKUs and one clear hero product",
       "dispatch within four working days",
