@@ -200,8 +200,8 @@ export const livePl: LiveCopy = {
     cta: "Sprawdź to na moich prawdziwych liczbach",
     disclaimer:
       "Kalkulator szacunkowy. Nie uwzględnia budżetu reklamowego, sampli dla twórców ani kosztów produkcji. Rabat liczony od GMV brutto — w rzeczywistym rozliczeniu obniża GMV. Prowizja Jay23 naliczana od GMV netto po zwrotach.",
-    currency: "EUR",
-    locale: "en-IE",
+    currency: "PLN",
+    locale: "pl-PL",
   },
   pricing: {
     heading: "Jedna stawka. Bez abonamentu.",
@@ -482,8 +482,8 @@ export const liveEn: LiveCopy = {
     cta: "Check this against my real numbers",
     disclaimer:
       "Estimate only. It excludes ad budget, creator samples and production costs. The discount is applied to gross GMV — in real settlement it reduces GMV. The Jay23 fee is charged on net GMV after returns.",
-    currency: "PLN",
-    locale: "pl-PL",
+    currency: "EUR",
+    locale: "en-IE",
   },
   pricing: {
     heading: "One rate. No retainer.",
