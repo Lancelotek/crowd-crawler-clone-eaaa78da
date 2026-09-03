@@ -410,14 +410,14 @@ const COPY = {
       eyebrow: "Why it works",
       h2: "The market is just forming. This is the time to enter.",
       rows: [
-        ["11.2M", "TikTok users in Poland, over 60% aged 18–34", "PL market data, 2026"],
+        ["150M+", "TikTok users across the EU, over 60% aged 18–34", "EU market data, 2026"],
         ["17%", "LIVE share of TikTok Shop GMV in mature EU markets", "Lengow, Q2 2026"],
         ["70%", "of TikTok Shop GMV in the EU comes from affiliate creators", "Lengow, Q2 2026"],
-        ["<2%", "social commerce share of Polish e-commerce — the market is just forming", "PL market data, 2026"],
+        ["<2%", "social commerce share of EU e-commerce — the market is just forming", "EU market data, 2026"],
       ],
       sourceLabel: "Source",
       launch:
-        "TikTok Shop launched in Poland on 15 June 2026. Platform commission is 9%, with 2% for the first 90 days.",
+        "TikTok Shop is live in five EU markets as of 2026. Platform commission is 9%, with 2% for the first 90 days.",
     },
     faq: {
       eyebrow: "FAQ",
@@ -481,7 +481,7 @@ const COPY = {
       consentRequired: "Consent is required.",
     },
     footer: {
-      tagline: "Creator commerce — catalogue, network, storefronts, fulfilment · Poland & CEE",
+      tagline: "Creator commerce — catalogue, network, storefronts, fulfilment · EU markets",
       copy: "© 2026 click2pack. Part of the JAY-23 group.",
     },
   },
