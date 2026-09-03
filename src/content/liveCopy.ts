@@ -399,7 +399,7 @@ export const liveEn: LiveCopy = {
     eyebrow: "Jay23 LIVE",
     h1: "Live selling on TikTok Shop for your brand. You pay on results.",
     lead:
-      "TikTok Shop launched in Poland on 15 June 2026 and across four more EU markets this year. We run the streams, recruit the creators and watch the numbers. We take 9% of what we sell. No retainer.",
+      "TikTok Shop is now live across five EU markets, with checkout inside the stream. We run the streams, recruit the creators and watch the numbers. We take 9% of what we sell. No retainer.",
     ctaPrimary: "Book a channel audit",
     ctaSecondary: "Run the numbers",
     micro: "30 minutes. No deck. We look at your numbers and tell you whether this channel adds up.",
@@ -407,10 +407,10 @@ export const liveEn: LiveCopy = {
   stats: [
     { value: "€500M", label: "TikTok Shop GMV across DE, FR, ES, IT in Q2 2026" },
     { value: "17%", label: "share of that GMV from LIVE" },
-    { value: "11.2M", label: "TikTok users in Poland, the newest EU marketplace" },
+    { value: "5", label: "EU markets with TikTok Shop checkout live in 2026" },
     { value: "9%", label: "what TikTok takes. What we take. Results only" },
   ],
-  statsSource: "Sources: TikTok Shop, Lengow Q2 2026, PL market reports 2026.",
+  statsSource: "Sources: TikTok Shop, Lengow Q2 2026, EU market reports 2026.",
   problem: {
     heading: "The shift nobody is covering",
     paragraphs: [
@@ -454,7 +454,7 @@ export const liveEn: LiveCopy = {
     lead:
       "Not every product belongs on a live stream. Enter your numbers — the calculator shows what is left after every fee.",
     fields: {
-      gmv: "Monthly GMV (PLN)",
+      gmv: "Monthly GMV (EUR)",
       margin: "Gross margin (%)",
       creator: "Average creator commission (%)",
       discount: "LIVE discount (%)",
@@ -482,8 +482,8 @@ export const liveEn: LiveCopy = {
     cta: "Check this against my real numbers",
     disclaimer:
       "Estimate only. It excludes ad budget, creator samples and production costs. The discount is applied to gross GMV — in real settlement it reduces GMV. The Jay23 fee is charged on net GMV after returns.",
-    currency: "PLN",
-    locale: "pl-PL",
+    currency: "EUR",
+    locale: "en-IE",
   },
   pricing: {
     heading: "One rate. No retainer.",
@@ -507,7 +507,7 @@ export const liveEn: LiveCopy = {
     ],
     onboardingTitle: "Getting started",
     onboarding:
-      "Onboarding is a one-off €1,150 / 4,900 PLN — it covers the Seller Center setup, catalogue integration, product certifications, the first creator cohort and your first four streams. After that it's 9% and nothing else. Minimum term is three months, because under roughly 24 streams there is no honest way to judge a channel. If your team took our LIVE Sprint, the 2,900 PLN comes off this.",
+      "Onboarding is a one-off €1,150 — it covers the Seller Center setup, catalogue integration, product certifications, the first creator cohort and your first four streams. After that it's 9% and nothing else. Minimum term is three months, because under roughly 24 streams there is no honest way to judge a channel. If your team took our LIVE Sprint, the €690 comes off this.",
   },
   channels: {
     heading: "Three channels, three different mechanics",
@@ -537,7 +537,7 @@ export const liveEn: LiveCopy = {
     yesTitle: "We take it on if:",
     yes: [
       "gross margin of at least 55%, comfortably 65%+",
-      "average order value from 80 PLN, ideally 100–150 PLN",
+      "average order value from €20, ideally €25–35",
       "category: beauty, supplements, accessories, fashion, home decor",
       "at least 10 SKUs and one clear hero product",
       "dispatch within four working days",
@@ -547,7 +547,7 @@ export const liveEn: LiveCopy = {
     no: [
       "gross margin below 50% — the fees eat all of it",
       "electronics and other low-margin hardware",
-      "basket below 60 PLN",
+      "basket below €15",
       "nobody on the team will go on camera and an external host is off the table",
       "results are expected in 30 days",
     ],
@@ -556,7 +556,7 @@ export const liveEn: LiveCopy = {
   training: {
     heading: "Rather run it yourself? We'll train your team in one day.",
     product: "LIVE Sprint",
-    price: "€690 / 2,900 PLN per company — up to 8 people",
+    price: "€690 per company — up to 8 people",
     lead:
       "This is not a talk about TikTok. It's one day of work on your account, your products and your numbers. You finish with your first stream behind you.",
     agendaHead: { time: "Time", block: "Block", outcome: "Outcome" },
@@ -581,7 +581,7 @@ export const liveEn: LiveCopy = {
     details: "6 hours · on site or online · up to 8 people · we work on your account",
     cta: "Ask about available dates",
     micro:
-      "If you move to the 9% model within 60 days of the training, the 2,900 PLN comes off onboarding.",
+      "If you move to the 9% model within 60 days of the training, the €690 comes off onboarding.",
   },
   faq: {
     heading: "Frequently asked questions",
@@ -608,7 +608,7 @@ export const liveEn: LiveCopy = {
       },
       {
         q: "Is 9% expensive?",
-        a: "TikTok Shop agencies in the US and UK charge 10–20% of GMV or a monthly retainer of 12,000–40,000 PLN. We charge less, and only on sales.",
+        a: "TikTok Shop agencies in the US and UK charge 10–20% of GMV or a monthly retainer of €3,000–10,000. We charge less, and only on sales.",
       },
       {
         q: "We sell electronics — would you take it?",
@@ -616,7 +616,7 @@ export const liveEn: LiveCopy = {
       },
       {
         q: "Can we start with the training?",
-        a: "Yes, and it's often the better order. After a day of working together both sides know whether to continue. And the 2,900 PLN comes off onboarding.",
+        a: "Yes, and it's often the better order. After a day of working together both sides know whether to continue. And the €690 comes off onboarding.",
       },
     ],
   },
@@ -633,7 +633,7 @@ export const liveEn: LiveCopy = {
     category: "Category",
     categories: ["Beauty & skincare", "Supplements", "Fashion", "Accessories", "Home decor", "Other"],
     revenue: "Monthly online revenue",
-    revenues: ["up to 50k PLN", "50–150k", "150–500k", "above 500k"],
+    revenues: ["up to €12k", "€12–35k", "€35–120k", "above €120k"],
     selling: "Are you already selling on TikTok Shop?",
     sellingOptions: ["Yes, actively", "Account created, not selling", "Not yet"],
     message: "Message",
