@@ -73,7 +73,7 @@ export const ROUTE_META: RouteMeta[] = [
     homepage: true,
     title: "Kickstarter, TikTok Shop & SaaS Launch Agency | JAY-23",
     description:
-      "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.",
+      "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches: Meta Ads, email funnels and community activation. 46 campaigns, $1.2M+ raised.",
     alternates: pair("/en", "/pl"),
   },
   {
@@ -82,7 +82,7 @@ export const ROUTE_META: RouteMeta[] = [
     homepage: true,
     title: "Agencja launchy Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "90-dniowy MVA Framework dla Kickstarter, TikTok Shop, SaaS i sales-led launchy: Meta Ads, creator commerce, lejki email i aktywacja społeczności, które pomogły 46 kampaniom zebrać ponad $1.2M.",
+      "90-dniowy MVA Framework dla launchy Kickstarter, TikTok Shop i SaaS: Meta Ads, lejki email i aktywacja społeczności. 46 kampanii, ponad $1.2M zebranych.",
     alternates: pair("/en", "/pl"),
   },
 
