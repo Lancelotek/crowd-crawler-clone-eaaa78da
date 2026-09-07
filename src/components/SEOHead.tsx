@@ -158,7 +158,7 @@ const SEOHead = ({
 
 
   useEffect(() => {
-    const canonicalPath = canonical || pathname;
+    const canonicalPath = routeMeta?.canonical ?? canonical ?? pathname;
     const canonicalUrl = abs(canonicalPath);
     const selfLang = lang || "en";
 
@@ -191,7 +191,9 @@ const SEOHead = ({
 
     // 3. Core meta
     setMeta("name", "description", description);
-    if (isNoIndex) {
+    if (routeMeta?.robots) {
+      setMeta("name", "robots", routeMeta.robots);
+    } else if (isNoIndex) {
       setMeta("name", "robots", "noindex,nofollow");
     } else {
       removeMeta("name", "robots");
@@ -249,9 +251,11 @@ const SEOHead = ({
       addAlternate("en", enUrl);
       addAlternate("pl", plUrl);
       addAlternate("x-default", enUrl);
+    } else {
+      // No counterpart: self-reference + x-default, matching the prerendered head.
+      addAlternate(selfLang, canonicalUrl);
+      addAlternate("x-default", canonicalUrl);
     }
-    // No counterpart in the other language → emit no hreflang at all.
-    // A self-referencing pair is worse than nothing.
 
 
     // 8. JSON-LD (per-page). The static Organization/WebSite graph in index.html
