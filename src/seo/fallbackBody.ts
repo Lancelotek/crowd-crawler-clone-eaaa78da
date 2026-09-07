@@ -46,7 +46,106 @@ const ul = (items: string[]) =>
   `<ul>${items.map((i) => `<li>${esc(plain(i))}</li>`).join("")}</ul>`;
 const link = (href: string, label: string) => `<p><a href="${href}">${esc(label)}</a></p>`;
 
-const wrap = (blocks: string[]) => `<main>\n      ${blocks.filter(Boolean).join("\n      ")}\n    </main>`;
+
+/* ─── Site-wide navigation (real <a href> on every prerendered page) ── */
+type NavItem = [href: string, en: string, pl: string];
+
+const MAIN_NAV: Record<"en" | "pl", NavItem[]> = {
+  en: [
+    ["/en", "Home", "Start"],
+    ["/en/process", "Process", "Proces"],
+    ["/en/packages", "Pricing", "Cennik"],
+    ["/en/about", "About", "O nas"],
+    ["/en/faq", "FAQ", "FAQ"],
+    ["/en/blog", "Blog", "Blog"],
+    ["/en/quiz", "MVA Calculator", "Kalkulator MVA"],
+    ["/en/book", "Book a call", "Umów rozmowę"],
+  ],
+  pl: [
+    ["/pl", "Home", "Start"],
+    ["/pl/process", "Process", "Proces"],
+    ["/pl/packages", "Pricing", "Cennik"],
+    ["/pl/about", "About", "O nas"],
+    ["/pl/faq", "FAQ", "FAQ"],
+    ["/pl/blog", "Blog", "Blog"],
+    ["/pl/quiz", "MVA Calculator", "Kalkulator MVA"],
+    ["/pl/book", "Book a call", "Umów rozmowę"],
+  ],
+};
+
+const SERVICES: Record<"en" | "pl", NavItem[]> = {
+  en: [
+    ["/en/kickstarter-agency", "Kickstarter agency", "Agencja Kickstarter"],
+    ["/en/kickstarter-marketing-agency", "Kickstarter marketing agency", "Marketing Kickstarter"],
+    ["/en/crowdfunding-agency", "Crowdfunding agency", "Agencja crowdfunding"],
+    ["/en/product-launch-agency", "Product launch agency", "Agencja product launch"],
+    ["/en/gamefound", "Gamefound agency", "Agencja Gamefound"],
+    ["/en/tiktok-shop-agency", "TikTok Shop agency", "Agencja TikTok Shop"],
+    ["/en/live", "Live selling", "Sprzedaż na żywo"],
+    ["/en/click2pack", "click2pack", "click2pack"],
+    ["/en/ecommerce-prelaunch-agency", "eCommerce pre-launch", "Prelaunch eCommerce"],
+    ["/en/saas-prelaunch-marketing-agency", "SaaS pre-launch", "Prelaunch SaaS"],
+    ["/en/founder-influencer", "Founder influencer", "Founder influencer"],
+  ],
+  pl: [
+    ["/pl/tiktok-shop-agency", "TikTok Shop agency", "Agencja TikTok Shop"],
+    ["/pl/gamefound", "Gamefound agency", "Agencja Gamefound"],
+    ["/pl/live", "Live selling", "Sprzedaż na żywo"],
+    ["/pl/click2pack", "click2pack", "click2pack"],
+    ["/pl/agencja-prelaunch-ecommerce", "eCommerce pre-launch", "Agencja prelaunch eCommerce"],
+    ["/pl/agencja-prelaunch-saas", "SaaS pre-launch", "Agencja prelaunch SaaS"],
+    ["/pl/founder-influencer", "Founder influencer", "Founder influencer"],
+    ["/en/kickstarter-agency", "Kickstarter agency (EN)", "Agencja Kickstarter (EN)"],
+    ["/en/crowdfunding-agency", "Crowdfunding agency (EN)", "Agencja crowdfunding (EN)"],
+  ],
+};
+
+const COMPARISONS: NavItem[] = [
+  ["/en/launchboom-alternative", "LaunchBoom alternative", "Alternatywa dla LaunchBoom"],
+  ["/en/jellop-alternative", "Jellop alternative", "Alternatywa dla Jellop"],
+  ["/en/agency-2-0-alternative", "Agency 2.0 alternative", "Alternatywa dla Agency 2.0"],
+];
+
+const GUIDES: NavItem[] = [
+  ["/en/prelaunch-marketing-playbook", "Pre-launch marketing playbook", "Playbook marketingu prelaunch"],
+];
+
+const legalNav = (lang: "en" | "pl"): NavItem[] => [
+  [`/${lang}/privacy-policy`, "Privacy policy", "Polityka prywatności"],
+  [`/${lang}/terms-of-service`, "Terms of service", "Regulamin"],
+  [`/${lang}/impressum`, "Impressum", "Impressum"],
+];
+
+const navList = (lang: "en" | "pl", items: NavItem[]) =>
+  `<ul>${items
+    .map(([href, en, pl]) => `<li><a href="${href}">${esc(lang === "pl" ? pl : en)}</a></li>`)
+    .join("")}</ul>`;
+
+const siteNav = (lang: "en" | "pl") =>
+  `<nav aria-label="${label(lang, "Main navigation", "Nawigacja główna")}">${navList(lang, MAIN_NAV[lang])}</nav>`;
+
+const siteFooter = (lang: "en" | "pl") =>
+  [
+    `<footer>`,
+    `<h2>${esc(label(lang, "Services", "Usługi"))}</h2>`,
+    navList(lang, SERVICES[lang]),
+    `<h2>${esc(label(lang, "Comparisons", "Porównania"))}</h2>`,
+    navList(lang, COMPARISONS),
+    `<h2>${esc(label(lang, "Guides", "Przewodniki"))}</h2>`,
+    navList(lang, GUIDES),
+    `<h2>${esc(label(lang, "Company", "Firma"))}</h2>`,
+    navList(lang, legalNav(lang)),
+    navList(lang, [
+      lang === "en"
+        ? ["/pl", "Polska wersja", "Polska wersja"]
+        : ["/en", "English version", "English version"],
+    ]),
+    `<p>JAY23 LLC — MVA Framework</p>`,
+    `</footer>`,
+  ].join("");
+
+const wrap = (lang: "en" | "pl", blocks: string[]) =>
+  `${siteNav(lang)}\n      <main>\n      ${blocks.filter(Boolean).join("\n      ")}\n    </main>\n      ${siteFooter(lang)}`;
 
 const t = translations as unknown as Record<string, Record<string, { en: string; pl: string }>>;
 const label = (lang: "en" | "pl", en: string, pl: string) => (lang === "pl" ? pl : en);
@@ -62,7 +161,7 @@ const landingFallback = (meta: RouteMeta) => {
   const c = LANDING_CONTENT[meta.path];
   if (!c) return null;
   const lang = meta.lang;
-  return wrap([
+  return wrap(lang, [
     h1(`${c.h1Lead} ${c.h1Accent}`),
     p(c.heroSub),
     h2(c.problemTitle),
@@ -85,7 +184,7 @@ const landingFallback = (meta: RouteMeta) => {
 
 /* ─── Homepages ─────────────────────────────────────────────── */
 const homeFallback = (lang: "en" | "pl") =>
-  wrap([
+  wrap(lang, [
     h1(`${t.hero.h1_line1[lang]}${t.hero.h1_line2[lang]}`),
     p(`${t.hero.hook[lang]} ${t.hero.hookBold[lang]}`),
     h2(`${t.problem.title[lang]} ${t.problem.titleAccent[lang]}`),
@@ -114,7 +213,7 @@ const homeFallback = (lang: "en" | "pl") =>
 /* ─── Core pages ────────────────────────────────────────────── */
 const aboutFallback = (lang: "en" | "pl") => {
   const c = ABOUT_COPY[lang];
-  return wrap([
+  return wrap(lang, [
     h1(c.heroTitle),
     p(c.heroSub),
     h2(`${c.founderName} — ${c.founderTitle}`),
@@ -134,7 +233,7 @@ const aboutFallback = (lang: "en" | "pl") => {
 
 const faqFallback = (lang: "en" | "pl") => {
   const c = FAQ_COPY[lang];
-  return wrap([
+  return wrap(lang, [
     h1(c.title),
     p(c.subtitle),
     c.items
@@ -146,7 +245,7 @@ const faqFallback = (lang: "en" | "pl") => {
 };
 
 const processFallback = (lang: "en" | "pl") =>
-  wrap([
+  wrap(lang, [
     h1(`${t.process.h1_1[lang]} ${t.process.h1_2[lang]} ${t.process.h1_3[lang]}`),
     p(t.process.desc[lang]),
     ...PHASES.map((phase) =>
@@ -161,7 +260,7 @@ const processFallback = (lang: "en" | "pl") =>
   ]);
 
 const bookFallback = (lang: "en" | "pl") =>
-  wrap([
+  wrap(lang, [
     h1(`${t.bookCall.h1_1[lang]} ${t.bookCall.h1_2[lang]}`),
     p(`${t.bookCall.subtitle[lang]} ${t.bookCall.subtitleBold[lang]} ${t.bookCall.subtitleEnd[lang]}`),
     ul([
@@ -176,7 +275,7 @@ const bookFallback = (lang: "en" | "pl") =>
 
 const liveFallback = (lang: "en" | "pl") => {
   const c = lang === "pl" ? livePl : liveEn;
-  return wrap([
+  return wrap(lang, [
     h1(c.hero.h1),
     p(c.hero.lead),
     ul(c.stats.map((s) => `${s.value} — ${s.label}`)),
@@ -201,17 +300,10 @@ export type BlogFallbackRow = {
 };
 
 export const blogFallbackBody = (row: BlogFallbackRow, lang: "en" | "pl") => {
-  const paras = (row.content ?? "")
-    .split(/\n{2,}/)
-    .map((block) => plain(block))
-    .filter((block) => block.length > 80)
-    .slice(0, 4)
-    .map((block) => p(clamp(block, 90)));
-
-  return wrap([
+  return wrap(lang, [
     h1(row.title),
     row.excerpt ? p(row.excerpt) : "",
-    ...paras,
+    markdownToHtml(row.content ?? ""),
     link(`/${lang}/blog`, label(lang, "All articles by JAY-23", "Wszystkie artykuły JAY-23")),
     bookCta(lang, "blog"),
   ]);
@@ -219,7 +311,7 @@ export const blogFallbackBody = (row: BlogFallbackRow, lang: "en" | "pl") => {
 
 /* ─── Generic ───────────────────────────────────────────────── */
 const genericFallback = (meta: RouteMeta) =>
-  wrap([
+  wrap(meta.lang, [
     h1(meta.title),
     p(meta.description),
     meta.faqs?.length
@@ -257,3 +349,67 @@ export const buildFallbackBody = (meta: RouteMeta): string => {
       return genericFallback(meta);
   }
 };
+
+/**
+ * Minimal markdown → HTML for the prerendered article body: headings, lists,
+ * paragraphs. Enough for a crawler to read the whole article without JS.
+ */
+export const markdownToHtml = (md: string): string => {
+  const out: string[] = [];
+  let list: string[] = [];
+  const flush = () => {
+    if (list.length) {
+      out.push(`<ul>${list.map((i) => `<li>${esc(plain(i))}</li>`).join("")}</ul>`);
+      list = [];
+    }
+  };
+  for (const raw of md.split(/\n/)) {
+    const line = raw.trim();
+    if (!line) {
+      flush();
+      continue;
+    }
+    if (/^!\[/.test(line)) continue;
+    const heading = /^(#{2,4})\s+(.*)$/.exec(line);
+    if (heading) {
+      flush();
+      const level = Math.min(heading[1].length, 4);
+      out.push(`<h${level}>${esc(plain(heading[2]))}</h${level}>`);
+      continue;
+    }
+    if (/^([-*+]|\d+\.)\s+/.test(line)) {
+      list.push(line.replace(/^([-*+]|\d+\.)\s+/, ""));
+      continue;
+    }
+    const text = plain(line);
+    if (text) {
+      flush();
+      out.push(`<p>${esc(text)}</p>`);
+    }
+  }
+  flush();
+  return out.join("");
+};
+
+/** Readable plain text of a prerendered body — used to build llms-full.txt. */
+export const bodyToPlainText = (html: string) =>
+  html
+    .replace(/<\/(h1|h2|h3|h4|p|li|ul|nav|footer|main)>/g, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n\s*\n\s*/g, "\n\n")
+    .trim();
+
+/** The SPA shell body: a real 404 view, not a homepage impersonation. */
+export const notFoundBody = () =>
+  wrap("en", [
+    "<h1>Page not found (404)</h1>",
+    p("This URL does not exist. Use the links below to find what you were looking for."),
+    link("/en", "JAY-23 home"),
+    link("/en/blog", "Blog"),
+    bookCta("en"),
+  ]);
