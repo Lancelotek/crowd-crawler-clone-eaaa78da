@@ -117,7 +117,16 @@ const TikTokShopAgencyByLang = () => {
 };
 
 /** Wraps children with LanguageProvider (reads :lang from URL) */
-const LangRoutes = () => (
+const LangRoutes = () => {
+  const { lang } = useParams();
+  // Only /en and /pl are real prefixes — anything else is a 404, not the homepage.
+  if (lang !== "en" && lang !== "pl")
+    return (
+      <Suspense fallback={<PageFallback />}>
+        <NotFound />
+      </Suspense>
+    );
+  return (
   <LanguageProvider>
     <Suspense fallback={<PageFallback />}>
       <Routes>
@@ -160,7 +169,8 @@ const LangRoutes = () => (
       </Routes>
     </Suspense>
   </LanguageProvider>
-);
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -191,6 +201,7 @@ const App = () => (
           <Route path="/contact" element={<LanguageRedirect />} />
           <Route path="/founder-influencer" element={<LanguageRedirect />} />
           <Route path="/click2pack" element={<LanguageRedirect />} />
+          <Route path="/report" element={<LanguageRedirect />} />
 
           <Route path="/leads" element={<Suspense fallback={<PageFallback />}><Leads /></Suspense>} />
           <Route path="/seo" element={<Suspense fallback={<PageFallback />}><SeoDashboard /></Suspense>} />
