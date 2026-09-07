@@ -20,7 +20,7 @@ import {
   withBrandSuffix,
 } from "./routeMeta";
 import { buildSeoTitle } from "./blogSeoTitle";
-import { buildFallbackBody } from "./fallbackBody";
+import { buildFallbackBody, notFoundBody } from "./fallbackBody";
 
 export { BASE_URL };
 
@@ -36,9 +36,13 @@ export type PrerenderRoute = {
   ogImageAlt: string;
   type: "website" | "article";
   noIndex?: true;
+  /** Explicit robots value (retired slugs: "noindex,follow"). */
+  robots?: string;
+  /** Canonical URL. Always set — aliases point at their /en equivalent. */
+  canonical: string;
   /**
-   * Absolute URLs for hreflang alternates. Optional: pages without a
-   * counterpart in the other language emit NO hreflang at all.
+   * Absolute URLs for hreflang alternates. Every route emits at least a
+   * self-reference plus x-default.
    */
   alternates?: { en: string; pl: string };
   publishedAt?: string;
@@ -135,6 +139,8 @@ export const buildRouteSchema = (meta: RouteMeta): Record<string, unknown>[] => 
 
 export const toPrerenderRoute = (meta: RouteMeta, body?: string): PrerenderRoute => ({
   path: meta.path,
+  canonical: meta.canonical ?? `${BASE_URL}${meta.path === "/" ? "/" : meta.path}`,
+  ...(meta.robots ? { robots: meta.robots } : {}),
   lang: meta.lang,
   title: withBrandSuffix(meta.title),
   description: meta.description,
@@ -211,7 +217,7 @@ export const getPrerenderRoute = (path: string) =>
 
 /** Builds the head fragment for a pre-rendered route. */
 export const buildHeadTags = (route: PrerenderRoute) => {
-  const url = `${BASE_URL}${route.path}`;
+  const url = route.canonical;
   const esc = (v: string) =>
     v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const tags = [
@@ -220,13 +226,21 @@ export const buildHeadTags = (route: PrerenderRoute) => {
     `<link rel="canonical" data-seo="1" href="${url}">`,
   ];
 
-  if (route.noIndex) tags.push(`<meta name="robots" data-seo="1" content="noindex,nofollow">`);
+  const robots = route.robots ?? (route.noIndex ? "noindex,nofollow" : undefined);
+  if (robots) tags.push(`<meta name="robots" data-seo="1" content="${robots}">`);
 
+  // hreflang on every route: self-reference, the counterpart when one exists,
+  // and x-default pointing at the EN version.
   if (route.alternates) {
     tags.push(
       `<link rel="alternate" data-seo="1" hreflang="en" href="${route.alternates.en}">`,
       `<link rel="alternate" data-seo="1" hreflang="pl" href="${route.alternates.pl}">`,
       `<link rel="alternate" data-seo="1" hreflang="x-default" href="${route.alternates.en}">`,
+    );
+  } else {
+    tags.push(
+      `<link rel="alternate" data-seo="1" hreflang="${route.lang}" href="${url}">`,
+      `<link rel="alternate" data-seo="1" hreflang="x-default" href="${url}">`,
     );
   }
 
@@ -280,4 +294,27 @@ export const renderPrerenderedHtml = (indexHtml: string, route: PrerenderRoute) 
     /<div id="root">[\s\S]*?<\/div>/i,
     `<div id="root">\n      ${route.body}\n    </div>`,
   );
+};
+
+/**
+ * The SPA shell (dist/index.html + dist/404.html). Static hosting serves it for
+ * every URL outside the prerender map, so it must read as a real 404 to
+ * crawlers instead of impersonating the homepage.
+ */
+export const NOT_FOUND_ROUTE: PrerenderRoute = {
+  path: "/404",
+  canonical: `${BASE_URL}/`,
+  lang: "en",
+  title: "Page not found (404) — JAY-23",
+  description:
+    "This page does not exist. Browse the MVA Framework services, the blog or book a discovery call with JAY-23.",
+  ogTitle: "JAY-23 — Kickstarter, TikTok Shop & SaaS launch agency",
+  ogDescription:
+    "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches. 46 campaigns, $1.2M+ raised.",
+  ogImage: DEFAULT_OG,
+  ogImageAlt: "JAY-23 — MVA Framework",
+  type: "website",
+  robots: "noindex,nofollow",
+  schema: [],
+  body: notFoundBody(),
 };
