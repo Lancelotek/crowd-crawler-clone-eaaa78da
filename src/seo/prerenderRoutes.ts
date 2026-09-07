@@ -173,6 +173,14 @@ export type BlogRow = {
 };
 
 /** Maps a blog row onto the same RouteMeta shape the static routes use. */
+/** Excerpts come from the CMS — trim to what Google shows, on a word boundary. */
+const clampDescription = (value: string, max = 155) => {
+  const text = value.replace(/\s+/g, " ").trim();
+  if ([...text].length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:.\-–—]$/, "")}…`;
+};
+
 export const blogRouteMeta = (row: BlogRow, lang: "en" | "pl"): RouteMeta => {
   const other = lang === "en" ? "pl" : "en";
   const image = row.cover_image
@@ -185,11 +193,12 @@ export const blogRouteMeta = (row: BlogRow, lang: "en" | "pl"): RouteMeta => {
     lang,
     type: "article",
     title: buildSeoTitle(row.title, row.slug),
-    description:
+    description: clampDescription(
       row.excerpt ||
       (lang === "pl"
         ? `Przeczytaj "${row.title}" na blogu MVA Framework.`
         : `Read "${row.title}" on the MVA Framework blog.`),
+    ),
     ogImage: image,
     ogImageAlt: row.title,
     breadcrumbName: row.title,
