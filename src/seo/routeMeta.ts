@@ -34,6 +34,12 @@ export interface RouteMeta {
    */
   alternates?: { en: string; pl: string };
   noIndex?: true;
+  /** Absolute canonical URL when it differs from BASE_URL + path (aliases, retired slugs). */
+  canonical?: string;
+  /** Explicit robots directive (retired slugs use "noindex,follow"). */
+  robots?: string;
+  /** Non-locale alias or retired slug: prerendered, but never listed in llms.txt / RSS. */
+  alias?: true;
   /** Homepages skip the BreadcrumbList. */
   homepage?: true;
   /** Trailing crumb label; falls back to a humanized slug. */
@@ -65,18 +71,18 @@ export const ROUTE_META: RouteMeta[] = [
     path: "/en",
     lang: "en",
     homepage: true,
-    title: "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework",
+    title: "Kickstarter, TikTok Shop & SaaS Launch Agency | JAY-23",
     description:
-      "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.",
+      "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches: Meta Ads, email funnels and community activation. 46 campaigns, $1.2M+ raised.",
     alternates: pair("/en", "/pl"),
   },
   {
     path: "/pl",
     lang: "pl",
     homepage: true,
-    title: "JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | MVA Framework",
+    title: "Agencja launchy Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "90-dniowy MVA Framework dla Kickstarter, TikTok Shop, SaaS i sales-led launchy: Meta Ads, creator commerce, lejki email i aktywacja społeczności, które pomogły 46 kampaniom zebrać ponad $1.2M.",
+      "90-dniowy MVA Framework dla launchy Kickstarter, TikTok Shop i SaaS: Meta Ads, lejki email i aktywacja społeczności. 46 kampanii, ponad $1.2M zebranych.",
     alternates: pair("/en", "/pl"),
   },
 
@@ -571,6 +577,68 @@ export const ROUTE_META: RouteMeta[] = [
   },
 ];
 
+/**
+ * Publicly reachable non-locale aliases. Each one is prerendered with its own
+ * head, but canonicalises to the /en equivalent so it never competes with it.
+ */
+const ALIAS_TARGETS: Record<string, string> = {
+  "/": "/en",
+  "/blog": "/en/blog",
+  "/process": "/en/process",
+  "/packages": "/en/packages",
+  "/quiz": "/en/quiz",
+  "/book": "/en/book",
+  "/about": "/en/about",
+  "/faq": "/en/faq",
+  "/report": "/en/report",
+  "/impressum": "/en/impressum",
+  "/privacy-policy": "/en/privacy-policy",
+  "/terms-of-service": "/en/terms-of-service",
+  "/lp": "/en/lp",
+  "/thank-you": "/en/thank-you",
+};
+
+const byPathDraft = new Map(ROUTE_META.map((r) => [r.path, r]));
+
+for (const [alias, target] of Object.entries(ALIAS_TARGETS)) {
+  const base = byPathDraft.get(target);
+  if (!base) continue;
+  ROUTE_META.push({
+    ...base,
+    path: alias,
+    alias: true,
+    canonical: `${BASE_URL}${target}`,
+    alternates: base.alternates ?? {
+      en: `${BASE_URL}${target}`,
+      pl: `${BASE_URL}${target.replace(/^\/en/, "/pl")}`,
+    },
+  });
+}
+
+/**
+ * Retired blog slugs. They still resolve (client-side redirect) — the
+ * prerendered head points crawlers straight at the replacement page.
+ */
+const RETIRED: Record<string, string> = {
+  "heygen-alternatives-for-founders": "/founder-influencer",
+  "heygen-alternative-for-founders": "/founder-influencer",
+};
+
+for (const [slug, target] of Object.entries(RETIRED)) {
+  for (const lang of ["en", "pl"] as Lang[]) {
+    const base = byPathDraft.get(`/${lang}${target}`);
+    if (!base) continue;
+    ROUTE_META.push({
+      ...base,
+      path: `/${lang}/blog/${slug}`,
+      alias: true,
+      canonical: `${BASE_URL}/${lang}${target}`,
+      robots: "noindex,follow",
+      breadcrumbName: base.breadcrumbName,
+    });
+  }
+}
+
 const BY_PATH = new Map(ROUTE_META.map((r) => [r.path, r]));
 
 export const getRouteMeta = (path: string) => BY_PATH.get(path.replace(/\/+$/, "") || "/");
@@ -579,3 +647,16 @@ export const getRouteMeta = (path: string) => BY_PATH.get(path.replace(/\/+$/, "
 export const NOINDEX_PATHS = new Set(
   ROUTE_META.filter((r) => r.noIndex).map((r) => r.path),
 );
+
+/** Metadata that Google would truncate. Used by the build-time assertion. */
+export const findMetaLengthViolations = () => {
+  const problems: string[] = [];
+  for (const meta of ROUTE_META) {
+    const title = withBrandSuffix(meta.title);
+    if ([...title].length > 60)
+      problems.push(`${meta.path} — title ${[...title].length}/60: "${title}"`);
+    if ([...meta.description].length > 158)
+      problems.push(`${meta.path} — description ${[...meta.description].length}/158`);
+  }
+  return problems;
+};
