@@ -496,7 +496,7 @@ export default function FounderInfluencer() {
           <p className="mt-6 text-sm text-muted-foreground">
             {c.brandBlog}
             <Link
-              to={lang === "pl" ? "/pl/blog/heygen-po-polsku-czy-dziala" : "/en/blog/heygen-alternatives-for-founders"}
+              to={lang === "pl" ? "/pl/blog/heygen-po-polsku-czy-dziala" : "/en/founder-influencer"}
               className="text-primary underline underline-offset-4 hover:no-underline"
             >
               {c.brandBlogLink}
