@@ -50,6 +50,8 @@ const PlaybookThankYou = lazy(() => import("./pages/PlaybookThankYou"));
 const TikTokShopAgency = lazy(() => import("./pages/TikTokShopAgency"));
 const TikTokShopAgencyPL = lazy(() => import("./pages/TikTokShopAgencyPL"));
 const Live = lazy(() => import("./pages/Live"));
+const MvaPlaybook = lazy(() => import("./pages/MvaPlaybook"));
+const MvaPlaybookThankYou = lazy(() => import("./pages/MvaPlaybookThankYou"));
 
 const queryClient = new QueryClient();
 
@@ -164,6 +166,8 @@ const LangRoutes = () => {
         <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="tiktok-shop-agency" element={<TikTokShopAgencyByLang />} />
         <Route path="live" element={<Live />} />
+        <Route path="mva-playbook" element={lang === "en" ? <MvaPlaybook /> : <NotFound />} />
+        <Route path="mva-playbook/thank-you" element={lang === "en" ? <MvaPlaybookThankYou /> : <NotFound />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>

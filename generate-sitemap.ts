@@ -10,6 +10,7 @@ const BASE_URL = "https://jay23.com";
 type Page = { loc: string; changefreq: string; priority: string; noIndex?: true };
 
 const enStaticPages: Page[] = [
+  { loc: "/en/mva-playbook", changefreq: "monthly", priority: "0.7" },
   { loc: "/en", changefreq: "weekly", priority: "1.0" },
   { loc: "/en/blog", changefreq: "weekly", priority: "0.7" },
   { loc: "/en/book", changefreq: "monthly", priority: "0.7" },

@@ -1,14 +1,14 @@
 .mva-playbook {
-  --primary: 253 100% 62%;
-  --background: 240 20% 97%;
-  --secondary: 240 20% 94%;
-  --foreground: 240 15% 5%;
-  --muted-foreground: 240 4% 45%;
+  --primary: 252.9897 100% 61.9608%;
+  --background: 240 20% 97.0588%;
+  --secondary: 240 20% 94.1176%;
+  --foreground: 240 15.3846% 5.098%;
+  --muted-foreground: 240 3.9301% 44.902%;
   --card: 0 0% 100%;
-  --card-foreground: 240 15% 5%;
+  --card-foreground: 240 15.3846% 5.098%;
   --primary-foreground: 0 0% 100%;
-  --hero: 240 29% 5%;
-  --success: 160 84% 39%;
+  --hero: 240 28.5714% 5.4902%;
+  --success: 160.1183 84.0796% 39.4118%;
   --border: 240 15% 87%;
   --destructive: 0 35% 53%;
   --radius-card: 12px;

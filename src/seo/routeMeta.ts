@@ -13,6 +13,7 @@
 import { translations } from "../i18n/translations";
 import { liveEn, livePl } from "../content/liveCopy";
 import { LANDING_FAQS } from "./landingFaqs";
+import { playbookCopy } from "../content/mvaPlaybook";
 
 export const BASE_URL = "https://jay23.com";
 export const DEFAULT_OG = `${BASE_URL}/og-default.jpg`;
@@ -66,6 +67,23 @@ const same = (p: string) => pair(`/en${p}`, `/pl${p}`);
 const t = translations as Record<string, Record<string, { en: string; pl: string }>>;
 
 export const ROUTE_META: RouteMeta[] = [
+  {
+    path: "/en/mva-playbook",
+    lang: "en",
+    title: "MVA Playbook — Build a Paying Audience for $7 | JAY-23",
+    description: "Build your ICP, test ad angles and collect $1-3 pre-payments before launch. Get the $7 MVA Playbook with a 30-day money-back guarantee.",
+    breadcrumbName: "MVA Playbook",
+    faqs: playbookCopy.faqs,
+  },
+  {
+    path: "/en/mva-playbook/thank-you",
+    lang: "en",
+    title: "Your MVA Playbook Is on Its Way | JAY-23",
+    description: "Your MVA Playbook is on its way. Add a 1-hour strategic audit to build your ICP, ad angles and pre-payment plan with JAY-23.",
+    noIndex: true,
+    robots: "noindex,follow",
+    breadcrumbName: "Thank you",
+  },
   // ─── Homepages ────────────────────────────────────────────
   {
     path: "/en",
