@@ -51,6 +51,7 @@
 .playbook-order-card { border-radius: 12px; background: hsl(var(--card)); color: hsl(var(--card-foreground)); padding: 24px; }
 .playbook-add-on { display: flex; gap: 12px; padding: 14px; border: 1px solid hsl(var(--border)); border-radius: 12px; cursor: pointer; transition: border-color .15s, background .15s; }
 .playbook-add-on:hover,.playbook-add-on-selected { border-color: hsl(var(--primary)); background: hsl(var(--primary) / .035); }
+.playbook-add-on [role="checkbox"] { border-radius: 4px; }
 .playbook-mobile-cta { position: fixed; bottom: 0; left: 0; right: 0; background: hsl(var(--background) / .97); border-top: 1px solid hsl(var(--border)); padding: 12px 20px max(12px, env(safe-area-inset-bottom)); z-index: 30; }
 .mva-playbook:not(.playbook-thank-you) { padding-bottom: 80px; }
 .playbook-thank-you { min-height: 100vh; }

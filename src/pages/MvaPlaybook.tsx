@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ArrowRight, Check, X, ShieldCheck, Users, Target, CreditCard, Cpu, Gamepad2, Code2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -12,6 +13,14 @@ const categoryIcons = [Cpu, Gamepad2, Code2, ShoppingBag];
 const stepIcons = [Users, Target, CreditCard];
 
 export default function MvaPlaybook() {
+  const [checkoutVisible, setCheckoutVisible] = useState(false);
+  useEffect(() => {
+    const checkout = document.getElementById("checkout");
+    if (!checkout) return;
+    const observer = new IntersectionObserver(([entry]) => setCheckoutVisible(entry?.isIntersecting ?? false));
+    observer.observe(checkout);
+    return () => observer.disconnect();
+  }, []);
   return <div className="mva-playbook">
     <SEOHead title="MVA Playbook — Build a Paying Audience for $7 | JAY-23" description="Build your ICP, test ad angles and collect $1-3 pre-payments before launch. Get the $7 MVA Playbook with a 30-day money-back guarantee." canonical="/en/mva-playbook" lang="en" />
     <PlaybookHeader />
@@ -34,6 +43,6 @@ export default function MvaPlaybook() {
       <PlaybookCheckout />
       <section className="playbook-section"><div className="playbook-container max-w-3xl"><h2 className="mb-6">FAQ</h2><Accordion type="single" collapsible>{c.faqs.map((faq, i) => <AccordionItem value={`faq-${i}`} key={faq.q}><AccordionTrigger className="text-left text-base font-bold">{faq.q}</AccordionTrigger><AccordionContent className="text-muted-foreground text-base leading-relaxed">{faq.a}</AccordionContent></AccordionItem>)}</Accordion></div></section>
     </main>
-    <div className="playbook-mobile-cta"><Button asChild className="playbook-button w-full"><a href="#checkout">{c.cta}<ArrowRight /></a></Button></div>
+    {!checkoutVisible && <div className="playbook-mobile-cta"><Button asChild className="playbook-button w-full"><a href="#checkout">{c.cta}<ArrowRight /></a></Button></div>}
   </div>;
 }
