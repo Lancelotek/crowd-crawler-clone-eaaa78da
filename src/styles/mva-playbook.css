@@ -1,0 +1,61 @@
+.mva-playbook {
+  --primary: 253 100% 62%;
+  --background: 240 20% 97%;
+  --secondary: 240 20% 94%;
+  --foreground: 240 15% 5%;
+  --muted-foreground: 240 4% 45%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 15% 5%;
+  --primary-foreground: 0 0% 100%;
+  --hero: 240 29% 5%;
+  --success: 160 84% 39%;
+  --border: 240 15% 87%;
+  --destructive: 0 35% 53%;
+  --radius-card: 12px;
+  --shadow-book: 20px 24px 42px hsl(var(--hero) / .35);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+}
+.mva-playbook h1,.mva-playbook h2,.mva-playbook h3,.mva-playbook h4 { font-family: Rajdhani, sans-serif; font-weight: 700; letter-spacing: 0; line-height: 1.06; text-transform: uppercase; }
+.mva-playbook h2 { font-size: 36px; }
+.playbook-container { width: min(100% - 48px, 1080px); margin-inline: auto; }
+.playbook-header { background: hsl(var(--hero)); padding: 24px 0; border-bottom: 1px solid hsl(var(--primary-foreground) / .1); }
+.playbook-logo { width: 116px; height: auto; filter: brightness(0) invert(1); }
+.playbook-hero { background: hsl(var(--hero)); color: hsl(var(--primary-foreground)); padding: 26px 0 70px; overflow: hidden; }
+.playbook-proof { font-size: 10px; font-weight: 700; color: hsl(var(--primary-foreground) / .65); }
+.playbook-hero-grid { display: grid; align-items: center; gap: 24px; margin-top: 40px; }
+.playbook-hero h1 { font-size: 48px; }
+.playbook-hero-sub { max-width: 570px; font-weight: 300; font-size: 16px; color: hsl(var(--primary-foreground) / .75); margin: 24px 0 28px; }
+.mva-playbook .playbook-button { border-radius: 28px; height: auto; min-height: 54px; padding: 14px 24px; font-size: 14px; font-weight: 700; white-space: normal; line-height: 1.4; text-align: center; }
+.playbook-micro { font-size: 11px; margin-top: 14px; color: hsl(var(--primary-foreground) / .65); }
+.playbook-book-scene { display: flex; align-items: center; justify-content: center; padding: 35px 20px; perspective: 1000px; min-height: 390px; }
+.playbook-book { position: relative; width: 248px; height: 342px; transform: rotateY(-16deg) rotateZ(5deg); box-shadow: var(--shadow-book); border-radius: 2px 7px 7px 2px; }
+.playbook-book-cover { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 24px; height: 100%; display: flex; flex-direction: column; overflow: hidden; border: 1px solid hsl(var(--primary-foreground) / .25); border-radius: inherit; }
+.playbook-book-spine { position: absolute; left: -22px; width: 22px; height: 100%; background: hsl(var(--hero)); color: hsl(var(--primary-foreground)); writing-mode: vertical-rl; text-align: center; font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 12px; transform-origin: right; transform: rotateY(-35deg); }
+.playbook-book-title { font-family: Rajdhani, sans-serif; font-weight: 700; font-size: 49px; line-height: .92; display: block; }
+.playbook-cover-diagram { display: flex; gap: 5px; margin: 24px 0; }
+.playbook-cover-diagram span { width: 46px; height: 46px; border: 1px solid hsl(var(--primary-foreground) / .6); border-radius: 50%; }
+.playbook-cover-diagram span:last-child { background: hsl(var(--primary-foreground)); }
+.playbook-results { padding-top: 28px; padding-bottom: 20px; }
+.playbook-result-card { border: 1px solid hsl(var(--border)); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 4px; background: hsl(var(--card)); }
+.playbook-section { padding: 64px 0; }
+.playbook-step-card,.playbook-system-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 12px; padding: 26px; }
+.playbook-step-number { font-family: Rajdhani, sans-serif; font-size: 44px; line-height: 1; font-weight: 700; color: hsl(var(--primary)); }
+.playbook-guarantee { display: flex; align-items: flex-start; gap: 22px; padding: 28px; border: 1px solid hsl(var(--success) / .35); border-radius: 12px; background: hsl(var(--success) / .05); }
+.mva-playbook .playbook-guarantee h2 { font-size: 28px; }
+.playbook-checkout-band { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); padding: 64px 0; scroll-margin-top: 20px; }
+.playbook-checkout-book .playbook-book-cover { background: hsl(var(--hero)); }
+.playbook-checkout-book .playbook-book-scene { min-height: 370px; }
+.playbook-order-card { border-radius: 12px; background: hsl(var(--card)); color: hsl(var(--card-foreground)); padding: 24px; }
+.playbook-add-on { display: flex; gap: 12px; padding: 14px; border: 1px solid hsl(var(--border)); border-radius: 12px; cursor: pointer; transition: border-color .15s, background .15s; }
+.playbook-add-on:hover,.playbook-add-on-selected { border-color: hsl(var(--primary)); background: hsl(var(--primary) / .035); }
+.playbook-mobile-cta { position: fixed; bottom: 0; left: 0; right: 0; background: hsl(var(--background) / .97); border-top: 1px solid hsl(var(--border)); padding: 12px 20px max(12px, env(safe-area-inset-bottom)); z-index: 30; }
+.mva-playbook:not(.playbook-thank-you) { padding-bottom: 80px; }
+.playbook-thank-you { min-height: 100vh; }
+.playbook-upsell { padding: 32px; border: 2px solid hsl(var(--primary)); border-radius: 12px; background: hsl(var(--card)); margin-top: 42px; }
+.playbook-success-mark { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: hsl(var(--success) / .1); color: hsl(var(--success)); }
+@media (min-width: 768px) { .playbook-hero h1 { font-size: 76px; } .playbook-hero-grid { grid-template-columns: 1.35fr 1fr; gap: 40px; margin-top: 48px; } .playbook-hero { padding-bottom: 60px; } .playbook-hero-sub { font-size: 18px; } .playbook-proof { font-size: 11px; } .mva-playbook h2 { font-size: 44px; } .playbook-section { padding: 80px 0; } .playbook-mobile-cta { display: none; } .mva-playbook:not(.playbook-thank-you) { padding-bottom: 0; } .playbook-order-card { padding: 32px; } }
+@media (max-width: 767px) { .playbook-checkout-book .playbook-book-scene { display: none; } .playbook-guarantee { padding: 24px 20px; gap: 14px; } .playbook-guarantee > svg { width: 26px; } .playbook-upsell { padding: 24px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .playbook-add-on { transition: none; } }
