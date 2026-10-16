@@ -74,8 +74,10 @@ export const buildRouteSchema = (meta: RouteMeta): Record<string, unknown>[] => 
       serviceType: meta.serviceType,
       url,
       inLanguage: meta.lang,
-      areaServed: "Worldwide",
-      provider: { "@type": "Organization", name: "JAY-23", url: BASE_URL },
+      areaServed: meta.areaServed ?? "Worldwide",
+      provider: meta.areaServed
+        ? { "@id": `${BASE_URL}/#organization`, "@type": "Organization", name: "JAY-23", url: BASE_URL }
+        : { "@type": "Organization", name: "JAY-23", url: BASE_URL },
     });
   }
 
@@ -112,7 +114,7 @@ export const buildRouteSchema = (meta: RouteMeta): Record<string, unknown>[] => 
     const segments = meta.path.split("/").filter(Boolean);
     const [langSeg, ...rest] = segments;
     const items: Record<string, unknown>[] = [
-      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/${langSeg}` },
+      { "@type": "ListItem", position: 1, name: meta.homeCrumbName ?? "Home", item: `${BASE_URL}/${langSeg}` },
     ];
     let acc = `/${langSeg}`;
     rest.forEach((segment, i) => {

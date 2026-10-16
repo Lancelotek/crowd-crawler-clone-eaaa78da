@@ -58,6 +58,7 @@ const plStaticPages: Page[] = [
   { loc: "/pl/agencja-prelaunch-ecommerce", changefreq: "monthly", priority: "0.8" },
   { loc: "/pl/packages", changefreq: "monthly", priority: "0.7" },
   { loc: "/pl/agencja-prelaunch-saas", changefreq: "monthly", priority: "0.8" },
+  { loc: "/pl/wirtualna-recepcja", changefreq: "monthly", priority: "0.8" },
   { loc: "/pl/click2pack", changefreq: "monthly", priority: "0.8" },
   { loc: "/pl/live", changefreq: "monthly", priority: "0.8" },
   { loc: "/pl/gamefound", changefreq: "monthly", priority: "0.8" },

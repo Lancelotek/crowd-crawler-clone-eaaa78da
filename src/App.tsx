@@ -35,6 +35,7 @@ const FounderInfluencer = lazy(() => import("./pages/FounderInfluencer"));
 const Gamefound = lazy(() => import("./pages/Gamefound"));
 const SaasPrelaunch = lazy(() => import("./pages/SaasPrelaunch"));
 const SaasPrelaunchPL = lazy(() => import("./pages/SaasPrelaunchPL"));
+const WirtualnaRecepcjaPL = lazy(() => import("./pages/WirtualnaRecepcjaPL"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
 const Click2Pack = lazy(() => import("./pages/Click2Pack"));
@@ -166,6 +167,7 @@ const LangRoutes = () => {
         <Route path="playbook-thank-you" element={<PlaybookThankYou />} />
         <Route path="tiktok-shop-agency" element={<TikTokShopAgencyByLang />} />
         <Route path="live" element={<Live />} />
+        <Route path="wirtualna-recepcja" element={lang === "pl" ? <WirtualnaRecepcjaPL /> : <NotFound />} />
         <Route path="mva-playbook" element={lang === "en" ? <MvaPlaybook /> : <NotFound />} />
         <Route path="mva-playbook/thank-you" element={lang === "en" ? <MvaPlaybookThankYou /> : <NotFound />} />
         <Route path="*" element={<NotFound />} />

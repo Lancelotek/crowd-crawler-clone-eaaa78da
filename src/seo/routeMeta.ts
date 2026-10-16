@@ -14,6 +14,7 @@ import { translations } from "../i18n/translations";
 import { liveEn, livePl } from "../content/liveCopy";
 import { LANDING_FAQS } from "./landingFaqs";
 import { playbookCopy } from "../content/mvaPlaybook";
+import { faq as wirtualnaFaq } from "../content/wirtualnaRecepcjaPLCopy";
 
 export const BASE_URL = "https://jay23.com";
 export const DEFAULT_OG = `${BASE_URL}/og-default.jpg`;
@@ -47,6 +48,10 @@ export interface RouteMeta {
   breadcrumbName?: string;
   /** Present on service landings → Service JSON-LD. */
   serviceType?: string;
+  /** Service areaServed override (defaults to Worldwide). */
+  areaServed?: string;
+  /** First breadcrumb label override (defaults to Home). */
+  homeCrumbName?: string;
   /** Present → FAQPage JSON-LD. */
   faqs?: { q: string; a: string }[];
   publishedAt?: string;
@@ -67,6 +72,18 @@ const same = (p: string) => pair(`/en${p}`, `/pl${p}`);
 const t = translations as Record<string, Record<string, { en: string; pl: string }>>;
 
 export const ROUTE_META: RouteMeta[] = [
+  {
+    path: "/pl/wirtualna-recepcja",
+    lang: "pl",
+    title: "Wirtualna Recepcja AI dla gabinetów i firm usługowych | JAY-23",
+    description: "AI recepcja odbiera każdy telefon, umawia wizyty w FELG Dent i ZnanyLekarz, a call tracking pokazuje, która reklama przyniosła pacjenta. Policz, ile tracisz.",
+    ogImage: DEFAULT_OG,
+    breadcrumbName: "Wirtualna Recepcja",
+    homeCrumbName: "Strona główna",
+    serviceType: "Wirtualna recepcja AI i call tracking",
+    areaServed: "Polska",
+    faqs: wirtualnaFaq.items,
+  },
   {
     path: "/en/mva-playbook",
     lang: "en",
