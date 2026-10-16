@@ -66,9 +66,7 @@ describe("prerendered head === hydrated head", () => {
     for (const meta of ROUTE_META) {
       if (meta.homepage) continue; // brand title + sitewide description are intentional
       const head = prerenderedHead(meta.path);
-      // Owner-approved exact title (62 chars) for the PL-only receptionist landing.
-      const titleLimit = meta.path === "/pl/wirtualna-recepcja" ? 62 : 60;
-      expect(head.title.length, `${meta.path} title`).toBeLessThanOrEqual(titleLimit);
+      expect(head.title.length, `${meta.path} title`).toBeLessThanOrEqual(60);
       expect(head.description.length, `${meta.path} description`).toBeLessThanOrEqual(158);
     }
   });

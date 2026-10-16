@@ -75,7 +75,7 @@ export const ROUTE_META: RouteMeta[] = [
   {
     path: "/pl/wirtualna-recepcja",
     lang: "pl",
-    title: "Wirtualna Recepcja AI dla gabinetów i firm usługowych | JAY-23",
+    title: "Wirtualna Recepcja AI dla gabinetów i firm | JAY-23",
     description: "AI recepcja odbiera każdy telefon, umawia wizyty w FELG Dent i ZnanyLekarz, a call tracking pokazuje, która reklama przyniosła pacjenta. Policz, ile tracisz.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Wirtualna Recepcja",
