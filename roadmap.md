@@ -5,7 +5,7 @@
 - [x] Verify totals, exclusions, tracking, and desktop/mobile preview; do not publish.
 
 # Production prerender SEO
-- [ ] Restore the root EN homepage shell with canonical and instant meta refresh; preserve 404.html.
+- [x] Restore the root EN homepage shell with canonical and instant meta refresh; preserve 404.html.
 - [ ] Extract shared page copy and complete all 23 affected static bodies, blog indexes, and legal text.
 - [ ] Add output tests and the sitemap main-content guard; blocked by the unchanged 100-word Impressum versus the required 250-word minimum.
 - [ ] Verify raw output and report changed files and route word counts; do not publish.
