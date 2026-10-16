@@ -1,3 +1,4 @@
+import { PAGE_COPY } from "@/content/ecommercePrelaunchPLCopy";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -138,7 +139,7 @@ const EcommercePrelaunchPL = () => {
   return (
     <>
       <SEOHead
-        title="Agencja prelaunch eCommerce — MVA Framework | JAY-23"
+        title={PAGE_COPY.text[0]}
         description="Agencja prelaunch dla founderów eCommerce i DTC. 90-dniowy MVA Framework waliduje popyt i buduje 1000+ kupujących przed startem sprzedaży."
         canonical="/pl/agencja-prelaunch-ecommerce"
         lang="pl"
@@ -159,35 +160,25 @@ const EcommercePrelaunchPL = () => {
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.6 }}
             className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-7 flex items-center gap-2"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Agencja eCommerce · Prelaunch i crowdfunding
-          </motion.p>
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />{PAGE_COPY.text[1]}</motion.p>
 
           <motion.h1
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}
             className="font-display text-[clamp(40px,5.6vw,78px)] font-black uppercase leading-[0.98] tracking-tight text-white mb-8 max-w-[16ch]"
-          >
-            Agencja eCommerce dla założycieli, którzy startują <span className="text-primary">z kupującymi pierwszego dnia</span>.
-          </motion.h1>
+          >{PAGE_COPY.text[2]}<span className="text-primary">{PAGE_COPY.text[3]}</span>{PAGE_COPY.text[4]}</motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.7 }}
             className="text-[clamp(16px,1.55vw,20px)] font-light text-white/55 max-w-[680px] leading-relaxed mb-10"
-          >
-            Większość agencji ecommerce wchodzi po starcie sklepu — gasić pożar, gdy ROAS się sypie i magazyn stoi. My pracujemy <strong className="font-medium text-white/80">przed</strong> startem: walidujemy popyt, budujemy 1000+ kupujących i finansujemy produkcję preorderem. 90-dniowy framework MVA.
-            46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC.
-          </motion.p>
+          >{PAGE_COPY.text[5]}<strong className="font-medium text-white/80">{PAGE_COPY.text[6]}</strong>{PAGE_COPY.text[7]}</motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.42, duration: 0.7 }}
             className="flex flex-wrap gap-3"
           >
-            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-              Umów bezpłatną rozmowę strategiczną <ArrowRight size={16} />
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-7 py-3.5 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">{PAGE_COPY.text[8]}<ArrowRight size={16} />
             </Link>
-            <Link to={quizLink} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-white/5 transition-all">
-              Policz swoją MVA
-            </Link>
+            <Link to={quizLink} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[15px] px-7 py-3.5 rounded-full hover:bg-white/5 transition-all">{PAGE_COPY.text[9]}</Link>
           </motion.div>
         </div>
       </section>
@@ -195,14 +186,12 @@ const EcommercePrelaunchPL = () => {
       {/* PROBLEM */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Pułapka zimnego startu</p>
-          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
-            Dlaczego większość startów produktów fizycznych gaśnie w drugim tygodniu.
-          </h2>
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[10]}</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">{PAGE_COPY.text[11]}</h2>
           <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
-            <p>Domyślny playbook eCommerce: zamów towar, postaw Shopify, włącz reklamy Meta, módl się o ROAS 2× zanim skończy się kapitał obrotowy. Błąd jest strukturalny — zimna reklama konwersyjna pokazana komuś, kto nigdy nie słyszał o marce, konwertuje na 0,3–0,7%. Płacisz za odkrycie i konwersję w tym samym kliknięciu.</p>
-            <p>Crowdfunding ma ten sam problem w ostrzejszej formie: dzień startu na Kickstarterze albo Gamefoundzie jest zerojedynkowy. Jeśli pierwsze 72 godziny nie złapią prędkości finansowania, algorytm platformy przestaje Cię promować i kampania toczy się w stronę cichej porażki przez kolejne 28 dni.</p>
-            <p>Lekarstwem nie jest lepszy hook ani większy budżet — jest publiczność, która już Cię zna, chce produkt i jest gotowa kupić w dniu pierwszym. To Minimum Viable Audience: 1000+ samozidentyfikowanych kupujących zbudowanych w 90 dni. Dobrze wykorzystana MVA robi 8–14× konwersję dnia pierwszego względem zimnego startu i finansuje partię produkcyjną zaliczkami.</p>
+            <p>{PAGE_COPY.text[12]}</p>
+            <p>{PAGE_COPY.text[13]}</p>
+            <p>{PAGE_COPY.text[14]}</p>
           </div>
         </div>
       </section>
@@ -210,22 +199,17 @@ const EcommercePrelaunchPL = () => {
       {/* AGENCJA ECOMMERCE — keyword-targeted section */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Agencja ecommerce</p>
-          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
-            Agencja eCommerce dla założycieli przed startem — co to konkretnie znaczy.
-          </h2>
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[15]}</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">{PAGE_COPY.text[16]}</h2>
           <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
-            <p>Klasyczna agencja ecommerce w Polsce robi trzy rzeczy: wdraża sklep na Shopify lub WooCommerce, odpala reklamy Meta i Google Ads, optymalizuje konwersję checkoutu. To dobra robota — pod warunkiem, że masz już ruch, listę i sprzedaż. Jeśli dopiero planujesz <strong className="font-medium text-white">wprowadzenie produktu na rynek</strong>, te usługi przychodzą o 6 miesięcy za późno.</p>
-            <p>Specjalizujemy się w fazie, którą większość agencji ecommerce pomija: <strong className="font-medium text-white">jak uruchomić sklep internetowy</strong>, mając w dniu startu listę 1000+ ludzi gotowych kupić, a nie pustą bazę i nadzieję. Pre-launch to nie „kampania zapowiadająca” na Instagramie — to mierzalny, 90-dniowy proces walidacji popytu, budowania publiczności i prefinansowania produkcji.</p>
-            <p>Pracujemy z założycielami DTC, twórcami kampanii crowdfundingowych (Kickstarter, Gamefound, Indiegogo) i markami produktów fizycznych w segmencie 150–2000 zł. Po starcie przekazujemy działający system zespołowi in-house lub klasycznej agencji performance — nie konkurujemy z nimi, otwieramy im rynek.</p>
+            <p>{PAGE_COPY.text[17]}<strong className="font-medium text-white">{PAGE_COPY.text[18]}</strong>{PAGE_COPY.text[19]}</p>
+            <p>{PAGE_COPY.text[20]}<strong className="font-medium text-white">{PAGE_COPY.text[21]}</strong>{PAGE_COPY.text[22]}</p>
+            <p>{PAGE_COPY.text[23]}</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
-              Umów rozmowę <ArrowRight size={14} />
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">{PAGE_COPY.text[24]}<ArrowRight size={14} />
             </Link>
-            <Link to={`${langPrefix}/process`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
-              Zobacz framework MVA
-            </Link>
+            <Link to={`${langPrefix}/process`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">{PAGE_COPY.text[25]}</Link>
           </div>
         </div>
       </section>
@@ -233,22 +217,17 @@ const EcommercePrelaunchPL = () => {
       {/* LAUNCH PRODUKTU — keyword-targeted section */}
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Launch produktu</p>
-          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">
-            Launch produktu — od pomysłu do 1 000 kupujących pierwszego dnia.
-          </h2>
+          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[26]}</p>
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-8">{PAGE_COPY.text[27]}</h2>
           <div className="space-y-5 text-[16px] text-white/65 leading-relaxed font-light">
-            <p><strong className="font-medium text-white">Launch produktu</strong> to nie jeden dzień, tylko 90 dni przygotowania, w których podejmujesz wszystkie ryzykowne decyzje na małym budżecie. Cena, pozycjonowanie, kanał, komunikat, oferta — każdy z tych elementów testujemy zanim fabryka wystawi fakturę, a Meta zacznie pobierać pełny CAC za zimny ruch.</p>
-            <p>Klasyczne <strong className="font-medium text-white">wprowadzenie produktu na rynek</strong> wygląda tak: gotowy SKU, sklep na Shopify, 20 000 zł w Meta Ads, ROAS 0,8× i pytanie „dlaczego nie idzie?”. Framework MVA odwraca kolejność — najpierw landing i lead magnet, potem 4–8 tygodni płatnego testu komunikatu, dopiero potem zaliczki, produkcja i twardy launch z bazą 1000+ kupujących, którzy już raz powiedzieli „chcę”.</p>
-            <p>Po 90 dniach masz konkretne liczby pod decyzję inwestorską: realny CPL, koszt pozyskania kupującego, konwersję landing → zaliczka, dane do projekcji LTV i listę osób gotowych zamówić w T-0. To różnica między <em className="text-white/80">launchem produktu</em> jako loterii a kontrolowanym uruchomieniem z modelem finansowym, który spina się przed pierwszym przelewem do fabryki.</p>
+            <p><strong className="font-medium text-white">{PAGE_COPY.text[28]}</strong>{PAGE_COPY.text[29]}</p>
+            <p>{PAGE_COPY.text[30]}<strong className="font-medium text-white">{PAGE_COPY.text[31]}</strong>{PAGE_COPY.text[32]}</p>
+            <p>{PAGE_COPY.text[33]}<em className="text-white/80">{PAGE_COPY.text[34]}</em>{PAGE_COPY.text[35]}</p>
           </div>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">
-              Zaplanuj launch produktu <ArrowRight size={14} />
+            <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[14px] px-6 py-3 rounded-full hover:brightness-110 transition-all">{PAGE_COPY.text[36]}<ArrowRight size={14} />
             </Link>
-            <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">
-              Przeczytaj playbooki na blogu
-            </Link>
+            <Link to={`${langPrefix}/blog`} className="inline-flex items-center gap-2 border border-white/15 text-white/85 font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-white/5 transition-all">{PAGE_COPY.text[37]}</Link>
           </div>
         </div>
       </section>
@@ -257,10 +236,8 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Dlaczego MVA dla eCommerce</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Cztery powody, dla których założyciele DTC i crowdfundingu używają MVA, zanim wyślą towar.
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[38]}</p>
+            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">{PAGE_COPY.text[39]}</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -291,10 +268,8 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[1100px] px-6">
           <div className="mb-16 max-w-[680px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">90-dniowy framework MVA</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Jak prowadzimy produkt fizyczny od pomysłu do startu z kupującymi już pierwszego dnia.
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[40]}</p>
+            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">{PAGE_COPY.text[41]}</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -312,9 +287,7 @@ const EcommercePrelaunchPL = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <Link to={`${langPrefix}/process`} className="text-[14px] text-white/60 underline underline-offset-4 hover:text-white">
-              Zobacz pełny rozkład procesu →
-            </Link>
+            <Link to={`${langPrefix}/process`} className="text-[14px] text-white/60 underline underline-offset-4 hover:text-white">{PAGE_COPY.text[42]}</Link>
           </div>
         </div>
       </section>
@@ -323,10 +296,8 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[900px] px-6">
           <div className="mb-12 max-w-[640px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">Co dostajesz</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Konkretne dostawy. Każdy artefakt zostaje u Ciebie.
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[43]}</p>
+            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">{PAGE_COPY.text[44]}</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
             {deliverables.map((d, i) => (
@@ -343,17 +314,15 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[900px] px-6">
           <div className="mb-12 max-w-[640px]">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">MVA vs zimny start</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Ten sam produkt, dwie strategie startu, bardzo różne pierwsze tygodnie.
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[45]}</p>
+            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">{PAGE_COPY.text[46]}</h2>
           </div>
 
           <div className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-hidden">
             <div className="grid grid-cols-[1.5fr,1fr,1fr] text-[12px] font-semibold tracking-[0.12em] uppercase text-white/45 border-b border-white/8">
-              <div className="px-6 py-4">Kryterium</div>
-              <div className="px-6 py-4 text-center bg-primary/5 text-primary">Framework MVA</div>
-              <div className="px-6 py-4 text-center">Zimny start</div>
+              <div className="px-6 py-4">{PAGE_COPY.text[47]}</div>
+              <div className="px-6 py-4 text-center bg-primary/5 text-primary">{PAGE_COPY.text[48]}</div>
+              <div className="px-6 py-4 text-center">{PAGE_COPY.text[49]}</div>
             </div>
             {comparison.map((c, i) => (
               <div key={i} className={`grid grid-cols-[1.5fr,1fr,1fr] text-[14px] ${i < comparison.length - 1 ? "border-b border-white/5" : ""}`}>
@@ -381,10 +350,8 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">FAQ</p>
-            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
-              Najczęściej zadawane pytania.
-            </h2>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[50]}</p>
+            <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">{PAGE_COPY.text[51]}</h2>
           </div>
 
           <div className="space-y-3">
@@ -395,7 +362,7 @@ const EcommercePrelaunchPL = () => {
                   className="w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-white/[0.02] transition-colors"
                 >
                   <span className="text-[16px] font-semibold text-white">{f.q}</span>
-                  <span className={`text-primary text-xl transition-transform ${openFaq === i ? "rotate-45" : ""}`}>+</span>
+                  <span className={`text-primary text-xl transition-transform ${openFaq === i ? "rotate-45" : ""}`}>{PAGE_COPY.text[52]}</span>
                 </button>
                 {openFaq === i && (
                   <div className="px-6 pb-5 text-[15px] text-white/60 leading-relaxed font-light">{f.a}</div>
@@ -410,14 +377,9 @@ const EcommercePrelaunchPL = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-32 border-t border-white/5 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.12)_0%,transparent_65%)] pointer-events-none" />
         <div className="container mx-auto max-w-[820px] px-6 text-center relative z-10">
-          <h2 className="font-display text-[clamp(34px,5vw,64px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">
-            Gotowy startować z <span className="text-primary">kupującymi, nie obcymi</span>?
-          </h2>
-          <p className="text-[17px] text-white/55 mb-10 max-w-[520px] mx-auto font-light leading-relaxed">
-            30 minut. Bezpłatnie. Wychodzisz z konkretnym planem MVA dla swojego produktu — niezależnie od tego, czy zostajesz z nami.
-          </p>
-          <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-8 py-4 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">
-            Umów rozmowę strategiczną <ArrowRight size={16} />
+          <h2 className="font-display text-[clamp(34px,5vw,64px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">{PAGE_COPY.text[53]}<span className="text-primary">{PAGE_COPY.text[54]}</span>{PAGE_COPY.text[55]}</h2>
+          <p className="text-[17px] text-white/55 mb-10 max-w-[520px] mx-auto font-light leading-relaxed">{PAGE_COPY.text[56]}</p>
+          <Link to={bookLink} className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold text-[15px] px-8 py-4 rounded-full hover:brightness-110 transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_36px_hsl(253_100%_62%/0.35)]">{PAGE_COPY.text[57]}<ArrowRight size={16} />
           </Link>
         </div>
       </section>

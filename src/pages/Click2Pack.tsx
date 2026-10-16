@@ -1,3 +1,4 @@
+import { PAGE_COPY } from "@/content/click2PackCopy";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -549,9 +550,7 @@ export default Click2Pack;
 
 /* ─── Shared bits ──────────────────────────────────────────────────────── */
 const Logo = ({ light = false }: { light?: boolean }) => (
-  <span className={`font-display font-bold text-xl tracking-tight ${light ? "text-white" : "text-[#0B0B0F]"}`}>
-    click<span className="text-emerald-500">2</span>pack
-  </span>
+  <span className={`font-display font-bold text-xl tracking-tight ${light ? "text-white" : "text-[#0B0B0F]"}`}>{PAGE_COPY.text[0]}<span className="text-emerald-500">{PAGE_COPY.text[1]}</span>{PAGE_COPY.text[2]}</span>
 );
 
 const SectionHeader = ({
@@ -598,9 +597,7 @@ const C2PNav = ({ nav, langPrefix }: { nav: typeof COPY.pl.nav; langPrefix: stri
         <a href="#dla-tworcow" className="hover:text-white transition-colors">{nav.creators}</a>
       </nav>
       <div className="flex items-center gap-3">
-        <Link to={langPrefix} className="hidden sm:inline text-xs text-white/40 hover:text-white/70 transition-colors">
-          ← jay23.com
-        </Link>
+        <Link to={langPrefix} className="hidden sm:inline text-xs text-white/40 hover:text-white/70 transition-colors">{PAGE_COPY.text[3]}</Link>
         <a
           href="#dla-tworcow"
           onClick={() => c2pEvent("c2p_nav_cta")}
@@ -795,8 +792,8 @@ const NetworkSection = ({ c }: { c: typeof COPY.pl.network }) => (
           </div>
         ))}
         <div className="flex items-center justify-between px-5 py-2 text-[#0B0B0F]/35">
-          <span className="text-xl leading-none">⋮</span>
-          <span className="text-xl leading-none">⋮</span>
+          <span className="text-xl leading-none">{PAGE_COPY.text[4]}</span>
+          <span className="text-xl leading-none">{PAGE_COPY.text[5]}</span>
         </div>
       </div>
     </div>
@@ -864,8 +861,7 @@ const StorefrontSection = ({ c }: { c: typeof COPY.pl.storefront }) => (
           </div>
           <div className="rounded-lg bg-[#0A0A12] border border-white/10 px-4 py-3 flex items-center gap-3">
             <Store size={15} className="text-emerald-400 shrink-0" />
-            <span className="font-mono text-sm text-white/85 select-all">
-              nazwa-tworcy<span className="text-emerald-400">.click2pack.pl</span>
+            <span className="font-mono text-sm text-white/85 select-all">{PAGE_COPY.text[6]}<span className="text-emerald-400">{PAGE_COPY.text[7]}</span>
             </span>
           </div>
           <p className="mt-3 text-xs text-white/40 tracking-wide">{c.exampleLabel}</p>
@@ -1016,7 +1012,7 @@ const BenchmarksSection = ({ c }: { c: typeof COPY.pl.benchmarks }) => (
             </div>
             <p className="text-[#0B0B0F]/70 text-sm mt-2 leading-snug">{label}</p>
             <p className="text-[#0B0B0F]/40 text-xs mt-3">
-              {c.sourceLabel}: {source}
+              {c.sourceLabel}{PAGE_COPY.text[8]}{source}
             </p>
           </motion.div>
         ))}

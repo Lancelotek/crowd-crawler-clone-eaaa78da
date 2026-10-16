@@ -1,3 +1,4 @@
+import { PAGE_COPY } from "@/content/gamefoundCopy";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -321,8 +322,8 @@ const Gamefound = () => {
           <div className="rounded-2xl border border-white/8 bg-white/[0.02] overflow-hidden">
             <div className="grid grid-cols-[1.5fr,1fr,1fr] text-[12px] font-semibold tracking-[0.12em] uppercase text-white/45 border-b border-white/8">
               <div className="px-6 py-4">{c.criterion}</div>
-              <div className="px-6 py-4 text-center bg-primary/5 text-primary">Gamefound</div>
-              <div className="px-6 py-4 text-center">Kickstarter</div>
+              <div className="px-6 py-4 text-center bg-primary/5 text-primary">{PAGE_COPY.text[0]}</div>
+              <div className="px-6 py-4 text-center">{PAGE_COPY.text[1]}</div>
             </div>
             {c.comparison.map((row, i) => (
               <div key={i} className={`grid grid-cols-[1.5fr,1fr,1fr] text-[14px] ${i < c.comparison.length - 1 ? "border-b border-white/5" : ""}`}>
@@ -386,7 +387,7 @@ const Gamefound = () => {
       <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
         <div className="container mx-auto max-w-[820px] px-6">
           <div className="mb-12">
-            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">FAQ</p>
+            <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">{PAGE_COPY.text[2]}</p>
             <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white">
               {c.faqTitle}
             </h2>
@@ -400,7 +401,7 @@ const Gamefound = () => {
                   className="w-full px-6 py-5 flex items-center justify-between text-left gap-4 hover:bg-white/[0.02] transition-colors"
                 >
                   <span className="text-[16px] font-semibold text-white">{f.q}</span>
-                  <span className={`text-primary text-xl transition-transform ${openFaq === i ? "rotate-45" : ""}`}>+</span>
+                  <span className={`text-primary text-xl transition-transform ${openFaq === i ? "rotate-45" : ""}`}>{PAGE_COPY.text[3]}</span>
                 </button>
                 {openFaq === i && (
                   <div className="px-6 pb-5 text-[15px] text-white/60 leading-relaxed font-light">{f.a}</div>
@@ -416,8 +417,7 @@ const Gamefound = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-[radial-gradient(circle,hsl(253_100%_62%/0.12)_0%,transparent_65%)] pointer-events-none" />
         <div className="container mx-auto max-w-[820px] px-6 text-center relative z-10">
           <h2 className="font-display text-[clamp(34px,5vw,64px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">
-            {c.ctaLead} <span className="text-primary">{c.ctaAccent}</span>?
-          </h2>
+            {c.ctaLead} <span className="text-primary">{c.ctaAccent}</span>{PAGE_COPY.text[4]}</h2>
           <p className="text-[17px] text-white/55 mb-10 max-w-[520px] mx-auto font-light leading-relaxed">
             {c.ctaSub}
           </p>

@@ -1,3 +1,4 @@
+import { PAGE_COPY } from "@/content/founderInfluencerCopy";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Mic, Cog, TrendingUp, ChevronDown, ArrowRight } from "lucide-react";
@@ -304,7 +305,7 @@ function OptInForm({ lang }: { lang: Lang }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3" noValidate>
-      <label htmlFor="fi-email" className="sr-only">Email</label>
+      <label htmlFor="fi-email" className="sr-only">{PAGE_COPY.text[0]}</label>
       <input
         id="fi-email"
         type="email"

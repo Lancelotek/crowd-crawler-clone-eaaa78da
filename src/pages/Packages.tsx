@@ -1,3 +1,4 @@
+import { PAGE_COPY } from "@/content/packagesCopy";
 import { useEffect, useRef, useState, useMemo } from "react";
 import { Palette } from "lucide-react";
 import socialProofLogos from "@/assets/social-proof-logos.png";
@@ -62,7 +63,7 @@ function HeroDashboard({ visible, isPl }: { visible: boolean; isPl: boolean }) {
             <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c, opacity: 0.8 }} />
           ))}
         </div>
-        <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)", fontFamily: "monospace" }}>app.mailerlite.com / jay23-campaign</div>
+        <div style={{ fontSize: "10px", color: "rgba(255,255,255,0.25)", fontFamily: "monospace" }}>{PAGE_COPY.text[0]}</div>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1px", background: "rgba(255,255,255,0.04)" }}>
         {[
@@ -105,8 +106,7 @@ function HeroDashboard({ visible, isPl }: { visible: boolean; isPl: boolean }) {
         </table>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "10px 16px", borderTop: "1px solid rgba(255,255,255,0.06)", fontSize: "10px", color: "rgba(255,255,255,0.3)" }}>
-        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", animation: "blink 2s ease-in-out infinite" }} />
-        Stripe · {isPl ? "Płatności" : "Payments"} Early Bird · <strong style={{ color: "#fff" }}>94 × $1.00 {isPl ? "zebranych" : "collected"}</strong> · <span style={{ color: "#10B981", fontWeight: 600 }}>{isPl ? "Na żywo" : "Live"}</span>
+        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", animation: "blink 2s ease-in-out infinite" }} />{PAGE_COPY.text[1]}{isPl ? "Płatności" : "Payments"}{PAGE_COPY.text[2]}<strong style={{ color: "#fff" }}>{PAGE_COPY.text[3]}{isPl ? "zebranych" : "collected"}</strong>{PAGE_COPY.text[4]}<span style={{ color: "#10B981", fontWeight: 600 }}>{isPl ? "Na żywo" : "Live"}</span>
       </div>
     </div>
   );
@@ -340,8 +340,7 @@ const Packages = () => {
                 transition={{ delay: 0.1, duration: 0.6 }}
                 className="text-xs font-semibold tracking-[0.12em] uppercase text-primary/80 mb-7 flex items-center gap-2"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                MVA Framework · {isPl ? "Program 90 dni" : "90-Day Program"}
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />{PAGE_COPY.text[5]}{isPl ? "Program 90 dni" : "90-Day Program"}
               </motion.p>
 
               <motion.h1
@@ -351,9 +350,9 @@ const Packages = () => {
                 className="font-display text-[clamp(40px,5vw,72px)] font-black uppercase leading-[0.96] tracking-tight text-white mb-4"
               >
                 {isPl ? (
-                  <>PAKIETY I CENNIK<br /><span className="text-primary">MVA FRAMEWORK</span></>
+                  <>{PAGE_COPY.text[6]}<br /><span className="text-primary">{PAGE_COPY.text[7]}</span></>
                 ) : (
-                  <>MVA FRAMEWORK<br /><span className="text-primary">PACKAGES & PRICING</span></>
+                  <>{PAGE_COPY.text[8]}<br /><span className="text-primary">{PAGE_COPY.text[9]}</span></>
                 )}
               </motion.h1>
 
@@ -364,9 +363,9 @@ const Packages = () => {
                 className="font-display text-[clamp(28px,3.5vw,52px)] font-black uppercase leading-[0.98] tracking-tight text-white/30 mb-7"
               >
                 {isPl ? (
-                  <>ZBUDUJ SWOICH <span className="text-white/50">1 600 KUPUJĄCYCH</span></>
+                  <>{PAGE_COPY.text[10]}<span className="text-white/50">{PAGE_COPY.text[11]}</span></>
                 ) : (
-                  <>BUILD YOUR <span className="text-white/50">1,600 BUYERS</span></>
+                  <>{PAGE_COPY.text[12]}<span className="text-white/50">{PAGE_COPY.text[13]}</span></>
                 )}
               </motion.p>
 
@@ -442,27 +441,27 @@ const Packages = () => {
         <div className="container mx-auto max-w-[1200px] px-6 py-24">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">Problem</p>
+              <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">{PAGE_COPY.text[14]}</p>
               <h2 className="font-display text-[clamp(28px,3.5vw,44px)] font-extrabold uppercase tracking-tight leading-[1.08] text-foreground">
                 {isPl ? (
-                  <>WIĘKSZOŚĆ PRODUKTÓW STARTUJE{" "}<span className="text-primary">BEZ ZBUDOWANEJ SPOŁECZNOŚCI</span></>
+                  <>{PAGE_COPY.text[15]}{" "}<span className="text-primary">{PAGE_COPY.text[16]}</span></>
                 ) : (
-                  <>MOST PRODUCTS LAUNCH{" "}<span className="text-primary">WITHOUT A BUILT AUDIENCE</span></>
+                  <>{PAGE_COPY.text[17]}{" "}<span className="text-primary">{PAGE_COPY.text[18]}</span></>
                 )}
               </h2>
             </div>
             <div className="space-y-5 text-[15px] text-muted-foreground leading-relaxed">
               {isPl ? (
                 <>
-                  <p>Budujesz produkt i liczysz, że ludzie się pojawią. Pierwsze 48 godzin decyduje o wszystkim — algorytm Kickstartera promuje kampanie ze spike'iem, i karze te, które startują w ciszy.</p>
-                  <p>Twoja konkurencja budowała listę przez 4 miesiące zanim kliknęłeś launch. <strong className="text-foreground font-semibold">Reklamy do zimnego ruchu podczas live kampanii spalają budżet</strong> w najgorszym możliwym momencie.</p>
-                  <p>Fix to nie lepsze reklamy podczas launchu. Fix to publiczność zbudowana przed launchem. <strong className="text-foreground font-semibold">To właśnie dostarcza MVA Framework.</strong></p>
+                  <p>{PAGE_COPY.text[19]}</p>
+                  <p>{PAGE_COPY.text[20]}<strong className="text-foreground font-semibold">{PAGE_COPY.text[21]}</strong>{PAGE_COPY.text[22]}</p>
+                  <p>{PAGE_COPY.text[23]}<strong className="text-foreground font-semibold">{PAGE_COPY.text[24]}</strong></p>
                 </>
               ) : (
                 <>
-                  <p>You build a product and hope people show up. The first 48 hours decide everything — Kickstarter's algorithm promotes campaigns with a spike, and punishes those that launch in silence.</p>
-                  <p>Your competition spent 4 months building a list before you hit launch. <strong className="text-foreground font-semibold">Cold traffic ads during a live campaign burn budget</strong> at the worst possible moment.</p>
-                  <p>The fix isn't better ads during launch. The fix is an audience built before launch. <strong className="text-foreground font-semibold">That's exactly what MVA Framework delivers.</strong></p>
+                  <p>{PAGE_COPY.text[25]}</p>
+                  <p>{PAGE_COPY.text[26]}<strong className="text-foreground font-semibold">{PAGE_COPY.text[27]}</strong>{PAGE_COPY.text[28]}</p>
+                  <p>{PAGE_COPY.text[29]}<strong className="text-foreground font-semibold">{PAGE_COPY.text[30]}</strong></p>
                 </>
               )}
             </div>
@@ -475,7 +474,7 @@ const Packages = () => {
         <div className="container mx-auto max-w-[1200px] px-6 pb-24">
           <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">{isPl ? "Framework MVA" : "MVA Framework"}</p>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-extrabold uppercase tracking-tight leading-[1.05] text-foreground mb-14">
-            {isPl ? <>OD ODKRYCIA <span className="text-muted-foreground">DO STARTU</span></> : <>FROM DISCOVERY <span className="text-muted-foreground">TO LAUNCH</span></>}
+            {isPl ? <>{PAGE_COPY.text[31]}<span className="text-muted-foreground">{PAGE_COPY.text[32]}</span></> : <>{PAGE_COPY.text[33]}<span className="text-muted-foreground">{PAGE_COPY.text[34]}</span></>}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-3">
@@ -496,7 +495,7 @@ const Packages = () => {
                 <ul className="mb-6 space-y-0">
                   {p.items.map((item, j) => (
                     <li key={j} className="flex gap-2.5 items-start text-[13px] text-foreground/55 py-1.5 border-b border-border/50">
-                      <span className="text-primary text-xs mt-0.5 shrink-0">→</span>
+                      <span className="text-primary text-xs mt-0.5 shrink-0">{PAGE_COPY.text[35]}</span>
                       {item}
                     </li>
                   ))}
@@ -511,11 +510,11 @@ const Packages = () => {
       {/* ── CASE STUDIES (light) ── */}
       <section className="bg-background">
         <div className="container mx-auto max-w-[1200px] px-6 pb-24">
-          <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">Case Studies</p>
+          <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">{PAGE_COPY.text[36]}</p>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-extrabold uppercase tracking-tight leading-[1.05] text-foreground mb-14">
             {isPl
-              ? <>UDANE STARTY <span className="text-muted-foreground">DZIĘKI STRATEGII AUDIENCE-FIRST</span></>
-              : <>SUCCESSFUL LAUNCHES <span className="text-muted-foreground">WITH AUDIENCE-FIRST STRATEGY</span></>
+              ? <>{PAGE_COPY.text[37]}<span className="text-muted-foreground">{PAGE_COPY.text[38]}</span></>
+              : <>{PAGE_COPY.text[39]}<span className="text-muted-foreground">{PAGE_COPY.text[40]}</span></>
             }
           </h2>
 
@@ -571,8 +570,8 @@ const Packages = () => {
           <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">{isPl ? "Pakiety" : "Packages"}</p>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-extrabold uppercase tracking-tight leading-[1.05] text-foreground mb-14">
             {isPl
-              ? <>TRZY SPOSOBY <span className="text-muted-foreground">NA WSPÓŁPRACĘ</span></>
-              : <>THREE WAYS <span className="text-muted-foreground">TO WORK TOGETHER</span></>
+              ? <>{PAGE_COPY.text[41]}<span className="text-muted-foreground">{PAGE_COPY.text[42]}</span></>
+              : <>{PAGE_COPY.text[43]}<span className="text-muted-foreground">{PAGE_COPY.text[44]}</span></>
             }
           </h2>
 
@@ -635,7 +634,7 @@ const Packages = () => {
                             ? "text-white/50 border-white/[0.07]"
                             : "text-foreground/60 border-border/60"
                         }`}>
-                          <span className="text-primary text-xs mt-0.5 shrink-0">→</span>
+                          <span className="text-primary text-xs mt-0.5 shrink-0">{PAGE_COPY.text[45]}</span>
                           <span>
                             {text}
                             {badge && (
@@ -659,7 +658,7 @@ const Packages = () => {
                       <span className={`font-display text-4xl font-extrabold ${isFeatured ? "text-white" : "text-foreground"}`}>
                         {pkg.priceMonthly}
                       </span>
-                      <span className={`text-[13px] font-medium ml-1 ${isFeatured ? "text-white/40" : "text-muted-foreground"}`}>/ {isPl ? "miesiąc" : "month"}</span>
+                      <span className={`text-[13px] font-medium ml-1 ${isFeatured ? "text-white/40" : "text-muted-foreground"}`}>{PAGE_COPY.text[46]}{isPl ? "miesiąc" : "month"}</span>
                       {pkg.priceTotal && (
                         <p className={`text-xs mt-1 mb-1 ${isFeatured ? "text-white/30" : "text-muted-foreground"}`}>{pkg.priceTotal}</p>
                       )}
@@ -714,11 +713,11 @@ const Packages = () => {
       {/* ── FAQ (light) ── */}
       <section className="bg-background">
         <div className="container mx-auto max-w-[1200px] px-6 pb-24">
-          <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">FAQ</p>
+          <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-primary mb-3">{PAGE_COPY.text[47]}</p>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-extrabold uppercase tracking-tight leading-[1.05] text-foreground mb-14">
             {isPl
-              ? <>SZCZERE ODPOWIEDZI <span className="text-muted-foreground">NA TRUDNE PYTANIA</span></>
-              : <>HONEST ANSWERS <span className="text-muted-foreground">TO HARD QUESTIONS</span></>
+              ? <>{PAGE_COPY.text[48]}<span className="text-muted-foreground">{PAGE_COPY.text[49]}</span></>
+              : <>{PAGE_COPY.text[50]}<span className="text-muted-foreground">{PAGE_COPY.text[51]}</span></>
             }
           </h2>
 
@@ -732,9 +731,7 @@ const Packages = () => {
                     className="w-full flex justify-between items-center gap-5 py-6 text-left font-display text-[clamp(17px,2vw,22px)] font-bold uppercase tracking-wider text-foreground hover:text-primary transition-colors"
                   >
                     {faq.q}
-                    <span className={`shrink-0 w-7 h-7 border-2 border-primary/20 rounded-full flex items-center justify-center text-primary text-lg transition-transform ${isOpen ? "rotate-45 border-primary" : ""}`}>
-                      +
-                    </span>
+                    <span className={`shrink-0 w-7 h-7 border-2 border-primary/20 rounded-full flex items-center justify-center text-primary text-lg transition-transform ${isOpen ? "rotate-45 border-primary" : ""}`}>{PAGE_COPY.text[52]}</span>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[300px]" : "max-h-0"}`}>
                     <p className="pb-6 text-[15px] text-muted-foreground leading-relaxed max-w-[720px]">{faq.a}</p>
@@ -752,9 +749,9 @@ const Packages = () => {
           <p className="text-[11px] font-semibold tracking-[0.14em] uppercase text-white/50 mb-4">{isPl ? "Zacznij teraz" : "Start now"}</p>
           <h2 className="font-display text-[clamp(36px,5vw,64px)] font-black uppercase text-white leading-none mb-8">
             {isPl ? (
-              <>PRZESTAŃ STARTOWAĆ W CISZY.<br />ZACZNIJ BUDOWAĆ POPYT.</>
+              <>{PAGE_COPY.text[53]}<br />{PAGE_COPY.text[54]}</>
             ) : (
-              <>STOP LAUNCHING IN SILENCE.<br />START BUILDING DEMAND.</>
+              <>{PAGE_COPY.text[55]}<br />{PAGE_COPY.text[56]}</>
             )}
           </h2>
           <Link
@@ -770,13 +767,8 @@ const Packages = () => {
             }
           </p>
           {!isPl && (
-            <p className="text-[13px] text-white/40 mt-6 font-light">
-              Not ready to talk? Read{" "}
-              <a href="/en/prelaunch-marketing-playbook" className="text-white/70 underline underline-offset-4 hover:text-white">
-                the complete pre-launch marketing playbook
-              </a>{" "}
-              first.
-            </p>
+            <p className="text-[13px] text-white/40 mt-6 font-light">{PAGE_COPY.text[57]}{" "}
+              <a href="/en/prelaunch-marketing-playbook" className="text-white/70 underline underline-offset-4 hover:text-white">{PAGE_COPY.text[58]}</a>{" "}{PAGE_COPY.text[59]}</p>
           )}
         </div>
       </section>
