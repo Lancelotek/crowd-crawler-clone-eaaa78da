@@ -9,7 +9,7 @@ import {
   renderPrerenderedHtml,
   blogRouteMeta,
   toPrerenderRoute,
-  NOT_FOUND_ROUTE,
+  renderEntryDocuments,
   type BlogRow,
   type PrerenderRoute,
 } from "./src/seo/prerenderRoutes";
@@ -249,10 +249,10 @@ const prerenderHead = (): Plugin => ({
           `Add them to src/seo/routeMeta.ts (or the blog source) and rebuild.`,
       );
     }
-    // The SPA shell (served for every unknown URL) reads as a real 404.
-    const notFoundHtml = renderPrerenderedHtml(indexHtml, NOT_FOUND_ROUTE);
-    fs.writeFileSync(path.join(dist, "404.html"), notFoundHtml);
-    fs.writeFileSync(indexPath, notFoundHtml);
+    // The host serves index.html at / and for SPA fallbacks; keep 404 separate.
+    for (const [file, html] of Object.entries(renderEntryDocuments(indexHtml))) {
+      fs.writeFileSync(path.join(dist, file), html);
+    }
 
     const llmsCount = writeLlmsFiles(dist, routes);
     const feeds = writeFeeds(dist, blogEntries);
