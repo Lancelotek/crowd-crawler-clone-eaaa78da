@@ -36,7 +36,6 @@ const Gamefound = lazy(() => import("./pages/Gamefound"));
 const SaasPrelaunch = lazy(() => import("./pages/SaasPrelaunch"));
 const SaasPrelaunchPL = lazy(() => import("./pages/SaasPrelaunchPL"));
 const WirtualnaRecepcjaPL = lazy(() => import("./pages/WirtualnaRecepcjaPL"));
-const WirtualnaRecepcjaPL = lazy(() => import("./pages/WirtualnaRecepcjaPL"));
 const EcommercePrelaunch = lazy(() => import("./pages/EcommercePrelaunch"));
 const EcommercePrelaunchPL = lazy(() => import("./pages/EcommercePrelaunchPL"));
 const Click2Pack = lazy(() => import("./pages/Click2Pack"));
