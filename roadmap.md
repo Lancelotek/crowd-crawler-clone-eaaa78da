@@ -6,6 +6,7 @@
 
 # Production prerender SEO
 - [x] Restore the root EN homepage shell with canonical and instant meta refresh; preserve 404.html.
-- [ ] Extract shared page copy and complete all 23 affected static bodies, blog indexes, and legal text.
-- [ ] Add output tests and the sitemap main-content guard; blocked by the unchanged 100-word Impressum versus the required 250-word minimum.
+- [x] Extract shared page copy and complete all 23 affected static bodies, blog indexes, and legal text.
+- [x] Add root/404, blog-index and 250-word validation tests; report short pages without padding their copy.
+- [ ] Enable strict build-time enforcement; blocked by short unchanged Impressum, booking/about content, and one existing 213-word article. Needs approval for short-page exceptions or copy expansion.
 - [ ] Verify raw output and report changed files and route word counts; do not publish.
