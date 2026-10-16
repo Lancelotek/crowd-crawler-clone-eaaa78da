@@ -305,11 +305,7 @@ export const renderPrerenderedHtml = (indexHtml: string, route: PrerenderRoute) 
   );
 };
 
-/**
- * The SPA shell (dist/index.html + dist/404.html). Static hosting serves it for
- * every URL outside the prerender map, so it must read as a real 404 to
- * crawlers instead of impersonating the homepage.
- */
+/** Dedicated 404 document. Lovable's SPA fallback uses index.html, not this file. */
 export const NOT_FOUND_ROUTE: PrerenderRoute = {
   path: "/404",
   canonical: `${BASE_URL}/`,
@@ -326,4 +322,18 @@ export const NOT_FOUND_ROUTE: PrerenderRoute = {
   robots: "noindex,nofollow",
   schema: [],
   body: notFoundBody(),
+};
+
+/** Root and 404 are separate documents; the root shares the EN homepage head/body. */
+export const renderEntryDocuments = (indexHtml: string): Record<"index.html" | "404.html", string> => {
+  const home = getPrerenderRoute("/en");
+  if (!home) throw new Error("[prerender] EN homepage is missing from the route registry");
+  const rootHtml = renderPrerenderedHtml(indexHtml, home).replace(
+    /<\/head>/i,
+    `    <meta http-equiv="refresh" content="0; url=${BASE_URL}/en">\n  </head>`,
+  );
+  return {
+    "index.html": rootHtml,
+    "404.html": renderPrerenderedHtml(indexHtml, NOT_FOUND_ROUTE),
+  };
 };

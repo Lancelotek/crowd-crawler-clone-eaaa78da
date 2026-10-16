@@ -21,6 +21,7 @@ import { ABOUT_COPY } from "../content/aboutCopy";
 import { FAQ_COPY } from "../content/faqCopy";
 import { PHASES, OUTCOMES } from "../content/processCopy";
 import { playbookCopy as playbook, PLAYBOOK_PRODUCTS, ADD_ON_IDS } from "../content/mvaPlaybook";
+import { sharedPageBody } from "./sharedPageBody";
 
 const esc = (v: string) =>
   v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -197,9 +198,9 @@ const homeFallback = (lang: "en" | "pl") =>
     p(t.problem.transition[lang]),
     h2(`${t.howItWorks.title[lang]} ${t.howItWorks.titleAccent[lang]}`),
     ul([
-      `${t.howItWorks.phase1Label[lang]} · ${t.howItWorks.phase1Title[lang]} — ${clamp(t.howItWorks.phase1Desc[lang], 20)}`,
-      `${t.howItWorks.phase2Label[lang]} · ${t.howItWorks.phase2Title[lang]} — ${clamp(t.howItWorks.phase2Desc[lang], 20)}`,
-      `${t.howItWorks.phase3Label[lang]} · ${t.howItWorks.phase3Title[lang]} — ${clamp(t.howItWorks.phase3Desc[lang], 20)}`,
+      `${t.howItWorks.phase1Label[lang]} · ${t.howItWorks.phase1Title[lang]} — ${t.howItWorks.phase1Desc[lang]}`,
+      `${t.howItWorks.phase2Label[lang]} · ${t.howItWorks.phase2Title[lang]} — ${t.howItWorks.phase2Desc[lang]}`,
+      `${t.howItWorks.phase3Label[lang]} · ${t.howItWorks.phase3Title[lang]} — ${t.howItWorks.phase3Desc[lang]}`,
     ]),
     h2(`${t.whatYouGet.title[lang]} ${t.whatYouGet.titleAccent[lang]}`),
     ul([
@@ -209,6 +210,7 @@ const homeFallback = (lang: "en" | "pl") =>
       `${t.whatYouGet.f4Title[lang]} — ${t.whatYouGet.f4Desc[lang]}`,
     ]),
     bookCta(lang),
+    ...FAQ_COPY[lang].items.map(item => h2(item.q) + p(item.a)),
   ]);
 
 /* ─── Core pages ────────────────────────────────────────────── */
@@ -220,6 +222,7 @@ const aboutFallback = (lang: "en" | "pl") => {
     h2(`${c.founderName} — ${c.founderTitle}`),
     p(c.bio1),
     p(c.bio2),
+    p(c.bio3),
     h2(c.whatWeDoTitle),
     ul([
       `${c.card1Title} — ${c.card1Desc}`,
@@ -228,6 +231,8 @@ const aboutFallback = (lang: "en" | "pl") => {
     ]),
     ul([c.stat1, c.stat2, c.stat3, c.stat4]),
     h2(c.ctaTitle),
+    link(`/${lang}/quiz`, c.ctaCalc),
+    link(`/${lang}/book`, c.ctaBook),
     bookCta(lang),
   ]);
 };
@@ -310,6 +315,13 @@ export const blogFallbackBody = (row: BlogFallbackRow, lang: "en" | "pl") => {
   ]);
 };
 
+export const blogIndexBody = (rows: (BlogFallbackRow & { slug: string; published_at?: string | null })[], lang: "en" | "pl") =>
+  wrap(lang, [
+    h1(`${t.blog.title[lang]} ${t.blog.titleAccent[lang]}`),
+    ...[...rows].sort((a, b) => (b.published_at ?? "").localeCompare(a.published_at ?? "")).map(row =>
+      `<article><h2><a href="/${lang}/blog/${esc(row.slug)}">${esc(row.title)}</a></h2>${row.excerpt ? p(row.excerpt) : ""}</article>`),
+  ]);
+
 /* ─── Generic ───────────────────────────────────────────────── */
 const genericFallback = (meta: RouteMeta) =>
   wrap(meta.lang, [
@@ -343,7 +355,9 @@ export const buildFallbackBody = (meta: RouteMeta): string => {
   const landing = landingFallback(meta);
   if (landing) return landing;
 
-  const slug = path.replace(/^\/(en|pl)/, "");
+  const slug = (meta.alias && meta.canonical ? new URL(meta.canonical).pathname : path).replace(/^\/(en|pl)/, "");
+  const shared = sharedPageBody(slug, lang);
+  if (shared) return wrap(lang, [/<h1\b/.test(shared) ? "" : h1(meta.title), shared]);
   switch (slug) {
     case "/about":
       return aboutFallback(lang);

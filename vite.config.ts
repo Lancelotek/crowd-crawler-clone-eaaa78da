@@ -9,12 +9,13 @@ import {
   renderPrerenderedHtml,
   blogRouteMeta,
   toPrerenderRoute,
-  NOT_FOUND_ROUTE,
+  renderEntryDocuments,
   type BlogRow,
   type PrerenderRoute,
 } from "./src/seo/prerenderRoutes";
-import { blogFallbackBody, bodyToPlainText } from "./src/seo/fallbackBody";
+import { blogFallbackBody, blogIndexBody, bodyToPlainText } from "./src/seo/fallbackBody";
 import { findMetaLengthViolations, ROUTE_META, BASE_URL } from "./src/seo/routeMeta";
+import { findShortSitemapBodies } from "./src/seo/bodyValidation";
 
 const SUPABASE_URL = "https://zquojuopxmvvzadwshjx.supabase.co";
 const SUPABASE_ANON_KEY =
@@ -36,8 +37,8 @@ const fetchBlogRoutes = async (): Promise<PrerenderRoute[]> => {
   const columns =
     "slug, title, excerpt, content, cover_image, published_at, author, counterpart_slug";
   const [{ data: en }, { data: pl }] = await Promise.all([
-    supabase.from("blog_posts").select(columns),
-    supabase.from("blog_posts_pl").select(columns),
+    supabase.from("blog_posts").select(columns).order("published_at", { ascending: false }),
+    supabase.from("blog_posts_pl").select(columns).order("published_at", { ascending: false }),
   ]);
   const rows: PrerenderRoute[] = [];
   for (const row of (en ?? []) as BlogRow[]) {
@@ -217,7 +218,10 @@ const prerenderHead = (): Plugin => ({
       );
     }
 
-    const routes = [...PRERENDER_ROUTES, ...blogRoutes];
+    const routes = [...PRERENDER_ROUTES, ...blogRoutes].map(route => {
+      if (!/^\/(en|pl)?\/?blog$/.test(route.path)) return route;
+      return { ...route, body: blogIndexBody(blogEntries.filter(e => e.lang === route.lang).map(e => e.row), route.lang) };
+    });
 
     // Build-time assertion: nothing Google would truncate ships.
     const tooLong = [
@@ -249,10 +253,16 @@ const prerenderHead = (): Plugin => ({
           `Add them to src/seo/routeMeta.ts (or the blog source) and rebuild.`,
       );
     }
-    // The SPA shell (served for every unknown URL) reads as a real 404.
-    const notFoundHtml = renderPrerenderedHtml(indexHtml, NOT_FOUND_ROUTE);
-    fs.writeFileSync(path.join(dist, "404.html"), notFoundHtml);
-    fs.writeFileSync(indexPath, notFoundHtml);
+    // Full enforcement awaits approval to change the genuinely short legal/booking copy.
+    // Never pad crawler-only content or silently exclude indexable sitemap URLs.
+    const shortBodies = findShortSitemapBodies(routes, sitemapPaths());
+    if (shortBodies.length) {
+      console.warn(`[prerender] 250-word guard pending short-copy decision:\n${shortBodies.map(r => `  ${r.path}: ${r.words}/250`).join("\n")}`);
+    }
+    // The host serves index.html at / and for SPA fallbacks; keep 404 separate.
+    for (const [file, html] of Object.entries(renderEntryDocuments(indexHtml))) {
+      fs.writeFileSync(path.join(dist, file), html);
+    }
 
     const llmsCount = writeLlmsFiles(dist, routes);
     const feeds = writeFeeds(dist, blogEntries);
