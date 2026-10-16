@@ -15,6 +15,7 @@ import {
 } from "./src/seo/prerenderRoutes";
 import { blogFallbackBody, blogIndexBody, bodyToPlainText } from "./src/seo/fallbackBody";
 import { findMetaLengthViolations, ROUTE_META, BASE_URL } from "./src/seo/routeMeta";
+import { findShortSitemapBodies } from "./src/seo/bodyValidation";
 
 const SUPABASE_URL = "https://zquojuopxmvvzadwshjx.supabase.co";
 const SUPABASE_ANON_KEY =
@@ -251,6 +252,12 @@ const prerenderHead = (): Plugin => ({
         `[prerender] ${missing.length} sitemap URL(s) have no prerender entry:\n  ${missing.join("\n  ")}\n` +
           `Add them to src/seo/routeMeta.ts (or the blog source) and rebuild.`,
       );
+    }
+    // Full enforcement awaits approval to change the genuinely short legal/booking copy.
+    // Never pad crawler-only content or silently exclude indexable sitemap URLs.
+    const shortBodies = findShortSitemapBodies(routes, sitemapPaths());
+    if (shortBodies.length) {
+      console.warn(`[prerender] 250-word guard pending short-copy decision:\n${shortBodies.map(r => `  ${r.path}: ${r.words}/250`).join("\n")}`);
     }
     // The host serves index.html at / and for SPA fallbacks; keep 404 separate.
     for (const [file, html] of Object.entries(renderEntryDocuments(indexHtml))) {

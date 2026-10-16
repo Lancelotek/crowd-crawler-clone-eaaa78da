@@ -23,7 +23,7 @@ const prose = (copy: Copy, lang: Lang) => copy.blocks[lang].map(block => {
 
 /** Only already-visible content: never include metadata, errors, success states or URLs. */
 const dataBody = (value: unknown, key = ""): string => {
-  if (/^(seo|meta|og|icon|nav|footer|.*Error|.*Ph$|success|micro|submit|consent|email|invalid|.*Slug|.*Link)/i.test(key)) return "";
+  if (/^(seo|meta|og|icon|nav|footer|.*Error|.*Ph$|success|micro|submit|consent|email|invalid|.*Slug|.*Link)/i.test(key) || key === "h1") return "";
   if (typeof value === "string") {
     if (/^(https?:|\/|#)/.test(value)) return "";
     const tag = /^(h2|.*Title|.*Heading|s\dh|brandH|.*h3)$/.test(key) ? "h2" : "p";

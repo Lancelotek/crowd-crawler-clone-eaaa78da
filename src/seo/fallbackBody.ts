@@ -198,9 +198,9 @@ const homeFallback = (lang: "en" | "pl") =>
     p(t.problem.transition[lang]),
     h2(`${t.howItWorks.title[lang]} ${t.howItWorks.titleAccent[lang]}`),
     ul([
-      `${t.howItWorks.phase1Label[lang]} · ${t.howItWorks.phase1Title[lang]} — ${clamp(t.howItWorks.phase1Desc[lang], 20)}`,
-      `${t.howItWorks.phase2Label[lang]} · ${t.howItWorks.phase2Title[lang]} — ${clamp(t.howItWorks.phase2Desc[lang], 20)}`,
-      `${t.howItWorks.phase3Label[lang]} · ${t.howItWorks.phase3Title[lang]} — ${clamp(t.howItWorks.phase3Desc[lang], 20)}`,
+      `${t.howItWorks.phase1Label[lang]} · ${t.howItWorks.phase1Title[lang]} — ${t.howItWorks.phase1Desc[lang]}`,
+      `${t.howItWorks.phase2Label[lang]} · ${t.howItWorks.phase2Title[lang]} — ${t.howItWorks.phase2Desc[lang]}`,
+      `${t.howItWorks.phase3Label[lang]} · ${t.howItWorks.phase3Title[lang]} — ${t.howItWorks.phase3Desc[lang]}`,
     ]),
     h2(`${t.whatYouGet.title[lang]} ${t.whatYouGet.titleAccent[lang]}`),
     ul([
@@ -210,6 +210,7 @@ const homeFallback = (lang: "en" | "pl") =>
       `${t.whatYouGet.f4Title[lang]} — ${t.whatYouGet.f4Desc[lang]}`,
     ]),
     bookCta(lang),
+    ...FAQ_COPY[lang].items.map(item => h2(item.q) + p(item.a)),
   ]);
 
 /* ─── Core pages ────────────────────────────────────────────── */
@@ -221,6 +222,7 @@ const aboutFallback = (lang: "en" | "pl") => {
     h2(`${c.founderName} — ${c.founderTitle}`),
     p(c.bio1),
     p(c.bio2),
+    p(c.bio3),
     h2(c.whatWeDoTitle),
     ul([
       `${c.card1Title} — ${c.card1Desc}`,
@@ -229,6 +231,8 @@ const aboutFallback = (lang: "en" | "pl") => {
     ]),
     ul([c.stat1, c.stat2, c.stat3, c.stat4]),
     h2(c.ctaTitle),
+    link(`/${lang}/quiz`, c.ctaCalc),
+    link(`/${lang}/book`, c.ctaBook),
     bookCta(lang),
   ]);
 };
