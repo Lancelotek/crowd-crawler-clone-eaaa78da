@@ -557,3 +557,92 @@ export const PAGE_COPY = {
     ]
   }
 };
+
+export const reasons = [
+    {
+      icon: "ShoppingBag",
+      label: "Demand before inventory",
+      title: "Validate the SKU before you commit to a production run",
+      body: "Most DTC and crowdfunding founders order 1,000 units, then look for buyers. We do it backwards: build a landing page, run paid traffic to a waitlist with a deposit option, and only commit production once unit-economics check out. Wrong SKU caught on $400 in ad spend, not $40,000 in inventory.",
+    },
+    {
+      icon: "Users",
+      label: "1,000 buyers, not 1,000 followers",
+      title: "An MVA outconverts a cold Shopify launch by 8–14×",
+      body: "Followers don't ship cash. An MVA is a ranked list of 1,000+ people who told you, in advance, that they want exactly this product at roughly this price. Day-one paid conversion on an MVA sits at 8–14% — what most cold Shopify launches do across their first 90 days combined.",
+    },
+    {
+      icon: "TrendingUp",
+      label: "Algorithm momentum",
+      title: "First 72 hours decide if Kickstarter, Gamefound or Meta scale you",
+      body: "Crowdfunding algorithms (KS, Gamefound) and ad platforms (Meta, TikTok) reward early velocity. With an MVA primed in 4 activation waves, you hit funding goals or 4× ROAS in the first 3 days — and the platform amplifies you to a much larger cold audience for free.",
+    },
+    {
+      icon: "Truck",
+      label: "Pre-orders fund inventory",
+      title: "Customers pay for the production run instead of your cash flow",
+      body: "Done right, an MVA-driven launch collects 30–80% of cost-of-goods in pre-orders or deposits before the factory invoice lands. This is how DTC brands launch a $200k SKU with $20k of working capital instead of a Shopify Capital loan.",
+    },
+  ];
+
+export const phases = [
+    { n: "01", title: "Discover — niche, SKU and price test", body: "We pressure-test the product: which exact buyer, which use case, which price point. Competitive teardown of adjacent eCommerce/Kickstarter campaigns, audience research on TikTok and Reddit, lead magnet design (sample, discount, deposit, or guide). Output: positioning, 3 message angles, lead magnet that pulls signups at $1.50–$3.50 CPL." },
+    { n: "02", title: "Build — landing, ad funnel, email engine", body: "One conversion-optimized landing page with deposit or waitlist mechanic. Meta + TikTok + Pinterest ad funnels (Google Search if intent is there). MailerLite or Klaviyo sequences for nurture and warm-up. Pixel + GA4 + UTM event layer so day-one ROAS data is real, not directional." },
+    { n: "03", title: "Launch — 4-wave activation + retargeting", body: "T-7 days: warm-up email + behind-the-scenes content. Launch day: 4 staggered email waves to MVA, retargeting to engaged non-buyers, organic drops in relevant communities. Week one: founder-led video updates, scarcity tiers, retargeting layered on lookalikes from day-one buyers. We optimize until ROAS stabilizes." },
+  ];
+
+export const deliverables = [
+    "Niche, ICP and price-point validation doc",
+    "1 conversion-optimized landing page (Shopify / Webflow / Framer)",
+    "Lead magnet: sample, deposit page, discount or guide",
+    "Meta, TikTok and Pinterest paid ad funnels",
+    "Email sequence (5–9 emails) in Klaviyo / MailerLite",
+    "Pixel + GA4 + Triple Whale-ready event layer",
+    "Launch-day playbook with 4-wave activation",
+    "Weekly ROAS, CPL and contribution-margin reporting",
+  ];
+
+export const comparison = [
+    { row: "Pre-launch demand validation", mva: true, cold: false },
+    { row: "Day-one paying customers", mva: "100–500", cold: "0–20" },
+    { row: "Inventory risk", mva: "Funded by pre-orders", cold: "All on founder" },
+    { row: "Day-one ROAS known", mva: true, cold: false },
+    { row: "Launch-day platform momentum", mva: "Compound", cold: "Flatline" },
+    { row: "Time to break-even on production", mva: "Day 1–14", cold: "Month 3–9" },
+    { row: "Cost", mva: "$6k + ad spend", cold: "$0 + dead inventory" },
+  ];
+
+export const faqs = [
+    {
+      q: "We're launching on Kickstarter. Is this different from a 'crowdfunding agency'?",
+      a: "Same engine, broader application. JAY-23 ran 46 crowdfunding campaigns and $1.2M+ in committed revenue, mostly on Kickstarter and Gamefound. The MVA Framework is platform-agnostic: same playbook works for KS, Gamefound, Indiegogo, Shopify pre-orders, or DTC waitlists. The lead magnet and CTA change; the audience-building physics don't.",
+    },
+    {
+      q: "We're a DTC brand without crowdfunding. Does this still apply?",
+      a: "Yes. Plenty of MVA clients launch directly on Shopify with a waitlist + deposit + early-bird tier. The framework is even cleaner outside crowdfunding — no platform deadline pressure, no 5% platform fee, full data ownership. We just swap 'launch day' for 'pre-order open' and run the same 4-wave activation.",
+    },
+    {
+      q: "How long is the engagement and what does it cost?",
+      a: "90 days is the standard MVA cycle. Pricing is $1,500/month for 3 months ($4,500 total) for the agency fee, plus your media budget — typically $3,000–$8,000 across the 90 days for sub-$300 SKUs, more for premium. Full breakdown on the packages page.",
+    },
+    {
+      q: "What if we already tried Meta ads and they didn't work?",
+      a: "That's the most common starting point. The usual diagnosis isn't 'Meta doesn't work for us' — it's 'we ran cold conversion campaigns to a checkout with no audience warmth, no message-market fit and no creative testing budget'. MVA front-loads warm-up: lead magnet first, deposit/checkout later, with creative iterated on real CPL data, not gut.",
+    },
+    {
+      q: "What product categories does this work for?",
+      a: "Strong fit: physical consumer goods $30–$500, tabletop and games, hardware/gadgets, premium accessories, design objects, niche tools. Weaker fit: pure commodities (already-saturated SKUs on Amazon), regulated categories (supplements with FDA constraints, alcohol), B2B procurement. We'll tell you on the call if your category isn't a fit.",
+    },
+    {
+      q: "Do you guarantee revenue, units sold, or ROAS?",
+      a: "We guarantee process and benchmarks: a working funnel within 30 days, CPL within the agreed range, and weekly transparent reporting. Revenue depends on price point, category and budget. Across 46 campaigns the median raise is $50k–$200k. We won't promise a number we can't model from your inputs.",
+    },
+    {
+      q: "Can we keep working with you after launch / after Kickstarter ends?",
+      a: "Yes. About half of MVA clients continue into a post-launch retainer focused on Late Pledge (for crowdfunding), Shopify pre-order extension, retention email flows and channel expansion. We're not a forever-agency — we hand off to your in-house team or a performance shop once the system is stable.",
+    },
+    {
+      q: "Where are you based?",
+      a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with founders globally — North America, EU, UK, AU. Weekly 30-min sync, async daily updates, monthly strategy review.",
+    },
+  ];

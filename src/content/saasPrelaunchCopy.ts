@@ -441,3 +441,92 @@ export const PAGE_COPY = {
     ]
   }
 };
+
+export const reasons = [
+    {
+      icon: "Target",
+      label: "Demand validation",
+      title: "Stop building for an audience that may not exist",
+      body: "Most SaaS founders write code for 6–12 months before they know if anyone wants the product. We invert the order: validate buying intent with a landing page, lead magnet and paid traffic before the first line of production code. If the cost-per-lead is wrong, the idea is wrong — and you saved a year.",
+    },
+    {
+      icon: "Users",
+      label: "1,000 true fans",
+      title: "Build a Minimum Viable Audience, not just a waitlist",
+      body: "A waitlist is a list of email addresses. An MVA is 1,000+ people who self-identified as having the exact problem your SaaS solves, ranked by intent. Day-one paid conversion on an MVA is 8–14×, not 2–3% like a cold launch on Product Hunt.",
+    },
+    {
+      icon: "LineChart",
+      label: "Real GTM data",
+      title: "Know your CAC, payback and message before you launch",
+      body: "By the time we hand off, you have CPL benchmarks, the message-market fit angle that actually converted, the channel mix that worked, and a rough LTV/CAC model — not a deck of assumptions. Investors and your future Head of Growth get a base camp instead of a blank page.",
+    },
+    {
+      icon: "Rocket",
+      label: "Launch day with leverage",
+      title: "Day-one revenue that doesn't depend on a single tweet",
+      body: "Cold launches put 100% of risk on launch-day virality. We script a 4-wave activation across email, retargeting and Slack/Discord communities so even a quiet launch day produces 50–200 paying activations and 1,500+ trials in week one.",
+    },
+  ];
+
+export const phases = [
+    { n: "01", title: "Discover — narrow positioning & ICP", body: "We pressure-test the wedge: which exact ICP segment, which pain, which willingness to pay. We map adjacent SaaS that already monetizes a similar audience and reverse-engineer their messaging gaps. Output: positioning doc, 3 message angles, lead magnet that pulls signups for $1.50–$4 CPL." },
+    { n: "02", title: "Build — landing, lead magnet, paid funnel", body: "One sharp landing page on your domain. A lead magnet that's actually useful (template, mini-tool, benchmark report), not a generic ebook. Meta + LinkedIn + Reddit ad funnels, MailerLite or Customer.io sequences, and a tagged event layer so day-one cohorts are tracked from day one." },
+    { n: "03", title: "Launch — activate the MVA across 4 waves", body: "T-7 days: warm-up email + Loom video. Launch day: 4 staggered email waves + retargeting + community drops. Week one: founder-led DMs to top 5% engaged leads, onboarding loops, weekly close calls. We optimize until activation curves stabilize, not until launch night ends." },
+  ];
+
+export const deliverables = [
+    "Positioning, ICP and message-market fit doc",
+    "1 conversion-optimized landing page (your domain)",
+    "Lead magnet (template / mini-tool / benchmark report)",
+    "Meta, LinkedIn and Reddit paid ad funnels",
+    "Email sequence (5–9 emails) in MailerLite / Customer.io",
+    "Analytics + UTM event layer (GA4 + Plausible)",
+    "Launch-day playbook and 4-wave activation script",
+    "Weekly metrics review and CPL/CAC benchmarks",
+  ];
+
+export const comparison = [
+    { row: "Pre-launch demand validation", mva: true, cold: false },
+    { row: "Day-one paying users", mva: "50–200", cold: "0–10" },
+    { row: "CAC known before launch", mva: true, cold: false },
+    { row: "Launch-day risk concentration", mva: "Distributed", cold: "All on PH/X" },
+    { row: "Time to first revenue cohort", mva: "Day 1", cold: "Month 2–4" },
+    { row: "Investor narrative", mva: "Demand-validated", cold: "We hope" },
+    { row: "Cost", mva: "$6k + ad spend", cold: "$0 + opportunity cost" },
+  ];
+
+export const faqs = [
+    {
+      q: "How is this different from a generic SaaS marketing agency?",
+      a: "Most agencies optimize a launched product — they take what you built and try to grow it. We work the other side of the line: we validate demand, build the audience, and de-risk launch day. Once you've launched and CAC stabilizes, a performance agency is the right next vendor. Hiring one before MVA is putting media spend behind an unvalidated message.",
+    },
+    {
+      q: "We're a B2B SaaS with a $50k ACV. Does pre-launch marketing apply?",
+      a: "Yes, with adjustments. For high-ACV B2B we don't run a 1,000-lead MVA — we build a 100–250 named-account list, qualify it manually, and use LinkedIn + warm intros instead of broad Meta. Same framework, different channels and scoring.",
+    },
+    {
+      q: "How long is the engagement and what does it cost?",
+      a: "90 days is the standard MVA cycle. Pricing is $1,500/month for 3 months ($4,500 total) for the agency fee, plus your media budget — typically $3,000–$8,000 across the 90 days. Full breakdown on the packages page.",
+    },
+    {
+      q: "Do you guarantee a number of leads or sign-ups?",
+      a: "We guarantee process and benchmarks: a working funnel within 30 days, CPL within the agreed range, and weekly transparent reporting. Volume depends on category, ICP and budget — across 46 campaigns the median MVA size is 1,200–2,500. We won't promise a number we can't model.",
+    },
+    {
+      q: "What if our SaaS is already launched but stuck?",
+      a: "Different problem, different playbook. If you have a live product with low conversion, we run a Reset Sprint instead: redefine ICP, rewrite landing, retest channel-message fit. Some SaaS need pre-launch logic re-applied post-launch — we can scope that on the call.",
+    },
+    {
+      q: "Can we keep working with you after launch?",
+      a: "Yes. About 40% of MVA clients continue with us into a launch + first 90 days post-launch retainer focused on activation, retention loops and channel expansion. We're not a forever-agency — we hand off to your in-house growth lead when the system is stable.",
+    },
+    {
+      q: "Which tools and stack do you work with?",
+      a: "Landing: Webflow / Framer / Next.js (your call). Email: MailerLite, Customer.io or Loops. Ads: Meta, LinkedIn, Reddit, sometimes Google Search for high-intent. Analytics: GA4 + Plausible + your product analytics (PostHog / Mixpanel). We adapt to your stack — no forced migrations.",
+    },
+    {
+      q: "Where are you based and how do we communicate?",
+      a: "JAY-23 is JAY23 LLC, a Wyoming, USA company. We work remotely with founders globally. Weekly 30-min sync, async daily updates in Slack or your tool, monthly strategy review.",
+    },
+  ];

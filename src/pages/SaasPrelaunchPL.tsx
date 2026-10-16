@@ -1,4 +1,4 @@
-import { PAGE_COPY } from "@/content/saasPrelaunchPLCopy";
+import { PAGE_COPY, reasons, phases, deliverables, comparison, faqs } from "@/content/saasPrelaunchPLCopy";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -9,6 +9,7 @@ import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
 import CaseStudiesSection from "@/components/mva/CaseStudiesSection";
 
+const copyIcons = { Target, Users, LineChart, Rocket };
 const SaasPrelaunchPL = () => {
   const { langPrefix } = useLanguage();
   const bookLink = `${langPrefix}/book?source=saas-pillar-pl`;
@@ -17,94 +18,15 @@ const SaasPrelaunchPL = () => {
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  const reasons = [
-    {
-      icon: Target,
-      label: "Walidacja popytu",
-      title: "Sprawdź popyt, zanim zespół spędzi pół roku na produkcie",
-      body: "Większość founderów SaaS najpierw buduje, a dopiero potem pyta rynek, czy problem jest wystarczająco bolesny. My odwracamy kolejność: pozycjonowanie, landing, lead magnet i płatny ruch testują intencję zakupu przed developmentem. Jeśli CPL, aktywacja albo deklarowana gotowość płatności się nie spina — dowiadujesz się tego po 30 dniach, nie po roku kodowania.",
-    },
-    {
-      icon: Users,
-      label: "1000 właściwych leadów",
-      title: "Buduj Minimum Viable Audience, nie martwą waitlistę",
-      body: "Lista zapisów to adresy e-mail. MVA to 1000+ osób, które same wskazały konkretny problem, segment i poziom intencji. Dla SaaS oznacza to bazę użytkowników gotowych do bety, rozmów discovery, onboardingów i płatnej aktywacji w pierwszym tygodniu startu.",
-    },
-    {
-      icon: LineChart,
-      label: "Dane GTM przed startem",
-      title: "Poznaj CAC, komunikat i kanał, zanim produkt trafi na rynek",
-      body: "Po 90 dniach masz benchmark CPL, zwycięskie kąty komunikacji, dane z paid social / LinkedIn / Reddita i pierwszą mapę LTV/CAC. To twardy materiał do roadmapy, pitch decka i rozmów z inwestorami — nie slajd z założeniami o rynku.",
-    },
-    {
-      icon: Rocket,
-      label: "Launch z dźwignią",
-      title: "Dzień startu nie może zależeć od jednego posta na Product Hunt",
-      body: "Zimny launch koncentruje całe ryzyko w jednym dniu. MVA rozkłada je na 4 fale aktywacji: e-mail, retargeting, społeczności i founder-led outreach do najbardziej zaangażowanych leadów. Efekt: triale, rozmowy sprzedażowe i pierwsi płacący użytkownicy od dnia pierwszego.",
-    },
-  ];
+  
 
-  const phases = [
-    { n: "01", title: "Discover — ICP, problem i obietnica", body: "Zawężamy segment: kto ma problem, ile dziś za niego płaci, jaki trigger powoduje zakup. Analizujemy konkurencyjne SaaS, alternatywy manualne i język rynku. Efekt: dokument pozycjonowania, 3 kąty komunikacji i lead magnet, który zbiera sygnały intencji, nie przypadkowe zapisy." },
-    { n: "02", title: "Build — landing, lead magnet, płatny lejek", body: "Budujemy jedną ostrą stronę na Twojej domenie, lead magnet przydatny dla ICP oraz kampanie Meta, LinkedIn, Reddit lub Google Search. Do tego sekwencja e-mail, tracking GA4/UTM i scoring leadów, żeby odróżnić ciekawość od realnej gotowości zakupu." },
-    { n: "03", title: "Launch — aktywacja MVA i pierwszy cohort", body: "T-7 dni: rozgrzewka, founder story i segmentacja leadów. Dzień startu: 4 fale maili, retargeting i outreach do top 5% zaangażowanych. Tydzień 1: onboarding, rozmowy sprzedażowe, feedback loop i pierwsze decyzje produktowe oparte na zachowaniu użytkowników." },
-  ];
+  
 
-  const deliverables = [
-    "Dokument pozycjonowania, ICP i message-market fit",
-    "Landing page zoptymalizowany pod zapisy / betę / demo",
-    "Lead magnet: template, mini-tool, benchmark albo raport",
-    "Lejki reklamowe Meta, LinkedIn, Reddit lub Google Search",
-    "Sekwencja e-mailowa 5–9 wiadomości w MailerLite / Customer.io",
-    "GA4, UTM, event layer i scoring intencji leadów",
-    "Playbook startu SaaS z 4-falową aktywacją",
-    "Cotygodniowy raport CPL, activation rate i sygnałów CAC",
-  ];
+  
 
-  const comparison = [
-    { row: "Walidacja popytu przed developmentem", mva: true, cold: false },
-    { row: "Płacący użytkownicy w dniu startu", mva: "20–100", cold: "0–5" },
-    { row: "Znany komunikat i ICP", mva: true, cold: false },
-    { row: "Wstępny CAC przed launch'em", mva: true, cold: false },
-    { row: "Ryzyko dnia startu", mva: "Rozłożone", cold: "Wszystko na PH/X" },
-    { row: "Pierwszy cohort użytkowników", mva: "Dzień 1", cold: "Miesiąc 2–4" },
-    { row: "Koszt", mva: "6 000 zł/mies + media", cold: "0 zł + spalony runway" },
-  ];
+  
 
-  const faqs = [
-    {
-      q: "Czym różni się agencja prelaunch SaaS od zwykłej agencji marketingowej?",
-      a: "Typowa agencja marketingowa skaluje produkt, który już istnieje. My pracujemy wcześniej: walidujemy popyt, budujemy publiczność, testujemy komunikat i przygotowujemy launch tak, żeby pierwszy cohort użytkowników nie był przypadkiem. Performance agency ma sens po ustabilizowaniu CAC; przed MVA często tylko przepala budżet na niezwalidowany przekaz.",
-    },
-    {
-      q: "Czy to działa dla B2B SaaS z wysokim ACV?",
-      a: "Tak, ale inaczej niż dla self-serve. Przy wysokim ACV nie celujemy w 1000 przypadkowych leadów. Budujemy mniejszą, jakościową listę nazwanych kont, testujemy komunikat przez LinkedIn, warm intro, eksperckie treści i demo requesty. Framework MVA zostaje ten sam, zmienia się kanał i scoring intencji.",
-    },
-    {
-      q: "Na jakim etapie SaaS powinniśmy zacząć prelaunch?",
-      a: "Najlepiej przed pełnym developmentem albo przy MVP/becie. Jeśli masz już produkt, ale launch był cichy, nadal możemy użyć frameworku MVA jako resetu: zawężenie ICP, nowa strona, nowe kąty komunikacji i ponowny test kanałów przed większym budżetem growth.",
-    },
-    {
-      q: "Ile trwa współpraca i ile kosztuje?",
-      a: "Standardowy cykl MVA trwa 90 dni. Cena w Polsce: 6 000 zł netto miesięcznie przez 3 miesiące, plus budżet mediowy — zwykle 12 000–32 000 zł na cały cykl. Zakres zależy od segmentu, ACV i kanałów. Pełny rozkład jest na stronie packages.",
-    },
-    {
-      q: "Czy gwarantujecie liczbę leadów albo płacących użytkowników?",
-      a: "Gwarantujemy proces, tempo wdrożenia i transparentne benchmarki: działający lejek w 30 dni, test komunikacji, cotygodniowe dane CPL i rekomendacje. Nie obiecujemy liczby bez modelu. W SaaS wolimy uczciwie policzyć potencjał niż sprzedać gwarancję, której nie da się kontrolować bez ceny, kategorii i budżetu.",
-    },
-    {
-      q: "Jakie kanały najlepiej działają dla prelaunch SaaS?",
-      a: "Najczęściej: LinkedIn dla B2B, Reddit i społeczności niszowe dla produktów prosumenckich, Meta dla szerokich problemów oraz Google Search przy wyraźnej intencji. Kanał wybieramy po researchu ICP. Nie zaczynamy od kanału — zaczynamy od problemu, języka rynku i gotowości do zapisu lub rozmowy.",
-    },
-    {
-      q: "Czy pomagacie z Product Hunt?",
-      a: "Tak, ale Product Hunt traktujemy jako amplifikator, nie strategię. Przygotowujemy assets, copy, sekwencję aktywacji i community drops, ale nie opieramy startu wyłącznie na rankingu dnia. MVA ma działać nawet wtedy, gdy PH nie dowiezie oczekiwanej ekspozycji.",
-    },
-    {
-      q: "Gdzie jesteście zarejestrowani i jak pracujemy?",
-      a: "JAY-23 to JAY23 LLC z siedzibą w Wyoming, USA. Pracujemy zdalnie z founderami z Polski, EU, UK i USA. Standard: cotygodniowy 30-minutowy sync, asynchroniczne update'y, wspólna tablica z eksperymentami i miesięczny przegląd strategii.",
-    },
-  ];
+  
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -221,7 +143,7 @@ const SaasPrelaunchPL = () => {
 
           <div className="grid md:grid-cols-2 gap-5">
             {reasons.map((r, i) => {
-              const Icon = r.icon;
+              const Icon = copyIcons[r.icon as keyof typeof copyIcons];
               return (
                 <motion.div
                   key={i}
