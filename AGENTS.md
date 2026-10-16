@@ -6,4 +6,4 @@
 - Standalone paid-traffic pages bypass shared navigation and footer in both React and prerendered bodies to preserve their checkout-only journey.
 - Keep MVA Playbook copy and the product catalog in a shared pure-data module so checkout, static content and tests agree.
 - Isolate Playbook visual tokens under its page wrapper so offer styling does not alter existing pages.
-- Route Playbook orders through one checkout adapter; emit purchases only from server-verified paid orders, never URL totals or page visits, to prevent false revenue reporting.
+- Route Playbook orders through one checkout adapter; emit purchases only from server-verified paid orders, never URL totals or page visits, to prevent false revenue reporting.- Scope single-page visual systems (e.g. Wirtualna Recepcja) to a wrapper class in src/styles so their light theme never leaks into other pages.

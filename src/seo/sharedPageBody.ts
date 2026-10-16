@@ -11,6 +11,7 @@ import { PAGE_COPY as quiz } from "../content/quizCopy";
 import { PAGE_COPY as privacy } from "../content/privacyPolicyCopy";
 import { PAGE_COPY as terms } from "../content/termsOfServiceCopy";
 import { PAGE_COPY as impressum } from "../content/impressumCopy";
+import * as recepcja from "../content/wirtualnaRecepcjaPLCopy";
 
 type Lang = "en" | "pl";
 type Copy = { text: string[]; blocks: Record<Lang, { tag: string; parts: { text?: number; literal?: string }[] }[]> };
@@ -50,6 +51,15 @@ export const sharedPageBody = (slug: string, lang: Lang): string | undefined => 
     case "/gamefound": {
       const c = gamefound[lang];
       body = `<h1>${escape(`${c.h1Lead} ${c.h1Accent} ${c.h1Tail}`)}</h1>` + dataBody(c);
+      break;
+    }
+    case "/wirtualna-recepcja": {
+      const r = recepcja;
+      const rows = `<table><tr><th>${escape(r.compare.headFeature)}</th>${r.compare.headers.map(h => `<th>${escape(h.join(" "))}</th>`).join("")}</tr>${r.compare.rows.map(row => `<tr><td>${escape(row.feature)}</td>${row.cells.map(c => `<td>${escape([c.mark === "y" ? "tak" : c.mark === "h" ? "częściowo" : c.mark === "n" ? "nie" : c.text ?? "", c.note ?? ""].filter(Boolean).join(" — "))}</td>`).join("")}</tr>`).join("")}</table>`;
+      body = `<h1>${escape(r.hero.h1Lead + r.hero.h1Accent)}</h1>` + dataBody({ hero: { eyebrow: r.hero.eyebrow, lead: r.hero.leadBefore + r.hero.leadStrong + r.hero.leadAfter }, callCard: r.callCard, proof: r.proofStats, problem: r.problem, calculator: { eyebrow: r.calculator.eyebrow, h2: r.calculator.h2, lead: r.calculator.lead, foot: r.calculator.foot }, how: r.how })
+        + `<h2>${escape(r.compare.h2)}</h2><p>${escape(r.compare.lead)}</p>${rows}<p>${escape(r.compare.legendSource)}</p>`
+        + dataBody({ cases: r.cases, pricing: r.pricing, faq: r.faq, finalCta: { eyebrow: r.finalCta.eyebrow, h2: r.finalCta.h2, lead: r.finalCta.lead, checks: r.finalCta.checks } })
+        + r.demo.phones.map(p => `<p>${escape(p.label)}: <a href="tel:${p.tel}">${escape(p.number)}</a></p>`).join("");
       break;
     }
     case "/founder-influencer": body = `<h1>${escape(founder[lang].h1)}</h1>` + dataBody(founder[lang]); break;
