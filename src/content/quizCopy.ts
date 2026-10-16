@@ -37,201 +37,201 @@ export const PAGE_COPY = {
     " and we will pressure-test your number against your category, channel mix, and timeline."
   ],
   "blocks": {
-    "en": [
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 17
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 18
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 19
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 20
-          }
-        ]
-      },
-      {
-        "tag": "h3",
-        "parts": [
-          {
-            "text": 21
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 22
-          }
-        ]
-      },
-      {
-        "tag": "h3",
-        "parts": [
-          {
-            "text": 23
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 24
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 25
-          },
-          {
-            "text": 26
-          },
-          {
-            "text": 27
-          },
-          {
-            "text": 28
-          },
-          {
-            "text": 29
-          },
-          {
-            "text": 30
-          },
-          {
-            "text": 31
-          },
-          {
-            "text": 32
-          },
-          {
-            "text": 33
-          }
-        ]
-      }
-    ],
-    "pl": [
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 0
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 1
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 2
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 3
-          }
-        ]
-      },
-      {
-        "tag": "h3",
-        "parts": [
-          {
-            "text": 4
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 5
-          }
-        ]
-      },
-      {
-        "tag": "h3",
-        "parts": [
-          {
-            "text": 6
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 7
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 8
-          },
-          {
-            "text": 9
-          },
-          {
-            "text": 10
-          },
-          {
-            "text": 11
-          },
-          {
-            "text": 12
-          },
-          {
-            "text": 13
-          },
-          {
-            "text": 14
-          },
-          {
-            "text": 15
-          },
-          {
-            "text": 16
-          }
-        ]
-      }
-    ]
-  }
+  "en": [
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 17
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 18
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 19
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 20
+        }
+      ]
+    },
+    {
+      "tag": "h3",
+      "parts": [
+        {
+          "text": 21
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 22
+        }
+      ]
+    },
+    {
+      "tag": "h3",
+      "parts": [
+        {
+          "text": 23
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 24
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 25
+        },
+        {
+          "text": 26
+        },
+        {
+          "text": 27
+        },
+        {
+          "text": 28
+        },
+        {
+          "text": 29
+        },
+        {
+          "text": 30
+        },
+        {
+          "text": 31
+        },
+        {
+          "text": 32
+        },
+        {
+          "text": 33
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 0
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 1
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 2
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 3
+        }
+      ]
+    },
+    {
+      "tag": "h3",
+      "parts": [
+        {
+          "text": 4
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 5
+        }
+      ]
+    },
+    {
+      "tag": "h3",
+      "parts": [
+        {
+          "text": 6
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 7
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 8
+        },
+        {
+          "text": 9
+        },
+        {
+          "text": 10
+        },
+        {
+          "text": 11
+        },
+        {
+          "text": 12
+        },
+        {
+          "text": 13
+        },
+        {
+          "text": 14
+        },
+        {
+          "text": 15
+        },
+        {
+          "text": 16
+        }
+      ]
+    }
+  ]
+}
 };

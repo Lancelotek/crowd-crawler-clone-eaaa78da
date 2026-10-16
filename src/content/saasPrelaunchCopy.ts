@@ -47,399 +47,399 @@ export const PAGE_COPY = {
     "Book a strategy call "
   ],
   "blocks": {
-    "en": [
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 8
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 9
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 10
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 11
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 12
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 13
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 15
-          },
-          {
-            "text": 16
-          },
-          {
-            "text": 17
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 18
-          },
-          {
-            "text": 19
-          },
-          {
-            "text": 20
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 21
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 24
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 25
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 26
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 27
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 29
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 30
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 31
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 32
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 36
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 37
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 39
-          },
-          {
-            "text": 40
-          },
-          {
-            "text": 41
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 42
-          }
-        ]
-      }
-    ],
-    "pl": [
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 8
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 9
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 10
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 11
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 12
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 13
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 15
-          },
-          {
-            "text": 16
-          },
-          {
-            "text": 17
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 18
-          },
-          {
-            "text": 19
-          },
-          {
-            "text": 20
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 21
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 24
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 25
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 26
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 27
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 29
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 30
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 31
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 32
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 36
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 37
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 39
-          },
-          {
-            "text": 40
-          },
-          {
-            "text": 41
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 42
-          }
-        ]
-      }
-    ]
-  }
+  "en": [
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 8
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 9
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 10
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 11
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 12
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 13
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 15
+        },
+        {
+          "text": 16
+        },
+        {
+          "text": 17
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 18
+        },
+        {
+          "text": 19
+        },
+        {
+          "text": 20
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 21
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 24
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 25
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 26
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 27
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 29
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 30
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 31
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 32
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 36
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 37
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 39
+        },
+        {
+          "text": 40
+        },
+        {
+          "text": 41
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 42
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 8
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 9
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 10
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 11
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 12
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 13
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 15
+        },
+        {
+          "text": 16
+        },
+        {
+          "text": 17
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 18
+        },
+        {
+          "text": 19
+        },
+        {
+          "text": 20
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 21
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 24
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 25
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 26
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 27
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 29
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 30
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 31
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 32
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 36
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 37
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 39
+        },
+        {
+          "text": 40
+        },
+        {
+          "text": 41
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 42
+        }
+      ]
+    }
+  ]
+}
 };
 
 export const reasons = [

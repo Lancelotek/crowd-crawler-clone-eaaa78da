@@ -23,293 +23,293 @@ export const PAGE_COPY = {
     "Home"
   ],
   "blocks": {
-    "en": [
-      {
-        "tag": "h1",
-        "parts": [
-          {
-            "text": 1
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 2
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 3
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 4
-          },
-          {
-            "text": 5
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 6
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 7
-          },
-          {
-            "text": 8
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 9
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 10
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 11
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 12
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 13
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 15
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 16
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 17
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 18
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 19
-          }
-        ]
-      }
-    ],
-    "pl": [
-      {
-        "tag": "h1",
-        "parts": [
-          {
-            "text": 1
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 2
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 3
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 4
-          },
-          {
-            "text": 5
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 6
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 7
-          },
-          {
-            "text": 8
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 9
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 10
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 11
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 12
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 13
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 15
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 16
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 17
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 18
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 19
-          }
-        ]
-      }
-    ]
-  }
+  "en": [
+    {
+      "tag": "h1",
+      "parts": [
+        {
+          "text": 1
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 2
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 3
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 4
+        },
+        {
+          "text": 5
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 6
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 7
+        },
+        {
+          "text": 8
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 9
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 10
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 11
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 12
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 13
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 15
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 16
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 17
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 18
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 19
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "tag": "h1",
+      "parts": [
+        {
+          "text": 1
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 2
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 3
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 4
+        },
+        {
+          "text": 5
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 6
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 7
+        },
+        {
+          "text": 8
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 9
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 10
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 11
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 12
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 13
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 15
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 16
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 17
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 18
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 19
+        }
+      ]
+    }
+  ]
+}
 };

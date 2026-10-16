@@ -63,413 +63,335 @@ export const PAGE_COPY = {
     "first."
   ],
   "blocks": {
-    "en": [
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 15
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 16
-          },
-          {
-            "text": 17
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 18
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 25
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 26
-          },
-          {
-            "text": 27
-          },
-          {
-            "text": 28
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 29
-          },
-          {
-            "text": 30
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 31
-          },
-          {
-            "text": 32
-          },
-          {
-            "text": 33
-          },
-          {
-            "text": 34
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 35
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 36
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 37
-          },
-          {
-            "text": 38
-          },
-          {
-            "text": 39
-          },
-          {
-            "text": 40
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 41
-          },
-          {
-            "text": 42
-          },
-          {
-            "text": 43
-          },
-          {
-            "text": 44
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 45
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 47
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 48
-          },
-          {
-            "text": 49
-          },
-          {
-            "text": 50
-          },
-          {
-            "text": 51
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 53
-          },
-          {
-            "text": 54
-          },
-          {
-            "text": 55
-          },
-          {
-            "text": 56
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 57
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 58
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 59
-          }
-        ]
-      }
-    ],
-    "pl": [
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 14
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 15
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 16
-          },
-          {
-            "text": 17
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 18
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 19
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 20
-          },
-          {
-            "text": 21
-          },
-          {
-            "text": 22
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 23
-          },
-          {
-            "text": 24
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 31
-          },
-          {
-            "text": 32
-          },
-          {
-            "text": 33
-          },
-          {
-            "text": 34
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 35
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 36
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 37
-          },
-          {
-            "text": 38
-          },
-          {
-            "text": 39
-          },
-          {
-            "text": 40
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 41
-          },
-          {
-            "text": 42
-          },
-          {
-            "text": 43
-          },
-          {
-            "text": 44
-          }
-        ]
-      },
-      {
-        "tag": "li",
-        "parts": [
-          {
-            "text": 45
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 47
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 48
-          },
-          {
-            "text": 49
-          },
-          {
-            "text": 50
-          },
-          {
-            "text": 51
-          }
-        ]
-      },
-      {
-        "tag": "h2",
-        "parts": [
-          {
-            "text": 53
-          },
-          {
-            "text": 54
-          },
-          {
-            "text": 55
-          },
-          {
-            "text": 56
-          }
-        ]
-      },
-      {
-        "tag": "p",
-        "parts": [
-          {
-            "text": 57
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 58
-          },
-          {
-            "literal": " "
-          },
-          {
-            "text": 59
-          }
-        ]
-      }
-    ]
-  }
+  "en": [
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 17
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 18
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 25
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 26
+        },
+        {
+          "text": 27
+        },
+        {
+          "text": 28
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 29
+        },
+        {
+          "text": 30
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 33
+        },
+        {
+          "text": 34
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 35
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 36
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 39
+        },
+        {
+          "text": 40
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 43
+        },
+        {
+          "text": 44
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 45
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 47
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 50
+        },
+        {
+          "text": 51
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 55
+        },
+        {
+          "text": 56
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 57
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 58
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 59
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 14
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 15
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 16
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 19
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 20
+        },
+        {
+          "text": 21
+        },
+        {
+          "text": 22
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 23
+        },
+        {
+          "text": 24
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 31
+        },
+        {
+          "text": 32
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 35
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 36
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 37
+        },
+        {
+          "text": 38
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 41
+        },
+        {
+          "text": 42
+        }
+      ]
+    },
+    {
+      "tag": "li",
+      "parts": [
+        {
+          "text": 45
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 47
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 48
+        },
+        {
+          "text": 49
+        }
+      ]
+    },
+    {
+      "tag": "h2",
+      "parts": [
+        {
+          "text": 53
+        },
+        {
+          "text": 54
+        }
+      ]
+    },
+    {
+      "tag": "p",
+      "parts": [
+        {
+          "text": 57
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 58
+        },
+        {
+          "literal": " "
+        },
+        {
+          "text": 59
+        }
+      ]
+    }
+  ]
+}
 };
 
 export function getPackagesContent(isPl: boolean, langPrefix: string) {
