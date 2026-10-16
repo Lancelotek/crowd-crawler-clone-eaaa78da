@@ -40,7 +40,7 @@ const WirtualnaRecepcjaPL = () => {
   return (
     <>
       <SEOHead
-        title="Wirtualna Recepcja AI dla gabinetów i firm usługowych | JAY-23"
+        title="Wirtualna Recepcja AI dla gabinetów i firm | JAY-23"
         description="AI recepcja odbiera każdy telefon, umawia wizyty w FELG Dent i ZnanyLekarz, a call tracking pokazuje, która reklama przyniosła pacjenta. Policz, ile tracisz."
         canonical="/pl/wirtualna-recepcja"
         lang="pl"
