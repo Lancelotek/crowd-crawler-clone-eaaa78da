@@ -21,6 +21,7 @@ import { ABOUT_COPY } from "../content/aboutCopy";
 import { FAQ_COPY } from "../content/faqCopy";
 import { PHASES, OUTCOMES } from "../content/processCopy";
 import { playbookCopy as playbook, PLAYBOOK_PRODUCTS, ADD_ON_IDS } from "../content/mvaPlaybook";
+import { sharedPageBody } from "./sharedPageBody";
 
 const esc = (v: string) =>
   v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -310,6 +311,13 @@ export const blogFallbackBody = (row: BlogFallbackRow, lang: "en" | "pl") => {
   ]);
 };
 
+export const blogIndexBody = (rows: (BlogFallbackRow & { slug: string; published_at?: string | null })[], lang: "en" | "pl") =>
+  wrap(lang, [
+    h1(`${t.blog.title[lang]} ${t.blog.titleAccent[lang]}`),
+    ...[...rows].sort((a, b) => (b.published_at ?? "").localeCompare(a.published_at ?? "")).map(row =>
+      `<article><h2><a href="/${lang}/blog/${esc(row.slug)}">${esc(row.title)}</a></h2>${row.excerpt ? p(row.excerpt) : ""}</article>`),
+  ]);
+
 /* ─── Generic ───────────────────────────────────────────────── */
 const genericFallback = (meta: RouteMeta) =>
   wrap(meta.lang, [
@@ -343,7 +351,9 @@ export const buildFallbackBody = (meta: RouteMeta): string => {
   const landing = landingFallback(meta);
   if (landing) return landing;
 
-  const slug = path.replace(/^\/(en|pl)/, "");
+  const slug = (meta.alias && meta.canonical ? new URL(meta.canonical).pathname : path).replace(/^\/(en|pl)/, "");
+  const shared = sharedPageBody(slug, lang);
+  if (shared) return wrap(lang, [/<h1\b/.test(shared) ? "" : h1(meta.title), shared]);
   switch (slug) {
     case "/about":
       return aboutFallback(lang);
