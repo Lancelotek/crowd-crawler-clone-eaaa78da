@@ -13,7 +13,7 @@ import {
   type BlogRow,
   type PrerenderRoute,
 } from "./src/seo/prerenderRoutes";
-import { blogFallbackBody, bodyToPlainText } from "./src/seo/fallbackBody";
+import { blogFallbackBody, blogIndexBody, bodyToPlainText } from "./src/seo/fallbackBody";
 import { findMetaLengthViolations, ROUTE_META, BASE_URL } from "./src/seo/routeMeta";
 
 const SUPABASE_URL = "https://zquojuopxmvvzadwshjx.supabase.co";
@@ -36,8 +36,8 @@ const fetchBlogRoutes = async (): Promise<PrerenderRoute[]> => {
   const columns =
     "slug, title, excerpt, content, cover_image, published_at, author, counterpart_slug";
   const [{ data: en }, { data: pl }] = await Promise.all([
-    supabase.from("blog_posts").select(columns),
-    supabase.from("blog_posts_pl").select(columns),
+    supabase.from("blog_posts").select(columns).order("published_at", { ascending: false }),
+    supabase.from("blog_posts_pl").select(columns).order("published_at", { ascending: false }),
   ]);
   const rows: PrerenderRoute[] = [];
   for (const row of (en ?? []) as BlogRow[]) {
@@ -217,7 +217,10 @@ const prerenderHead = (): Plugin => ({
       );
     }
 
-    const routes = [...PRERENDER_ROUTES, ...blogRoutes];
+    const routes = [...PRERENDER_ROUTES, ...blogRoutes].map(route => {
+      if (!/^\/(en|pl)?\/?blog$/.test(route.path)) return route;
+      return { ...route, body: blogIndexBody(blogEntries.filter(e => e.lang === route.lang).map(e => e.row), route.lang) };
+    });
 
     // Build-time assertion: nothing Google would truncate ships.
     const tooLong = [

@@ -13,11 +13,11 @@ import { PAGE_COPY as terms } from "../content/termsOfServiceCopy";
 import { PAGE_COPY as impressum } from "../content/impressumCopy";
 
 type Lang = "en" | "pl";
-type Copy = typeof quiz;
+type Copy = { text: string[]; blocks: Record<Lang, { tag: string; parts: { text?: number; literal?: string }[] }[]> };
 const escape = (value: string) => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const paragraph = (value: string) => `<p>${escape(value)}</p>`;
 const prose = (copy: Copy, lang: Lang) => copy.blocks[lang].map(block => {
-  const text = block.parts.map(part => "text" in part ? copy.text[part.text] : part.literal).join("");
+  const text = block.parts.map(part => typeof part.text === "number" ? copy.text[part.text] : part.literal ?? "").join("");
   return `<${block.tag}>${escape(text)}</${block.tag}>`;
 }).join("");
 
