@@ -12,8 +12,8 @@
 - [x] Replace automatic quiz-plan delivery promises with Marek's manual email follow-up within 24h; MailerLite automations remain drafts.
 
 ## Currency and quiz corrections
-- [ ] Restore PL Full MVA pricing across visible copy, metadata and AI content; preserve EN USD.
-- [ ] Update shared quiz email copy EN/PL, run all tests and verify pages; do not publish.
+- [x] Restore PL Full MVA pricing across visible copy, metadata and AI content; preserve EN USD.
+- [x] Update shared quiz email copy EN/PL, run all tests and verify pages; do not publish.
 
 - [x] Build sales and thank-you pages with exact copy and isolated branding.
 - [x] Add live order selections, checkout stub, and honest purchase tracking.
