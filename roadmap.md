@@ -1,10 +1,11 @@
 # MVA Playbook
 ## CRO/UX compliance audit
-- [ ] Gate tags behind consent; equal localized banner choices and Calendly privacy parameter.
-- [ ] Correct mobile/light headers, claims, names, green CTAs, links and founder accessibility.
-- [ ] Reorder mobile booking and improve localized quiz result/contact flow.
-- [ ] Require digital-content acknowledgement and dynamic checkout amount.
-- [ ] Run existing tests, verify browser flows and prerender counts; do not publish.
+- [x] Gate tags behind consent; equal localized banner choices and Calendly privacy parameter.
+- [x] Correct mobile/light headers, claims, names, green CTAs, links and founder accessibility.
+- [x] Reorder mobile booking and improve localized quiz result/contact flow.
+- [x] Require digital-content acknowledgement and dynamic checkout amount.
+- [x] Run existing tests, verify browser flows and prerender counts; do not publish.
+- [ ] Verify actual plan delivery from MailerLite automation; existing functions only subscribe contacts, and inbox/automation access is unavailable.
 
 - [x] Build sales and thank-you pages with exact copy and isolated branding.
 - [x] Add live order selections, checkout stub, and honest purchase tracking.
