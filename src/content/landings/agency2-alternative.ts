@@ -3,7 +3,7 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Agency 2.0 Alternative — No 7-Figure Minimum | JAY-23",
-  metaDescription: "Looking for an Agency 2.0 alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no minimum raise, founder-led. 46 campaigns, $1.2M+ raised by client campaigns.",
+  metaDescription: "Agency 2.0 alternative: JAY-23 runs the 90-day MVA Framework: fixed fee, no minimum raise, founder-led. $1.2M+ raised across 46 client campaigns.",
   canonical: "/en/agency-2-0-alternative",
   breadcrumbName: "Agency 2.0 Alternative",
   serviceType: "Crowdfunding agency (Agency 2.0 alternative)",

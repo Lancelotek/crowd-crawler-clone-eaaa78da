@@ -3,7 +3,7 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Kickstarter Marketing Agency — Fixed Fee, No Revenue Share",
-  metaDescription: "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. 46 campaigns, $1.2M+ raised by client campaigns.",
+  metaDescription: "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. $1.2M+ raised across 46 client campaigns.",
   canonical: "/en/kickstarter-marketing-agency",
   breadcrumbName: "Kickstarter Marketing Agency",
   serviceType: "Kickstarter marketing and paid ads agency",

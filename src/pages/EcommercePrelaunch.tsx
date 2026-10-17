@@ -62,7 +62,7 @@ const EcommercePrelaunch = () => {
     <>
       <SEOHead
         title={PAGE_COPY.text[0]}
-        description="Pre-launch agency for eCommerce and DTC founders. The 90-day MVA Framework validates demand and builds 1,000+ buyers before launch. $1.2M+ raised by client campaigns."
+        description="Pre-launch agency for eCommerce and DTC founders. 90-day MVA Framework validates demand and builds 1,000+ buyers. $1.2M+ raised by client campaigns."
         canonical="/en/ecommerce-prelaunch-agency"
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"

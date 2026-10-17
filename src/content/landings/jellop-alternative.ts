@@ -3,7 +3,7 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Jellop Alternative: Reviews, Pricing & Full-Funnel Option",
-  metaDescription: "Jellop alternative compared: 25% performance cut vs fixed monthly fee, and why pre-launch beats live-campaign-only ads. 46 campaigns, $1.2M+ raised by client campaigns.",
+  metaDescription: "Jellop alternative compared: 25% performance cut vs fixed fee, and why pre-launch beats live-campaign-only ads. $1.2M+ raised across 46 client campaigns.",
   canonical: "/en/jellop-alternative",
   breadcrumbName: "Jellop Alternative",
   serviceType: "Kickstarter ad agency (Jellop alternative)",

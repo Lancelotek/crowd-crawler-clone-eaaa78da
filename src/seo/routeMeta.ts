@@ -108,7 +108,7 @@ export const ROUTE_META: RouteMeta[] = [
     homepage: true,
     title: "Kickstarter, TikTok Shop & SaaS Launch Agency | JAY-23",
     description:
-      "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches: Meta Ads, email funnels and community activation. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches: Meta Ads, email funnels and community. $1.2M+ raised across 46 client campaigns.",
     alternates: pair("/en", "/pl"),
   },
   {
@@ -117,7 +117,7 @@ export const ROUTE_META: RouteMeta[] = [
     homepage: true,
     title: "Agencja launchy Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "90-dniowy MVA Framework dla launchy Kickstarter, TikTok Shop i SaaS: Meta Ads, lejki email i aktywacja społeczności. 46 kampanii, $1,2M+ zebrane przez kampanie klientów.",
+      "90-dniowy MVA Framework dla launchy Kickstarter, TikTok Shop i SaaS: Meta Ads, lejki email i aktywacja społeczności. $1,2M+ zebrane przez kampanie klientów.",
     alternates: pair("/en", "/pl"),
   },
 
@@ -195,7 +195,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "About JAY-23 — Prelaunch Growth Agency by Marek Cieśla",
     description:
-      "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches - 46 campaigns managed, $1.2M+ raised by client campaigns.",
+      "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches - $1.2M+ raised across 46 client campaigns.",
     breadcrumbName: "About",
     alternates: same("/about"),
   },
@@ -204,7 +204,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "pl",
     title: "O JAY-23 — agencja Kickstarter Marka Cieśli",
     description:
-      "JAY-23 to agencja wzrostu prelaunch założona przez Marka Cieślę. Kickstarter, TikTok Shop, SaaS i sales-led launchy - 46 kampanii, $1,2M+ zebrane przez kampanie klientów.",
+      "JAY-23 to agencja wzrostu prelaunch założona przez Marka Cieślę. Kickstarter, TikTok Shop, SaaS i sales-led launchy - $1,2M+ zebrane przez kampanie klientów.",
     breadcrumbName: "O nas",
     alternates: same("/about"),
   },
@@ -231,7 +231,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "MVA Pricing — Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "Transparent pricing for Kickstarter, TikTok Shop and sales-led prelaunch. MVA packages from $1,500/mo — 90 days, Meta Ads, email funnel, community activation.",
+      "Full MVA: 4 months, 90 days of build + 30 days of launch support. $1,500/month, $6,000 total, VAT for EU clients. Kickstarter, TikTok Shop and SaaS.",
     breadcrumbName: "Packages",
     alternates: same("/packages"),
   },
@@ -240,7 +240,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "pl",
     title: "Cennik MVA — Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "Cennik programu MVA dla Kickstarter, TikTok Shop, SaaS i sales-led launchy. Pakiety od 6000 PLN/mies. — 90 dni, Meta Ads, lejek email, społeczność.",
+      "Full MVA: 4 miesiące, 90 dni budowy + 30 dni wsparcia startu. $1,500/mies., $6,000 łącznie, VAT dla klientów z UE. Kickstarter, TikTok Shop i SaaS.",
     breadcrumbName: "Pakiety",
     alternates: same("/packages"),
   },
@@ -251,7 +251,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "eCommerce Pre-Launch Agency for DTC and Crowdfunding",
     description:
-      "Pre-launch agency for eCommerce and DTC founders. The 90-day MVA Framework validates demand and builds 1,000+ buyers before launch. $1.2M+ raised by client campaigns.",
+      "Pre-launch agency for eCommerce and DTC founders. 90-day MVA Framework validates demand and builds 1,000+ buyers. $1.2M+ raised by client campaigns.",
     ogImage: DEFAULT_OG,
     ogImageAlt: "eCommerce Pre-Launch Marketing Agency — JAY-23",
     breadcrumbName: "eCommerce Pre-Launch Agency",
@@ -275,7 +275,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "SaaS Go-to-Market & Pre-Launch Marketing Agency | JAY-23",
     description:
-      "SaaS go-to-market strategy that ships: the 90-day MVA Framework validates demand and lands day-one paying users. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "SaaS go-to-market strategy that ships: the 90-day MVA Framework validates demand and lands day-one paying users. $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     ogImageAlt: "SaaS Pre-Launch Marketing Agency — JAY-23",
     breadcrumbName: "SaaS Pre-Launch Agency",
@@ -299,7 +299,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Kickstarter Agency for Day-One Fully Funded Campaigns",
     description:
-      "Kickstarter agency that builds 1,000+ true fans before launch day. 90-day MVA Framework, fixed fee, no revenue share. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Kickstarter agency that builds 1,000+ true fans before launch. 90-day MVA Framework, fixed fee, no revenue share. $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Kickstarter Agency",
     serviceType: "Kickstarter marketing agency",
@@ -310,7 +310,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Kickstarter Marketing Agency — Fixed Fee, No Revenue Share",
     description:
-      "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Kickstarter Marketing Agency",
     serviceType: "Kickstarter marketing and paid ads agency",
@@ -321,7 +321,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Crowdfunding Agency for Kickstarter, Indiegogo & Gamefound",
     description:
-      "Crowdfunding agency for Kickstarter, Indiegogo and Gamefound. 90-day MVA Framework, 1,000+ pre-qualified backers, $1.2M+ raised by client campaigns across 46 client campaigns.",
+      "Crowdfunding agency for Kickstarter, Indiegogo and Gamefound. 90-day MVA Framework, 1,000+ pre-qualified backers, $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Crowdfunding Agency",
     serviceType: "Crowdfunding marketing agency",
@@ -354,7 +354,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Jellop Alternative: Reviews, Pricing & Full-Funnel Option",
     description:
-      "Jellop alternative compared: 25% performance cut vs fixed monthly fee, and why pre-launch beats live-campaign-only ads. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Jellop alternative compared: 25% performance cut vs fixed fee, and why pre-launch beats live-campaign-only ads. $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Jellop Alternative",
     serviceType: "Kickstarter ad agency (Jellop alternative)",
@@ -365,7 +365,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Agency 2.0 Alternative — No 7-Figure Minimum | JAY-23",
     description:
-      "Looking for an Agency 2.0 alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no minimum raise, founder-led. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Agency 2.0 alternative: JAY-23 runs the 90-day MVA Framework: fixed fee, no minimum raise, founder-led. $1.2M+ raised across 46 client campaigns.",
     ogImage: DEFAULT_OG,
     breadcrumbName: "Agency 2.0 Alternative",
     serviceType: "Crowdfunding agency (Agency 2.0 alternative)",
@@ -398,7 +398,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "en",
     title: "Gamefound Agency — Pre-Launch Campaigns That Fund | JAY-23",
     description:
-      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. $1.2M+ raised across 46 client campaigns.",
     ogImage: `${BASE_URL}/og/gamefound-pl.jpg`,
     ogImageAlt: "Gamefound agency — JAY-23",
     breadcrumbName: "Gamefound Agency",

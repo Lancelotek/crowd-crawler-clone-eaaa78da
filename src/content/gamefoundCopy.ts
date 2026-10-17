@@ -156,7 +156,7 @@ export const copy = {
   en: {
     metaTitle: "Gamefound Agency — Pre-Launch Campaigns That Fund | JAY-23",
     metaDescription:
-      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. 46 campaigns, $1.2M+ raised by client campaigns.",
+      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. $1.2M+ raised across 46 client campaigns.",
     eyebrow: "Gamefound agency · Tabletop & collectibles",
     h1Lead: "Your",
     h1Accent: "Gamefound",

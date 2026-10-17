@@ -3,7 +3,7 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Kickstarter Agency for Day-One Fully Funded Campaigns",
-  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch day. 90-day MVA Framework, fixed fee, no revenue share. 46 campaigns, $1.2M+ raised by client campaigns.",
+  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch. 90-day MVA Framework, fixed fee, no revenue share. $1.2M+ raised across 46 client campaigns.",
   canonical: "/en/kickstarter-agency",
   breadcrumbName: "Kickstarter Agency",
   serviceType: "Kickstarter marketing agency",
