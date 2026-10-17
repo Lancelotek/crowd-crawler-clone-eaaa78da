@@ -14,6 +14,7 @@ const MvaNavbar = () => {
   const lightTop = /\/(quiz|about|faq|process|blog(?:\/.*)?|report|thank-you|playbook-thank-you|founder-influencer)\/?$/.test(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const lightHeader = scrolled || lightTop;
 
   const navItems = [
     { label: t("nav", "framework"), href: "#how-it-works" },
@@ -27,9 +28,8 @@ const MvaNavbar = () => {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll);
-    const lightHeader = scrolled || lightTop;
-
-  return () => window.removeEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
