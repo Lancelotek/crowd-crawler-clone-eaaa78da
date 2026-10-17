@@ -86,7 +86,7 @@ const PricingValueSection = () => {
               to={`${langPrefix}/book`}
               onClick={() => track.bookingClick("pricing-value")}
               className="inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta w-full sm:w-auto"
-              style={{ background: "#10b981", color: "#fff", padding: "16px 40px" }}
+              style={{ padding: "16px 40px" }}
             >
               {t("pricingValue", "cta")}
             </Link>

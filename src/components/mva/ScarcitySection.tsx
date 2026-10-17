@@ -16,10 +16,6 @@ const ScarcitySection = () => {
           <p className="text-muted-foreground max-w-md mx-auto leading-relaxed mb-8 text-sm">
             To ensure every launch gets the attention it deserves, we only work with a limited number of founders at a time.
           </p>
-          <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive px-5 py-2 rounded-full text-xs font-semibold mb-8">
-            <span className="w-2 h-2 rounded-full bg-destructive animate-pulse" />
-            Limited to 5 founders per month
-          </div>
           <div>
             <a
               href={CALENDLY_URL}

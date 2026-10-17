@@ -84,10 +84,8 @@ const AdBridgeBanner = ({ ctaTo, ctaLabel, source = "ad-bridge" }: Props) => {
         <Link
           to={href}
           onClick={() => track.ctaClick(source, "ad-bridge")}
-          className="hidden sm:inline-flex items-center gap-1.5 shrink-0 rounded-lg transition-all hover:opacity-90"
+          className="cta-green hidden sm:inline-flex items-center gap-1.5 shrink-0 rounded-lg transition-all hover:opacity-90"
           style={{
-            background: "#10b981",
-            color: "#fff",
             fontWeight: 700,
             fontSize: "13px",
             padding: "8px 14px",

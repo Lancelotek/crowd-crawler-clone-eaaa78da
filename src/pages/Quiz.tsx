@@ -49,7 +49,7 @@ const Quiz = () => {
                 <p>{PAGE_COPY.text[5]}</p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">{PAGE_COPY.text[6]}</h3>
                 <p>{PAGE_COPY.text[7]}</p>
-                <p>{PAGE_COPY.text[8]}<a href="/pl/report" className="text-primary hover:underline">{PAGE_COPY.text[9]}</a>{PAGE_COPY.text[10]}<a href="/pl/book" className="text-primary hover:underline">{PAGE_COPY.text[11]}</a>{PAGE_COPY.text[12]}<a href="/pl/blog" className="text-primary hover:underline">{PAGE_COPY.text[13]}</a>{PAGE_COPY.text[14]}<a href="/pl/process" className="text-primary hover:underline">{PAGE_COPY.text[15]}</a>{PAGE_COPY.text[16]}</p>
+                <p>{PAGE_COPY.text[8]}<a href="/pl/report" className="text-primary underline underline-offset-2">{PAGE_COPY.text[9]}</a>{PAGE_COPY.text[10]}<a href="/pl/book" className="text-primary underline underline-offset-2">{PAGE_COPY.text[11]}</a>{PAGE_COPY.text[12]}<a href="/pl/blog" className="text-primary underline underline-offset-2">{PAGE_COPY.text[13]}</a>{PAGE_COPY.text[14]}<a href="/pl/process" className="text-primary underline underline-offset-2">{PAGE_COPY.text[15]}</a>{PAGE_COPY.text[16]}</p>
               </>
             ) : (
               <>
@@ -61,7 +61,7 @@ const Quiz = () => {
                 <p>{PAGE_COPY.text[22]}</p>
                 <h3 className="font-display text-xl font-bold text-foreground pt-4">{PAGE_COPY.text[23]}</h3>
                 <p>{PAGE_COPY.text[24]}</p>
-                <p>{PAGE_COPY.text[25]}<a href="/en/process" className="text-primary hover:underline">{PAGE_COPY.text[26]}</a>{PAGE_COPY.text[27]}<a href="/en/blog" className="text-primary hover:underline">{PAGE_COPY.text[28]}</a>{PAGE_COPY.text[29]}<a href="/en/faq" className="text-primary hover:underline">{PAGE_COPY.text[30]}</a>{PAGE_COPY.text[31]}<a href="/en/book" className="text-primary hover:underline">{PAGE_COPY.text[32]}</a>{PAGE_COPY.text[33]}</p>
+                <p>{PAGE_COPY.text[25]}<a href="/en/process" className="text-primary underline underline-offset-2">{PAGE_COPY.text[26]}</a>{PAGE_COPY.text[27]}<a href="/en/blog" className="text-primary underline underline-offset-2">{PAGE_COPY.text[28]}</a>{PAGE_COPY.text[29]}<a href="/en/faq" className="text-primary underline underline-offset-2">{PAGE_COPY.text[30]}</a>{PAGE_COPY.text[31]}<a href="/en/book" className="text-primary underline underline-offset-2">{PAGE_COPY.text[32]}</a>{PAGE_COPY.text[33]}</p>
               </>
             )}
           </div>

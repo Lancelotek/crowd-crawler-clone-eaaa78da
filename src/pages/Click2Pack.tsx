@@ -156,7 +156,7 @@ const C2PNav = ({ nav, langPrefix }: { nav: typeof COPY.pl.nav; langPrefix: stri
         <a
           href="#dla-tworcow"
           onClick={() => c2pEvent("c2p_nav_cta")}
-          className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors"
+          className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-success-foreground text-sm font-semibold px-4 py-2 rounded-xl transition-colors"
         >
           {nav.creators} <ArrowRight size={14} />
         </a>
@@ -196,7 +196,7 @@ const Hero = ({ c }: { c: typeof COPY.pl.hero }) => (
           <a
             href="#dla-marek"
             onClick={() => c2pEvent("c2p_hero_cta", { target: "brands" })}
-            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-[0_10px_30px_-10px_rgba(16,185,129,0.6)]"
+            className="inline-flex items-center gap-2 bg-success hover:bg-success/90 text-success-foreground font-semibold px-7 py-3.5 rounded-xl transition-colors shadow-[0_10px_30px_-10px_rgba(16,185,129,0.6)]"
           >
             {c.ctaBrand} <ArrowRight size={16} />
           </a>
@@ -508,8 +508,8 @@ const MarketSection = ({ c }: { c: typeof COPY.pl.market }) => (
             <a
               href={i === 0 ? "#formularz-marki" : "#formularz-tworcy"}
               onClick={() => c2pEvent("c2p_market_cta", { side: i === 0 ? "brand" : "creator" })}
-              className={`mt-8 inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-xl text-white transition-colors ${
-                i === 0 ? "bg-emerald-500 hover:bg-emerald-600" : "bg-[#673DFF] hover:bg-[#5730e0]"
+              className={`mt-8 inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-xl transition-colors ${
+                i === 0 ? "bg-success hover:bg-success/90 text-success-foreground" : "bg-[#673DFF] hover:bg-[#5730e0] text-white"
               }`}
             >
               {side.cta} <ArrowRight size={15} />
@@ -813,7 +813,7 @@ const BrandForm = ({ c, shared, lang }: { c: BrandFormCopy; shared: SharedFormCo
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-60 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 bg-success hover:bg-success/90 disabled:opacity-60 text-success-foreground font-semibold px-6 py-3.5 rounded-xl transition-colors"
           >
             {isSubmitting ? c.sending : c.submit} <ArrowRight size={15} />
           </button>

@@ -49,7 +49,7 @@ const ColdLaunchTrapSection = () => {
             to={`${langPrefix}/book`}
             onClick={() => track.bookingClick("cold-launch-trap")}
             className="inline-flex items-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta"
-            style={{ background: "#10b981", color: "#fff", padding: "16px 32px" }}
+            style={{ padding: "16px 32px" }}
           >
             {t("coldLaunchTrap", "cta")}
           </Link>
