@@ -71,7 +71,7 @@ const MvaNavbar = () => {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
             <motion.aside initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }} className="fixed top-0 right-0 bottom-0 z-50 w-[260px] bg-card border-l border-border flex flex-col rounded-l-card">
               <div className="h-[64px] flex items-center justify-end px-6">
-                <Button variant="ghost" size="icon" onClick={() => setOpen(false)} aria-label="Close menu"><X size={22} className="text-foreground" /></button>
+                <Button variant="ghost" size="icon" onClick={() => setOpen(false)} aria-label="Close menu"><X size={22} className="text-foreground" /></Button>
               </div>
               <nav className="flex flex-col gap-1 px-6 py-4 flex-1">
                 {navItems.map((item) =>

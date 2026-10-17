@@ -3,7 +3,7 @@ import { FunctionsHttpError } from "@supabase/supabase-js";
 
 /** GA4 events for the Jay23 LIVE pages. */
 export function liveEvent(name: string, params: Record<string, unknown> = {}) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || localStorage.getItem("cookie-consent") !== "accepted") return;
   if (typeof window.gtag === "function") {
     window.gtag("event", name, params);
     return;
