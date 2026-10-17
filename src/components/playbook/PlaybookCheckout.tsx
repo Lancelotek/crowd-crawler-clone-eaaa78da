@@ -2,16 +2,18 @@ import { useState } from "react";
 import { ArrowRight, LockKeyhole } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ADD_ON_IDS, PLAYBOOK_PRODUCTS, toggleAddOn, orderItems, orderTotal, type AddOnId } from "@/content/mvaPlaybook";
+import { playbookCopy, checkoutPayLabel, ADD_ON_IDS, PLAYBOOK_PRODUCTS, toggleAddOn, orderItems, orderTotal, type AddOnId } from "@/content/mvaPlaybook";
 import { startCheckout } from "@/lib/playbookCheckout";
 import PlaybookBook from "./PlaybookBook";
 
 export default function PlaybookCheckout() {
   const [selected, setSelected] = useState<AddOnId[]>([]);
+  const [instantAccess, setInstantAccess] = useState(false);
   const [pending, setPending] = useState(false);
   const items = orderItems(selected);
   const total = orderTotal(items);
   const submit = async () => {
+    if (!instantAccess || pending) return;
     setPending(true);
     try { await startCheckout(items); } finally { setPending(false); }
   };
@@ -28,7 +30,8 @@ export default function PlaybookCheckout() {
           </label>;
         })}</div>
         <div className="flex justify-between items-center py-5 mt-3 border-t border-border"><span className="font-bold">Total</span><output aria-live="polite" aria-label="Order total" className="font-display text-4xl font-bold">${total}</output></div>
-        <Button onClick={submit} disabled={pending} className="playbook-button w-full">{pending ? "Opening checkout…" : "Complete my order"}<ArrowRight /></Button>
+        <label className="flex items-start gap-3 mb-5 text-xs leading-relaxed text-muted-foreground"><Checkbox required checked={instantAccess} onCheckedChange={(checked) => setInstantAccess(checked === true)} aria-label="Instant PDF access acknowledgement" className="mt-1" /><span>{playbookCopy.withdrawalConsent}</span></label>
+        <Button onClick={submit} disabled={pending || !instantAccess} className="playbook-button w-full">{pending ? "Opening checkout…" : checkoutPayLabel(total, selected.length > 0)}<ArrowRight /></Button>
         <p className="flex items-start justify-center gap-2 text-center text-xs leading-relaxed text-muted-foreground mt-4"><LockKeyhole size={13} className="shrink-0 mt-0.5" /><span>Card, Apple Pay, Google Pay · Secure checkout · 30-day money-back guarantee</span></p>
       </div>
     </div>

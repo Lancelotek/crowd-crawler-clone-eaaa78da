@@ -1,13 +1,43 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager (deferred until after load to protect LCP/TBT) -->
+    <!-- Consent must be established before any measurement or advertising script. -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function loadGtm(){var f=document.getElementsByTagName('script')[0],j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-TQGLDXJL';f.parentNode.insertBefore(j,f);dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});}
-      if(document.readyState==='complete'){setTimeout(loadGtm,1500);}else{window.addEventListener('load',function(){setTimeout(loadGtm,1500);});}
+      function gtag(){
+        if(arguments[0] === 'event' && window.jay23Consent !== 'accepted') return;
+        window.dataLayer.push(arguments);
+      }
+      var denied = {ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};
+      var granted = {ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'};
+      gtag('consent','default',Object.assign({},denied,{wait_for_update:500}));
+      window.jay23Consent = null;
+      try { window.jay23Consent = localStorage.getItem('cookie-consent'); } catch(e) {}
+      var tagsLoaded = false;
+      function loadMeasurementTags(){
+        if(tagsLoaded || window.jay23Consent !== 'accepted') return;
+        tagsLoaded = true;
+        gtag('set','developer_id.dZjgwMW',true);
+        gtag('js',new Date());
+        gtag('config','G-HTY7ZLKH38');
+        gtag('config','AW-1030433666');
+        var google=document.createElement('script');google.async=true;
+        google.src='https://www.googletagmanager.com/gtag/js?id=G-HTY7ZLKH38';document.head.appendChild(google);
+        window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var gtm=document.createElement('script');gtm.async=true;
+        gtm.src='https://www.googletagmanager.com/gtm.js?id=GTM-TQGLDXJL';document.head.appendChild(gtm);
+      }
+      window.setJay23Consent = function(value){
+        window.jay23Consent=value;
+        try { localStorage.setItem('cookie-consent',value); } catch(e) {}
+        gtag('consent','update',value === 'accepted' ? granted : denied);
+        if(value === 'accepted') loadMeasurementTags();
+      };
+      if(window.jay23Consent === 'accepted'){
+        gtag('consent','update',granted);
+        loadMeasurementTags();
+      }
     </script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
@@ -29,15 +59,6 @@
     <meta name="twitter:title" content="JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework">
     <meta name="twitter:description" content="The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.">
     <meta name="twitter:image" content="https://jay23.com/og-default.jpg">
-    <!-- Google tag (gtag.js) — deferred to protect LCP/TBT -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      function loadGtag(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HTY7ZLKH38';document.head.appendChild(s);gtag('config','G-HTY7ZLKH38');gtag('config','AW-1030433666');}
-      if(document.readyState==='complete'){setTimeout(loadGtag,1500);}else{window.addEventListener('load',function(){setTimeout(loadGtag,1500);});}
-    </script>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,10 +140,6 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQGLDXJL"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="root">
       <main style="max-width:760px;margin:0 auto;padding:48px 20px;font-family:system-ui,-apple-system,sans-serif;color:#0f172a;">
         <h1>JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework</h1>
