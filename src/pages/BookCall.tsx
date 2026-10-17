@@ -134,9 +134,9 @@ const BookCall = () => {
             <ArrowLeft size={14} /> {t.back}
           </Link>
 
-          <div className="grid md:grid-cols-[1fr,1.4fr] gap-5 md:gap-12 items-start">
+          <div className="grid lg:grid-cols-[1fr,1.4fr] gap-5 md:gap-12 items-start">
             {/* LEFT — copy */}
-            <div className="contents md:block md:sticky md:top-28">
+            <div className="contents md:block lg:sticky lg:top-28">
               <p className="hidden md:flex text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-5 items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                 {t.eyebrow}
@@ -144,7 +144,8 @@ const BookCall = () => {
               <h1 className="font-display text-[clamp(34px,4.4vw,56px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-0 md:mb-6">
                 {t.h1Lead} <span className="text-primary">{t.h1Accent}</span>.
               </h1>
-              <p className="text-[16px] text-white/60 font-light leading-relaxed mb-0 md:mb-8 max-w-[440px]">
+              <p className="md:hidden text-sm text-on-dark/60">{t.eyebrow}</p>
+              <p className="hidden md:block text-[16px] text-white/60 font-light leading-relaxed mb-8 max-w-[440px]">
                 {t.sub}
               </p>
 
@@ -164,10 +165,10 @@ const BookCall = () => {
             </div>
 
             {/* RIGHT — Calendly embed */}
-            <div className="relative rounded-2xl border border-white/8 bg-white overflow-hidden min-h-[560px] sm:min-h-[640px] md:min-h-[720px]">
+            <div className="relative rounded-2xl border border-white/8 bg-white overflow-hidden min-h-[560px] sm:min-h-[640px] lg:min-h-[720px]">
               {/* Calendly inline widget begin */}
               <div
-                className="calendly-inline-widget w-full h-[560px] sm:h-[640px] md:h-[720px]"
+                className="calendly-inline-widget w-full h-[560px] sm:h-[640px] lg:h-[720px]"
                 data-url={calendlyUrl}
                 style={{ minWidth: 280 }}
               />
@@ -213,7 +214,7 @@ const BookCall = () => {
                 </div>
               )}
             </div>
-            <div className="md:hidden">              <ul className="space-y-3 mb-10">
+            <div className="md:hidden"><p className="text-sm text-on-dark/60 mb-6">{t.sub}</p><ul className="space-y-3 mb-10">
                 {t.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 text-[15px] text-white/75 font-light leading-relaxed">
                     <Check size={18} className="text-primary mt-0.5 shrink-0" />
