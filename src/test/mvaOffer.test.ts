@@ -13,11 +13,19 @@ describe("Full MVA commercial terms", () => {
     expect(MVA_OFFER.totalUsd).toBe(6000);
     expect(MVA_OFFER.monthlyUsd * MVA_OFFER.months).toBe(MVA_OFFER.totalUsd);
   });
-  for (const lang of ["en", "pl"] as const) {
-    it(`offers the same USD amounts in ${lang} packages`, () => {
-      const full = getPackagesContent(lang === "pl", `/${lang}`).packages.find(pkg => pkg.name === "Full MVA");
-      expect(Number(full?.priceMonthly?.replace(/[^\d]/g, ""))).toBe(1500);
-      expect(Number(full?.priceTotal?.match(/\$([\d,]+)/)?.[1].replace(/,/g, ""))).toBe(6000);
-    });
-  }
+  it("bills 6000 PLN monthly and 24000 PLN total in Poland", () => {
+    expect(MVA_OFFER.monthlyPln).toBe(6000);
+    expect(MVA_OFFER.totalPln).toBe(24000);
+    expect(MVA_OFFER.monthlyPln * MVA_OFFER.months).toBe(MVA_OFFER.totalPln);
+  });
+  it("offers 1500 USD monthly and 6000 USD total in EN packages", () => {
+    const full = getPackagesContent(false, "/en").packages.find(pkg => pkg.name === "Full MVA");
+    expect(Number(full?.priceMonthly?.replace(/[^\d]/g, ""))).toBe(1500);
+    expect(Number(full?.priceTotal?.match(/\$([\d,]+)/)?.[1].replace(/,/g, ""))).toBe(6000);
+  });
+  it("offers 6000 PLN monthly and 24000 PLN total in PL packages", () => {
+    const full = getPackagesContent(true, "/pl").packages.find(pkg => pkg.name === "Full MVA");
+    expect(Number(full?.priceMonthly?.match(/([\d ]+) PLN/)?.[1].replace(/ /g, ""))).toBe(6000);
+    expect(Number(full?.priceTotal?.match(/([\d ]+) PLN/)?.[1].replace(/ /g, ""))).toBe(24000);
+  });
 });

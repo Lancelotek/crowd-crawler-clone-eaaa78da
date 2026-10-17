@@ -146,7 +146,7 @@ const Packages = () => {
       <SEOHead
         title={isPl ? "Pakiety i cennik MVA — Kickstarter, TikTok Shop, SaaS | JAY-23" : "MVA Framework Pricing — Kickstarter, TikTok Shop, SaaS | JAY-23"}
         description={isPl
-          ? "Full MVA: 4 miesiące, 90 dni budowy + 30 dni wsparcia startu. $1,500/mies., $6,000 łącznie, VAT dla klientów z UE. Kickstarter, TikTok Shop i SaaS."
+          ? "Full MVA: 4 miesiące: 90 dni budowy + 30 dni wsparcia startu · 6 000 PLN netto/mies. · 24 000 PLN netto łącznie · + VAT."
           : "Full MVA: 4 months, 90 days of build + 30 days of launch support. $1,500/month, $6,000 total, VAT for EU clients. Kickstarter, TikTok Shop and SaaS."
         }
         canonical={isPl ? "/pl/packages" : "/en/packages"}
