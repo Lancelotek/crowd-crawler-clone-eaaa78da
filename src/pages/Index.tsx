@@ -7,6 +7,7 @@ import CookieConsent from "@/components/CookieConsent";
 import SEOHead from "@/components/SEOHead";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
+import { translations } from "@/i18n/translations";
 
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
@@ -138,9 +139,7 @@ const Index = () => {
                 "name": lang === "pl" ? "Ile to kosztuje?" : "How much does it cost?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": lang === "pl"
-                    ? "4 miesiące: 90 dni budowy + 30 dni wsparcia startu · $1,500/mies. · $6,000 łącznie · VAT dla klientów z UE. Bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły."
-                    : "4 months: 90 days of build + 30 days of launch support · $1,500/month · $6,000 total · VAT for EU clients. No hidden costs. Book a free strategy call to discuss details.",
+                  "text": translations.faq.a3[lang],
                 },
               },
               {

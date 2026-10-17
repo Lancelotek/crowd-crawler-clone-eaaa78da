@@ -509,7 +509,7 @@ export function getPackagesContent(isPl: boolean, langPrefix: string) {
             tier: "PAKIET 02", name: "Full MVA",
             forText: mvaOfferCopy.pl.duration,
             bullets: ["Prelaunch landing page end-to-end", "Kampanie Meta + Google co tydzień", "MailerLite setup + sekwencja napisana", "Raport tygodniowy z CPL tracking", "Wsparcie w dniu startu", { text: "15 grafik statycznych pod reklamy", badge: "kreacje" }, { text: "4 video creatives pod reklamy", badge: "kreacje" }],
-            priceMonthly: "$1,500", priceTotal: "$6,000 łącznie · VAT dla klientów z UE",
+            priceMonthly: mvaOfferCopy.pl.monthlyPrice, priceTotal: mvaOfferCopy.pl.totalPrice,
             cta: ctaText, ctaLink: bookLink, style: "featured", badge: "Najpopularniejszy",
           },
           {
@@ -532,7 +532,7 @@ export function getPackagesContent(isPl: boolean, langPrefix: string) {
             tier: "PACKAGE 02", name: "Full MVA",
             forText: mvaOfferCopy.en.duration,
             bullets: ["Prelaunch landing page end-to-end", "Meta + Google campaigns managed weekly", "MailerLite setup + sequence written", "Weekly report with CPL tracking", "Launch day support", { text: "15 static ad creatives", badge: "creatives" }, { text: "4 video ad creatives", badge: "creatives" }],
-            priceMonthly: "$1,500", priceTotal: "$6,000 total · VAT for EU clients",
+            priceMonthly: mvaOfferCopy.en.monthlyPrice, priceTotal: mvaOfferCopy.en.totalPrice,
             cta: ctaText, ctaLink: bookLink, style: "featured", badge: "Most Popular",
           },
           {

@@ -240,7 +240,7 @@ export const ROUTE_META: RouteMeta[] = [
     lang: "pl",
     title: "Cennik MVA — Kickstarter, TikTok Shop, SaaS | JAY-23",
     description:
-      "Full MVA: 4 miesiące, 90 dni budowy + 30 dni wsparcia startu. $1,500/mies., $6,000 łącznie, VAT dla klientów z UE. Kickstarter, TikTok Shop i SaaS.",
+      "Full MVA: 4 miesiące: 90 dni budowy + 30 dni wsparcia startu · 6 000 PLN netto/mies. · 24 000 PLN netto łącznie · + VAT.",
     breadcrumbName: "Pakiety",
     alternates: same("/packages"),
   },
