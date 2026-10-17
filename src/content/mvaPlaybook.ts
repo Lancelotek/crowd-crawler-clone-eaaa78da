@@ -1,6 +1,6 @@
 export const playbookCopy = {
   withdrawalConsent: "I want instant access to the PDF and understand that I lose my 14-day right of withdrawal once the download starts. The 30-day money-back guarantee still applies.",
-  proof: "46+ CAMPAIGNS · $1.2M+ RAISED · EU & US FOUNDERS",
+  proof: "46 CLIENT CAMPAIGNS · $1.2M+ RAISED BY CLIENT CAMPAIGNS · EU & US FOUNDERS",
   title: "STOP LAUNCHING TO STRANGERS.",
   sub: "The MVA Playbook shows you how to build a paying audience before day one - your ICP, the ad angle that sells, and $1-3 pre-payments from people who commit before you launch.",
   cta: "Get the MVA Playbook for $7",

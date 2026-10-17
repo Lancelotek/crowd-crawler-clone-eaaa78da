@@ -209,6 +209,13 @@ const homeFallback = (lang: "en" | "pl") =>
       `${t.whatYouGet.f3Title[lang]} — ${t.whatYouGet.f3Desc[lang]}`,
       `${t.whatYouGet.f4Title[lang]} — ${t.whatYouGet.f4Desc[lang]}`,
     ]),
+    p(t.hero.raised[lang]),
+    p(t.founder.marekH3[lang]),
+    p(t.whatYouGet.f5Desc[lang]),
+    h2(t.pricingValue.headline[lang]),
+    p(`${t.pricingValue.price[lang]} · ${t.pricingValue.priceNote[lang]}`),
+    p(t.pricingValue.item6Name[lang]),
+    p(t.pricingValue.item6Desc[lang]),
     bookCta(lang),
     ...FAQ_COPY[lang].items.map(item => h2(item.q) + p(item.a)),
   ]);

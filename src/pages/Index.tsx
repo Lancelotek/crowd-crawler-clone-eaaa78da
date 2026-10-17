@@ -35,11 +35,11 @@ const Index = () => {
   const seo = {
     en: {
       title: "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework",
-      description: "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.",
+      description: "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 client campaigns past $1.2M raised.",
     },
     pl: {
       title: "JAY-23 — Agencja Kickstarter, TikTok Shop, SaaS i Sales Growth | MVA Framework",
-      description: "90-dniowy MVA Framework dla Kickstarter, TikTok Shop, SaaS i sales-led launchy: Meta Ads, creator commerce, lejki email i aktywacja społeczności, które pomogły 46 kampaniom zebrać ponad $1.2M.",
+      description: "90-dniowy MVA Framework dla Kickstarter, TikTok Shop, SaaS i sales-led launchy: Meta Ads, creator commerce, lejki email i aktywacja społeczności, które pomogły 46 kampaniom klientów zebrać ponad $1,2M.",
     },
   };
 
@@ -139,8 +139,8 @@ const Index = () => {
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": lang === "pl"
-                    ? "MVA Framework to 6 000 PLN netto miesięcznie (24 000 PLN łącznie za 4 miesiące) + VAT. Bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły."
-                    : "The MVA Framework is $1,500/month for 4 months ($6,000 total) + VAT. No hidden costs. Book a free strategy call to discuss details.",
+                    ? "4 miesiące: 90 dni budowy + 30 dni wsparcia startu · $1,500/mies. · $6,000 łącznie · VAT dla klientów z UE. Bez ukrytych kosztów. Umów bezpłatną rozmowę, by omówić szczegóły."
+                    : "4 months: 90 days of build + 30 days of launch support · $1,500/month · $6,000 total · VAT for EU clients. No hidden costs. Book a free strategy call to discuss details.",
                 },
               },
               {
