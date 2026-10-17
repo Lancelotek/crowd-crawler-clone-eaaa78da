@@ -22,7 +22,10 @@ describe("production entry documents", () => {
     if (!home) throw new Error("Missing EN homepage");
     const root = new DOMParser().parseFromString(renderEntryDocuments(shell)["index.html"], "text/html");
     const en = new DOMParser().parseFromString(renderPrerenderedHtml(shell, home), "text/html");
-    expect(root.querySelector('meta[http-equiv="refresh"]')?.getAttribute("content")).toBe("0; url=https://jay23.com/en");
+    expect(root.querySelector('meta[http-equiv="refresh"]')).toBeNull();
+    const redirect = [...root.querySelectorAll("head script")].map(s => s.textContent ?? "").find(s => s.includes("location.replace"));
+    expect(redirect).toContain('location.pathname!=="/"');
+    expect(redirect).toContain('"pl"');
     expect(root.body.innerHTML).toBe(en.body.innerHTML);
     const alternates = [...root.querySelectorAll('link[hreflang]')].map(el => [el.getAttribute("hreflang"), el.getAttribute("href")]);
     expect(alternates).toEqual([
