@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Users, ArrowRight, Copy, Check, RotateCcw } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
+import QuizResultActions from "@/components/mva/QuizResultActions";
 import FooterSection from "@/components/mva/FooterSection";
 
 interface ReportData {
@@ -99,7 +100,7 @@ function getStrategyInsight(stage: string, audience: string, mva: number) {
   return strategies[key] || `Na Twoim etapie rozwoju kluczowe jest systematyczne budowanie publiczności. Cel: dotrzeć do ${mva.toLocaleString()} osób w Twojej niszy poprzez content marketing i community building.`;
 }
 
-const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
+
 
 const Report = () => {
   const { lang } = useLanguage();
@@ -140,15 +141,6 @@ const Report = () => {
     return () => { if (countRef.current) clearInterval(countRef.current); };
   }, [data?.mvaResult]);
 
-  // Load Calendly script
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => { document.body.removeChild(script); };
-  }, []);
-
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(window.location.href);
     setCopied(true);
@@ -187,7 +179,7 @@ const Report = () => {
     <>
       <SEOHead title="Raport MVA — audyt gotowości do launchu | JAY-23" description="Bezpłatny raport MVA: sprawdzamy, czy Twój produkt ma zbudowaną publiczność gotową kupić w dniu startu. Wynik w 48 godzin." canonical="/pl/report" lang="pl" noHreflang noIndex />
       <MvaNavbar />
-      <main className="min-h-screen bg-background py-16 px-6">
+      <main className="min-h-screen bg-background pt-28 pb-16 px-6">
         <div className="container mx-auto max-w-[800px]">
 
           {/* Section 1: Header */}
@@ -209,6 +201,8 @@ const Report = () => {
             </p>
             <p className="text-muted-foreground">osób potrzebnych w Twojej publiczności</p>
           </motion.div>
+
+          <QuizResultActions lang="pl" count={mvaResult} answers={answerKeys} initialName={data.userName} initialEmail={data.userEmail} />
 
           {/* Section 3: Answers Grid */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="mb-10">
@@ -252,22 +246,6 @@ const Report = () => {
             className="rounded-card p-6 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)" }}>
             <h2 className="font-display text-xl font-bold mb-3" style={{ color: "hsl(0 0% 95%)" }}>Rekomendowana strategia startu</h2>
             <p className="text-sm leading-relaxed" style={{ color: "hsl(265 20% 75%)" }}>{strategyText}</p>
-          </motion.div>
-
-          {/* Section 5: Calendly CTA */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.5 }}
-            className="rounded-card p-8 border mb-10" style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(253 100% 62%)" }}>
-            <div className="text-center mb-6">
-              <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-2" style={{ color: "hsl(0 0% 95%)" }}>Chcesz spersonalizowaną strategię budowania Twojego MVA?</h2>
-              <p className="text-sm" style={{ color: "hsl(265 20% 75%)" }}>Umów się na bezpłatną 30-minutową konsultację strategiczną z ekspertem JAY23.</p>
-            </div>
-            <div className="bg-background rounded-card p-2">
-              <div
-                className="calendly-inline-widget"
-                data-url={`${CALENDLY_URL}?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=0B0B0F&text_color=F6F6FA&primary_color=6C5CE7`}
-                style={{ minWidth: "320px", height: "700px" }}
-              />
-            </div>
           </motion.div>
 
           {/* Section 6: Footer actions */}

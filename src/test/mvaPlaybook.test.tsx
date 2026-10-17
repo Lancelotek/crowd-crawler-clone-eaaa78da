@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { ADD_ON_IDS, orderItems, orderTotal, toggleAddOn } from "@/content/mvaPlaybook";
+import { checkoutPayLabel, ADD_ON_IDS, orderItems, orderTotal, toggleAddOn } from "@/content/mvaPlaybook";
 import PlaybookCheckout from "@/components/playbook/PlaybookCheckout";
 import { getRouteMeta } from "@/seo/routeMeta";
 import { toPrerenderRoute } from "@/seo/prerenderRoutes";
 import { startCheckout, getConfirmedPlaybookOrder, trackConfirmedPlaybookPurchase } from "@/lib/playbookCheckout";
 
 vi.mock("sonner", () => ({ toast: vi.fn() }));
-beforeEach(() => { cleanup(); window.dataLayer = []; sessionStorage.clear(); });
+beforeEach(() => { cleanup(); window.dataLayer = []; sessionStorage.clear(); localStorage.setItem("cookie-consent", "accepted"); });
 
 describe("MVA Playbook orders", () => {
   it("has exact base and add-on totals", () => {
@@ -28,6 +28,23 @@ describe("MVA Playbook orders", () => {
     fireEvent.click(screen.getByRole("checkbox", { name: "All three add-ons" }));
     expect(screen.getByLabelText("Order total").textContent).toBe("$54");
     expect(screen.getByRole("checkbox", { name: "ICP Builder Prompts" })).toHaveAttribute("data-state", "unchecked");
+  });
+  it("requires unticked instant-access acknowledgement before checkout", () => {
+    render(<MemoryRouter><PlaybookCheckout /></MemoryRouter>);
+    const pay = screen.getByRole("button", { name: checkoutPayLabel(7, false) });
+    const acknowledgement = screen.getByRole("checkbox", { name: "Instant PDF access acknowledgement" });
+    expect(acknowledgement).toHaveAttribute("data-state", "unchecked");
+    expect(pay).toBeDisabled();
+    fireEvent.click(pay);
+    expect(window.dataLayer).toHaveLength(0);
+    fireEvent.click(acknowledgement);
+    expect(pay).toBeEnabled();
+    fireEvent.click(acknowledgement);
+    expect(pay).toBeDisabled();
+  });
+  it("computes payable amounts for PDF and PDF add-ons", () => {
+    expect(checkoutPayLabel(orderTotal(orderItems([])), false)).toBe("Pay $7 and get the PDF");
+    expect(checkoutPayLabel(orderTotal(orderItems(["bundle"])), true)).toBe("Pay $54 and get the PDFs");
   });
   it("tracks checkout but never invents a paid order", async () => {
     await startCheckout(orderItems(["bundle"]));

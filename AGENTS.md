@@ -7,3 +7,7 @@
 - Keep MVA Playbook copy and the product catalog in a shared pure-data module so checkout, static content and tests agree.
 - Isolate Playbook visual tokens under its page wrapper so offer styling does not alter existing pages.
 - Route Playbook orders through one checkout adapter; emit purchases only from server-verified paid orders, never URL totals or page visits, to prevent false revenue reporting.- Scope single-page visual systems (e.g. Wirtualna Recepcja) to a wrapper class in src/styles so their light theme never leaks into other pages.
+
+- Establish consent synchronously in the entry document and gate all tag loading and events on acceptance so no measurement is queued before permission.
+- Share quiz result actions between the English calculator and Polish report so booking prefill and email submission states stay consistent.
+- Derive shared navbar contrast from the route top surface and scroll state so dark heroes and light pages remain legible.

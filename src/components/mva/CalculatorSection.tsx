@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, ArrowRight, Users, Loader2, Mail, DollarSign, Star, Rocket, Handshake, Target, User, UsersRound, Building2, Landmark, ShoppingCart, Sprout, Leaf, TreePine, Trees, Mountain, Lightbulb, Wrench, Package, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import QuizResultActions from "./QuizResultActions";
 import { track } from "@/lib/tracking";
 
 // Step definitions
@@ -137,12 +138,6 @@ const CalculatorSection = () => {
   const [gateConsent, setGateConsent] = useState(false);
   const [gateSubmitting, setGateSubmitting] = useState(false);
 
-  // EN result contact form state
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
   const calculateMVA = (keys: Record<string, string>) => {
     const rev = revenueValues[keys.revenue] || 1000;
     const avg = priceAvg[keys.price] || 35;
@@ -186,9 +181,6 @@ const CalculatorSection = () => {
     setAnswerKeys({});
     setMvaResult(null);
     setStage("quiz");
-    setEmail("");
-    setName("");
-    setConsent(false);
     setGateEmail("");
     setGateName("");
     setGateConsent(false);
@@ -221,29 +213,6 @@ const CalculatorSection = () => {
       };
       localStorage.setItem("mva-report-data", JSON.stringify(reportData));
       navigate(`/${lang}/report`);
-    }
-  };
-
-  const handleContactSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
-    setSubmitting(true);
-    try {
-      await supabase.functions.invoke('add-subscriber', {
-        body: {
-          name: name.trim(),
-          email: email.trim(),
-          answers: [`MVA Calculator: ${answers.product}, ${answers.revenue}/mo, ${answers.price}, ${answers.niche}, Result: ${mvaResult?.toLocaleString()}`],
-          lang,
-        },
-      });
-      track.leadSubmit("calculator");
-      navigate(`/${lang}/thank-you`);
-    } catch (err) {
-      console.error('Error:', err);
-      navigate(`/${lang}/thank-you`);
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -317,10 +286,12 @@ const CalculatorSection = () => {
                   {isPl ? "Podaj dane, a pokażemy Ci pełny raport z rekomendacjami." : "Enter your details to see your full report with recommendations."}
                 </p>
                 <form onSubmit={handleGateSubmit} className="max-w-sm mx-auto space-y-3">
-                  <input type="text" placeholder={isPl ? "Twoje imię" : "Your name"} value={gateName} onChange={(e) => setGateName(e.target.value)} required maxLength={100}
+                  <label className="block text-left text-sm">{isPl ? "Imię" : "Name"}</label>
+                  <input aria-label={isPl ? "Imię" : "Name"} autoComplete="name" type="text" placeholder={isPl ? "Aleksandra" : "Alex"} value={gateName} onChange={(e) => setGateName(e.target.value)} required maxLength={100}
                     className="w-full px-4 py-3 rounded-card border text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)", color: "white" }} />
-                  <input type="email" placeholder={isPl ? "Twój email" : "Your email"} value={gateEmail} onChange={(e) => setGateEmail(e.target.value)} required maxLength={255}
+                  <label className="block text-left text-sm">Email</label>
+                  <input aria-label="Email" autoComplete="email" type="email" placeholder={isPl ? "aleksandra@example.com" : "alex@example.com"} value={gateEmail} onChange={(e) => setGateEmail(e.target.value)} required maxLength={255}
                     className="w-full px-4 py-3 rounded-card border text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)", color: "white" }} />
                   <label className="flex items-start gap-2 text-left cursor-pointer">
@@ -357,31 +328,7 @@ const CalculatorSection = () => {
                   </div>
                 </div>
 
-                <div className="rounded-card p-5 border mb-4" style={{ backgroundColor: "hsl(265 60% 12%)", borderColor: "hsl(265 30% 20%)" }}>
-                  <h4 className="font-display text-lg font-bold mb-1">
-                    Want help building your {mvaResult.toLocaleString()}-person audience?
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-4">Leave your details and we'll reach out with a tailored plan.</p>
-                  <form onSubmit={handleContactSubmit} className="max-w-sm mx-auto space-y-3">
-                    <input type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100}
-                      className="w-full px-4 py-3 rounded-card border text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)", color: "white" }} />
-                    <input type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255}
-                      className="w-full px-4 py-3 rounded-card border text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                      style={{ backgroundColor: "hsl(265 60% 8%)", borderColor: "hsl(265 30% 20%)", color: "white" }} />
-                    <label className="flex items-start gap-2 text-left cursor-pointer">
-                      <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required
-                        className="mt-0.5 accent-primary w-4 h-4 shrink-0" />
-                      <span className="text-[11px] text-muted-foreground leading-tight">
-                        I agree to the processing of my personal data in accordance with the <a href={`/${lang}/privacy-policy`} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:brightness-110">Privacy Policy</a>.
-                      </span>
-                    </label>
-                    <button type="submit" disabled={submitting || !consent}
-                      className="w-full bg-gradient-to-r from-primary to-[hsl(253_100%_55%)] text-primary-foreground py-3.5 font-semibold text-sm rounded-button hover:brightness-110 transition-all inline-flex items-center justify-center gap-2 disabled:opacity-60">
-                      {submitting ? <><Loader2 size={16} className="animate-spin" /> Sending...</> : <>Get In Touch <ArrowRight size={16} /></>}
-                    </button>
-                  </form>
-                </div>
+                <QuizResultActions lang={lang} count={mvaResult} answers={answerKeys} />
 
                 <button onClick={reset} className="text-xs text-muted-foreground underline hover:text-primary transition-colors">Recalculate</button>
               </motion.div>
