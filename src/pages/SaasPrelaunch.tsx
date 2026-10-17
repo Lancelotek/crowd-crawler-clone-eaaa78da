@@ -62,7 +62,7 @@ const SaasPrelaunch = () => {
     <>
       <SEOHead
         title={PAGE_COPY.text[0]}
-        description="SaaS go-to-market strategy that ships: the 90-day MVA Framework validates demand and lands day-one paying users. 46 campaigns, $1.2M+ raised."
+        description="SaaS go-to-market strategy that ships: the 90-day MVA Framework validates demand and lands day-one paying users. 46 campaigns, $1.2M+ raised by client campaigns."
         canonical="/en/saas-prelaunch-marketing-agency"
         lang="en"
         ogImage="https://jay23.com/og-default.jpg"

@@ -3,14 +3,14 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Kickstarter Marketing Agency — Fixed Fee, No Revenue Share",
-  metaDescription: "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. 46 campaigns, $1.2M+ raised.",
+  metaDescription: "Kickstarter marketing agency: paid ads, pre-launch funnels and email sequences. Fixed monthly fee, no revenue share. 46 campaigns, $1.2M+ raised by client campaigns.",
   canonical: "/en/kickstarter-marketing-agency",
   breadcrumbName: "Kickstarter Marketing Agency",
   serviceType: "Kickstarter marketing and paid ads agency",
   eyebrow: "Kickstarter marketing · Paid ads · Pre-launch funnels",
   h1Lead: "The Kickstarter marketing agency for",
   h1Accent: "campaigns that fund themselves",
-  heroSub: "Most Kickstarter campaigns waste 60% of their ad budget driving cold traffic to a live campaign. We do it the other way: 90 days of paid funnels build a list of 1,000+ pre-qualified backers, then a 4-wave launch activation converts them in the first 48 hours. 46 campaigns, $1.2M+ raised, fixed monthly fee.",
+  heroSub: "Most Kickstarter campaigns waste 60% of their ad budget driving cold traffic to a live campaign. We do it the other way: 90 days of paid funnels build a list of 1,000+ pre-qualified backers, then a 4-wave launch activation converts them in the first 48 hours. 46 campaigns, $1.2M+ raised by client campaigns, fixed monthly fee.",
   bookSource: "kickstarter-marketing-agency",
   problemEyebrow: "The Kickstarter marketing trap",
   problemTitle: "Why running ads to a live Kickstarter campaign is the most expensive way to fund one.",

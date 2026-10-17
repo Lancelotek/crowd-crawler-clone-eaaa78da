@@ -3,14 +3,14 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Agency 2.0 Alternative — No 7-Figure Minimum | JAY-23",
-  metaDescription: "Looking for an Agency 2.0 alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no minimum raise, founder-led. 46 campaigns, $1.2M+ raised.",
+  metaDescription: "Looking for an Agency 2.0 alternative? JAY-23 runs the 90-day MVA Framework: fixed monthly fee, no minimum raise, founder-led. 46 campaigns, $1.2M+ raised by client campaigns.",
   canonical: "/en/agency-2-0-alternative",
   breadcrumbName: "Agency 2.0 Alternative",
   serviceType: "Crowdfunding agency (Agency 2.0 alternative)",
   eyebrow: "Agency 2.0 alternative · No minimum raise",
   h1Lead: "The Agency 2.0 alternative for creators",
   h1Accent: "below the seven-figure cutoff",
-  heroSub: "Agency 2.0 built its reputation on managing massive Kickstarter and Indiegogo campaigns. Below their typical threshold, most creators can't get in the door. We run a similar pre-launch and paid-media architecture for sub-$500k projects on a fixed monthly fee. 46 campaigns, $1.2M+ raised.",
+  heroSub: "Agency 2.0 built its reputation on managing massive Kickstarter and Indiegogo campaigns. Below their typical threshold, most creators can't get in the door. We run a similar pre-launch and paid-media architecture for sub-$500k projects on a fixed monthly fee. 46 campaigns, $1.2M+ raised by client campaigns.",
   bookSource: "agency-2-0-alternative",
   problemEyebrow: "Why creators look for an alternative",
   problemTitle: "What pushes creators to look past Agency 2.0 in 2026.",

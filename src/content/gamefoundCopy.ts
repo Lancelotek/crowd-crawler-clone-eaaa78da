@@ -67,13 +67,13 @@ export const copy = {
   pl: {
     metaTitle: "Agencja Gamefound — kampanie na polskiej platformie | JAY-23",
     metaDescription:
-      "Prowadzimy kampanie Gamefound: lista 1000+ Early Birds przed startem, launch day support i Late Pledge. 46 kampanii, $1.2M+ zebranych.",
+      "Prowadzimy kampanie Gamefound: lista 1000+ Early Birds przed startem, launch day support i Late Pledge. 46 kampanii, $1,2M+ zebrane przez kampanie klientów.",
     eyebrow: "Agencja Gamefound · Polska",
     h1Lead: "Twoja kampania",
     h1Accent: "Gamefound",
     h1Tail: "zrobiona właściwie.",
     heroSub:
-      "Gamefound to najsilniejsza platforma crowdfundingowa dla gier planszowych — i jedyna z polskim zespołem. Budujemy Twoją listę 1000+ płatnych Early Birds, zanim ruszy kampania. 46 zrealizowanych kampanii, $1.2M+ zebranych.",
+      "Gamefound to najsilniejsza platforma crowdfundingowa dla gier planszowych - i jedyna z polskim zespołem. Budujemy Twoją listę 1000+ płatnych Early Birds, zanim ruszy kampania. 46 zrealizowanych kampanii, $1,2M+ zebrane przez kampanie klientów.",
     ctaHero: "Umów bezpłatną konsultację",
     ctaQuiz: "Policz swój MVA",
     whyEyebrow: "Dlaczego Gamefound",
@@ -156,13 +156,13 @@ export const copy = {
   en: {
     metaTitle: "Gamefound Agency — Pre-Launch Campaigns That Fund | JAY-23",
     metaDescription:
-      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. 46 campaigns, $1.2M+ raised.",
+      "Gamefound agency running full campaigns: 1,000+ Early Birds before launch, launch-day support and Late Pledge. 46 campaigns, $1.2M+ raised by client campaigns.",
     eyebrow: "Gamefound agency · Tabletop & collectibles",
     h1Lead: "Your",
     h1Accent: "Gamefound",
     h1Tail: "campaign, run properly.",
     heroSub:
-      "Gamefound is the strongest crowdfunding platform for tabletop games, and the only major one with native Late Pledge. We build your list of 1,000+ committed Early Birds before the campaign goes live. 46 campaigns delivered, $1.2M+ raised.",
+      "Gamefound is the strongest crowdfunding platform for tabletop games, and the only major one with native Late Pledge. We build your list of 1,000+ committed Early Birds before the campaign goes live. 46 campaigns delivered, $1.2M+ raised by client campaigns.",
     ctaHero: "Book a free strategy call",
     ctaQuiz: "Calculate your MVA",
     whyEyebrow: "Why Gamefound",

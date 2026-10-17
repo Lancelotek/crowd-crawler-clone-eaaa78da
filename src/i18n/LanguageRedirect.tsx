@@ -18,7 +18,7 @@ function detectLanguage(): Lang {
 type SeoMeta = { title: string; description: string };
 
 const BASE_TITLE = "JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency | MVA Framework";
-const BASE_DESCRIPTION = "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 campaigns past $1.2M raised.";
+const BASE_DESCRIPTION = "The 90-day MVA Framework for Kickstarter, TikTok Shop, SaaS and sales-led launches: Meta Ads, creator commerce, email funnels and community activation that took 46 client campaigns past $1.2M raised.";
 
 const BARE_PATH_SEO: Record<string, SeoMeta> = {
   "/": {
@@ -39,7 +39,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/blog": {
     title: "Kickstarter & Crowdfunding Marketing Blog | JAY-23",
-    description: "Tactics for promoting Kickstarter campaigns, audience building, and crowdfunding marketing. Lessons from 46 campaigns and $1.2M+ raised.",
+    description: "Tactics for promoting Kickstarter campaigns, audience building, and crowdfunding marketing. Lessons from 46 campaigns and $1.2M+ raised by client campaigns.",
   },
   "/packages": {
     title: "Kickstarter Agency Pricing — MVA Packages | JAY-23",
@@ -71,7 +71,7 @@ const BARE_PATH_SEO: Record<string, SeoMeta> = {
   },
   "/about": {
     title: "About JAY-23 — Kickstarter, TikTok Shop, SaaS & Sales Growth Agency by Marek Cieśla",
-    description: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches — 46 campaigns, $1.2M+ raised.",
+    description: "JAY-23 is a prelaunch growth agency founded by Marek Cieśla. Kickstarter, TikTok Shop, SaaS and sales-led launches - 46 campaigns, $1.2M+ raised by client campaigns.",
   },
 };
 

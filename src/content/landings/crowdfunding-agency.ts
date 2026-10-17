@@ -3,7 +3,7 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Crowdfunding Agency for Kickstarter, Indiegogo & Gamefound",
-  metaDescription: "Crowdfunding agency for Kickstarter, Indiegogo and Gamefound. 90-day MVA Framework, 1,000+ pre-qualified backers, $1.2M+ raised across 46 campaigns.",
+  metaDescription: "Crowdfunding agency for Kickstarter, Indiegogo and Gamefound. 90-day MVA Framework, 1,000+ pre-qualified backers, $1.2M+ raised by client campaigns across 46 client campaigns.",
   canonical: "/en/crowdfunding-agency",
   breadcrumbName: "Crowdfunding Agency",
   serviceType: "Crowdfunding marketing agency",

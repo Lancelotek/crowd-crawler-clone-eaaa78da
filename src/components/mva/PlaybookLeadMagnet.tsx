@@ -105,7 +105,7 @@ const PlaybookLeadMagnet = ({ bookLink }: Props) => {
             </h3>
             <p className="text-[15.5px] text-white/65 leading-relaxed mb-6 font-light">
               Every step from this playbook, condensed into a checklist you can print and run against
-              your launch. Same framework we use across 46 campaigns and $1.2M+ raised.
+              your launch. Same framework we use across 46 campaigns and $1.2M+ raised by client campaigns.
             </p>
             <ul className="space-y-2.5 text-[14.5px] text-white/75">
               {[

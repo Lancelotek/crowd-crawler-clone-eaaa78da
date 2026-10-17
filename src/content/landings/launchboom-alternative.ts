@@ -10,7 +10,7 @@ export const content: SeoLandingContent = {
   eyebrow: "LaunchBoom alternative · Fixed fee, no rev-share",
   h1Lead: "The LaunchBoom alternative for creators who want",
   h1Accent: "fixed pricing and a founder in the room",
-  heroSub: "LaunchBoom built the playbook. We took the same underlying logic — TYP page, pre-launch funnel, day-one activation — and rebuilt it as a fixed-fee, founder-led engagement. No revenue share, no junior account managers, no 12-page MSAs. 46 campaigns, $1.2M+ raised.",
+  heroSub: "LaunchBoom built the playbook. We took the same underlying logic - TYP page, pre-launch funnel, day-one activation - and rebuilt it as a fixed-fee, founder-led engagement. No revenue share, no junior account managers, no 12-page MSAs. 46 campaigns, $1.2M+ raised by client campaigns.",
   bookSource: "launchboom-alternative",
   problemEyebrow: "Why creators look for an alternative",
   problemTitle: "What pushes creators to look past LaunchBoom in 2026.",

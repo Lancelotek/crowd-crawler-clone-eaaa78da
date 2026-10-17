@@ -369,7 +369,7 @@ export const translations = {
     titleAccent: { en: "Marketing Articles", pl: "i crowdfundingu" },
     noPosts: { en: "No posts yet. Check back soon!", pl: "Brak postów. Sprawdź wkrótce!" },
     seoTitle: { en: "Pre-Launch Marketing Blog — Kickstarter & SaaS | JAY-23", pl: "Blog: Kickstarter, TikTok Shop, SaaS i Sales Growth | JAY-23" },
-    seoDesc: { en: "Tactics for Kickstarter, TikTok Shop and SaaS launches: audience building, Meta Ads, email funnels. Lessons from 46 campaigns and $1.2M+ raised.", pl: "Taktyki dla Kickstarter, TikTok Shop i SaaS: budowanie publiczności, Meta Ads, lejki email. Wnioski z 46 kampanii i $1.2M+ zebranych." },
+    seoDesc: { en: "Tactics for Kickstarter, TikTok Shop and SaaS launches: audience building, Meta Ads, email funnels. Lessons from 46 campaigns and $1.2M+ raised by client campaigns.", pl: "Taktyki dla Kickstarter, TikTok Shop i SaaS: budowanie publiczności, Meta Ads, lejki email. Wnioski z 46 kampanii i $1,2M+ zebrane przez kampanie klientów." },
   },
 } as const;
 

@@ -317,7 +317,7 @@ export const NOT_FOUND_ROUTE: PrerenderRoute = {
     "This page does not exist. Browse the MVA Framework services, the blog or book a discovery call with JAY-23.",
   ogTitle: "JAY-23 — Kickstarter, TikTok Shop & SaaS launch agency",
   ogDescription:
-    "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches. 46 campaigns, $1.2M+ raised.",
+    "The 90-day MVA Framework for Kickstarter, TikTok Shop and SaaS launches. 46 campaigns, $1.2M+ raised by client campaigns.",
   ogImage: DEFAULT_OG,
   ogImageAlt: "JAY-23 — MVA Framework",
   type: "website",

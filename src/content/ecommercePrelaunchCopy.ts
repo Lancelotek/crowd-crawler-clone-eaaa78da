@@ -6,7 +6,7 @@ export const PAGE_COPY = {
     "Pre-launch agency for ",
     "eCommerce & crowdfunding",
     " founders.",
-    "Most physical-product launches die because the audience is built after the inventory ships, not before. We run the 90-day MVA Framework — validate demand, build 1,000+ buyers, fund production with pre-orders. 46 campaigns, $1.2M+ raised across Kickstarter, Gamefound and DTC.",
+    "Most physical-product launches die because the audience is built after the inventory ships, not before. We run the 90-day MVA Framework - validate demand, build 1,000+ buyers, fund production with pre-orders. 46 campaigns, $1.2M+ raised by client campaigns across Kickstarter, Gamefound and DTC.",
     "Book a free strategy call ",
     "Calculate your MVA",
     "The cold-launch trap",
@@ -20,7 +20,7 @@ export const PAGE_COPY = {
     "product launch agency",
     " shows up six weeks before launch day with a press kit, an influencer list and a prayer. By then the expensive decisions — price, positioning, channel, offer — are already locked. We work 90 days earlier, when those decisions are still cheap to change, and we test each one with real ad spend, real leads and real deposits before you commit to a production run.",
     "Crowdfunding marketing agency",
-    "Crowdfunding marketing agency with 46 campaigns and $1.2M+ raised.",
+    "Crowdfunding marketing agency with 46 campaigns and $1.2M+ raised by client campaigns.",
     "As a ",
     "crowdfunding marketing agency",
     ", we don't show up on launch day with a press list — we spend 60–90 days building an MVA of intent-scored backers so the first 72 hours of your Kickstarter or Gamefound campaign hit funding goal before the platform algorithm decides whether to amplify or bury you. That's the difference between a campaign that compounds and one that quietly funds at 110%.",
@@ -615,7 +615,7 @@ export const comparison = [
 export const faqs = [
     {
       q: "We're launching on Kickstarter. Is this different from a 'crowdfunding agency'?",
-      a: "Same engine, broader application. JAY-23 ran 46 crowdfunding campaigns and $1.2M+ in committed revenue, mostly on Kickstarter and Gamefound. The MVA Framework is platform-agnostic: same playbook works for KS, Gamefound, Indiegogo, Shopify pre-orders, or DTC waitlists. The lead magnet and CTA change; the audience-building physics don't.",
+      a: "Same engine, broader application. JAY-23 ran 46 crowdfunding campaigns and $1.2M+ raised by client campaigns, mostly on Kickstarter and Gamefound. The MVA Framework is platform-agnostic: same playbook works for KS, Gamefound, Indiegogo, Shopify pre-orders, or DTC waitlists. The lead magnet and CTA change; the audience-building physics don't.",
     },
     {
       q: "We're a DTC brand without crowdfunding. Does this still apply?",

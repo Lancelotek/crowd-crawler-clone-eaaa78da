@@ -27,7 +27,7 @@ const LP = () => {
     <div className="min-h-screen" style={{ background: "#0a0a12", color: "#fff" }}>
       <SEOHead
         title={lang === "pl" ? "MVA Framework — Zbuduj publiczność przed startem" : "MVA Framework — Build Your Audience Before Launch"}
-        description={lang === "pl" ? "90-dniowy program dla founderów. 46 kampanii, $1.2M+ zebranych." : "90-day program for founders. 46 campaigns, $1.2M+ raised."}
+        description={lang === "pl" ? "90-dniowy program dla founderów. 46 kampanii, $1,2M+ zebrane przez kampanie klientów." : "90-day program for founders. 46 campaigns, $1.2M+ raised by client campaigns."}
         canonical={`/${lang}/lp`}
         lang={lang}
         noIndex
