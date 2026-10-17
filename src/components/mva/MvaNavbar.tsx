@@ -54,10 +54,10 @@ const MvaNavbar = () => {
             ))}
           </ul>
           <div className="flex items-center gap-2">
-            <Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden sm:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${lightHeader ? "border-border hover:border-primary hover:text-primary" : "border-on-dark/20 text-on-dark/80 hover:border-on-dark hover:text-on-dark"}`}>
+            <Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar")} className={`hidden md:inline-block border px-5 py-2 text-sm font-semibold rounded-button transition-colors ${lightHeader ? "border-border hover:border-primary hover:text-primary" : "border-on-dark/20 text-on-dark/80 hover:border-on-dark hover:text-on-dark"}`}>
               {t("nav", "bookCall")}
             </Link>
-            <Button asChild size="sm" className="sm:hidden rounded-button text-xs px-3"><Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar_mobile")}>{t("nav", "mobileBookCall")}</Link></Button>
+            <Button asChild size="sm" className="md:hidden rounded-button text-xs px-3"><Link to={`${langPrefix}/book`} onClick={() => track.bookingClick("navbar_mobile")}>{t("nav", "mobileBookCall")}</Link></Button>
             <Button variant="ghost" size="icon" onClick={() => setOpen(!open)} className={`md:hidden ${lightHeader ? "text-foreground" : "text-on-dark"}`} aria-label={lang === "pl" ? "Otwórz menu" : "Open menu"} aria-expanded={open}>
               {open ? <X size={22} /> : <Menu size={22} />}
             </Button>

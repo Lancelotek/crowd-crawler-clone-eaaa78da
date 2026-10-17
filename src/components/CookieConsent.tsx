@@ -12,6 +12,7 @@ const text = {
     accept: "Accept all",
     decline: "Reject all",
     privacy: "Privacy Policy",
+    compactMessage: "Allow analytics and advertising cookies?",
   },
   pl: {
     title: "Pomóż nam ulepszać JAY-23",
@@ -20,6 +21,7 @@ const text = {
     accept: "Akceptuję wszystkie",
     decline: "Odrzucam wszystkie",
     privacy: "Polityka prywatności",
+    compactMessage: "Zezwalasz na cookies analityczne i reklamowe?",
   },
 };
 
@@ -62,9 +64,9 @@ const CookieConsent = () => {
                   <Cookie className="text-primary" size={24} />
                 </div>
                 <div>
-                  <p className="text-base sm:text-xl font-bold text-foreground mb-2">{t.title}</p>
+                  <p className="hidden sm:block text-xl font-bold text-foreground mb-2">{t.title}</p>
                   <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-                    {t.message}{" "}
+                    <span className="sm:hidden">{t.compactMessage}</span><span className="hidden sm:inline">{t.message}</span>{" "}
                     <a href={`/${lang}/privacy-policy`} className="text-primary underline underline-offset-2">
                       {t.privacy}
                     </a>
