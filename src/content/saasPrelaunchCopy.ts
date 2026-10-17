@@ -6,7 +6,7 @@ export const PAGE_COPY = {
     "Pre-launch marketing agency for ",
     "SaaS founders",
     ".",
-    "Most SaaS launches die in silence because the audience is built after the product, not before it. We run the 90-day MVA Framework: validate demand, build 1,000+ true fans, ship to a launch day that actually has buyers. 46 campaigns, $1.2M+ in committed revenue.",
+    "Most SaaS launches die in silence because the audience is built after the product, not before it. We run the 90-day MVA Framework: validate demand, build 1,000+ true fans, ship to a launch day that actually has buyers. 46 campaigns, $1.2M+ raised by client campaigns.",
     "Book a free strategy call ",
     "Calculate your MVA",
     "The cold-launch trap",

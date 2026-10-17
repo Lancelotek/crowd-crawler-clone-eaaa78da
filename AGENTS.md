@@ -11,3 +11,4 @@
 - Establish consent synchronously in the entry document and gate all tag loading and events on acceptance so no measurement is queued before permission.
 - Share quiz result actions between the English calculator and Polish report so booking prefill and email submission states stay consistent.
 - Derive shared navbar contrast from the route top surface and scroll state so dark heroes and light pages remain legible.
+- Keep Full MVA offer terms in a shared pure-data module consumed by homepage and package copy so duration and billing cannot drift across languages or static bodies.

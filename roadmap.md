@@ -1,4 +1,8 @@
 # MVA Playbook
+## Follow-up copy
+- [x] Clarify client versus own-project funding in EN/PL and static bodies.
+- [x] Align homepage and Full MVA package billing with 90 build days + 30 support days, USD in both languages.
+- [x] Replace em dashes only in today's changed copy, run tests, do not publish.
 ## CRO/UX compliance audit
 - [x] Gate tags behind consent; equal localized banner choices and Calendly privacy parameter.
 - [x] Correct mobile/light headers, claims, names, green CTAs, links and founder accessibility.

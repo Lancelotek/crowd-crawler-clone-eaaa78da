@@ -32,7 +32,7 @@ const FounderSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative">
             <div className="rounded-card overflow-hidden bg-secondary max-w-[400px] mx-auto">
-              <img src={portrait} alt="Marek Cieśla — Launch Strategist" width={400} height={500} className="w-full h-auto object-contain" loading="lazy" decoding="async" />
+              <img src={portrait} alt="Marek Cieśla - Launch Strategist" width={400} height={500} className="w-full h-auto object-contain" loading="lazy" decoding="async" />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>

@@ -635,7 +635,7 @@ Marek`}
                   <div className="bg-white/[0.03] rounded-lg p-3 text-xs text-white/50 leading-relaxed">
                     <p className="text-white/70 font-medium mb-1">Messaging załadowany automatycznie:</p>
                     <p>• Hero: "Build Your First 1,000 True Fans in 90 Days"</p>
-                    <p>• Proof: 98+ founders, $600K+ raised, avg 3,000+ leads/campaign</p>
+                    <p>• Proof: 98+ founders, $600K+ raised in Marek's own projects, avg 3,000+ leads/campaign</p>
                     <p>• Case study: $330K Bluetooth wallet</p>
                     <p>• CTA: Free Strategy Call · jay23.com/call</p>
                   </div>

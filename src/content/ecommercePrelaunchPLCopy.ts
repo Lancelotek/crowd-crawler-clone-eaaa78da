@@ -8,7 +8,7 @@ export const PAGE_COPY = {
     ".",
     "Większość agencji ecommerce wchodzi po starcie sklepu — gasić pożar, gdy ROAS się sypie i magazyn stoi. My pracujemy ",
     "przed",
-    " startem: walidujemy popyt, budujemy 1000+ kupujących i finansujemy produkcję preorderem. 90-dniowy framework MVA. 46 kampanii, 1,2 mln USD+ zebrane na Kickstarterze, Gamefoundzie i DTC.",
+    " startem: walidujemy popyt, budujemy 1000+ kupujących i finansujemy produkcję preorderem. 90-dniowy framework MVA. 46 kampanii, $1,2M+ zebrane przez kampanie klientów na Kickstarterze, Gamefoundzie i DTC.",
     "Umów bezpłatną rozmowę strategiczną ",
     "Policz swoją MVA",
     "Pułapka zimnego startu",
@@ -623,7 +623,7 @@ export const comparison = [
 export const faqs = [
     {
       q: "Startujemy na Kickstarterze. Czym to się różni od „agencji crowdfundingowej”?",
-      a: "To ten sam silnik, tylko szerzej zastosowany. JAY-23 poprowadził 46 kampanii crowdfundingowych i ponad 1,2 mln USD zebranego budżetu — głównie na Kickstarterze i Gamefoundzie. Framework MVA jest niezależny od platformy: ten sam playbook działa na KS, Gamefound, Indiegogo, preorderach Shopify czy waitlistach DTC. Lead magnet i CTA się zmieniają, fizyka budowania publiczności — nie.",
+      a: "To ten sam silnik, tylko szerzej zastosowany. JAY-23 poprowadził 46 kampanii crowdfundingowych klientów, które zebrały $1,2M+ - głównie na Kickstarterze i Gamefoundzie. Framework MVA jest niezależny od platformy: ten sam playbook działa na KS, Gamefound, Indiegogo, preorderach Shopify czy waitlistach DTC. Lead magnet i CTA się zmieniają, fizyka budowania publiczności - nie.",
     },
     {
       q: "Jesteśmy marką DTC bez crowdfundingu. Czy to wciąż ma sens?",

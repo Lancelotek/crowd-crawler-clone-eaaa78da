@@ -3,14 +3,14 @@ import type { SeoLandingContent } from "./types";
 
 export const content: SeoLandingContent = {
   metaTitle: "Kickstarter Agency for Day-One Fully Funded Campaigns",
-  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch day. 90-day MVA Framework, fixed fee, no revenue share. 46 campaigns, $1.2M+ raised.",
+  metaDescription: "Kickstarter agency that builds 1,000+ true fans before launch. 90-day MVA Framework, fixed fee, no revenue share. $1.2M+ raised across 46 client campaigns.",
   canonical: "/en/kickstarter-agency",
   breadcrumbName: "Kickstarter Agency",
   serviceType: "Kickstarter marketing agency",
   eyebrow: "Kickstarter agency · Pre-launch marketing",
   h1Lead: "The Kickstarter agency for",
   h1Accent: "day-one fully funded campaigns",
-  heroSub: "Most Kickstarter campaigns fail in the first 48 hours because the audience is built after the page goes live, not before. We run the 90-day MVA Framework: validate the product, build 1,000+ pre-qualified backers, and ship a launch day that hits goal before lunch. 46 campaigns, $1.2M+ raised.",
+  heroSub: "Most Kickstarter campaigns fail in the first 48 hours because the audience is built after the page goes live, not before. We run the 90-day MVA Framework: validate the product, build 1,000+ pre-qualified backers, and ship a launch day that hits goal before lunch. 46 campaigns, $1.2M+ raised by client campaigns.",
   bookSource: "kickstarter-agency",
   problemEyebrow: "The Kickstarter trap",
   problemTitle: "Why 60% of Kickstarter campaigns never reach goal.",
