@@ -330,10 +330,13 @@ export const NOT_FOUND_ROUTE: PrerenderRoute = {
 export const renderEntryDocuments = (indexHtml: string): Record<"index.html" | "404.html", string> => {
   const home = getPrerenderRoute("/en");
   if (!home) throw new Error("[prerender] EN homepage is missing from the route registry");
-  const rootHtml = renderPrerenderedHtml(indexHtml, home).replace(
-    /<\/head>/i,
-    `    <meta http-equiv="refresh" content="0; url=${BASE_URL}/en">\n  </head>`,
-  );
+  // index.html is also the SPA fallback, so only the bare root may redirect, and it must honour
+  // the visitor's language. Never use a meta refresh here: it would fire on every fallback path.
+  const rootRedirect =
+    `    <script>(function(){if(location.pathname!=="/")return;var l="en";try{var s=localStorage.getItem("preferred-lang");` +
+    `if(s==="pl"||s==="en")l=s;else if((navigator.language||"").toLowerCase().indexOf("pl")===0)l="pl";}catch(e){}` +
+    `location.replace("/"+l+location.search+location.hash);})();</script>\n  </head>`;
+  const rootHtml = renderPrerenderedHtml(indexHtml, home).replace(/<\/head>/i, rootRedirect);
   return {
     "index.html": rootHtml,
     "404.html": renderPrerenderedHtml(indexHtml, NOT_FOUND_ROUTE),
