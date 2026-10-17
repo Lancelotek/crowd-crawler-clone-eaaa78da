@@ -12,7 +12,8 @@ const text = {
     accept: "Accept all",
     decline: "Reject all",
     privacy: "Privacy Policy",
-    compactMessage: "Allow analytics and advertising cookies?",
+    compactMessage: "Cookies: analytics & ads.",
+    compactPrivacy: "Privacy",
   },
   pl: {
     title: "Pomóż nam ulepszać JAY-23",
@@ -21,7 +22,8 @@ const text = {
     accept: "Akceptuję wszystkie",
     decline: "Odrzucam wszystkie",
     privacy: "Polityka prywatności",
-    compactMessage: "Zezwalasz na cookies analityczne i reklamowe?",
+    compactMessage: "Cookies: pomiary i reklamy.",
+    compactPrivacy: "Prywatność",
   },
 };
 
@@ -57,8 +59,8 @@ const CookieConsent = () => {
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="fixed bottom-0 inset-x-0 z-[60] p-3 sm:p-6"
         >
-          <div className="mx-auto max-w-4xl bg-card border border-primary/30 rounded-[var(--radius-card)] p-4 sm:p-8 shadow-2xl shadow-primary/25">
-            <div className="flex flex-col md:flex-row md:items-center gap-3 sm:gap-6">
+          <div className="mx-auto max-w-4xl bg-card border border-primary/30 rounded-[var(--radius-card)] p-3 sm:p-8 shadow-2xl shadow-primary/25">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-6">
               <div className="flex gap-4 flex-1">
                 <div className="hidden sm:flex shrink-0 w-12 h-12 rounded-full bg-primary/15 items-center justify-center">
                   <Cookie className="text-primary" size={24} />
@@ -68,7 +70,7 @@ const CookieConsent = () => {
                   <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
                     <span className="sm:hidden">{t.compactMessage}</span><span className="hidden sm:inline">{t.message}</span>{" "}
                     <a href={`/${lang}/privacy-policy`} className="text-primary underline underline-offset-2">
-                      {t.privacy}
+                      <span className="sm:hidden">{t.compactPrivacy}</span><span className="hidden sm:inline">{t.privacy}</span>
                     </a>
                   </p>
                 </div>
