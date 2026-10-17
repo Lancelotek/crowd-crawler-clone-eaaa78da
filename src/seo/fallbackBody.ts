@@ -20,7 +20,7 @@ import { liveEn, livePl } from "../content/liveCopy";
 import { ABOUT_COPY } from "../content/aboutCopy";
 import { FAQ_COPY } from "../content/faqCopy";
 import { PHASES, OUTCOMES } from "../content/processCopy";
-import { playbookCopy as playbook, PLAYBOOK_PRODUCTS, ADD_ON_IDS } from "../content/mvaPlaybook";
+import { playbookCopy as playbook, PLAYBOOK_PRODUCTS, ADD_ON_IDS, checkoutPayLabel } from "../content/mvaPlaybook";
 import { sharedPageBody } from "./sharedPageBody";
 
 const esc = (v: string) =>
@@ -347,7 +347,7 @@ export const buildFallbackBody = (meta: RouteMeta): string => {
   }
   if (path === "/en/mva-playbook") {
     const section = (title: string, body: string) => `<section>${h2(title)}${body}</section>`;
-    return `<header><a href="/en" aria-label="JAY-23 — Home">JAY-23</a></header><main>${p(playbook.proof)}${h1(playbook.title)}${p(playbook.sub)}${link("#checkout", playbook.cta)}${p(playbook.micro)}${ul(playbook.results)}${p(playbook.resultsNote)}${section(playbook.problemTitle, ul(playbook.problems))}${section(playbook.mechanismTitle, p(playbook.mechanismIntro) + ul(playbook.commitments) + `<h3>${esc(playbook.systemTitle)}</h3>` + playbook.steps.map((step) => `<h4>${esc(step.title)}</h4>${p(step.body)}`).join(""))}${section(playbook.insideTitle, ul(playbook.inside))}${section(playbook.objectionTitle, p(playbook.objectionBody))}${section(playbook.categoryTitle, playbook.categories.map((category) => `<h3>${esc(category.title)}</h3>${p(category.body)}`).join(""))}${section(playbook.guaranteeTitle, p(playbook.guaranteeBody))}<section id="checkout">${h2("Yours today for $7")}${p("MVA Playbook (PDF) - $7")}${ul(ADD_ON_IDS.map((id) => { const product = PLAYBOOK_PRODUCTS[id]; return `${product.name} - $${product.price} - ${product.description}`; }))}${p("Total: $7")}<button type="button" disabled>Complete my order</button>${p("Card, Apple Pay, Google Pay · Secure checkout · 30-day money-back guarantee")}</section>${section("FAQ", playbook.faqs.map((faq) => `<details><summary>${esc(faq.q)}</summary>${p(faq.a)}</details>`).join(""))}</main>`;
+    return `<header><a href="/en" aria-label="JAY-23 — Home">JAY-23</a></header><main>${p(playbook.proof)}${h1(playbook.title)}${p(playbook.sub)}${link("#checkout", playbook.cta)}${p(playbook.micro)}${ul(playbook.results)}${p(playbook.resultsNote)}${section(playbook.problemTitle, ul(playbook.problems))}${section(playbook.mechanismTitle, p(playbook.mechanismIntro) + ul(playbook.commitments) + `<h3>${esc(playbook.systemTitle)}</h3>` + playbook.steps.map((step) => `<h4>${esc(step.title)}</h4>${p(step.body)}`).join(""))}${section(playbook.insideTitle, ul(playbook.inside))}${section(playbook.objectionTitle, p(playbook.objectionBody))}${section(playbook.categoryTitle, playbook.categories.map((category) => `<h3>${esc(category.title)}</h3>${p(category.body)}`).join(""))}${section(playbook.guaranteeTitle, p(playbook.guaranteeBody))}<section id="checkout">${h2("Yours today for $7")}${p("MVA Playbook (PDF) - $7")}${ul(ADD_ON_IDS.map((id) => { const product = PLAYBOOK_PRODUCTS[id]; return `${product.name} - $${product.price} - ${product.description}`; }))}${p("Total: $7")}${p(playbook.withdrawalConsent)}<button type="button" disabled>${esc(checkoutPayLabel(7, false))}</button>${p("Card, Apple Pay, Google Pay · Secure checkout · 30-day money-back guarantee")}</section>${section("FAQ", playbook.faqs.map((faq) => `<details><summary>${esc(faq.q)}</summary>${p(faq.a)}</details>`).join(""))}</main>`;
   }
 
   if (meta.homepage) return homeFallback(lang);

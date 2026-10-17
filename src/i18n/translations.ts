@@ -7,6 +7,7 @@ export const translations = {
     caseStudies: { en: "Case Studies", pl: "Case Studies" },
     process: { en: "Process", pl: "Proces" },
     blog: { en: "Blog", pl: "Blog" },
+    mobileBookCall: { en: "Book a call", pl: "Umów rozmowę" },
     bookCall: { en: "Free Strategy Call", pl: "Umów bezpłatną konsultację" },
     getStarted: { en: "Get Started →", pl: "Zacznij →" },
     about: { en: "About", pl: "O nas" },
@@ -99,7 +100,7 @@ export const translations = {
   // ─── Case Study Deep Dive ────────────────────────────────
   caseStudyDeep: {
     label: { en: "CASE STUDY", pl: "CASE STUDY" },
-    headline: { en: "How Woolet Raised $330K\nBefore a Single Ad Went Live", pl: "Jak Woolet zebrał $330K\nzanim uruchomiono jedną reklamę" },
+    headline: { en: "How Woolet raised $330K by advertising only to people who had already paid $1", pl: "Jak Woolet zebrał $330K, reklamując się tylko osobom, które już zapłaciły $1" },
     subheadline: { en: "Smart wallet that tracks itself — launched on Kickstarter with a pre-built audience.", pl: "Inteligentny portfel, który się sam namierza — wystartował na Kickstarterze z gotową publicznością." },
     body1: { en: "Woolet came to us with a smart wallet at $99.\n\nThey had a landing page. They had a product.\nWhat they didn't have: anyone waiting to buy it.", pl: "Woolet przyszedł do nas z inteligentnym portfelem za $99.\n\nMieli landing page. Mieli produkt.\nCzego nie mieli: nikogo, kto czekałby na zakup." },
     body2: { en: "BEFORE MVA:\nCold traffic ads with $4.20 CPC. Conversion rate: 0.8%. Cost per backer: $200+.", pl: "PRZED MVA:\nReklamy na zimny ruch z CPC $4.20. Konwersja: 0.8%. Koszt backera: $200+." },
@@ -141,7 +142,7 @@ export const translations = {
     item5Desc: { en: "Real-time strategy adjustments, not a pre-recorded course", pl: "Dostosowania strategii w czasie rzeczywistym, nie nagrany kurs" },
     item6Name: { en: "Direct access to founder who raised $600K+", pl: "Bezpośredni dostęp do foundera, który zebrał $600K+" },
     item6Value: { en: "Included", pl: "W cenie" },
-    item6Desc: { en: "Marek Siwak — 46 campaigns, Woolet $330K, Crowder.pro 3M PLN", pl: "Marek Siwak — 46 kampanii, Woolet $330K, Crowder.pro 3M PLN" },
+    item6Desc: { en: "Marek Cieśla — 46 campaigns, Woolet $330K, Crowder.pro 3M PLN", pl: "Marek Cieśla — 46 kampanii, Woolet $330K, Crowder.pro 3M PLN" },
     item7Name: { en: "Lookalike audience from your Early Bird list", pl: "Lookalike audience z Twojej listy Early Bird" },
     item7Value: { en: "Priceless", pl: "Bezcenne" },
     item7Desc: { en: "Launch ads to people who look like your paying subscribers", pl: "Reklamy do ludzi podobnych do Twoich płacących subskrybentów" },
@@ -194,7 +195,7 @@ export const translations = {
     phase3Label: { en: "Days 61–90", pl: "Dni 61–90" },
     phase3Title: { en: "LAUNCH", pl: "STARTUJ" },
     phase3Desc: { en: "Activate your audience, run your pre-launch campaign, and convert fans into early customers. Real-time coaching and optimization.", pl: "Aktywuj swoją publiczność, przeprowadź kampanię pre-launch i zamień fanów w pierwszych klientów. Coaching w czasie rzeczywistym i optymalizacja." },
-    cta: { en: "Start Your 90-Day Journey →", pl: "Rozpocznij swoją 90-dniową podróż →" },
+    cta: { en: "Calculate your MVA", pl: "Oblicz swoje MVA" },
   },
 
   // ─── Solution ────────────────────────────────────────────
@@ -284,8 +285,6 @@ export const translations = {
     calcBtn: { en: "Book a Free Strategy Call", pl: "Umów bezpłatną konsultację" },
     quizBtn: { en: "Take the Free MVA Quiz", pl: "Wypełnij quiz MVA" },
     trust: { en: "30 min · no commitment · no pitch · Marek replies within 24h", pl: "30 min · bez zobowiązań · bez pitchu · Marek odpowiada w 24h" },
-    urgency: { en: "Limited spots in the next cohort —", pl: "Ograniczona liczba miejsc w kolejnej kohorcie —" },
-    seatsRemaining: { en: "seats remaining", pl: "wolnych miejsc" },
   },
 
   // ─── Sticky CTA ──────────────────────────────────────────
@@ -299,7 +298,7 @@ export const translations = {
     framework: { en: "FRAMEWORK", pl: "FRAMEWORK" },
     howItWorks: { en: "How It Works", pl: "Jak to działa" },
     mvaCalc: { en: "MVA Calculator", pl: "Kalkulator MVA" },
-    strategyQuiz: { en: "Free Strategy Call", pl: "Quiz strategii" },
+    strategyQuiz: { en: "Free Strategy Call", pl: "Bezpłatna rozmowa strategiczna" },
     process: { en: "90-Day Process", pl: "Proces 90 dni" },
     packages: { en: "Packages", pl: "Pakiety" },
     bookCall: { en: "Book a Call", pl: "Umów rozmowę" },

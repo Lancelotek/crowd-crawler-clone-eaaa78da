@@ -7,11 +7,14 @@
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
+    jay23Consent?: string | null;
+    setJay23Consent?: (value: "accepted" | "declined") => void;
     gtag?: (...args: unknown[]) => void;
   }
 }
 
 export function trackEvent(event: string, params?: Record<string, unknown>) {
+  if (localStorage.getItem("cookie-consent") !== "accepted") return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...params });
 }

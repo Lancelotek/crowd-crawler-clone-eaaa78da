@@ -19,12 +19,6 @@ const FinalCTASection = () => {
           <p className="text-sm text-primary-foreground/60 mb-4 max-w-md mx-auto">
             {t("finalCTA", "desc")}
           </p>
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-4 py-2 mb-6">
-            <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span className="text-xs font-semibold text-primary-foreground/90">
-              {t("finalCTA", "urgency")} <span className="text-amber-300">7 {t("finalCTA", "seatsRemaining")}</span>
-            </span>
-          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
             <Link
               to={`${langPrefix}/book`}

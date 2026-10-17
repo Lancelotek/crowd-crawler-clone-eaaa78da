@@ -30,6 +30,8 @@
 
     --destructive: 0 84% 60%;
     --success: 160 84% 39%;
+    --success-foreground: 240 15% 5.1%;
+    --on-dark: 0 0% 100%;
     --destructive-foreground: 0 0% 100%;
 
     /* #D9D9E3 */
@@ -282,3 +284,5 @@
 /* Kickstarter ad-bridge banner: push fixed navbar + main content down when visible */
 html[data-ks-banner="1"] nav.fixed.top-0 { top: 44px; }
 html[data-ks-banner="1"] body { padding-top: 44px; }
+
+.cta-green { background: hsl(var(--success)); color: hsl(var(--success-foreground)); border-radius: 28px; }

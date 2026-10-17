@@ -22,6 +22,8 @@ export default {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         success: "hsl(var(--success))",
+        "success-foreground": "hsl(var(--success-foreground))",
+        "on-dark": "hsl(var(--on-dark))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {

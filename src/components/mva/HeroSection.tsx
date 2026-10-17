@@ -57,8 +57,8 @@ const HeroSection = () => {
               <Link
                 to={`${langPrefix}/book`}
                 onClick={() => track.bookingClick("hero")}
-                className="inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta"
-                style={{ background: "#10b981", color: "#fff", padding: "16px 32px", width: "fit-content" }}
+                className="cta-green inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-4 font-bold text-sm transition-all animate-pulse-cta"
+                style={{ width: "fit-content" }}
               >
                 {t("hero", "ctaPrimary")}
               </Link>
@@ -80,11 +80,6 @@ const HeroSection = () => {
             {/* Social proof */}
             <div className="flex items-center gap-4 flex-wrap" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.5s both" : "none" }}>
               <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="14" height="14" viewBox="0 0 20 20" fill="#F59E0B"><path d="M10 1l2.47 5.01L18 6.9l-4 3.9.94 5.5L10 13.77 5.06 16.3 6 10.8 2 6.9l5.53-.89L10 1z" /></svg>
-                  ))}
-                </div>
                 <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{t("hero", "trustedBy")}</span>
               </div>
               <span style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)" }} />

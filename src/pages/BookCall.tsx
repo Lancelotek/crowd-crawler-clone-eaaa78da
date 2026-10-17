@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, Check, Calendar, ExternalLink, Loader2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import SEOHead from "@/components/SEOHead";
 import MvaNavbar from "@/components/mva/MvaNavbar";
 import FooterSection from "@/components/mva/FooterSection";
@@ -12,6 +12,13 @@ const CALENDLY_URL = "https://calendly.com/marekciesla/30min";
 
 const BookCall = () => {
   const { lang, langPrefix } = useLanguage();
+  const [searchParams] = useSearchParams();
+  const calendlyParams = new URLSearchParams({ hide_gdpr_banner: "1" });
+  for (const key of ["name", "email"]) {
+    const value = searchParams.get(key);
+    if (value) calendlyParams.set(key, value);
+  }
+  const calendlyUrl = `${CALENDLY_URL}?${calendlyParams.toString()}`;
   const isPL = lang === "pl";
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -118,30 +125,31 @@ const BookCall = () => {
       />
       <MvaNavbar />
 
-      <main className="bg-[hsl(var(--dark-bg))] min-h-screen pt-28 pb-20">
+      <main className="bg-[hsl(var(--dark-bg))] min-h-screen pt-20 md:pt-28 pb-20">
         <div className="container mx-auto max-w-[1100px] px-6">
           <Link
             to={langPrefix || "/"}
-            className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors hidden md:inline-flex mb-10"
           >
             <ArrowLeft size={14} /> {t.back}
           </Link>
 
-          <div className="grid lg:grid-cols-[1fr,1.4fr] gap-12 items-start">
+          <div className="grid lg:grid-cols-[1fr,1.4fr] gap-5 md:gap-12 items-start">
             {/* LEFT — copy */}
-            <div className="lg:sticky lg:top-28">
-              <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-5 flex items-center gap-2">
+            <div className="contents md:block lg:sticky lg:top-28">
+              <p className="hidden md:flex text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-5 items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                 {t.eyebrow}
               </p>
-              <h1 className="font-display text-[clamp(34px,4.4vw,56px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-6">
+              <h1 className="font-display text-[clamp(34px,4.4vw,56px)] font-black uppercase leading-[1.02] tracking-tight text-white mb-0 md:mb-6">
                 {t.h1Lead} <span className="text-primary">{t.h1Accent}</span>.
               </h1>
-              <p className="text-[16px] text-white/60 font-light leading-relaxed mb-8 max-w-[440px]">
+              <p className="md:hidden text-sm text-on-dark/60">{t.eyebrow}</p>
+              <p className="hidden md:block text-[16px] text-white/60 font-light leading-relaxed mb-8 max-w-[440px]">
                 {t.sub}
               </p>
 
-              <ul className="space-y-3 mb-10">
+              <div className="hidden md:block">              <ul className="space-y-3 mb-10">
                 {t.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-3 text-[15px] text-white/75 font-light leading-relaxed">
                     <Check size={18} className="text-primary mt-0.5 shrink-0" />
@@ -153,6 +161,7 @@ const BookCall = () => {
               <p className="text-[13px] text-white/40 font-light border-t border-white/8 pt-5 max-w-[380px]">
                 {t.guarantee}
               </p>
+              </div>
             </div>
 
             {/* RIGHT — Calendly embed */}
@@ -160,7 +169,7 @@ const BookCall = () => {
               {/* Calendly inline widget begin */}
               <div
                 className="calendly-inline-widget w-full h-[560px] sm:h-[640px] lg:h-[720px]"
-                data-url={CALENDLY_URL}
+                data-url={calendlyUrl}
                 style={{ minWidth: 280 }}
               />
               {/* Calendly inline widget end */}
@@ -195,7 +204,7 @@ const BookCall = () => {
                     <p className="text-[13px] text-black/55 leading-relaxed">{t.fallbackHint}</p>
                   </div>
                   <a
-                    href={CALENDLY_URL}
+                    href={calendlyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary/90 transition-colors"
@@ -204,6 +213,19 @@ const BookCall = () => {
                   </a>
                 </div>
               )}
+            </div>
+            <div className="md:hidden"><p className="text-sm text-on-dark/60 mb-6">{t.sub}</p><ul className="space-y-3 mb-10">
+                {t.bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3 text-[15px] text-white/75 font-light leading-relaxed">
+                    <Check size={18} className="text-primary mt-0.5 shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="text-[13px] text-white/40 font-light border-t border-white/8 pt-5 max-w-[380px]">
+                {t.guarantee}
+              </p>
             </div>
           </div>
         </div>

@@ -2,23 +2,28 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const text = {
   en: {
     title: "Help us improve JAY-23",
     message:
       "We use cookies to measure traffic and understand which content helps founders most. Accepting lets us keep improving the site for you.",
-    accept: "Accept all cookies",
-    decline: "Only necessary",
+    accept: "Accept all",
+    decline: "Reject all",
     privacy: "Privacy Policy",
+    compactMessage: "Cookies: analytics & ads.",
+    compactPrivacy: "Privacy",
   },
   pl: {
     title: "Pomóż nam ulepszać JAY-23",
     message:
       "Używamy plików cookie do pomiaru ruchu i sprawdzania, które treści najbardziej pomagają founderom. Akceptacja pozwala nam stale ulepszać stronę dla Ciebie.",
     accept: "Akceptuję wszystkie",
-    decline: "Tylko niezbędne",
+    decline: "Odrzucam wszystkie",
     privacy: "Polityka prywatności",
+    compactMessage: "Cookies: pomiary i reklamy.",
+    compactPrivacy: "Prywatność",
   },
 };
 
@@ -36,7 +41,7 @@ const CookieConsent = () => {
   }, []);
 
   const choose = (value: "accepted" | "declined") => {
-    localStorage.setItem("cookie-consent", value);
+    window.setJay23Consent?.(value);
     setVisible(false);
   };
 
@@ -52,37 +57,27 @@ const CookieConsent = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 160, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-0 inset-x-0 z-[60] p-3 sm:p-6"
+          className="fixed bottom-0 inset-x-0 z-[60] p-2 sm:p-6"
         >
-          <div className="mx-auto max-w-4xl bg-card border border-primary/30 rounded-[var(--radius-card)] p-6 sm:p-8 shadow-2xl shadow-primary/25">
-            <div className="flex flex-col md:flex-row md:items-center gap-6">
+          <div className="mx-auto max-w-4xl bg-card border border-primary/30 rounded-[var(--radius-card)] p-2 sm:p-8 shadow-2xl shadow-primary/25">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 sm:gap-6">
               <div className="flex gap-4 flex-1">
                 <div className="hidden sm:flex shrink-0 w-12 h-12 rounded-full bg-primary/15 items-center justify-center">
                   <Cookie className="text-primary" size={24} />
                 </div>
                 <div>
-                  <p className="text-lg sm:text-xl font-bold text-foreground mb-2">{t.title}</p>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                    {t.message}{" "}
+                  <p className="hidden sm:block text-xl font-bold text-foreground mb-2">{t.title}</p>
+                  <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
+                    <span className="sm:hidden">{t.compactMessage}</span><span className="hidden sm:inline">{t.message}</span>{" "}
                     <a href={`/${lang}/privacy-policy`} className="text-primary underline underline-offset-2">
-                      {t.privacy}
+                      <span className="sm:hidden">{t.compactPrivacy}</span><span className="hidden sm:inline">{t.privacy}</span>
                     </a>
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col gap-2 md:w-64 shrink-0">
-                <button
-                  onClick={() => choose("accepted")}
-                  className="w-full bg-primary text-primary-foreground text-base font-bold py-4 px-6 rounded-[var(--radius-button)] hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
-                >
-                  {t.accept}
-                </button>
-                <button
-                  onClick={() => choose("declined")}
-                  className="w-full text-muted-foreground text-sm py-2 hover:text-foreground transition-colors"
-                >
-                  {t.decline}
-                </button>
+              <div className="grid grid-cols-2 gap-2 md:w-64 shrink-0">
+                <Button onClick={() => choose("accepted")} className="w-full h-auto min-h-11 px-2 py-3 text-xs sm:text-sm whitespace-normal rounded-button">{t.accept}</Button>
+                <Button onClick={() => choose("declined")} className="w-full h-auto min-h-11 px-2 py-3 text-xs sm:text-sm whitespace-normal rounded-button">{t.decline}</Button>
               </div>
             </div>
           </div>

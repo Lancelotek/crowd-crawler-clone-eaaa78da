@@ -87,8 +87,8 @@ const LP = () => {
             <Link
               to={bookLink}
               onClick={() => track.bookingClick("lp-final")}
-              className="inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta"
-              style={{ background: "#10b981", color: "#fff", padding: "16px 40px", marginBottom: "12px" }}
+              className="cta-green inline-flex items-center justify-center gap-2 font-bold text-sm transition-all animate-pulse-cta"
+              style={{ padding: "16px 40px", marginBottom: "12px" }}
             >
               {t("lp", "finalCta")}
             </Link>
