@@ -57,8 +57,8 @@ const HeroSection = () => {
               <Link
                 to={`${langPrefix}/book`}
                 onClick={() => track.bookingClick("hero")}
-                className="cta-green inline-flex items-center justify-center gap-2 font-bold text-sm transition-all animate-pulse-cta"
-                style={{ padding: "16px 32px", width: "fit-content" }}
+                className="cta-green inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-4 font-bold text-sm transition-all animate-pulse-cta"
+                style={{ width: "fit-content" }}
               >
                 {t("hero", "ctaPrimary")}
               </Link>
