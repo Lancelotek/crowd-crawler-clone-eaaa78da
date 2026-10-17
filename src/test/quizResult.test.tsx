@@ -2,11 +2,14 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import QuizResultActions from "@/components/mva/QuizResultActions";
-import { quizBookingUrl } from "@/content/quizResultCopy";
+import { QUIZ_PLAN_FOLLOW_UP_HOURS, quizBookingUrl } from "@/content/quizResultCopy";
 const invoke = vi.hoisted(() => vi.fn());
 vi.mock("@/integrations/supabase/client", () => ({ supabase: { functions: { invoke } } }));
 beforeEach(() => { cleanup(); invoke.mockReset(); localStorage.clear(); });
 describe("Quiz result actions", () => {
+  it("allows 24 hours for Marek's manual plan follow-up", () => {
+    expect(QUIZ_PLAN_FOLLOW_UP_HOURS).toBe(24);
+  });
   it("passes typed name and email only to the localized booking page", () => {
     expect(quizBookingUrl("pl", " Anna ", "anna+quiz@example.com")).toBe("/pl/book?name=Anna&email=anna%2Bquiz%40example.com");
     expect(quizBookingUrl("en")).toBe("/en/book");

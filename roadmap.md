@@ -1,7 +1,7 @@
 # MVA Playbook
 ## Follow-up copy
 - [x] Clarify client versus own-project funding in EN/PL and static bodies.
-- [x] Align homepage and Full MVA package billing with 90 build days + 30 support days, USD in both languages.
+- [x] Align homepage and Full MVA package billing with 90 build days + 30 support days, EN USD and PL PLN.
 - [x] Replace em dashes only in today's changed copy, run tests, do not publish.
 ## CRO/UX compliance audit
 - [x] Gate tags behind consent; equal localized banner choices and Calendly privacy parameter.
@@ -9,7 +9,11 @@
 - [x] Reorder mobile booking and improve localized quiz result/contact flow.
 - [x] Require digital-content acknowledgement and dynamic checkout amount.
 - [x] Run existing tests, verify browser flows and prerender counts; do not publish.
-- [ ] Verify actual plan delivery from MailerLite automation; existing functions only subscribe contacts, and inbox/automation access is unavailable.
+- [x] Replace automatic quiz-plan delivery promises with Marek's manual email follow-up within 24h; MailerLite automations remain drafts.
+
+## Currency and quiz corrections
+- [x] Restore PL Full MVA pricing across visible copy, metadata and AI content; preserve EN USD.
+- [x] Update shared quiz email copy EN/PL, run all tests and verify pages; do not publish.
 
 - [x] Build sales and thank-you pages with exact copy and isolated branding.
 - [x] Add live order selections, checkout stub, and honest purchase tracking.
