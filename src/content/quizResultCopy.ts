@@ -1,10 +1,12 @@
+export const QUIZ_PLAN_FOLLOW_UP_HOURS = 24;
+
 export const quizResultCopy = {
   en: {
     booking: (count: string) => `Book a call about your ${count}-person plan`,
     heading: "Or get a tailored plan from Marek by email",
     submit: "Send me my plan", sending: "Sending…", name: "Name", email: "Email",
     nameExample: "Alex", emailExample: "alex@example.com",
-    success: (email: string) => `Done - Marek will email you at ${email} within 24h.`,
+    success: (email: string) => `Done - Marek will email you at ${email} within ${QUIZ_PLAN_FOLLOW_UP_HOURS}h.`,
     error: "Your request could not be sent. Please try again.",
     consent: "I agree to the processing of my personal data in accordance with the",
     privacy: "Privacy Policy",
@@ -14,7 +16,7 @@ export const quizResultCopy = {
     heading: "Albo dostań od Marka plan mailem",
     submit: "Wyślij mi plan", sending: "Wysyłanie…", name: "Imię", email: "Email",
     nameExample: "Aleksandra", emailExample: "aleksandra@example.com",
-    success: (email: string) => `Gotowe - Marek napisze do Ciebie na ${email} w ciągu 24h.`,
+    success: (email: string) => `Gotowe - Marek napisze do Ciebie na ${email} w ciągu ${QUIZ_PLAN_FOLLOW_UP_HOURS}h.`,
     error: "Nie udało się wysłać prośby. Spróbuj ponownie.",
     consent: "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z",
     privacy: "Polityką prywatności",
