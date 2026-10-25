@@ -20,7 +20,7 @@ const FooterSection = () => {
                 <li><a href="/en/blog/product-launch-strategy-90-day-framework" className="text-sm text-muted-foreground hover:text-primary transition-colors">Product launch strategy: 90-day framework</a></li>
                 <li><a href="/en/prelaunch-marketing-playbook" className="text-sm text-muted-foreground hover:text-primary transition-colors">The complete pre-launch marketing playbook</a></li>
                 <li><a href="/en/gamefound" className="text-sm text-muted-foreground hover:text-primary transition-colors">Gamefound agency: tabletop campaigns</a></li>
-                <li><a href="/en/quiz" className="text-sm text-primary font-semibold hover:underline">MVA calculator — how many true fans you need →</a></li>
+                <li><a href="/en/quiz" className="text-sm text-primary font-semibold hover:underline">MVA calculator - how many true fans you need →</a></li>
               </ul>
             </div>
           )}
@@ -111,7 +111,7 @@ const FooterSection = () => {
                   }}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  click2pack — live commerce
+                  click2pack - live commerce
                 </a>
               </li>
             </ul>

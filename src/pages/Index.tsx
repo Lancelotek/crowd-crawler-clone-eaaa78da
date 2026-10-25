@@ -9,14 +9,12 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { useStoreLanguagePreference } from "@/i18n/LanguageRedirect";
 import { translations } from "@/i18n/translations";
 
-const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
 const FrameworkComparisonSection = lazy(() => import("@/components/mva/FrameworkComparisonSection"));
 const HowItWorksSection = lazy(() => import("@/components/mva/HowItWorksSection"));
 const CaseStudyDeepSection = lazy(() => import("@/components/mva/CaseStudyDeepSection"));
 const CaseStudiesSection = lazy(() => import("@/components/mva/CaseStudiesSection"));
 const VerticalsSection = lazy(() => import("@/components/mva/VerticalsSection"));
-const WhatYouGetSection = lazy(() => import("@/components/mva/WhatYouGetSection"));
 const PricingValueSection = lazy(() => import("@/components/mva/PricingValueSection"));
 const FounderSection = lazy(() => import("@/components/mva/FounderSection"));
 const FAQSection = lazy(() => import("@/components/mva/FAQSection"));
@@ -189,14 +187,12 @@ const Index = () => {
       </header>
       <main>
         <HeroSection />
-        <Suspense fallback={<SectionFallback />}><SocialProofSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><ColdLaunchTrapSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FrameworkComparisonSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><HowItWorksSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><CaseStudyDeepSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><CaseStudiesSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><VerticalsSection /></Suspense>
-        <Suspense fallback={<SectionFallback />}><WhatYouGetSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><PricingValueSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FounderSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FAQSection /></Suspense>
