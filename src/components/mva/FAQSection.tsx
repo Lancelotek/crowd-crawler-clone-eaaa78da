@@ -21,7 +21,7 @@ const FAQSection = () => {
     <section id="faq" className="py-20 px-6">
       <div className="container mx-auto max-w-[720px]">
         <div className="text-center mb-12">
-          <p className="text-xs font-semibold text-primary mb-2 tracking-wide uppercase">
+          <p className="eyebrow mb-2">
             {t("faq", "eyebrow")}
           </p>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight">

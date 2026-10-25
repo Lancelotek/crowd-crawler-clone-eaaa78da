@@ -11,7 +11,6 @@ import { translations } from "@/i18n/translations";
 
 const SocialProofSection = lazy(() => import("@/components/mva/SocialProofSection"));
 const ColdLaunchTrapSection = lazy(() => import("@/components/mva/ColdLaunchTrapSection"));
-const ProblemSection = lazy(() => import("@/components/mva/ProblemSection"));
 const FrameworkComparisonSection = lazy(() => import("@/components/mva/FrameworkComparisonSection"));
 const HowItWorksSection = lazy(() => import("@/components/mva/HowItWorksSection"));
 const CaseStudyDeepSection = lazy(() => import("@/components/mva/CaseStudyDeepSection"));
@@ -192,7 +191,6 @@ const Index = () => {
         <HeroSection />
         <Suspense fallback={<SectionFallback />}><SocialProofSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><ColdLaunchTrapSection /></Suspense>
-        <Suspense fallback={<SectionFallback />}><ProblemSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><FrameworkComparisonSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><HowItWorksSection /></Suspense>
         <Suspense fallback={<SectionFallback />}><CaseStudyDeepSection /></Suspense>

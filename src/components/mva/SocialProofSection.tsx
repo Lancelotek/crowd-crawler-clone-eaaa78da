@@ -24,7 +24,7 @@ const SocialProofSection = () => {
             <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.4 }} className="bg-card rounded-card border border-border p-5 text-center hover:border-primary/30 transition-colors">
               <m.icon className="mx-auto mb-2 text-primary" size={20} />
               <div className="font-display text-xl md:text-2xl font-extrabold text-foreground mb-0.5">{m.value}</div>
-              <div className="text-[11px] text-muted-foreground font-medium">{m.label}</div>
+              <div className="text-[13px] text-muted-foreground font-medium">{m.label}</div>
             </motion.div>
           ))}
         </div>

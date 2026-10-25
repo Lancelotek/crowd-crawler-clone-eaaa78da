@@ -11,7 +11,7 @@ const ColdLaunchTrapSection = () => {
       <div className="mx-auto" style={{ maxWidth: "720px" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           {/* Label */}
-          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", color: "#673DFF", textTransform: "uppercase", marginBottom: "20px" }}>
+          <p className="eyebrow eyebrow-dark" style={{ marginBottom: "20px" }}>
             {t("coldLaunchTrap", "label")}
           </p>
 
@@ -48,7 +48,7 @@ const ColdLaunchTrapSection = () => {
           <Link
             to={`${langPrefix}/book`}
             onClick={() => track.bookingClick("cold-launch-trap")}
-            className="cta-green inline-flex items-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta"
+            className="cta-green inline-flex items-center gap-2 font-bold text-sm rounded-xl transition-all"
             style={{ padding: "16px 32px" }}
           >
             {t("coldLaunchTrap", "cta")}

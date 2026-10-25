@@ -120,7 +120,7 @@ const QuizSection = () => {
               </p>
               <a
                 href="#book-call"
-                className="inline-block bg-primary text-primary-foreground px-10 py-4 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors animate-pulse-cta mb-4"
+                className="inline-block bg-primary text-primary-foreground px-10 py-4 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors mb-4"
               >
                 Book Your Free Strategy Call ↓
               </a>

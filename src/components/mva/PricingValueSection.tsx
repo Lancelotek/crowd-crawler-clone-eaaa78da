@@ -17,7 +17,7 @@ const PricingValueSection = () => {
       <div className="mx-auto" style={{ maxWidth: "760px" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           {/* Label */}
-          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", color: "#673DFF", textTransform: "uppercase", marginBottom: "16px" }}>
+          <p className="eyebrow eyebrow-dark" style={{ marginBottom: "16px" }}>
             {t("pricingValue", "label")}
           </p>
 
@@ -85,7 +85,7 @@ const PricingValueSection = () => {
             <Link
               to={`${langPrefix}/book`}
               onClick={() => track.bookingClick("pricing-value")}
-              className="cta-green inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all animate-pulse-cta w-full sm:w-auto"
+              className="cta-green inline-flex items-center justify-center gap-2 font-bold text-sm rounded-xl transition-all w-full sm:w-auto"
               style={{ padding: "16px 40px" }}
             >
               {t("pricingValue", "cta")}
