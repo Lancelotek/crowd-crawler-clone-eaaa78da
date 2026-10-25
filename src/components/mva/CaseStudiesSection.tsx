@@ -1,54 +1,36 @@
-import { motion } from "framer-motion";
-import caseWoolet from "@/assets/case-woolet.webp";
-import caseChernobylite from "@/assets/case-chernobylite.webp";
-import caseSwimmo from "@/assets/case-swimmo.webp";
-import caseGamedec from "@/assets/case-gamedec.webp";
-import caseSherly from "@/assets/case-sherly.webp";
-import caseCitywood from "@/assets/case-citywood.webp";
-import casePureshape from "@/assets/case-pureshape.webp";
-import caseNapospy from "@/assets/case-napospy.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
-
-const cases = [
-  { image: caseWoolet, title: "Woolet", desc: "Full crowdfunding campaign: strategy, A/B testing, and website creation.", metric: "$332 694" },
-  { image: caseChernobylite, title: "Chernobylite", desc: "Survival horror game with open-world exploration and non-linear storyline.", metric: "$206 671" },
-  { image: caseSwimmo, title: "Swimmo", desc: "End-to-end campaign: social media, paid ads, email marketing & growth hacking.", metric: "$184 305" },
-  { image: caseGamedec, title: "Gamedec", desc: "Cyberpunk RPG set in the 22nd century. Funded in just 36 hours on Kickstarter.", metric: "$171 163" },
-  { image: caseSherly, title: "Sher.ly", desc: "Full market launch: branding, website, crowdfunding campaign & sales optimization.", metric: "$154 106" },
-  { image: caseCitywood, title: "Citywood", desc: "Minimal laser-cut 3D wooden maps of cities you love. Perfect for home & office.", metric: "$121 279" },
-  { image: casePureshape, title: "PureShape", desc: "Mousepad for Apple Magic Mouse — less friction, more precision and freedom.", metric: "$27 075" },
-  { image: caseNapospy, title: "NapoSpy", desc: "Smart leather gloves with tracking, remote buzzer, and touchscreen functionality.", metric: "$7 248" },
-];
+import { CAMPAIGNS, formatUsd } from "@/content/campaigns";
 
 const CaseStudiesSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
-    <section id="case-studies" className="py-20 px-6 bg-secondary">
+    <section id="case-studies" className="px-6 py-20 md:py-28 bg-background">
       <div className="container mx-auto max-w-[1200px]">
-        <div className="text-center mb-12">
-          <p className="eyebrow mb-2">{t("caseStudies", "eyebrow")}</p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight">
-            {t("caseStudies", "title")}<br /><span className="text-primary">{t("caseStudies", "titleAccent")}</span>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <h2 className="font-display font-extrabold uppercase leading-[1.05] tracking-[-1.8px] text-[clamp(30px,4vw,52px)]">
+            {t("caseStudies", "title")}
           </h2>
+          <p className="text-[15px] text-muted-foreground">{t("hero", "raised")}</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {cases.map((c, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, duration: 0.4 }} className="bg-card rounded-card border border-border overflow-hidden hover:border-primary/30 hover:shadow-lg transition-all group flex flex-col">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={c.image} alt={c.title} width={800} height={600} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
+
+        <ul className="border-t-2 border-foreground">
+          {CAMPAIGNS.map((c) => (
+            <li key={c.name} className="grid grid-cols-[72px_1fr] sm:grid-cols-[120px_1fr_auto] items-center gap-x-4 gap-y-2 sm:gap-8 py-4 border-b border-border">
+              <img src={c.image} alt={c.name} width={240} height={180} loading="lazy" decoding="async" className="w-full aspect-[4/3] object-cover rounded-md" />
+              <div className="min-w-0">
+                <h3 className="font-semibold text-[17px] leading-tight">
+                  {c.name} <span className="font-normal text-[13px] text-muted-foreground ml-1">{c.category[lang]}</span>
+                </h3>
+                <p className="text-[14px] text-muted-foreground mt-1 leading-snug">{c.desc[lang]}</p>
               </div>
-              <div className="p-4 flex flex-col flex-1">
-                <h3 className="font-display text-base font-bold mb-1">{c.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-relaxed mb-4 flex-1 line-clamp-3">{c.desc}</p>
-                <div className="border-t border-border pt-3">
-                  <div className="font-display text-2xl font-extrabold text-primary leading-none">{c.metric}</div>
-                  <p className="text-xs font-medium text-muted-foreground mt-1">{t("caseStudies", "fundsRaised")}</p>
-                </div>
-              </div>
-            </motion.div>
+              <p className="col-start-2 sm:col-start-auto sm:text-right">
+                <span className="inline sm:block mr-2 sm:mr-0 font-display font-extrabold text-[22px] sm:text-[30px] leading-none tracking-[-0.5px] tabular-nums">{formatUsd(c.raised, lang)}</span>
+                <span className="text-[12px] text-muted-foreground">{t("caseStudies", "fundsRaised")}</span>
+              </p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

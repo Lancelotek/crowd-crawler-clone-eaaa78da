@@ -8,35 +8,21 @@ import {
 
 const FAQSection = () => {
   const { t } = useLanguage();
-
-  const items = [
-    { q: t("faq", "q1"), a: t("faq", "a1") },
-    { q: t("faq", "q2"), a: t("faq", "a2") },
-    { q: t("faq", "q3"), a: t("faq", "a3") },
-    { q: t("faq", "q4"), a: t("faq", "a4") },
-    { q: t("faq", "q5"), a: t("faq", "a5") },
-  ];
+  const items = [1, 2, 3, 4, 5].map((n) => ({ q: t("faq", `q${n}`), a: t("faq", `a${n}`) }));
 
   return (
-    <section id="faq" className="py-20 px-6">
-      <div className="container mx-auto max-w-[720px]">
-        <div className="text-center mb-12">
-          <p className="eyebrow mb-2">
-            {t("faq", "eyebrow")}
-          </p>
-          <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight">
-            {t("faq", "title")}{" "}
-            <span className="text-primary">{t("faq", "titleAccent")}</span>
-          </h2>
-        </div>
-
-        <Accordion type="single" collapsible className="w-full">
+    <section id="faq" className="px-6 py-20 md:py-28 bg-background border-t border-border">
+      <div className="container mx-auto max-w-[1200px] grid lg:grid-cols-[5fr_6fr] gap-x-20 gap-y-8">
+        <h2 className="font-display font-extrabold uppercase leading-[1.05] tracking-[-1.8px] text-[clamp(30px,4vw,48px)] self-start">
+          {t("faq", "title")}
+        </h2>
+        <Accordion type="single" collapsible className="w-full border-t-2 border-foreground">
           {items.map((item, i) => (
             <AccordionItem key={i} value={`faq-${i}`} className="border-border">
-              <AccordionTrigger className="text-left text-sm font-semibold hover:no-underline py-5">
+              <AccordionTrigger className="text-left text-[17px] font-semibold hover:no-underline py-5">
                 {item.q}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
+              <AccordionContent className="text-[16px] text-foreground/75 leading-[1.7] pb-6">
                 {item.a}
               </AccordionContent>
             </AccordionItem>

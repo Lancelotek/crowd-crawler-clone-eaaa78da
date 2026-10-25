@@ -1,67 +1,57 @@
-import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import caseWoolet from "@/assets/case-woolet.webp";
 
 const CaseStudyDeepSection = () => {
-  const { t } = useLanguage();
-
-  const results = [
-    { value: t("caseStudyDeep", "result1Value"), label: t("caseStudyDeep", "result1Label") },
-    { value: t("caseStudyDeep", "result2Value"), label: t("caseStudyDeep", "result2Label") },
-    { value: t("caseStudyDeep", "result3Value"), label: t("caseStudyDeep", "result3Label") },
-    { value: t("caseStudyDeep", "result4Value"), label: t("caseStudyDeep", "result4Label") },
-  ];
+  const { t, lang } = useLanguage();
+  const results = [1, 2, 3, 4].map((n) => ({
+    value: t("caseStudyDeep", `result${n}Value`),
+    label: t("caseStudyDeep", `result${n}Label`),
+  }));
+  const intro = ["body1", "body2", "body3"].map((k) => t("caseStudyDeep", k)).filter(Boolean);
+  const weeks = ["phase1", "phase2", "phase3"].map((k) => {
+    const [head, ...rest] = t("caseStudyDeep", k).split("\n");
+    return { head, text: rest.join(" ") };
+  });
 
   return (
-    <section id="case-study" className="px-6" style={{ background: "#f6f6f9", padding: "80px 24px" }}>
-      <div className="mx-auto" style={{ maxWidth: "800px" }}>
-        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <p className="eyebrow" style={{ marginBottom: "16px" }}>
-            {t("caseStudyDeep", "label")}
-          </p>
+    <section id="case-study" className="px-6 py-20 md:py-28 bg-[#ededf3]">
+      <div className="container mx-auto max-w-[1200px]">
+        <p className="text-[13px] font-semibold text-muted-foreground mb-4">
+          {lang === "pl" ? "Case study · Woolet · Kickstarter" : "Case study · Woolet · Kickstarter"}
+        </p>
+        <h2 className="font-display font-extrabold uppercase leading-[1.05] tracking-[-1.8px] text-[clamp(28px,4vw,50px)] max-w-[900px] mb-4">
+          {t("caseStudyDeep", "headline")}
+        </h2>
+        <p className="text-[18px] text-muted-foreground mb-14 max-w-[640px]">{t("caseStudyDeep", "subheadline")}</p>
 
-          <h2 style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800, lineHeight: 1.15, color: "#1a1a2e", marginBottom: "12px", whiteSpace: "pre-line" }}>
-            {t("caseStudyDeep", "headline")}
-          </h2>
-
-          <p style={{ fontSize: "18px", color: "#6e6e77", marginBottom: "32px" }}>
-            {t("caseStudyDeep", "subheadline")}
-          </p>
-
-          <div style={{ fontSize: "18px", lineHeight: 1.7, color: "#1a1a2e" }}>
-            {["body1", "body2", "body3", "phase1", "phase2", "phase3"].map((key) => (
-              <p key={key} style={{ marginBottom: "24px", whiteSpace: "pre-line" }}>
-                {t("caseStudyDeep", key)}
-              </p>
+        <div className="grid lg:grid-cols-[6fr_5fr] gap-x-20 gap-y-12">
+          <div className="text-[18px] leading-[1.7] max-w-[620px]">
+            {intro.map((p, i) => (
+              <p key={i} className="mb-6 whitespace-pre-line">{p}</p>
             ))}
+            <ol className="mt-10 border-t border-foreground/15">
+              {weeks.map((w) => (
+                <li key={w.head} className="grid sm:grid-cols-[110px_1fr] gap-1 sm:gap-4 py-5 border-b border-foreground/15">
+                  <span className="text-[14px] font-semibold tabular-nums pt-1">{w.head}</span>
+                  <span className="text-[17px] leading-[1.6]">{w.text}</span>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-10 text-[20px] font-semibold">{t("caseStudyDeep", "closing")}</p>
           </div>
 
-          {/* Results grid */}
-          <div className="grid grid-cols-2 gap-4 my-10">
-            {results.map((r, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="bg-white rounded-xl p-6 text-center"
-                style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)" }}
-              >
-                <div style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "32px", fontWeight: 700, color: "#673DFF", lineHeight: 1 }}>
-                  {r.value}
+          <div>
+            <img src={caseWoolet} alt="Woolet smart wallet" width={800} height={600} loading="lazy" decoding="async" className="w-full aspect-[4/3] object-cover rounded-card mb-8" />
+            <dl className="grid grid-cols-2 gap-x-8">
+              {results.map((r) => (
+                <div key={r.label} className="border-t border-foreground/15 py-5">
+                  <dd className="font-display font-extrabold text-[40px] leading-none tracking-[-1px] tabular-nums">{r.value}</dd>
+                  <dt className="text-[14px] text-muted-foreground mt-2">{r.label}</dt>
                 </div>
-                <div style={{ fontSize: "14px", color: "#6e6e77", marginTop: "6px" }}>
-                  {r.label}
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </dl>
           </div>
-
-          {/* Closing quote */}
-          <blockquote style={{ fontSize: "22px", fontWeight: 700, lineHeight: 1.4, color: "#1a1a2e", textAlign: "center", padding: "32px 0", whiteSpace: "pre-line", borderTop: "1px solid #e0e0e6" }}>
-            {t("caseStudyDeep", "closing")}
-          </blockquote>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
