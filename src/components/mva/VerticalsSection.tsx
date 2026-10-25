@@ -55,13 +55,13 @@ const VerticalsSection = () => {
     <section className="relative bg-[hsl(var(--dark-bg))] py-28 border-t border-white/5">
       <div className="container mx-auto max-w-[1100px] px-6">
         <div className="mb-14 max-w-[680px]">
-          <p className="text-xs font-semibold tracking-[0.14em] uppercase text-primary/80 mb-4">
+          <p className="eyebrow eyebrow-dark mb-4">
             {copy.eyebrow}
           </p>
           <h2 className="font-display text-[clamp(32px,4vw,52px)] font-black uppercase leading-[1.05] tracking-tight text-white mb-5">
             {copy.h2}
           </h2>
-          <p className="text-[16px] text-white/55 font-light leading-relaxed">{copy.sub}</p>
+          <p className="text-[16px] text-white/75 font-light leading-relaxed">{copy.sub}</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">
@@ -75,19 +75,19 @@ const VerticalsSection = () => {
             >
               <Link
                 to={c.href}
-                className="group block h-full rounded-2xl border border-white/8 bg-white/[0.02] p-8 hover:border-primary/40 hover:bg-white/[0.035] transition-all"
+                className="group block h-full rounded-card border border-white/10 bg-white/[0.02] p-8 hover:border-primary/40 hover:bg-white/[0.035] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-lg bg-primary/12 border border-primary/25 flex items-center justify-center">
                     <c.Icon size={18} className="text-primary" />
                   </div>
-                  <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white/40">
+                  <span className="text-xs font-semibold tracking-[0.12em] uppercase text-white/65">
                     {c.tag}
                   </span>
                 </div>
                 <h3 className="text-[22px] font-bold text-white mb-3 leading-snug">{c.title}</h3>
-                <p className="text-[15px] text-white/55 leading-relaxed font-light mb-7">{c.body}</p>
-                <span className="inline-flex items-center gap-2 text-[14px] font-semibold text-primary group-hover:gap-3 transition-all">
+                <p className="text-[15px] text-white/75 leading-relaxed font-light mb-7">{c.body}</p>
+                <span className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#a48bff] group-hover:gap-3 transition-all">
                   {c.cta} <ArrowRight size={15} />
                 </span>
               </Link>

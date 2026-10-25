@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <a
               href="#book-call"
-              className="hidden sm:inline-block bg-primary text-primary-foreground px-6 py-2.5 text-sm font-semibold rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors animate-pulse-cta"
+              className="hidden sm:inline-block bg-primary text-primary-foreground px-6 py-2.5 text-sm font-semibold rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors"
             >
               Book Free Call →
             </a>

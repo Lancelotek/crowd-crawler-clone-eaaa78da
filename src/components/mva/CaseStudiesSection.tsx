@@ -27,7 +27,7 @@ const CaseStudiesSection = () => {
     <section id="case-studies" className="py-20 px-6 bg-secondary">
       <div className="container mx-auto max-w-[1200px]">
         <div className="text-center mb-12">
-          <p className="text-xs font-semibold text-primary mb-2 tracking-wide">{t("caseStudies", "eyebrow")}</p>
+          <p className="eyebrow mb-2">{t("caseStudies", "eyebrow")}</p>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight">
             {t("caseStudies", "title")}<br /><span className="text-primary">{t("caseStudies", "titleAccent")}</span>
           </h2>
@@ -40,10 +40,10 @@ const CaseStudiesSection = () => {
               </div>
               <div className="p-4 flex flex-col flex-1">
                 <h3 className="font-display text-base font-bold mb-1">{c.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-3 flex-1 line-clamp-3">{c.desc}</p>
-                <div className="bg-primary/10 rounded-lg px-3 py-2.5 text-center">
-                  <div className="font-display text-lg font-extrabold text-primary">{c.metric}</div>
-                  <p className="text-[11px] font-semibold text-muted-foreground tracking-wide">{t("caseStudies", "fundsRaised")}</p>
+                <p className="text-[13px] text-muted-foreground leading-relaxed mb-4 flex-1 line-clamp-3">{c.desc}</p>
+                <div className="border-t border-border pt-3">
+                  <div className="font-display text-2xl font-extrabold text-primary leading-none">{c.metric}</div>
+                  <p className="text-xs font-medium text-muted-foreground mt-1">{t("caseStudies", "fundsRaised")}</p>
                 </div>
               </div>
             </motion.div>

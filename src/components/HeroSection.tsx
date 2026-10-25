@@ -62,7 +62,7 @@ const HeroSection = () => {
             <div className="flex gap-4 flex-wrap">
               <a
                 href="#book-call"
-                className="bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors animate-pulse-cta"
+                className="bg-primary text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-[hsl(253_100%_55%)] transition-colors"
               >
                 Get My Free Growth Audit →
               </a>

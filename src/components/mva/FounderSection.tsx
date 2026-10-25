@@ -23,7 +23,7 @@ const FounderSection = () => {
     <section className="py-20 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <div className="text-center mb-14">
-          <p className="text-xs font-semibold text-primary mb-3 tracking-wide">{t("founder", "eyebrow")}</p>
+          <p className="eyebrow mb-3">{t("founder", "eyebrow")}</p>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
             {t("founder", "title")} <span className="text-primary">{t("founder", "titleAccent")}</span>
           </h2>

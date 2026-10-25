@@ -15,7 +15,7 @@ const CaseStudyDeepSection = () => {
     <section id="case-study" className="px-6" style={{ background: "#f6f6f9", padding: "80px 24px" }}>
       <div className="mx-auto" style={{ maxWidth: "800px" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.1em", color: "#673DFF", textTransform: "uppercase", marginBottom: "16px" }}>
+          <p className="eyebrow" style={{ marginBottom: "16px" }}>
             {t("caseStudyDeep", "label")}
           </p>
 

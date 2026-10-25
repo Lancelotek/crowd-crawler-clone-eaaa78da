@@ -9,33 +9,32 @@ const FinalCTASection = () => {
 
   return (
     <section id="cta" className="py-20 px-6 bg-primary relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[hsl(253_100%_50%)] pointer-events-none" />
       <div className="container mx-auto max-w-[800px] text-center relative z-10">
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight text-primary-foreground mb-3">
             {t("finalCTA", "title")}<br />
             <span className="opacity-80">{t("finalCTA", "subtitle")}</span>
           </h2>
-          <p className="text-sm text-primary-foreground/60 mb-4 max-w-md mx-auto">
+          <p className="text-base text-primary-foreground/90 mb-6 max-w-md mx-auto">
             {t("finalCTA", "desc")}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
             <Link
               to={`${langPrefix}/book`}
               onClick={() => track.bookingClick("final_cta")}
-              className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex items-center gap-2"
+              className="bg-primary-foreground text-primary px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/90 transition-all inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary items-center gap-2"
             >
               <Phone size={16} /> {t("finalCTA", "calcBtn")} <ArrowRight size={16} />
             </Link>
             <Link
               to={`${langPrefix}/quiz`}
               onClick={() => track.calcOpen()}
-              className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex items-center gap-2"
+              className="bg-transparent border-2 border-primary-foreground text-primary-foreground px-8 py-3.5 font-semibold text-sm rounded-button hover:bg-primary-foreground/10 transition-all inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary items-center gap-2"
             >
               <Calculator size={16} /> {t("finalCTA", "quizBtn")} <ArrowRight size={16} />
             </Link>
           </div>
-          <p className="text-xs text-primary-foreground/40">{t("finalCTA", "trust")}</p>
+          <p className="text-[13px] text-primary-foreground/80">{t("finalCTA", "trust")}</p>
         </motion.div>
       </div>
     </section>

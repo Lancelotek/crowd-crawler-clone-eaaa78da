@@ -39,10 +39,10 @@ const HeroSection = () => {
           <div style={{ opacity: heroVisible ? 1 : 0, transform: heroVisible ? "translateY(0)" : "translateY(28px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
             <div className="flex items-center gap-2 mb-6" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.1s both" : "none" }}>
               <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#10B981", animation: "pulse 2s ease-in-out infinite" }} />
-              <span style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.06em", color: "rgba(255,255,255,0.45)", textTransform: "uppercase" }}>{t("hero", "eyebrow")}</span>
+              <span style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.06em", color: "rgba(255,255,255,0.7)", textTransform: "uppercase" }}>{t("hero", "eyebrow")}</span>
 
             </div>
-            <h1 style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-0.018em", color: "#fff", marginBottom: "20px", textTransform: "uppercase", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.2s both" : "none" }}>
+            <h1 style={{ fontFamily: "'Rajdhani', 'Inter', sans-serif", fontSize: "clamp(36px, 5vw, 60px)", fontWeight: 800, lineHeight: 1.08, letterSpacing: "-1.8px", color: "#fff", marginBottom: "20px", textTransform: "uppercase", animation: heroVisible ? "fadeSlideUp 0.7s ease 0.2s both" : "none" }}>
               <span dangerouslySetInnerHTML={{ __html: t("hero", "h1_line1").replace(/SaaS &amp; eCommerce|SaaS & eCommerce|46|(\$1\.2M\+)/g, '<span style="color:#673DFF">$&</span>') }} />
               <br />
               {t("hero", "h1_line2")}
@@ -57,7 +57,7 @@ const HeroSection = () => {
               <Link
                 to={`${langPrefix}/book`}
                 onClick={() => track.bookingClick("hero")}
-                className="cta-green inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-4 font-bold text-sm transition-all animate-pulse-cta"
+                className="cta-green inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-4 font-bold text-sm transition-all"
                 style={{ width: "fit-content" }}
               >
                 {t("hero", "ctaPrimary")}
@@ -65,28 +65,25 @@ const HeroSection = () => {
               <Link
                 to={`${langPrefix}/quiz`}
                 onClick={() => track.ctaClick("hero", "quiz")}
-                className="transition-colors"
-                style={{ fontSize: "14px", color: "#6e6e77", width: "fit-content", textDecoration: "none" }}
-                onMouseEnter={e => { e.currentTarget.style.textDecoration = "underline"; e.currentTarget.style.color = "#ededf3"; }}
-                onMouseLeave={e => { e.currentTarget.style.textDecoration = "none"; e.currentTarget.style.color = "#6e6e77"; }}
+                className="inline-flex items-center min-h-[44px] text-[15px] text-[#c4c4cc] underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-sm"
+                style={{ width: "fit-content" }}
               >
                 {t("hero", "ctaSecondary")}
               </Link>
             </div>
             {/* Trust bar */}
-            <p style={{ fontSize: "13px", color: "#6e6e77", fontWeight: 300, marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.5s ease 0.45s both" : "none" }}>
+            <p style={{ fontSize: "13px", color: "#a1a1aa", fontWeight: 400, marginBottom: "40px", animation: heroVisible ? "fadeSlideUp 0.5s ease 0.45s both" : "none" }}>
               {t("hero", "trustBar")}
             </p>
-            {/* Social proof */}
-            <div className="flex items-center gap-4 flex-wrap" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.5s both" : "none" }}>
-              <div className="flex items-center gap-2">
-                <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{t("hero", "trustedBy")}</span>
-              </div>
-              <span style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)" }} />
-              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{t("hero", "raised")}</span>
-              <span style={{ width: 1, height: 14, background: "rgba(255,255,255,0.1)" }} />
-              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>{t("hero", "leads")}</span>
-            </div>
+            {/* Social proof - the strongest claim on the page, so it gets real contrast */}
+            <ul className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-x-5 gap-y-1.5" style={{ animation: heroVisible ? "fadeSlideUp 0.6s ease 0.5s both" : "none" }}>
+              {(["trustedBy", "raised", "leads"] as const).map((k, i) => (
+                <li key={k} className="flex items-center gap-5 text-[13px] font-medium text-[#d4d4dc]">
+                  {i > 0 && <span aria-hidden="true" className="hidden sm:block w-px h-3.5 bg-white/20" />}
+                  {t("hero", k)}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
