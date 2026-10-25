@@ -18,7 +18,7 @@ export const translations = {
 
   // ─── Hero ────────────────────────────────────────────────
   hero: {
-    eyebrow: { en: "Pre-Launch Marketing · 90-day MVA Framework", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
+    eyebrow: { en: "90-day MVA Framework", pl: "AGENCJA KICKSTARTER POLSKA · MVA FRAMEWORK" },
 
     h1_line1: { en: "Pre-Launch Marketing for SaaS & eCommerce ", pl: "Agencja Pre-Launch Marketingu" },
     h1_line2: { en: "Founders.", pl: "Zero zimnych startów." },
